@@ -7,7 +7,7 @@ const HERO_POSTER = "";
 export function Hero() {
   return (
     <section
-      className="relative isolate flex min-h-[100svh] w-full flex-col justify-end overflow-hidden bg-[oklch(0.18_0.04_220)] text-white"
+      className="relative isolate flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-[oklch(0.18_0.04_220)] text-white"
       aria-label="Чиста вода для дому"
     >
       <video
@@ -24,7 +24,7 @@ export function Hero() {
 
       <div className="absolute inset-0 -z-10 bg-[oklch(0.18_0.04_220)]/55" aria-hidden />
 
-      <div className="mx-auto w-full max-w-[1600px] px-4 pb-16 pt-32 md:px-8 md:pb-24 md:pt-40">
+      <div className="mx-auto w-full max-w-[1600px] px-4 pb-24 pt-24 md:px-8 md:pb-32 md:pt-28">
         <div className="max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md">
             <ShieldCheck className="size-3.5 text-white" />
