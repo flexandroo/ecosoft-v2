@@ -81,11 +81,13 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
     <Link
       href={href}
       className={[
-        "group relative flex flex-col justify-between overflow-hidden rounded-2xl border p-6 transition-all",
+        "group relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border p-6 transition-all",
         "hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5",
-        featured
-          ? "border-primary bg-primary text-primary-foreground"
-          : "border-border bg-card hover:border-primary/40",
+        image
+          ? "border-primary/40 text-primary-foreground"
+          : featured
+            ? "border-primary bg-primary text-primary-foreground"
+            : "border-border bg-card hover:border-primary/40",
         span ?? "",
       ].join(" ")}
     >
@@ -93,20 +95,24 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
         <>
           <span
             aria-hidden
-            className="absolute inset-0 -z-10 bg-cover bg-center"
+            className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${image})` }}
           />
           <span
             aria-hidden
-            className="absolute inset-0 -z-10 bg-[oklch(0.30_0.12_252)]/55"
+            className="absolute inset-0 bg-[oklch(0.20_0.10_252)]/55"
           />
         </>
       )}
-      <div className="relative flex items-start justify-between">
+      <div className="relative z-10 flex items-start justify-between">
         <span
           className={[
             "inline-flex size-11 items-center justify-center rounded-xl backdrop-blur-md",
-            featured ? "bg-white/15 text-white" : "bg-primary/10 text-primary",
+            image
+              ? "bg-white/20 text-white ring-1 ring-white/20"
+              : featured
+                ? "bg-white/15 text-white"
+                : "bg-primary/10 text-primary",
           ].join(" ")}
         >
           <Icon className="size-5" />
@@ -114,16 +120,16 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
         <ArrowUpRight
           className={[
             "size-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5",
-            featured ? "text-white/80" : "text-muted-foreground group-hover:text-primary",
+            image || featured ? "text-white/85" : "text-muted-foreground group-hover:text-primary",
           ].join(" ")}
         />
       </div>
-      <div className="relative">
+      <div className="relative z-10">
         <h3
           className={[
             "font-[family-name:var(--font-manrope)] font-bold leading-tight tracking-tight",
             featured ? "text-3xl md:text-4xl" : "text-xl md:text-2xl",
-            image ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]" : "",
+            image ? "drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]" : "",
           ].join(" ")}
         >
           {title}
@@ -131,8 +137,8 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
         <p
           className={[
             "mt-2 max-w-md text-sm leading-relaxed",
-            featured ? "text-white/85" : "text-muted-foreground",
-            image ? "drop-shadow-[0_1px_4px_rgba(0,0,0,0.35)]" : "",
+            image || featured ? "text-white/90" : "text-muted-foreground",
+            image ? "drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]" : "",
           ].join(" ")}
         >
           {desc}
