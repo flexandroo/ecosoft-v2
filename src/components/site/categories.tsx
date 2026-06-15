@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Droplet, Waves, Filter, Layers, Factory } from "lucide-react";
+import { ArrowUpRight, Droplet, ShieldCheck, Package, Filter, Layers } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 type Category = {
@@ -14,36 +14,36 @@ type Category = {
 const CATEGORIES: Category[] = [
   {
     href: "/catalog/osmos",
-    title: "Зворотний осмос",
-    desc: "5–7-ступеневі системи з мінералізатором. 99.5% очищення.",
+    title: "Зворотні осмоси",
+    desc: "Питна вода для дому та офісу.",
     icon: Droplet,
     span: "md:col-span-2 md:row-span-2",
     featured: true,
   },
   {
     href: "/catalog/softeners",
-    title: "Помʼякшувачі води",
-    desc: "Для котлів, бойлерів, побутової техніки.",
-    icon: Waves,
+    title: "Фільтри від заліза та жорсткості",
+    desc: "Захист сантехніки, котлів і техніки.",
+    icon: ShieldCheck,
+  },
+  {
+    href: "/catalog",
+    title: "Компактні системи",
+    desc: "Готові рішення для квартири та будинку.",
+    icon: Package,
   },
   {
     href: "/catalog/filters",
     title: "Магістральні фільтри",
-    desc: "Очищення на вході в будинок.",
+    desc: "Очищення води на вході в будинок.",
     icon: Filter,
+    span: "md:col-span-2",
   },
   {
     href: "/catalog/cartridges",
     title: "Картриджі",
-    desc: "Змінні елементи до всіх систем.",
+    desc: "Змінні елементи для обслуговування систем.",
     icon: Layers,
-    span: "md:col-span-2",
-  },
-  {
-    href: "/catalog/industrial",
-    title: "Промислові системи",
-    desc: "Рішення для бізнесу та виробництва.",
-    icon: Factory,
   },
 ];
 
@@ -65,9 +65,9 @@ export function Categories() {
         </Link>
       </div>
 
-      <div className="grid auto-rows-[200px] grid-cols-1 gap-4 sm:auto-rows-[220px] sm:grid-cols-2 md:grid-cols-3">
+      <div className="grid auto-rows-[210px] grid-cols-1 gap-4 sm:auto-rows-[230px] sm:grid-cols-2 md:grid-cols-3">
         {CATEGORIES.map((c) => (
-          <CategoryCard key={c.href} {...c} />
+          <CategoryCard key={c.href + c.title} {...c} />
         ))}
       </div>
     </section>
@@ -79,16 +79,18 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured }: Categor
     <Link
       href={href}
       className={[
-        "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all",
-        "hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg hover:shadow-black/5",
-        featured ? "bg-primary text-primary-foreground" : "",
+        "group relative flex flex-col justify-between overflow-hidden rounded-2xl border p-6 transition-all",
+        "hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5",
+        featured
+          ? "border-primary bg-primary text-primary-foreground"
+          : "border-border bg-card hover:border-primary/40",
         span ?? "",
       ].join(" ")}
     >
       <div className="flex items-start justify-between">
         <span
           className={[
-            "inline-flex size-10 items-center justify-center rounded-lg",
+            "inline-flex size-11 items-center justify-center rounded-xl",
             featured ? "bg-white/15 text-white" : "bg-primary/10 text-primary",
           ].join(" ")}
         >
@@ -102,13 +104,18 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured }: Categor
         />
       </div>
       <div>
-        <h3 className="font-[family-name:var(--font-manrope)] text-xl font-bold tracking-tight md:text-2xl">
+        <h3
+          className={[
+            "font-[family-name:var(--font-manrope)] font-bold leading-tight tracking-tight",
+            featured ? "text-3xl md:text-4xl" : "text-xl md:text-2xl",
+          ].join(" ")}
+        >
           {title}
         </h3>
         <p
           className={[
-            "mt-1 max-w-md text-sm",
-            featured ? "text-white/80" : "text-muted-foreground",
+            "mt-2 max-w-md text-sm leading-relaxed",
+            featured ? "text-white/85" : "text-muted-foreground",
           ].join(" ")}
         >
           {desc}
