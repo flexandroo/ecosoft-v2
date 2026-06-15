@@ -5,6 +5,33 @@ export type CategoryKey =
   | "cartridges"
   | "industrial";
 
+export type HighlightIcon =
+  | "shield"
+  | "sparkles"
+  | "wrench"
+  | "leaf"
+  | "gauge"
+  | "box"
+  | "clock"
+  | "award"
+  | "zap";
+
+export type ProductDetails = {
+  audience?: string[];
+  highlights?: { icon: HighlightIcon; title: string; desc: string }[];
+  specs?: { label: string; value: string }[];
+  removes?: { name: string; pct?: string }[];
+  bundle?: string[];
+  maintenance?: { period: string; cost?: string; description: string };
+  installation?: {
+    time: string;
+    complexity: "easy" | "medium" | "pro";
+    description: string;
+  };
+  documents?: { name: string; href: string; size?: string }[];
+  longDescription?: string;
+};
+
 export type Product = {
   slug: string;
   name: string;
@@ -17,6 +44,7 @@ export type Product = {
   inStock: boolean;
   ctaType: "buy" | "request";
   description: string;
+  details?: ProductDetails;
 };
 
 export const CATEGORIES: { key: CategoryKey; title: string; short: string }[] = [
@@ -29,6 +57,103 @@ export const CATEGORIES: { key: CategoryKey; title: string; short: string }[] = 
 
 export const PRODUCTS: Product[] = [
   // Зворотний осмос
+  {
+    slug: "ecosoft-cross-90-balance",
+    name: "Ecosoft CROSS 90 BALANCE",
+    category: "osmos",
+    price: 19990,
+    oldPrice: 22500,
+    capacityLpd: 340,
+    stages: 3,
+    features: [
+      "Direct-flow без бака",
+      "3 швидкозʼємні картриджі",
+      "LED-індикація стану",
+      "Окремий хромований кран",
+    ],
+    inStock: true,
+    ctaType: "request",
+    description:
+      "Компактна direct-flow система зворотного осмосу зі швидкою заміною картриджів і збалансованим мінеральним складом води.",
+    details: {
+      audience: [
+        "Квартира або будинок 2-4 особи",
+        "Тиск води у мережі від 3 бар",
+        "Малий простір під мийкою",
+        "Хто хоче замінювати картриджі сам",
+      ],
+      highlights: [
+        {
+          icon: "zap",
+          title: "Без бака",
+          desc: "Direct-flow — свіжа вода одразу, не застоюється у накопичувачі.",
+        },
+        {
+          icon: "wrench",
+          title: "Заміна за 30 секунд",
+          desc: "Картриджі повертанням на чверть оберту, без перекриття води.",
+        },
+        {
+          icon: "leaf",
+          title: "Збалансований мінсклад",
+          desc: "Селективна мембрана зберігає корисні Ca²⁺ та Mg²⁺.",
+        },
+        {
+          icon: "gauge",
+          title: "LED-індикація",
+          desc: "Показує, коли пора міняти кожен з 3 картриджів.",
+        },
+      ],
+      specs: [
+        { label: "Продуктивність", value: "340 л/добу (90 GPD)" },
+        { label: "Ступенів очищення", value: "3" },
+        { label: "Тип системи", value: "Direct-flow, без бака" },
+        { label: "Робочий тиск", value: "3-8 бар" },
+        { label: "Температура води", value: "+4…+38 °C" },
+        { label: "Розміри (Ш×В×Г)", value: "420×400×140 мм" },
+        { label: "Підʼєднання", value: "1/4\" швидкозʼємне" },
+        { label: "Гарантія", value: "3 роки" },
+      ],
+      removes: [
+        { name: "Хлор та похідні", pct: "99%" },
+        { name: "Важкі метали", pct: "98%" },
+        { name: "Нітрати та нітрити", pct: "97%" },
+        { name: "Вірусний фон", pct: "99.9%" },
+        { name: "Бактерії", pct: "99.9%" },
+        { name: "Солі жорсткості", pct: "95%" },
+        { name: "Пестициди", pct: "97%" },
+        { name: "Запах і присмак", pct: "100%" },
+      ],
+      bundle: [
+        "Корпус системи з 3 встановленими картриджами",
+        "Хромований кран чистої води",
+        "Зливний хомут для каналізації",
+        "Адаптер під вхідну воду 1/2\"",
+        "Комплект трубок 1/4\"",
+        "Інструкція + паспорт",
+      ],
+      maintenance: {
+        period: "Раз на 6-12 місяців",
+        cost: "від 1 400 ₴",
+        description:
+          "Заміна 3 картриджів. LED-індикатор підкаже коли пора. Сервісний кит у замовленні.",
+      },
+      installation: {
+        time: "60-90 хвилин",
+        complexity: "medium",
+        description:
+          "Безкоштовний монтаж нашими сертифікованими інженерами по Україні. Самостійний монтаж також можливий за інструкцією.",
+      },
+      documents: [
+        { name: "Паспорт виробу (PDF)", href: "#", size: "1.2 MB" },
+        { name: "Сертифікат відповідності", href: "#", size: "640 KB" },
+        { name: "Інструкція з монтажу", href: "#", size: "2.4 MB" },
+        { name: "Висновок СЕС", href: "#", size: "320 KB" },
+      ],
+      longDescription:
+        "Ecosoft CROSS 90 BALANCE — нове покоління компактних систем зворотного осмосу для дому. Замість громіздкого бака використовується технологія direct-flow з помпою, яка постачає чисту воду одразу. Завдяки селективній мембрані з мінералізуючим шаром у воді зберігаються корисні кальцій і магній, тому вода має збалансований мінеральний склад і приємний смак. Три швидкозʼємні картриджі (RO, MCB, CF) міняються за 30 секунд без інструмента. LED-панель показує стан кожного картриджа, тож ви точно знаєте, коли потрібна заміна. Корпус займає у 2 рази менше місця під мийкою порівняно з традиційними осмосами з баком.",
+    },
+  },
   {
     slug: "ecosoft-standard-5-50",
     name: "Ecosoft Standard 5-50",
@@ -261,4 +386,14 @@ export function findCategory(key: string | undefined): (typeof CATEGORIES)[numbe
 
 export function productsByCategory(key: CategoryKey): Product[] {
   return PRODUCTS.filter((p) => p.category === key);
+}
+
+export function findProduct(category: string, slug: string): Product | undefined {
+  return PRODUCTS.find((p) => p.category === category && p.slug === slug);
+}
+
+export function relatedProducts(p: Product, limit = 4): Product[] {
+  return PRODUCTS.filter((x) => x.category === p.category && x.slug !== p.slug)
+    .sort((a, b) => Math.abs(a.price - p.price) - Math.abs(b.price - p.price))
+    .slice(0, limit);
 }

@@ -8,14 +8,26 @@ export function PageHeader({
   subtitle,
   crumbs,
 }: {
-  title: string;
+  title?: string;
   subtitle?: string;
   crumbs: Crumb[];
 }) {
+  const compact = !title;
   return (
     <section className="border-b border-border bg-card">
-      <div className="mx-auto max-w-7xl px-4 pb-10 pt-28 md:px-8 md:pb-12 md:pt-32">
-        <nav aria-label="Хлібні крихти" className="mb-4 flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
+      <div
+        className={`mx-auto max-w-7xl px-4 md:px-8 ${
+          compact
+            ? "pb-4 pt-24 md:pb-5 md:pt-28"
+            : "pb-10 pt-28 md:pb-12 md:pt-32"
+        }`}
+      >
+        <nav
+          aria-label="Хлібні крихти"
+          className={`flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground ${
+            title ? "mb-4" : ""
+          }`}
+        >
           {crumbs.map((c, i) => (
             <span key={i} className="inline-flex items-center gap-1.5">
               {c.href ? (
@@ -30,9 +42,11 @@ export function PageHeader({
           ))}
         </nav>
 
-        <h1 className="font-[family-name:var(--font-manrope)] text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-          {title}
-        </h1>
+        {title && (
+          <h1 className="font-[family-name:var(--font-manrope)] text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+            {title}
+          </h1>
+        )}
 
         {subtitle && (
           <p className="mt-3 max-w-2xl text-base text-muted-foreground md:text-lg">
