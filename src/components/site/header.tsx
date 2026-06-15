@@ -45,17 +45,13 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 md:px-8">
         <Link
           href="/"
-          className="flex items-center gap-2 font-[family-name:var(--font-manrope)] text-lg font-bold tracking-tight"
+          aria-label="Ecosoft — головна"
+          className={[
+            "font-[family-name:var(--font-manrope)] text-2xl font-extrabold lowercase tracking-tight transition-colors",
+            onHero ? "text-white" : "text-primary",
+          ].join(" ")}
         >
-          <span
-            className={[
-              "grid size-8 place-items-center rounded-lg transition-colors",
-              onHero ? "bg-white text-primary" : "bg-primary text-primary-foreground",
-            ].join(" ")}
-          >
-            <DropIcon />
-          </span>
-          <span>Ecosoft</span>
+          ecosoft
         </Link>
 
         <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex">
@@ -243,13 +239,3 @@ function IconButton({
   );
 }
 
-function DropIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="size-4" aria-hidden>
-      <path
-        d="M12 3c-3.5 4.2-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-6.8-6-11Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}

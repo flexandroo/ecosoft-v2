@@ -36,16 +36,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-16">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-2 font-[family-name:var(--font-manrope)] text-lg font-bold">
-              <span className="grid size-8 place-items-center rounded-lg bg-primary text-primary-foreground">
-                <svg viewBox="0 0 24 24" fill="none" className="size-4" aria-hidden>
-                  <path
-                    d="M12 3c-3.5 4.2-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-6.8-6-11Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              Ecosoft
+            <div className="font-[family-name:var(--font-manrope)] text-2xl font-extrabold lowercase tracking-tight text-primary">
+              ecosoft
             </div>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
               Український виробник систем водопідготовки. Чиста вода для дому та бізнесу.
