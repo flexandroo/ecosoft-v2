@@ -72,7 +72,7 @@ export function ProductDetail({ product }: { product: Product }) {
     <article>
       {/* HERO */}
       <section className="border-b border-border bg-card">
-        <div className="mx-auto max-w-7xl px-4 pt-6 pb-12 md:px-8 md:pt-8 md:pb-16">
+        <div className="mx-auto max-w-[1600px] px-4 pt-6 pb-12 md:px-8 md:pt-8 md:pb-16">
           <div className="grid gap-8 md:gap-12 lg:grid-cols-[1.1fr_1fr]">
             <div className="space-y-4">
               <div className="relative grid aspect-square w-full place-items-center overflow-hidden rounded-3xl bg-muted/60">
@@ -184,7 +184,7 @@ export function ProductDetail({ product }: { product: Product }) {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl space-y-14 px-4 py-14 md:px-8 md:space-y-20 md:py-20">
+      <div className="mx-auto max-w-[1600px] space-y-14 px-4 py-14 md:px-8 md:space-y-20 md:py-20">
         {/* AUDIENCE */}
         {d.audience && d.audience.length > 0 && (
           <Section title="Кому підходить" eyebrow="Аудиторія">

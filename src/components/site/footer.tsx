@@ -33,7 +33,7 @@ const COLS = [
 export function Footer() {
   return (
     <footer className="border-t border-border bg-card">
-      <div className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-16">
+      <div className="mx-auto max-w-[1600px] px-4 py-14 md:px-8 md:py-16">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <div className="font-[family-name:var(--font-manrope)] text-2xl font-extrabold lowercase tracking-tight text-primary">

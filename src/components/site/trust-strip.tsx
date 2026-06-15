@@ -26,7 +26,7 @@ const ITEMS = [
 export function TrustStrip() {
   return (
     <section className="border-y border-border bg-card">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px overflow-hidden bg-border md:grid-cols-4">
+      <div className="mx-auto grid max-w-[1600px] grid-cols-2 gap-px overflow-hidden bg-border md:grid-cols-4">
         {ITEMS.map((item) => (
           <div key={item.title} className="flex items-start gap-3 bg-card p-6">
             <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">

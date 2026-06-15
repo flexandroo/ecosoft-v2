@@ -42,7 +42,7 @@ export function Header() {
           : "bg-background/95 text-foreground border-b border-border backdrop-blur-md",
       ].join(" ")}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 md:px-8">
+      <div className="mx-auto flex h-16 max-w-[1600px] items-center gap-6 px-4 md:px-8">
         <Link
           href="/"
           aria-label="Ecosoft — головна"
@@ -162,7 +162,7 @@ export function Header() {
 
       {mobileOpen && (
         <div className="border-t border-border bg-background text-foreground lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 md:px-8">
+          <nav className="mx-auto flex max-w-[1600px] flex-col gap-1 px-4 py-4 md:px-8">
             {PRIMARY_NAV.map((item) => (
               <Link
                 key={item.href}

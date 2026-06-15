@@ -16,7 +16,7 @@ export function PageHeader({
   return (
     <section className="border-b border-border bg-card">
       <div
-        className={`mx-auto max-w-7xl px-4 md:px-8 ${
+        className={`mx-auto max-w-[1600px] px-4 md:px-8 ${
           compact
             ? "pb-4 pt-24 md:pb-5 md:pt-28"
             : "pb-10 pt-28 md:pb-12 md:pt-32"

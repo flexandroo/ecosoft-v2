@@ -78,7 +78,7 @@ export function CatalogView({
   const maxPriceOfAll = Math.max(...products.map((p) => p.price));
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-10 md:px-8 md:py-14">
+    <section className="mx-auto max-w-[1600px] px-4 py-10 md:px-8 md:py-14">
       <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
         <aside className="hidden lg:block">
           <FiltersPanel
