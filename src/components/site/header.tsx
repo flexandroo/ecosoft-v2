@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone, ShoppingCart, Search, Menu, X, ChevronDown } from "lucide-react";
 
 const PRIMARY_NAV = [
@@ -16,18 +17,21 @@ const CUSTOMER_NAV = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
+  const hasDarkHero = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [customerOpen, setCustomerOpen] = useState(false);
 
   useEffect(() => {
+    if (!hasDarkHero) return;
     const onScroll = () => setScrolled(window.scrollY > 60);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [hasDarkHero]);
 
-  const onHero = !scrolled && !mobileOpen;
+  const onHero = hasDarkHero && !scrolled && !mobileOpen;
 
   return (
     <header
