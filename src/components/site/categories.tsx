@@ -9,6 +9,7 @@ type Category = {
   icon: LucideIcon;
   span?: string;
   featured?: boolean;
+  image?: string;
 };
 
 const CATEGORIES: Category[] = [
@@ -19,6 +20,7 @@ const CATEGORIES: Category[] = [
     icon: Droplet,
     span: "md:col-span-2 md:row-span-2",
     featured: true,
+    image: "/images/osmos-kitchen.png",
   },
   {
     href: "/catalog/softeners",
@@ -74,7 +76,7 @@ export function Categories() {
   );
 }
 
-function CategoryCard({ href, title, desc, icon: Icon, span, featured }: Category) {
+function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: Category) {
   return (
     <Link
       href={href}
@@ -87,10 +89,23 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured }: Categor
         span ?? "",
       ].join(" ")}
     >
-      <div className="flex items-start justify-between">
+      {image && (
+        <>
+          <span
+            aria-hidden
+            className="absolute inset-0 -z-10 bg-cover bg-center"
+            style={{ backgroundImage: `url(${image})` }}
+          />
+          <span
+            aria-hidden
+            className="absolute inset-0 -z-10 bg-[oklch(0.30_0.12_252)]/55"
+          />
+        </>
+      )}
+      <div className="relative flex items-start justify-between">
         <span
           className={[
-            "inline-flex size-11 items-center justify-center rounded-xl",
+            "inline-flex size-11 items-center justify-center rounded-xl backdrop-blur-md",
             featured ? "bg-white/15 text-white" : "bg-primary/10 text-primary",
           ].join(" ")}
         >
@@ -103,11 +118,12 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured }: Categor
           ].join(" ")}
         />
       </div>
-      <div>
+      <div className="relative">
         <h3
           className={[
             "font-[family-name:var(--font-manrope)] font-bold leading-tight tracking-tight",
             featured ? "text-3xl md:text-4xl" : "text-xl md:text-2xl",
+            image ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]" : "",
           ].join(" ")}
         >
           {title}
@@ -116,6 +132,7 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured }: Categor
           className={[
             "mt-2 max-w-md text-sm leading-relaxed",
             featured ? "text-white/85" : "text-muted-foreground",
+            image ? "drop-shadow-[0_1px_4px_rgba(0,0,0,0.35)]" : "",
           ].join(" ")}
         >
           {desc}
