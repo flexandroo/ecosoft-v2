@@ -115,7 +115,7 @@ for (const p of products) {
     category,
     price: typeof p.price === "number" ? p.price : Number(p.price) || 0,
     inStock: p.inStock !== false,
-    ctaType: (typeof p.price === "number" ? p.price : 0) >= 9000 ? "request" : "buy",
+    ctaType: "buy",
     description:
       clamp(p.shortDescription, 220) ||
       clamp(longDescription, 220) ||

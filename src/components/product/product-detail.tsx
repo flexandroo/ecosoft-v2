@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   ShieldCheck,
   Sparkles,
@@ -88,7 +87,7 @@ export function ProductDetail({ product }: { product: Product }) {
                   <img
                     src={mainImage}
                     alt={product.name}
-                    className="size-full object-contain p-8"
+                    className="size-full object-contain p-6"
                   />
                 ) : (
                   <CategoryIcon className="size-32 text-primary/30" aria-hidden />
@@ -163,20 +162,10 @@ export function ProductDetail({ product }: { product: Product }) {
                 )}
 
                 <div className="mt-4 flex flex-col gap-2.5">
-                  {product.ctaType === "buy" ? (
-                    <button className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]">
-                      Купити зараз
-                      <ArrowRight className="size-4" />
-                    </button>
-                  ) : (
-                    <Link
-                      href="#request"
-                      className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
-                    >
-                      Замовити з консультацією
-                      <ArrowRight className="size-4" />
-                    </Link>
-                  )}
+                  <button className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]">
+                    Купити зараз
+                    <ArrowRight className="size-4" />
+                  </button>
                   <a
                     href="tel:+380800300999"
                     className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card text-sm font-semibold text-foreground transition-colors hover:bg-muted"
@@ -484,18 +473,9 @@ export function ProductDetail({ product }: { product: Product }) {
               {formatUah(product.price)}
             </div>
           </div>
-          {product.ctaType === "buy" ? (
-            <button className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]">
-              Купити
-            </button>
-          ) : (
-            <Link
-              href="#request"
-              className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
-            >
-              Замовити
-            </Link>
-          )}
+          <button className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]">
+            Купити
+          </button>
         </div>
       </div>
     </article>
