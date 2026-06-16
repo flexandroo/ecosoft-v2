@@ -12,7 +12,9 @@ import {
   Waves,
   Filter,
   Layers,
-  Factory,
+  Boxes,
+  FlaskConical,
+  Coffee,
   Check,
   Phone,
   FileText,
@@ -34,11 +36,14 @@ import { ProductCard } from "@/components/catalog/product-card";
 import { DescriptionAccordion } from "./description-accordion";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
-  osmos: Droplet,
-  softeners: Waves,
-  filters: Filter,
-  cartridges: Layers,
-  industrial: Factory,
+  "reverse-osmosis": Droplet,
+  "flow-filters": Waves,
+  "filtration-systems": Package,
+  "mainline-filters": Filter,
+  "ro-cartridges": Layers,
+  "mainline-cartridges": Boxes,
+  "filter-media": FlaskConical,
+  horeca: Coffee,
 };
 
 const HIGHLIGHT_ICONS: Record<HighlightIcon, LucideIcon> = {

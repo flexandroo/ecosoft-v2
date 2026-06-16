@@ -1,15 +1,28 @@
 import Link from "next/link";
-import { ArrowRight, Droplet, Waves, Filter, Layers, Factory } from "lucide-react";
+import {
+  ArrowRight,
+  Droplet,
+  Waves,
+  Package,
+  Filter,
+  Layers,
+  Boxes,
+  FlaskConical,
+  Coffee,
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { formatUah } from "@/lib/format";
 import type { CategoryKey, Product } from "@/lib/products";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
-  osmos: Droplet,
-  softeners: Waves,
-  filters: Filter,
-  cartridges: Layers,
-  industrial: Factory,
+  "reverse-osmosis": Droplet,
+  "flow-filters": Waves,
+  "filtration-systems": Package,
+  "mainline-filters": Filter,
+  "ro-cartridges": Layers,
+  "mainline-cartridges": Boxes,
+  "filter-media": FlaskConical,
+  horeca: Coffee,
 };
 
 export function ProductCard({ product }: { product: Product }) {

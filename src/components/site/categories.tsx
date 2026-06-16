@@ -1,5 +1,15 @@
 import Link from "next/link";
-import { ArrowUpRight, Droplet, ShieldCheck, Package, Filter, Layers } from "lucide-react";
+import {
+  ArrowUpRight,
+  Droplet,
+  Waves,
+  Package,
+  Filter,
+  Layers,
+  Boxes,
+  FlaskConical,
+  Coffee,
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 type Category = {
@@ -14,8 +24,8 @@ type Category = {
 
 const CATEGORIES: Category[] = [
   {
-    href: "/catalog/osmos",
-    title: "Зворотні осмоси",
+    href: "/catalog/reverse-osmosis",
+    title: "Зворотний осмос",
     desc: "Питна вода для дому та офісу.",
     icon: Droplet,
     span: "md:col-span-2 md:row-span-2",
@@ -23,29 +33,47 @@ const CATEGORIES: Category[] = [
     image: "/images/osmos-kitchen.png",
   },
   {
-    href: "/catalog/softeners",
-    title: "Фільтри від заліза та жорсткості",
-    desc: "Захист сантехніки, котлів і техніки.",
-    icon: ShieldCheck,
-  },
-  {
-    href: "/catalog",
-    title: "Компактні системи",
-    desc: "Готові рішення для квартири та будинку.",
+    href: "/catalog/filtration-systems",
+    title: "Фільтраційні системи",
+    desc: "Помʼякшення, знезалізнення та механічне очищення.",
     icon: Package,
-  },
-  {
-    href: "/catalog/filters",
-    title: "Магістральні фільтри",
-    desc: "Очищення води на вході в будинок.",
-    icon: Filter,
     span: "md:col-span-2",
   },
   {
-    href: "/catalog/cartridges",
-    title: "Картриджі",
-    desc: "Змінні елементи для обслуговування систем.",
+    href: "/catalog/mainline-filters",
+    title: "Магістральні фільтри",
+    desc: "Очищення води на вході в будинок.",
+    icon: Filter,
+  },
+  {
+    href: "/catalog/ro-cartridges",
+    title: "Картриджі для осмосу",
+    desc: "Змінні елементи для систем осмосу.",
     icon: Layers,
+  },
+  {
+    href: "/catalog/mainline-cartridges",
+    title: "Магістральні картриджі",
+    desc: "Картриджі для магістральних фільтрів.",
+    icon: Boxes,
+  },
+  {
+    href: "/catalog/flow-filters",
+    title: "Проточні фільтри",
+    desc: "Компактні фільтри під мийку.",
+    icon: Waves,
+  },
+  {
+    href: "/catalog/filter-media",
+    title: "Фільтруючі матеріали",
+    desc: "Засипки, сіль, смоли та вугілля.",
+    icon: FlaskConical,
+  },
+  {
+    href: "/catalog/horeca",
+    title: "Для кафе та ресторанів",
+    desc: "Рішення для HoReCa та готелів.",
+    icon: Coffee,
   },
 ];
 

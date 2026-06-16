@@ -4,10 +4,11 @@ const COLS = [
   {
     title: "Каталог",
     links: [
-      { href: "/catalog/osmos", label: "Зворотний осмос" },
-      { href: "/catalog/softeners", label: "Помʼякшувачі" },
-      { href: "/catalog/filters", label: "Фільтри" },
-      { href: "/catalog/cartridges", label: "Картриджі" },
+      { href: "/catalog/reverse-osmosis", label: "Зворотний осмос" },
+      { href: "/catalog/filtration-systems", label: "Фільтраційні системи" },
+      { href: "/catalog/mainline-filters", label: "Магістральні фільтри" },
+      { href: "/catalog/ro-cartridges", label: "Картриджі" },
+      { href: "/catalog/horeca", label: "Для бізнесу (HoReCa)" },
     ],
   },
   {
