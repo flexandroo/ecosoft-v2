@@ -60,7 +60,7 @@
   --secondary: oklch(0.96 0.006 245);
   --secondary-foreground: oklch(0.22 0.025 245);
   --muted: oklch(0.96 0.006 245);
-  --muted-foreground: oklch(0.50 0.025 245);
+  --muted-foreground: oklch(0.45 0.027 245);
   --accent: oklch(0.72 0.16 248);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.60 0.20 25);
@@ -130,10 +130,38 @@
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-manrope), system-ui, sans-serif;
     letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  /* Visible keyboard focus on interactive elements (a11y, not optional) */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
   .tabular { font-variant-numeric: tabular-nums; }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

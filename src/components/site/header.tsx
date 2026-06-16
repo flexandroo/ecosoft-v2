@@ -42,6 +42,12 @@ export function Header() {
           : "bg-background/95 text-foreground border-b border-border backdrop-blur-md",
       ].join(" ")}
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-[60] focus:rounded-lg focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring"
+      >
+        Перейти до вмісту
+      </a>
       <div className="mx-auto flex h-16 max-w-[1600px] items-center gap-6 px-4 md:px-8">
         <Link
           href="/"
@@ -55,20 +61,35 @@ export function Header() {
         </Link>
 
         <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex">
-          {PRIMARY_NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={[
-                "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                onHero
-                  ? "text-white/85 hover:text-white"
-                  : "text-muted-foreground hover:text-foreground",
-              ].join(" ")}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {PRIMARY_NAV.map((item) => {
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={isActive ? "page" : undefined}
+                className={[
+                  "relative rounded-md px-3 py-2 text-sm transition-colors",
+                  isActive ? "font-semibold" : "font-medium",
+                  onHero
+                    ? isActive
+                      ? "text-white"
+                      : "text-white/85 hover:text-white"
+                    : isActive
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground",
+                  isActive
+                    ? "after:absolute after:inset-x-3 after:-bottom-px after:h-0.5 after:rounded-full after:bg-current after:content-['']"
+                    : "",
+                ].join(" ")}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
 
           <div
             className="relative"
@@ -117,11 +138,20 @@ export function Header() {
 
           <Link
             href="/contacts"
+            aria-current={pathname.startsWith("/contacts") ? "page" : undefined}
             className={[
-              "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+              "relative rounded-md px-3 py-2 text-sm transition-colors",
+              pathname.startsWith("/contacts") ? "font-semibold" : "font-medium",
               onHero
-                ? "text-white/85 hover:text-white"
-                : "text-muted-foreground hover:text-foreground",
+                ? pathname.startsWith("/contacts")
+                  ? "text-white"
+                  : "text-white/85 hover:text-white"
+                : pathname.startsWith("/contacts")
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground",
+              pathname.startsWith("/contacts")
+                ? "after:absolute after:inset-x-3 after:-bottom-px after:h-0.5 after:rounded-full after:bg-current after:content-['']"
+                : "",
             ].join(" ")}
           >
             Контакти

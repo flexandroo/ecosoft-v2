@@ -81,8 +81,8 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
     <Link
       href={href}
       className={[
-        "group relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border p-6 transition-all",
-        "hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5",
+        "group relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border p-6 transition-all duration-200",
+        "hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/15 active:translate-y-0 active:scale-[0.99]",
         image
           ? "border-primary/40 text-primary-foreground"
           : featured

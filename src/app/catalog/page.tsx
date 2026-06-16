@@ -15,7 +15,7 @@ export default function CatalogPage() {
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <PageHeader
           title="Каталог"
           subtitle="Системи очищення води для дому, квартири та бізнесу — підбір під аналіз води."

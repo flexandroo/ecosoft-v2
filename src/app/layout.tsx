@@ -22,6 +22,22 @@ export const metadata: Metadata = {
   description:
     "Фільтри, системи зворотного осмосу, помʼякшувачі та картриджі. Доставка по Україні, монтаж під ключ, сертифікована якість.",
   metadataBase: new URL("https://ecosoft.ua"),
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "uk_UA",
+    siteName: "Ecosoft",
+    title: "Ecosoft — Системи очищення води в Україні",
+    description:
+      "Фільтри, системи зворотного осмосу, помʼякшувачі та картриджі. Доставка по Україні, монтаж під ключ, сертифікована якість.",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ecosoft — Системи очищення води в Україні",
+    description:
+      "Фільтри, системи зворотного осмосу, помʼякшувачі та картриджі. Доставка по Україні, монтаж під ключ, сертифікована якість.",
+  },
 };
 
 export default function RootLayout({

@@ -44,7 +44,7 @@ export default async function CategoryCatalogPage({
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <PageHeader
           title={cat.title}
           crumbs={[

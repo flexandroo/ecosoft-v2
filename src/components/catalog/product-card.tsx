@@ -27,7 +27,7 @@ export function ProductCard({ product }: { product: Product }) {
     .join(" · ");
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg hover:shadow-black/5">
+    <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/15">
       <Link
         href={`/catalog/${product.category}/${product.slug}`}
         aria-label={product.name}
@@ -70,14 +70,14 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="mt-4 flex-1" />
 
         {product.ctaType === "buy" ? (
-          <button className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-primary text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+          <button className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]">
             Купити
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </button>
         ) : (
           <Link
             href={`/catalog/${product.category}/${product.slug}#request`}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-border bg-background text-sm font-semibold text-foreground transition-colors hover:bg-muted"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-border bg-background text-sm font-semibold text-foreground transition-all duration-200 hover:bg-muted active:scale-[0.98]"
           >
             Замовити консультацію
           </Link>

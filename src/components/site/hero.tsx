@@ -22,7 +22,15 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="absolute inset-0 -z-10 bg-[oklch(0.18_0.04_220)]/55" aria-hidden />
+      {/* Directional gradient: heaviest behind the left-aligned copy, lighter toward the asset */}
+      <div
+        className="absolute inset-0 -z-10 bg-[linear-gradient(105deg,oklch(0.15_0.04_220/0.86)_0%,oklch(0.16_0.04_220/0.62)_45%,oklch(0.18_0.04_220/0.30)_100%)]"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-[linear-gradient(to_top,oklch(0.13_0.04_220/0.55),transparent)]"
+        aria-hidden
+      />
 
       <div className="mx-auto w-full max-w-[1600px] px-4 pb-24 pt-24 md:px-8 md:pb-32 md:pt-28">
         <div className="max-w-3xl">
@@ -43,21 +51,21 @@ export function Hero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href="/catalog"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-white px-6 text-sm font-semibold text-foreground transition-colors hover:bg-white/90"
+              className="group/cta inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-white px-6 text-sm font-semibold text-foreground shadow-lg shadow-[oklch(0.13_0.05_220)]/30 transition-all duration-200 hover:bg-white/90 hover:shadow-xl hover:shadow-[oklch(0.13_0.05_220)]/40 active:scale-[0.98]"
             >
               Підібрати систему
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-4 transition-transform duration-200 group-hover/cta:translate-x-0.5" />
             </Link>
             <Link
               href="/consultation"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/5 px-6 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/10"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/5 px-6 text-sm font-semibold text-white backdrop-blur-md transition-all duration-200 hover:border-white/50 hover:bg-white/10 active:scale-[0.98]"
             >
               Безкоштовна консультація
             </Link>
           </div>
 
           <dl className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-white/15 pt-6">
-            <Stat value="50K+" label="клієнтів" />
+            <Stat value="52 000+" label="клієнтів" />
             <Stat value="5 років" label="гарантія" />
             <Stat value="24 год" label="монтаж" />
           </dl>

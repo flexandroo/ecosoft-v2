@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { SlidersHorizontal, X } from "lucide-react";
+import { SlidersHorizontal, X, ChevronDown } from "lucide-react";
 import { CATEGORIES, type CategoryKey, type Product } from "@/lib/products";
 import { formatUah } from "@/lib/format";
 import { ProductCard } from "./product-card";
@@ -133,9 +133,7 @@ export function CatalogView({
                     </option>
                   ))}
                 </select>
-                <span className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground">
-                  ▾
-                </span>
+                <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
               </label>
             </div>
           </div>
@@ -150,7 +148,7 @@ export function CatalogView({
               </p>
               <button
                 onClick={resetAll}
-                className="mt-4 inline-flex h-9 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground"
+                className="mt-4 inline-flex h-9 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
               >
                 Скинути фільтри
               </button>
@@ -203,7 +201,7 @@ export function CatalogView({
             />
             <button
               onClick={() => setMobileFiltersOpen(false)}
-              className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-lg bg-primary text-sm font-semibold text-primary-foreground"
+              className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-lg bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
             >
               Показати {filtered.length}{" "}
               {pluralize(filtered.length, ["товар", "товари", "товарів"])}

@@ -22,7 +22,6 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import {
-  CATEGORIES,
   findCategory,
   relatedProducts,
   type CategoryKey,
@@ -88,12 +87,11 @@ export function ProductDetail({ product }: { product: Product }) {
                   )}
                 </div>
               </div>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-4 gap-2" aria-hidden>
                 {[0, 1, 2, 3].map((i) => (
                   <div
                     key={i}
-                    className="aspect-square cursor-pointer rounded-xl border border-border bg-muted/40 transition-colors hover:border-primary/40"
-                    aria-label={`Фото ${i + 1}`}
+                    className="aspect-square rounded-xl border border-border bg-muted/40"
                   />
                 ))}
               </div>
@@ -143,14 +141,14 @@ export function ProductDetail({ product }: { product: Product }) {
 
                 <div className="mt-4 flex flex-col gap-2.5">
                   {product.ctaType === "buy" ? (
-                    <button className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+                    <button className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]">
                       Купити зараз
                       <ArrowRight className="size-4" />
                     </button>
                   ) : (
                     <Link
                       href="#request"
-                      className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                      className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
                     >
                       Замовити з консультацією
                       <ArrowRight className="size-4" />
@@ -464,13 +462,13 @@ export function ProductDetail({ product }: { product: Product }) {
             </div>
           </div>
           {product.ctaType === "buy" ? (
-            <button className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground">
+            <button className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]">
               Купити
             </button>
           ) : (
             <Link
               href="#request"
-              className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground"
+              className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
             >
               Замовити
             </Link>
