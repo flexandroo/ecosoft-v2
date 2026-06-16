@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
-import { PageHeader } from "@/components/site/page-header";
 import { CatalogView } from "@/components/catalog/catalog-view";
 import { CategoryGrid } from "@/components/catalog/category-grid";
+import { CategoryHero } from "@/components/catalog/category-hero";
 import {
   CATEGORIES,
   findCategory,
@@ -46,13 +46,10 @@ export default async function CategoryCatalogPage({
     <>
       <Header />
       <main id="main-content" className="flex-1">
-        <PageHeader
+        <CategoryHero
+          categoryKey={category as CategoryKey}
           title={cat.title}
-          crumbs={[
-            { href: "/", label: "Головна" },
-            { href: "/catalog", label: "Каталог" },
-            { label: cat.title },
-          ]}
+          products={products}
         />
         <section className="mx-auto max-w-[1600px] px-4 pt-8 md:px-8 md:pt-10">
           <h2 className="mb-5 font-[family-name:var(--font-manrope)] text-xl font-bold tracking-tight md:text-2xl">
