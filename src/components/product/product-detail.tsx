@@ -66,6 +66,14 @@ export function ProductDetail({ product }: { product: Product }) {
   const CategoryIcon = ICON_BY_CATEGORY[product.category];
   const related = relatedProducts(product, 4);
   const comparison = buildComparison(product);
+  const gallery =
+    product.images && product.images.length > 0
+      ? product.images
+      : product.image
+        ? [product.image]
+        : [];
+  const mainImage = gallery[0];
+  const thumbs = gallery.slice(0, 4);
 
   return (
     <article>
@@ -74,8 +82,17 @@ export function ProductDetail({ product }: { product: Product }) {
         <div className="mx-auto max-w-[1600px] px-4 pt-6 pb-12 md:px-8 md:pt-8 md:pb-16">
           <div className="grid gap-8 md:gap-12 lg:grid-cols-[1.1fr_1fr]">
             <div className="space-y-4">
-              <div className="relative grid aspect-square w-full place-items-center overflow-hidden rounded-3xl bg-muted/60">
-                <CategoryIcon className="size-32 text-primary/30" aria-hidden />
+              <div className="relative grid aspect-square w-full place-items-center overflow-hidden rounded-3xl bg-white">
+                {mainImage ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={mainImage}
+                    alt={product.name}
+                    className="size-full object-contain p-8"
+                  />
+                ) : (
+                  <CategoryIcon className="size-32 text-primary/30" aria-hidden />
+                )}
                 <div className="absolute left-4 top-4 flex flex-wrap gap-2">
                   {product.oldPrice && (
                     <Badge variant="accent">Знижка</Badge>
@@ -87,14 +104,20 @@ export function ProductDetail({ product }: { product: Product }) {
                   )}
                 </div>
               </div>
-              <div className="grid grid-cols-4 gap-2" aria-hidden>
-                {[0, 1, 2, 3].map((i) => (
-                  <div
-                    key={i}
-                    className="aspect-square rounded-xl border border-border bg-muted/40"
-                  />
-                ))}
-              </div>
+              {thumbs.length > 1 && (
+                <div className="grid grid-cols-4 gap-2">
+                  {thumbs.map((src, i) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      key={src + i}
+                      src={src}
+                      alt={`${product.name} — фото ${i + 1}`}
+                      loading="lazy"
+                      className="aspect-square w-full rounded-xl border border-border bg-white object-contain p-2"
+                    />
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="lg:sticky lg:top-24 lg:h-fit">

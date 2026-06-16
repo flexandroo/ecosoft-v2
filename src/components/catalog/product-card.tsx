@@ -31,9 +31,22 @@ export function ProductCard({ product }: { product: Product }) {
       <Link
         href={`/catalog/${product.category}/${product.slug}`}
         aria-label={product.name}
-        className="relative grid aspect-[4/3] place-items-center bg-muted/60"
+        className="relative grid aspect-[4/3] place-items-center overflow-hidden bg-white"
       >
-        <Icon className="size-16 text-primary/40 transition-transform group-hover:scale-110" aria-hidden />
+        {product.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={product.image}
+            alt={product.name}
+            loading="lazy"
+            className="size-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+          />
+        ) : (
+          <Icon
+            className="size-16 text-primary/40 transition-transform group-hover:scale-110"
+            aria-hidden
+          />
+        )}
         <div className="absolute left-3 top-3 flex gap-1.5">
           {product.oldPrice && (
             <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-semibold text-accent-foreground">
