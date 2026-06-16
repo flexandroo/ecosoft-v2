@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Phone, ShoppingCart, Search, Menu, X, ChevronDown } from "lucide-react";
+import { useCart } from "@/components/cart/cart-context";
 
 const PRIMARY_NAV = [
   { href: "/", label: "Головна" },
@@ -18,6 +19,7 @@ const CUSTOMER_NAV = [
 
 export function Header() {
   const pathname = usePathname();
+  const { count, hydrated } = useCart();
   const hasDarkHero = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -172,7 +174,12 @@ export function Header() {
           <IconButton onHero={onHero} label="Пошук">
             <Search className="size-4" />
           </IconButton>
-          <IconButton onHero={onHero} label="Корзина" href="/cart">
+          <IconButton
+            onHero={onHero}
+            label="Кошик"
+            href="/cart"
+            badge={hydrated ? count : 0}
+          >
             <ShoppingCart className="size-4" />
           </IconButton>
           <button
@@ -243,28 +250,38 @@ function IconButton({
   label,
   href,
   onHero,
+  badge,
 }: {
   children: React.ReactNode;
   label: string;
   href?: string;
   onHero: boolean;
+  badge?: number;
 }) {
   const className = [
-    "grid size-9 place-items-center rounded-md transition-colors",
+    "relative grid size-9 place-items-center rounded-md transition-colors",
     onHero
       ? "text-white hover:bg-white/10"
       : "text-muted-foreground hover:bg-muted hover:text-foreground",
   ].join(" ");
+  const badgeEl =
+    badge && badge > 0 ? (
+      <span className="tabular absolute -right-0.5 -top-0.5 grid h-4 min-w-4 place-items-center rounded-full bg-primary px-1 text-[10px] font-bold leading-none text-primary-foreground ring-2 ring-background">
+        {badge > 99 ? "99+" : badge}
+      </span>
+    ) : null;
   if (href) {
     return (
       <Link href={href} aria-label={label} className={className}>
         {children}
+        {badgeEl}
       </Link>
     );
   }
   return (
     <button aria-label={label} className={className}>
       {children}
+      {badgeEl}
     </button>
   );
 }

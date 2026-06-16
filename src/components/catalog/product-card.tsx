@@ -13,6 +13,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { formatUah } from "@/lib/format";
 import type { CategoryKey, Product } from "@/lib/products";
+import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
   "reverse-osmosis": Droplet,
@@ -95,10 +96,13 @@ export function ProductCard({ product }: { product: Product }) {
 
         <div className="mt-4 flex-1" />
 
-        <button className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]">
+        <AddToCartButton
+          product={product}
+          className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
+        >
           Купити
           <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-        </button>
+        </AddToCartButton>
       </div>
     </article>
   );

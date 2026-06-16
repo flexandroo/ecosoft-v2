@@ -33,6 +33,7 @@ import {
 } from "@/lib/products";
 import { formatUah } from "@/lib/format";
 import { ProductCard } from "@/components/catalog/product-card";
+import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 import { DescriptionAccordion } from "./description-accordion";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
@@ -167,10 +168,13 @@ export function ProductDetail({ product }: { product: Product }) {
                 )}
 
                 <div className="mt-4 flex flex-col gap-2.5">
-                  <button className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]">
+                  <AddToCartButton
+                    product={product}
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
+                  >
                     Купити зараз
                     <ArrowRight className="size-4" />
-                  </button>
+                  </AddToCartButton>
                   <a
                     href="tel:+380800300999"
                     className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card text-sm font-semibold text-foreground transition-colors hover:bg-muted"
@@ -478,9 +482,12 @@ export function ProductDetail({ product }: { product: Product }) {
               {formatUah(product.price)}
             </div>
           </div>
-          <button className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]">
+          <AddToCartButton
+            product={product}
+            className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
+          >
             Купити
-          </button>
+          </AddToCartButton>
         </div>
       </div>
     </article>
