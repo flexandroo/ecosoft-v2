@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
@@ -16,6 +18,16 @@ type Params = { category: string };
 
 export function generateStaticParams(): Params[] {
   return CATEGORIES.map((c) => ({ category: c.key }));
+}
+
+// Auto-detect a generated banner at /public/images/categories/<key>.<ext>.
+// Drop a file there and the category hero switches to it — no code change.
+function categoryImage(key: string): string | undefined {
+  for (const ext of ["webp", "jpg", "jpeg", "png", "avif"]) {
+    const rel = `images/categories/${key}.${ext}`;
+    if (existsSync(join(process.cwd(), "public", rel))) return `/${rel}`;
+  }
+  return undefined;
 }
 
 export async function generateMetadata({
@@ -50,6 +62,7 @@ export default async function CategoryCatalogPage({
           categoryKey={category as CategoryKey}
           title={cat.title}
           products={products}
+          image={categoryImage(category)}
         />
         <section className="mx-auto max-w-[1600px] px-4 pt-8 md:px-8 md:pt-10">
           <h2 className="mb-5 font-[family-name:var(--font-manrope)] text-xl font-bold tracking-tight md:text-2xl">

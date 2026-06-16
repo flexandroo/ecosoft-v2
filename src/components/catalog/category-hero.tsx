@@ -33,26 +33,45 @@ export function CategoryHero({
   categoryKey,
   title,
   products,
+  image,
 }: {
   categoryKey: CategoryKey;
   title: string;
   products: Product[];
+  /** Optional generated category background (full-bleed cover). */
+  image?: string;
 }) {
-  const images = products
+  const count = products.length;
+  const montage = products
     .map((p) => p.image)
     .filter((src): src is string => Boolean(src))
     .slice(0, 3);
-  const count = products.length;
 
   return (
     <section className="relative isolate overflow-hidden bg-[oklch(0.18_0.04_220)] text-white">
-      {/* ambient brand gradient */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(120%_140%_at_85%_0%,oklch(0.30_0.10_232/0.55),transparent_60%)]"
-      />
+      {image ? (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={image}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 -z-20 size-full object-cover"
+          />
+          {/* left-weighted overlay keeps the copy legible over any image */}
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,oklch(0.15_0.04_220/0.92)_0%,oklch(0.16_0.04_220/0.7)_42%,oklch(0.18_0.04_220/0.4)_100%)]"
+          />
+        </>
+      ) : (
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-[radial-gradient(120%_140%_at_85%_0%,oklch(0.30_0.10_232/0.55),transparent_60%)]"
+        />
+      )}
 
-      <div className="mx-auto flex max-w-[1600px] flex-col gap-8 px-4 pb-12 pt-28 md:px-8 md:pb-16 md:pt-32 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-4 pb-8 pt-24 md:flex-row md:items-center md:justify-between md:px-8 md:pb-12 md:pt-28">
         <div className="max-w-2xl">
           <nav
             aria-label="Хлібні крихти"
@@ -69,31 +88,29 @@ export function CategoryHero({
             <span className="text-white">{title}</span>
           </nav>
 
-          <h1 className="mt-4 font-[family-name:var(--font-manrope)] text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+          <h1 className="mt-3 font-[family-name:var(--font-manrope)] text-2xl font-bold tracking-tight md:text-4xl">
             {title}
           </h1>
-          <p className="mt-3 max-w-xl text-base text-white/80 md:text-lg">
+          <p className="mt-2 max-w-xl text-sm text-white/80 md:text-base">
             {SUBTITLES[categoryKey]}
           </p>
-          <p className="mt-4 text-sm text-white/60">
+          <p className="mt-3 text-xs text-white/60 md:text-sm">
             <span className="tabular font-semibold text-white">{count}</span>{" "}
             {pluralize(count, ["товар", "товари", "товарів"])} у категорії
           </p>
         </div>
 
-        {images.length > 0 && (
-          <div
-            aria-hidden
-            className="hidden shrink-0 items-center lg:flex"
-          >
-            {images.map((src, i) => (
+        {/* product montage — shown only as a fallback when no generated image */}
+        {!image && montage.length > 0 && (
+          <div aria-hidden className="hidden shrink-0 items-center lg:flex">
+            {montage.map((src, i) => (
               <span
                 key={src + i}
-                className="grid size-36 place-items-center overflow-hidden rounded-2xl bg-white shadow-xl shadow-black/30 ring-1 ring-white/15"
+                className="grid size-24 place-items-center overflow-hidden rounded-2xl bg-white shadow-xl shadow-black/30 ring-1 ring-white/15"
                 style={{
-                  marginLeft: i === 0 ? 0 : -28,
+                  marginLeft: i === 0 ? 0 : -22,
                   rotate: `${(i - 1) * 5}deg`,
-                  zIndex: images.length - i,
+                  zIndex: montage.length - i,
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -101,7 +118,7 @@ export function CategoryHero({
                   src={src}
                   alt=""
                   loading="lazy"
-                  className="size-full object-contain p-3"
+                  className="size-full object-contain p-2.5"
                 />
               </span>
             ))}
