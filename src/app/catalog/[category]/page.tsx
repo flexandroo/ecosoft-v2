@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
@@ -20,14 +18,20 @@ export function generateStaticParams(): Params[] {
   return CATEGORIES.map((c) => ({ category: c.key }));
 }
 
-// Auto-detect a generated banner at /public/images/categories/<key>.<ext>.
-// Drop a file there and the category hero switches to it — no code change.
+// Generated category banners — keep in sync with files in /public/images/categories.
+const CATEGORY_IMAGES: Record<string, string> = {
+  "reverse-osmosis": "/images/categories/reverse-osmosis.png",
+  "flow-filters": "/images/categories/flow-filters.jpeg",
+  "filtration-systems": "/images/categories/filtration-systems.png",
+  "mainline-filters": "/images/categories/mainline-filters.jpeg",
+  "ro-cartridges": "/images/categories/ro-cartridges.jpeg",
+  "mainline-cartridges": "/images/categories/mainline-cartridges.jpeg",
+  "filter-media": "/images/categories/filter-media.jpeg",
+  horeca: "/images/categories/horeca.jpeg",
+};
+
 function categoryImage(key: string): string | undefined {
-  for (const ext of ["webp", "jpg", "jpeg", "png", "avif"]) {
-    const rel = `images/categories/${key}.${ext}`;
-    if (existsSync(join(process.cwd(), "public", rel))) return `/${rel}`;
-  }
-  return undefined;
+  return CATEGORY_IMAGES[key];
 }
 
 export async function generateMetadata({
