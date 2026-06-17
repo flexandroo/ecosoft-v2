@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { SlidersHorizontal, X, ChevronDown } from "lucide-react";
-import { CATEGORIES, type CategoryKey, type Product } from "@/lib/products";
+import { type CategoryKey, type Product } from "@/lib/products";
 import { formatUah } from "@/lib/format";
 import { ProductCard } from "./product-card";
 
@@ -17,12 +17,10 @@ const SORT_OPTIONS: { key: SortKey; label: string }[] = [
 
 export function CatalogView({
   products,
-  lockedCategory,
 }: {
   products: Product[];
   lockedCategory?: CategoryKey;
 }) {
-  const [activeCats, setActiveCats] = useState<Set<CategoryKey>>(new Set());
   const [inStockOnly, setInStockOnly] = useState(false);
   const [priceMin, setPriceMin] = useState("");
   const [priceMax, setPriceMax] = useState("");
@@ -32,9 +30,6 @@ export function CatalogView({
   const filtered = useMemo(() => {
     let list = products;
 
-    if (!lockedCategory && activeCats.size > 0) {
-      list = list.filter((p) => activeCats.has(p.category));
-    }
     if (inStockOnly) {
       list = list.filter((p) => p.inStock);
     }
@@ -53,39 +48,24 @@ export function CatalogView({
       default:
         return list;
     }
-  }, [products, activeCats, inStockOnly, priceMin, priceMax, sort, lockedCategory]);
-
-  const toggleCat = (key: CategoryKey) => {
-    setActiveCats((prev) => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key);
-      else next.add(key);
-      return next;
-    });
-  };
+  }, [products, inStockOnly, priceMin, priceMax, sort]);
 
   const resetAll = () => {
-    setActiveCats(new Set());
     setInStockOnly(false);
     setPriceMin("");
     setPriceMax("");
   };
 
-  const hasActiveFilters =
-    activeCats.size > 0 || inStockOnly || priceMin !== "" || priceMax !== "";
+  const hasActiveFilters = inStockOnly || priceMin !== "" || priceMax !== "";
 
   const minPriceOfAll = Math.min(...products.map((p) => p.price));
   const maxPriceOfAll = Math.max(...products.map((p) => p.price));
 
   return (
     <section className="mx-auto max-w-[1600px] px-4 py-10 md:px-8 md:py-14">
-      <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
+      <div className="grid gap-8 lg:grid-cols-[260px_1fr]">
         <aside className="hidden lg:block">
           <FiltersPanel
-            categories={!lockedCategory}
-            products={products}
-            activeCats={activeCats}
-            toggleCat={toggleCat}
             inStockOnly={inStockOnly}
             setInStockOnly={setInStockOnly}
             priceMin={priceMin}
@@ -115,7 +95,7 @@ export function CatalogView({
                 <SlidersHorizontal className="size-4" /> Фільтри
                 {hasActiveFilters && (
                   <span className="ml-1 grid size-5 place-items-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground">
-                    {activeCats.size + (inStockOnly ? 1 : 0) + (priceMin || priceMax ? 1 : 0)}
+                    {(inStockOnly ? 1 : 0) + (priceMin || priceMax ? 1 : 0)}
                   </span>
                 )}
               </button>
@@ -184,10 +164,6 @@ export function CatalogView({
               </button>
             </div>
             <FiltersPanel
-              categories={!lockedCategory}
-              products={products}
-              activeCats={activeCats}
-              toggleCat={toggleCat}
               inStockOnly={inStockOnly}
               setInStockOnly={setInStockOnly}
               priceMin={priceMin}
@@ -214,10 +190,6 @@ export function CatalogView({
 }
 
 function FiltersPanel({
-  categories,
-  products,
-  activeCats,
-  toggleCat,
   inStockOnly,
   setInStockOnly,
   priceMin,
@@ -229,10 +201,6 @@ function FiltersPanel({
   hasActiveFilters,
   onReset,
 }: {
-  categories: boolean;
-  products: Product[];
-  activeCats: Set<CategoryKey>;
-  toggleCat: (k: CategoryKey) => void;
   inStockOnly: boolean;
   setInStockOnly: (v: boolean) => void;
   priceMin: string;
@@ -244,8 +212,6 @@ function FiltersPanel({
   hasActiveFilters: boolean;
   onReset: () => void;
 }) {
-  const catCount = (key: CategoryKey) => products.filter((p) => p.category === key).length;
-
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -262,32 +228,6 @@ function FiltersPanel({
           </button>
         )}
       </div>
-
-      {categories && (
-        <FilterGroup title="Категорія">
-          {CATEGORIES.map((c) => {
-            const count = catCount(c.key);
-            const checked = activeCats.has(c.key);
-            return (
-              <label
-                key={c.key}
-                className="flex cursor-pointer items-center justify-between rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-muted"
-              >
-                <span className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={() => toggleCat(c.key)}
-                    className="size-4 rounded border-border text-primary focus:ring-2 focus:ring-ring/30"
-                  />
-                  <span className="text-foreground">{c.title}</span>
-                </span>
-                <span className="text-xs text-muted-foreground">{count}</span>
-              </label>
-            );
-          })}
-        </FilterGroup>
-      )}
 
       <FilterGroup title="Ціна, ₴">
         <div className="flex items-center gap-2">

@@ -3,7 +3,7 @@ import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
 import { CatalogView } from "@/components/catalog/catalog-view";
-import { CategoryGrid } from "@/components/catalog/category-grid";
+import { CategoryPills } from "@/components/catalog/category-pills";
 import { PRODUCTS } from "@/lib/products";
 
 export const metadata: Metadata = {
@@ -25,12 +25,9 @@ export default function CatalogPage() {
             { label: "Каталог" },
           ]}
         />
-        <section className="mx-auto max-w-[1600px] px-4 pt-8 md:px-8 md:pt-10">
-          <h2 className="mb-5 font-[family-name:var(--font-manrope)] text-xl font-bold tracking-tight md:text-2xl">
-            Категорії товарів
-          </h2>
-          <CategoryGrid />
-        </section>
+        <div className="mx-auto max-w-[1600px] px-4 pt-6 md:px-8">
+          <CategoryPills />
+        </div>
         <CatalogView products={PRODUCTS} />
       </main>
       <Footer />

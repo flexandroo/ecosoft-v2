@@ -5,8 +5,8 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { CatalogView } from "@/components/catalog/catalog-view";
-import { CategoryGrid } from "@/components/catalog/category-grid";
 import { CategoryHero } from "@/components/catalog/category-hero";
+import { CategoryPills } from "@/components/catalog/category-pills";
 import {
   CATEGORIES,
   findCategory,
@@ -64,12 +64,9 @@ export default async function CategoryCatalogPage({
           products={products}
           image={categoryImage(category)}
         />
-        <section className="mx-auto max-w-[1600px] px-4 pt-8 md:px-8 md:pt-10">
-          <h2 className="mb-5 font-[family-name:var(--font-manrope)] text-xl font-bold tracking-tight md:text-2xl">
-            Категорії товарів
-          </h2>
-          <CategoryGrid activeKey={category as CategoryKey} />
-        </section>
+        <div className="mx-auto max-w-[1600px] px-4 pt-6 md:px-8">
+          <CategoryPills />
+        </div>
         <CatalogView products={products} lockedCategory={category as CategoryKey} />
       </main>
       <Footer />
