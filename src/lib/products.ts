@@ -41,8 +41,10 @@ export type ProductDetails = {
 
 export type Product = {
   slug: string;
+  sku?: string;
   name: string;
   category: CategoryKey;
+  subcategory?: string;
   price: number;
   oldPrice?: number;
   capacityLpd?: number;
@@ -76,6 +78,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Зворотний осмос — найбільш досконала технологія очищення води до бездоганної якості. Вона очищає воду від 99.8% домішок, зокрема вірусів та бактерій, а також запахів…",
+    "sku": "MO550MECOSTD",
+    "subcategory": "ro-standard",
     "features": [
       "Збагачує мінералами"
     ],
@@ -225,6 +229,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Зворотний осмос — найбільш досконала технологія очищення води до бездоганної якості. Вона очищає воду від 99.8% домішок, зокрема вірусів та бактерій, а також запахів…",
+    "sku": "MO650MECOSTD",
+    "subcategory": "ro-standard",
     "features": [
       "Збагачує мінералами"
     ],
@@ -394,6 +400,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр зворотного осмосу Ecosoft Absolute з мінералізатором – це джерельний смак води завдяки використанню активованого вугілля зі шкаралупи кокосових горіхів та…",
+    "sku": "MO675MECO",
+    "subcategory": "ro-absolute",
     "features": [
       "Запас води 7 л",
       "Збагачує мінералами",
@@ -565,6 +573,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Для водопровідних мереж зі слабким напором води",
+    "sku": "MO550MPECOSTD",
+    "subcategory": "ro-standard",
     "features": [
       "Для низького тиску"
     ],
@@ -718,6 +728,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр з функцією економії води, призначений для водопровідних мереж зі слабким напором води та мінералізацією",
+    "sku": "MO675MPSECO",
+    "subcategory": "ro-absolute",
     "features": [
       "Збагачує мінералами",
       "Для низького тиску"
@@ -881,6 +893,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "CROSS Solo – це компактний та ефективний прямоточний фільтр зворотного осмосу, ідеальний для пиття та приготування їжі. Завдяки компактним розмірам він підходить…",
+    "sku": "MO1500PECO",
+    "subcategory": "ro-cross",
     "features": [
       "Смарт-індикація",
       "Компактний"
@@ -1004,6 +1018,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Створюйте воду з мінералами, як сама природа",
+    "sku": "MO675PUREMACECO",
+    "subcategory": "ro-pure",
     "features": [
       "Запас води 7 л",
       "Збагачує Са",
@@ -1176,6 +1192,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "CROSS Max — це прямоточний фільтр зворотного осмосу без накопичувального бака, призначений для встановлення під кухонною мийкою в квартирах та приватних будинках.",
+    "sku": "MO2800PECO",
+    "subcategory": "ro-cross",
     "features": [
       "Смарт-індикація",
       "Компактний"
@@ -1298,6 +1316,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Компактний розумний фільтр зворотного осмосу Ecosoft CROSS 60 – це інноваційна розробка наших вчених-інженерів, яка поєднує бездоганну технологію очищення води, SMART…",
+    "sku": "MO3400PECO",
+    "subcategory": "ro-cross",
     "features": [
       "Споживання 120 Вт",
       "Смарт-індикація",
@@ -1380,6 +1400,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Створюйте воду з мінералами, як сама природа",
+    "sku": "MO675PSMACECO",
+    "subcategory": "ro-pure",
     "features": [
       "Збагачує Ca",
       "Для низького тиску"
@@ -1542,6 +1564,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Поєднання природних процесів та створених нами технологій",
+    "sku": "MO675MPUREBALECO",
+    "subcategory": "ro-pure",
     "features": [
       "Збагачує Са та Mg",
       "Сервіс 2 рази/рік"
@@ -1696,6 +1720,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Поєднання природних процесів та створених нами технологій",
+    "sku": "MO675MBALPSECO",
+    "subcategory": "ro-pure",
     "features": [
       "Збагачує Са та Mg",
       "Для низького тиску"
@@ -1846,6 +1872,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Компактний розумний фільтр зворотного осмосу Ecosoft CROSS 90 – це інноваційна розробка наших вчених-інженерів, яка поєднує бездоганну технологію очищення води, SMART…",
+    "sku": "MO3600PECO",
+    "subcategory": "ro-cross",
     "features": [
       "Споживання 120 Вт",
       "Смарт-індикація",
@@ -1929,6 +1957,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Компактний розумний фільтр зворотного осмосу CROSS90 Balance",
+    "sku": "MO3600MPECO",
+    "subcategory": "ro-cross",
     "features": [
       "Споживання 120 Вт",
       "Смарт-індикація",
@@ -2009,6 +2039,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Потрійний фільтр Ecosoft Standard — це:",
+    "sku": "FMV3ECOSTD",
+    "subcategory": "flow-triple",
     "features": [
       "Компактний",
       "Зберігає мінерали"
@@ -2055,6 +2087,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FР 1054CT призначений для очищення води від механічних домішок (мул, пісок, іржа, окалина), підходить для використання у квартирі або котеджі з 1…",
+    "sku": "FP1054CTPL",
+    "subcategory": "fs-mechanical",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/b14/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1054ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_10.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/b14/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1054ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_10.webp",
@@ -2148,6 +2182,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FР 1252CT призначений для очищення води від механічних домішок (мул, пісок, іржа, окалина), підходить для використання у квартирі або котеджі з 1-2…",
+    "sku": "FP1252CTPL",
+    "subcategory": "fs-mechanical",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/426/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1252ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_12.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/426/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1252ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_12.webp",
@@ -2241,6 +2277,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FР 1054CT призначений для очищення води від механічних домішок (мул, пісок, іржа, окалина), підходить для використання у квартирі або котеджі з 1…",
+    "sku": "FP1354CTPL",
+    "subcategory": "fs-mechanical",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/8f5/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1354ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_13.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/8f5/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1354ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_13.webp",
@@ -2334,6 +2372,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1054CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає від 3 до 4 осіб.",
+    "sku": "FU1054CI",
+    "subcategory": "fs-column",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/dad/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1054ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1054ci.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/dad/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1054ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1054ci.webp",
@@ -2492,6 +2532,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується…",
+    "sku": "FU1013CABCIMVCR",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/81a/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspyagykhyeoe_vse_ecosoft_core_110_ua_nsptankhrym_tsp_yanytsva_vsey_ecosoft_core_110.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/81a/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspyagykhyeoe_vse_ecosoft_core_110_ua_nsptankhrym_tsp_yanytsva_vsey_ecosoft_core_110.webp",
@@ -2622,6 +2664,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK 1054 CI — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
+    "sku": "FK1054CIMIXP",
+    "subcategory": "fs-iron-hardness",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/d05/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1054cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/d05/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1054cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
@@ -2785,6 +2829,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FР 1465CT призначений для очищення води від механічних домішок (мул, пісок, іржа, окалина), підходить для використання у квартирі або котеджі з 1-2…",
+    "sku": "FP1465CTPL",
+    "subcategory": "fs-mechanical",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/4a0/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1465ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_14.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/4a0/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1465ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_14.webp",
@@ -2878,6 +2924,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується…",
+    "sku": "FU1016CABCIMVCR",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/17b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_150_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/17b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_150_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
@@ -3008,6 +3056,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1252CE призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає до 5 осіб.",
+    "sku": "FU1252CI",
+    "subcategory": "fs-column",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/aee/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1252ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1252ci.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/aee/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1252ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1252ci.webp",
@@ -3049,6 +3099,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPC 1054CT призначений для очищення води від сірководню, використовується в будинках з 1-2 санвузлами, в яких проживає до 5 осіб. Фільтр складається з…",
+    "sku": "FPC1054CT",
+    "subcategory": "fs-h2s",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/95a/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1054ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/95a/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1054ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
@@ -3161,6 +3213,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPA 1354CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води,…",
+    "sku": "FPA1054CT",
+    "subcategory": "fs-chlorine",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/3a3/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1054ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/3a3/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1054ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
@@ -3278,6 +3332,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується…",
+    "sku": "FU1024CABCIMVCR",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/391/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_250_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/391/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_250_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
@@ -3408,6 +3464,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK1054CIMIXA — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
+    "sku": "FK1054CIMIXA",
+    "subcategory": "fs-iron-hardness",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/edf/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1054cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/edf/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1054cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
@@ -3571,6 +3629,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1252CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 3 санвузлами, в якому проживає від до 5 осіб.",
+    "sku": "FU1354CI",
+    "subcategory": "fs-column",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/4a0/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1354ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1354ci.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/4a0/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1354ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1354ci.webp",
@@ -3730,6 +3790,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft A-Soft. В якості фільтрувального матеріалу використовується…",
+    "sku": "FU1013CABCEMVAS",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/a6f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_a_soft_110_ce_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/a6f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_a_soft_110_ce_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
@@ -3873,6 +3935,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK 1252 CE — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
+    "sku": "FK1252CIMIXP",
+    "subcategory": "fs-iron-hardness",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/1c6/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/1c6/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
@@ -4036,6 +4100,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FP 1665CT призначений для очищення води від механічних домішок (мул, пісок, іржа, окалина), підходить для використання у квартирі або котеджі з 2-3…",
+    "sku": "FP1665CTPL",
+    "subcategory": "fs-mechanical",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/ff6/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1665ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_16.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/ff6/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1665ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_16.webp",
@@ -4129,6 +4195,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK1252CIMIXA — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
+    "sku": "FK1252CIMIXA",
+    "subcategory": "fs-iron-hardness",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/ce8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/ce8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
@@ -4292,6 +4360,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPA 1252CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води,…",
+    "sku": "FPA1252CT",
+    "subcategory": "fs-chlorine",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/1d1/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1252_ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/1d1/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1252_ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft.webp",
@@ -4409,6 +4479,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK1354CIMIXP — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
+    "sku": "FK1354CIMIXP",
+    "subcategory": "fs-iron-hardness",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/dd4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1354cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/dd4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1354cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
@@ -4572,6 +4644,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1054CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає від 3 до 4 осіб.",
+    "sku": "FU1465CI",
+    "subcategory": "fs-softening",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/9d3/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1465ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1465ci.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/9d3/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1465ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1465ci.webp",
@@ -4731,6 +4805,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Високопродуктивний фільтр Ecosoft FU1035CABGCI призначений для зменшення твердості води. Система складається з двох основних компонентів — модуля фільтрування (балон…",
+    "sku": "FU1035CABGCI",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/d69/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspyagykhyeoe_vse_ecosoft_anthracite_azure_250_ci_ua_nsptankhrym_tsp_yanytsva_vsey_ec.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/d69/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspyagykhyeoe_vse_ecosoft_anthracite_azure_250_ci_ua_nsptankhrym_tsp_yanytsva_vsey_ec.webp",
@@ -4837,6 +4913,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPC 1354CT призначений для очищення води від сірководню, використовується в будинках з 1 санвузлом, в яких проживає до 4 осіб.",
+    "sku": "FPC1252CT",
+    "subcategory": "fs-h2s",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/509/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1252ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/509/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1252ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
@@ -4954,6 +5032,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Високопродуктивний фільтр FK1035CABGCIMIXA призначений для очищення складної води в домашніх умовах. ECOMIX® А усуває жорсткість, залізо, марганець, органіку та…",
+    "sku": "FK1035CABGCIMIXA",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/a31/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_anthracite_gold_250_ua_nsptan.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/a31/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_anthracite_gold_250_ua_nsptan.webp",
@@ -5064,6 +5144,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK1465CIMIXP — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
+    "sku": "FK1465CIMIXP",
+    "subcategory": "fs-iron-hardness",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/020/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1465cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/020/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1465cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
@@ -5227,6 +5309,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1018 CAB CE — компактний фільтр очищення води для квартири з 1 санвузлом, в якій проживає 1-2 особи. Виконаний в сучасному дизайні, призначений для…",
+    "sku": "FU1018CABCEMV",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/51d/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu1018cabcemv_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/51d/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu1018cabcemv_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
@@ -5394,6 +5478,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPC 1354CT призначений для очищення води від сірководню, використовується в будинках з 1 санвузлом, в яких проживає до 4 осіб.",
+    "sku": "FPC1354CT",
+    "subcategory": "fs-h2s",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/917/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1354ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/917/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1354ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
@@ -5511,6 +5597,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK1354CIMIXA — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
+    "sku": "FK1354CIMIXA",
+    "subcategory": "fs-iron-hardness",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/f58/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1354cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/f58/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1354cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
@@ -5674,6 +5762,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1665 CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 5-6 санвузлами, в якому проживає від 8 до 10 осіб.",
+    "sku": "FU1665CI",
+    "subcategory": "fs-softening",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/ca4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1665ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1665ci.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/ca4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1665ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1665ci.webp",
@@ -5833,6 +5923,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Високопродуктивний фільтр FK1235CABGCIMIXA призначений для очищення складної води в домашніх умовах. ECOMIX® А усуває жорсткість, залізо, марганець, органіку та…",
+    "sku": "FK1235CABGCIMIXA",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/67d/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_anthracite_gold_370_ci_ua_nsp.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/67d/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_anthracite_gold_370_ci_ua_nsp.webp",
@@ -5943,6 +6035,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1235 CAB CE — компактний фільтр очищення води для квартири з 3 санвузлами, в якій проживає до 5 осіб. Виконаний в сучасному дизайні, призначений для…",
+    "sku": "FU1235CABCETA",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/f01/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu1235cabceta_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/f01/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu1235cabceta_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
@@ -6117,6 +6211,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPA 1354CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води,…",
+    "sku": "FPA1354CT",
+    "subcategory": "fs-chlorine",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/610/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1354ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/610/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1354ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
@@ -6229,6 +6325,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK 1054 CE — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
+    "sku": "FK1054CEMIXA",
+    "subcategory": "fs-iron-hardness",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/8a2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1054cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/8a2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1054cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
@@ -6396,6 +6494,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FК 1018 CAB CE - призначений для очищення води від сполук заліза, мангану, солей твердості й органічних домішок. Має сучасний дизайн і підходить для…",
+    "sku": "FK1018CABCEMIXC",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/255/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1018cabcemixc_ua_nsptankhry.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/255/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1018cabcemixc_ua_nsptankhry.webp",
@@ -6526,6 +6626,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPA 1252CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води,…",
+    "sku": "FPA1465CT",
+    "subcategory": "fs-chlorine",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/fe2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1465ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/fe2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1465ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
@@ -6643,6 +6745,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 0835 CAB CE — компактний фільтр очищення води для квартири з 2-3 санвузлами, в якій проживає до 2-3 осіб. Виконаний в сучасному дизайні, призначений…",
+    "sku": "FU0835CABCETA",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/914/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu0835cabce_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/914/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu0835cabce_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_.webp",
@@ -6817,6 +6921,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1035 CAB CE — компактний фільтр очищення води для квартири з 2 санвузлами, в якій проживає до 3-4 особи. Виконаний в сучасному дизайні, призначений…",
+    "sku": "FU1035CABCEMVTA",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/bbf/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_titanium_300_fu1035cabcemvta_ua_nsptankhrym_chkoekh.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/bbf/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_titanium_300_fu1035cabcemvta_ua_nsptankhrym_chkoekh.webp",
@@ -6967,6 +7073,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK1465CIMIXA — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
+    "sku": "FK1465CIMIXA",
+    "subcategory": "fs-iron-hardness",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/178/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1465cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/178/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1465cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
@@ -7130,6 +7238,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK 1252 CE — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
+    "sku": "FK1252CEMIXA",
+    "subcategory": "fs-iron-hardness",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/81f/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/81f/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
@@ -7297,6 +7407,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK 1035 CAB CE - призначений для очищення води від сполук заліза, марганцю, солей жорсткості та органічних домішок. Має сучасний дизайн і підходить для…",
+    "sku": "FK1035CABCEMIXCOR",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/cc9/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_titanium_gold_250_ua_nsptankh.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/cc9/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_titanium_gold_250_ua_nsptankh.webp",
@@ -7429,6 +7541,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK 1354 CE — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, марганцю, солей твердості та органічних…",
+    "sku": "FK1354CEMIXA",
+    "subcategory": "fs-iron-hardness",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/d82/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1354cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/d82/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1354cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
@@ -7596,6 +7710,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPC 1465CT призначений для очищення води від сірководню, використовується в будинках з 1-2 санвузлами, в яких проживає до 5 осіб.",
+    "sku": "FPC1465CT",
+    "subcategory": "fs-h2s",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/9a4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1465ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/9a4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1465ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
@@ -7708,6 +7824,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FК 1235 CAB CE - призначений для очищення води від сполук заліза, марганцю, солей жорсткості та органічних домішок. Має сучасний дизайн і підходить для…",
+    "sku": "FK1235CABCEMIXCOR",
+    "subcategory": "fs-compact",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/c5f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_titanium_gold_370_ua_nsptankh.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/c5f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_titanium_gold_370_ua_nsptankh.webp",
@@ -7841,6 +7959,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPA 1665CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води,…",
+    "sku": "FPA1665CT",
+    "subcategory": "fs-chlorine",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/c77/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1665ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/c77/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1665ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
@@ -7953,6 +8073,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPC 1665CT призначений для очищення води від сірководню, використовується в будинках з 2-3 санвузлами, в яких проживає до 8 осіб.",
+    "sku": "FPC1665CT",
+    "subcategory": "fs-h2s",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/5e9/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1665ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/5e9/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1665ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
@@ -8070,6 +8192,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FК 1665 CE — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, марганцю, солей твердості та органічних…",
+    "sku": "FK1465CEMIXA",
+    "subcategory": "fs-column",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/a06/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1465cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/a06/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1465cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
@@ -8237,6 +8361,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Не містить фосфатів та поліфосфатів – не впливає на здоров'я людини та нешкідливий для природи",
+    "sku": "PSE200ECO",
+    "subcategory": "ml-antiscale",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/104/564_564_140cd750bba9870f18aada2478b24840a/ru_napolnitel_dlya_filtrov_ot_nakipi_ecosoft_scalex_200_ml_pse200eco_ua_napovnyuvach_dlya_filtriv_vi.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/104/564_564_140cd750bba9870f18aada2478b24840a/ru_napolnitel_dlya_filtrov_ot_nakipi_ecosoft_scalex_200_ml_pse200eco_ua_napovnyuvach_dlya_filtriv_vi.webp",
@@ -8264,6 +8390,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Утворення накипу знижує ефективність роботи пральної або посудомийної машини аж до остаточної поломки без можливості відновлення.",
+    "sku": "FOSE100ECO",
+    "subcategory": "ml-antiscale",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/512/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_skh_ranyty_ecosoft_scalex_eoya_fkhyuaoer_sh_y_tsftsespsyer_sh_payyr_fose100eco_ua_chkoekh.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/512/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_skh_ranyty_ecosoft_scalex_eoya_fkhyuaoer_sh_y_tsftsespsyer_sh_payyr_fose100eco_ua_chkoekh.webp",
@@ -8324,6 +8452,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Не містить фосфати — безпечний для людини та природи",
+    "sku": "PSE2005ECO",
+    "subcategory": "ml-antiscale",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/349/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_chyoekhua_skh_ranyty_ecosoft_scalex_pse2005eco_ua_naukhuyez_eoya_chkoekhua_vke_ran.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/349/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_chyoekhua_skh_ranyty_ecosoft_scalex_pse2005eco_ua_naukhuyez_eoya_chkoekhua_vke_ran.webp",
@@ -8350,6 +8480,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр механічного очищення високого тиску Ecosoft 1/2'' призначений для очищення холодної води господарсько-побутового призначення від різних механічних домішок. Він…",
+    "sku": "FPV12ECO",
+    "subcategory": "ml-cartridge",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/2d8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_1_2_fpv12eco_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_1_.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/2d8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_1_2_fpv12eco_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_1_.webp",
@@ -8432,6 +8564,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Утворення накипу знижує ефективність роботи домашнього бойлера або котла аж до остаточної поломки без можливості відновлення.",
+    "sku": "FOSE200ECO",
+    "subcategory": "ml-antiscale",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/abb/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_skh_ranyty_ecosoft_scalex_eoya_bsmoyeusv_y_nskhosv_fose200eco_ua_chkoekhu_vke_ranytts_ec.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/abb/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_skh_ranyty_ecosoft_scalex_eoya_bsmoyeusv_y_nskhosv_fose200eco_ua_chkoekhu_vke_ranytts_ec.webp",
@@ -8493,6 +8627,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр механічного очищення високого тиску Ecosoft 1/2'' призначений для очищення холодної води господарсько-побутового призначення від різних механічних домішок. Він…",
+    "sku": "FPV12PECO",
+    "subcategory": "ml-cartridge",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/854/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_v_fsnsgs_eavoyeryya_ecosoft_1_2_fpv12peco_ua_chkoekhu_pyesharkrsg.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/854/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_v_fsnsgs_eavoyeryya_ecosoft_1_2_fpv12peco_ua_chkoekhu_pyesharkrsg.webp",
@@ -8579,6 +8715,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр механічного очищення високого тиску Ecosoft 3/4''призначений для очищення холодної води господарсько-побутового призначення від різних механічних домішок. Він…",
+    "sku": "FPV34ECO",
+    "subcategory": "ml-cartridge",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/fb1/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_3_4_fpv34eco_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_3_.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/fb1/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_3_4_fpv34eco_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_3_.webp",
@@ -8661,6 +8799,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр механічного очищення високого тиску Ecosoft 1/2",
+    "sku": "FPV34PECO",
+    "subcategory": "ml-cartridge",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/0b9/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_v_fsnsgs_eavoyeryya_ecosoft_3_4_fpv34peco_ua_chkoekhu_pyesharkrsg.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/0b9/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_v_fsnsgs_eavoyeryya_ecosoft_3_4_fpv34peco_ua_chkoekhu_pyesharkrsg.webp",
@@ -8747,6 +8887,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр механічного очищення Ecosoft 1/2'' призначений для очищення гарячої води господарсько-побутового призначення від різних механічних домішок. Він ефективно…",
+    "sku": "FPV12HWECO",
+    "subcategory": "ml-cartridge",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/bb0/564_564_140cd750bba9870f18aada2478b24840a/ru_filtr_mekhanicheskoy_ochistki_dlya_goryachey_vody_ecosoft_1_2_ua_filtr_mekhanichnogo_ochishchennya.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/bb0/564_564_140cd750bba9870f18aada2478b24840a/ru_filtr_mekhanicheskoy_ochistki_dlya_goryachey_vody_ecosoft_1_2_ua_filtr_mekhanichnogo_ochishchennya.webp",
@@ -8829,6 +8971,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Виготовлений з високоякісного і міцного матеріалу",
+    "sku": "FPV4510ECOGR",
+    "subcategory": "ml-cartridge",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/8cb/564_564_140cd750bba9870f18aada2478b24840a/ru_kolba_mekhanicheskoy_ochistki_ecosoft_bb10_1_fpv4510ecogr_ua_kolba_mekhanichnogo_ochishchennya_ec.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/8cb/564_564_140cd750bba9870f18aada2478b24840a/ru_kolba_mekhanicheskoy_ochistki_ecosoft_bb10_1_fpv4510ecogr_ua_kolba_mekhanichnogo_ochishchennya_ec.webp",
@@ -8907,6 +9051,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Самопромивний фільтр 2P SAN з конекторами ½\" та ¾\" з картриджем з сіткою з нержавіючої сталі AISI 304",
+    "sku": "FFNS2P1522/0118",
+    "subcategory": "ml-flushing",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/8ba/564_564_140cd750bba9870f18aada2478b24840a/ru_fapstusp_vrsm_chyoekhu_2p_san_f_nsrryenkhsuapy_y_f_naukhuyezyep_f_fyekhnsm_yi_ryeuzavyeyuyem_fkha.webp",
     "details": {
       "specs": [
@@ -8951,6 +9097,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Самопромивний фільтр 2P PA-R з конекторами ½\" та ¾\" з картриджем з сіткою з нержавіючої сталі AISI 304",
+    "sku": "FFNN2P1522/0118",
+    "subcategory": "ml-flushing",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/390/564_564_140cd750bba9870f18aada2478b24840a/ru_fapstusp_vrsm_chyoekhu_2p_pa_r_f_nsrryenkhsuapy_y_f_naukhuyezyep_f_fyekhnsm_yi_ryeuzavyeyuyem_fkh.webp",
     "details": {
       "specs": [
@@ -8995,6 +9143,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картриджний фільтр Ecosoft BB20 призначений для очищення холодної води господарсько-побутового призначення. Домішки, які може видаляти фільтр, залежать від…",
+    "sku": "FPV4520ECOGR",
+    "subcategory": "ml-cartridge",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/b7d/564_564_140cd750bba9870f18aada2478b24840a/ru_kolba_mekhanicheskoy_ochistki_ecosoft_bb20_1_fpv4520ecogr_ua_kolba_mekhanichnogo_ochishchennya_ec.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/b7d/564_564_140cd750bba9870f18aada2478b24840a/ru_kolba_mekhanicheskoy_ochistki_ecosoft_bb20_1_fpv4520ecogr_ua_kolba_mekhanichnogo_ochishchennya_ec.webp",
@@ -9073,6 +9223,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Механічний фільтр з ручним зворотним промиванням BWT PROTECTOR MINI HWS ½'' CR призначений захисту сантехніки, побутової техніки, трубопроводів від механічних домішок…",
+    "sku": "810548",
+    "subcategory": "ml-flushing",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/559/564_564_140cd750bba9870f18aada2478b24840a/ru_filtr_dlya_kholodnoy_vody_s_regulyatorom_davleniya_bwt_protector_mini_hws_cr_ua_filtr_dlya_kholod.webp",
     "details": {
       "specs": [
@@ -9155,6 +9307,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Дисковий фільтр механічного очищення з ручною промивкою — це надійне рішення для ефективного видалення з води піску, іржі, окалини та інших механічних домішок. Він…",
+    "sku": "TXHES2",
+    "subcategory": "ml-flushing",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/7c7/564_564_140cd750bba9870f18aada2478b24840a/ru_eyfnsv_m_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_1_wptxhes2_ua_eyfnsvym_chkoekhu_pyesharkrsgs_syye.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/7c7/564_564_140cd750bba9870f18aada2478b24840a/ru_eyfnsv_m_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_1_wptxhes2_ua_eyfnsvym_chkoekhu_pyesharkrsgs_syye.webp",
@@ -9225,6 +9379,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Механічний фільтр з ручним зворотним промиванням BWT PROTECTOR MINI HWS ¾'' CR призначений захисту сантехніки, побутової техніки, трубопроводів від механічних домішок…",
+    "sku": "810549",
+    "subcategory": "ml-flushing",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/8b9/564_564_140cd750bba9870f18aada2478b24840a/ru_filtr_dlya_kholodnoy_vody_s_regulyatorom_davleniya_bwt_protector_mini_hws_cr_ua_filtr_dlya_kholod.webp",
     "details": {
       "specs": [
@@ -9307,6 +9463,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Механічний фільтр з ручним зворотним промиванням BWT PROTECTOR MINI HWS ½'' HR призначений захисту сантехніки, побутової техніки, трубопроводів від механічних домішок…",
+    "sku": "810560",
+    "subcategory": "ml-flushing",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/425/564_564_140cd750bba9870f18aada2478b24840a/ru_filtr_dlya_goryachey_vody_bwt_protector_mini_hws_hr_ua_filtr_dlya_garyachoi_vodi_bwt_protector_mi.webp",
     "details": {
       "specs": [
@@ -9384,6 +9542,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Механічний фільтр з ручним зворотним промиванням BWT PROTECTOR MINI ¾'' HR призначений захисту сантехніки, побутової техніки, трубопроводів від механічних домішок…",
+    "sku": "810563",
+    "subcategory": "ml-flushing",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/ed0/350_350_140cd750bba9870f18aada2478b24840a/ru_filtr_dlya_goryachey_vody_bwt_protector_mini_hws_hr_ua_filtr_dlya_garyachoi_vodi_bwt_protector_mi.webp",
     "details": {
       "specs": [
@@ -9461,6 +9621,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картриджний фільтр Ecosoft BB20 призначений для очищення холодної води господарсько-побутового призначення. Домішки, які може видаляти фільтр, залежать від…",
+    "sku": "AQPDUO",
+    "subcategory": "ml-cartridge",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/cd2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_vfyegs_espa_ecosoft_aquapoint_xl_duo_ua_chkoekhu_eoya_vfesgs_btseyrnts_ecosoft_aqua.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/cd2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_vfyegs_espa_ecosoft_aquapoint_xl_duo_ua_chkoekhu_eoya_vfesgs_btseyrnts_ecosoft_aqua.webp",
@@ -9567,6 +9729,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Дисковий фільтр механічного очищення з ручною промивкою — це надійне рішення для ефективного видалення з води піску, іржі, окалини та інших механічних домішок. Він…",
+    "sku": "TXHES3",
+    "subcategory": "ml-flushing",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/efb/564_564_140cd750bba9870f18aada2478b24840a/ru_eyfnsv_m_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_1_ar_wptxhes3_ua_eyfnsvym_chkoekhu_pyesharkrsgs_.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/efb/564_564_140cd750bba9870f18aada2478b24840a/ru_eyfnsv_m_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_1_ar_wptxhes3_ua_eyfnsvym_chkoekhu_pyesharkrsgs_.webp",
@@ -9647,6 +9811,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "В комплект входять три картриджі Ecosoft, які необхідні для попереднього очищення води перед мембранним елементом у фільтрі зворотного осмосу.",
+    "sku": "CPV3ECOSTD",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/f38/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_eoya_chyoekhua_sbuakhrsgs_sfpsfa_cpv3ecostd_ua_nsptoyenkh_n.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/f38/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_eoya_chyoekhua_sbuakhrsgs_sfpsfa_cpv3ecostd_ua_nsptoyenkh_n.webp",
@@ -9672,6 +9838,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Смачна вода — в постфільтрі вугілля зі шкарлупи кокосових горіхів",
+    "sku": "CHV2010ECOPKG",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/12f/564_564_140cd750bba9870f18aada2478b24840a/ru_tsgsoer_m_tsfkhchyoekhu_ecosoft_eoya_chyoekhusv_sbuakhrsgs_sfpsfa_chv2010ecopkg_ua_vtsgkoerym_tsf.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/12f/564_564_140cd750bba9870f18aada2478b24840a/ru_tsgsoer_m_tsfkhchyoekhu_ecosoft_eoya_chyoekhusv_sbuakhrsgs_sfpsfa_chv2010ecopkg_ua_vtsgkoerym_tsf.webp",
@@ -9722,6 +9890,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Вода з необхідними організму мінералами",
+    "sku": "PD2010ECOPKG",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/6c6/564_564_140cd750bba9870f18aada2478b24840a/ru_pyryeuaoyiakhsu_ecosoft_eoya_chyoekhusv_sbuakhrsgs_sfpsfa_pd2010ecopkg_ua_pkryeuaokiakhsu_ecosoft.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/6c6/564_564_140cd750bba9870f18aada2478b24840a/ru_pyryeuaoyiakhsu_ecosoft_eoya_chyoekhusv_sbuakhrsgs_sfpsfa_pd2010ecopkg_ua_pkryeuaokiakhsu_ecosoft.webp",
@@ -9800,6 +9970,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "В комплект входять три картриджі Ecosoft, які необхідні для попереднього очищення води перед мембранним елементом у фільтрі зворотного осмосу.",
+    "sku": "CHVCB3ECOAGR",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/071/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_aquagreen_standard_chvcb3ecoagr_ua_nsptoyenkh_naukhuyezkv_e.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/071/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_aquagreen_standard_chvcb3ecoagr_ua_nsptoyenkh_naukhuyezkv_e.webp",
@@ -9825,6 +9997,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "В комплект входять три картриджі Ecosoft, які необхідні для попереднього очищення води перед мембранним елементом у фільтрі зворотного осмосу. До покращеного…",
+    "sku": "CHV3ECO",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/5f7/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_eoya_chyoekhua_sbuakhrsgs_sfpsfa_chv3eco_ua_ts.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/5f7/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_eoya_chyoekhua_sbuakhrsgs_sfpsfa_chv3eco_ua_ts.webp",
@@ -9850,6 +10024,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Комплект картриджів — гарант чистої та смачної води для всієї сім'ї",
+    "sku": "CPV4POST",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/d6b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_4_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_byei_pyryeuaoyiakh.webp",
     "details": {
       "documents": [
@@ -9869,6 +10045,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Комплект картриджів — гарант чистої та смачної води для всієї сім'ї",
+    "sku": "CPV4MIN",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/59c/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_4_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_ua_nsptoyenkh_.webp",
     "details": {
       "documents": [
@@ -9888,6 +10066,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "В комплект входять три картриджі Ecosoft, які необхідні для попереднього очищення води перед мембранним елементом у фільтрі зворотного осмосу. До покращеного…",
+    "sku": "CHV3ECOAGR",
+    "subcategory": "roc-absolute",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/1ec/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_eoya_chyoekhusv_sbuakhrsgs_sfpsfa_f_chtsrnshch.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/1ec/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_eoya_chyoekhusv_sbuakhrsgs_sfpsfa_f_chtsrnshch.webp",
@@ -9913,6 +10093,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Комплект картриджів Ecosoft для потрійного фільтра — це",
+    "sku": "CMV3ECO",
+    "subcategory": "roc-flow",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/bcc/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_cmv3eco_ua_nsptoyenkh_naukhuyezkv_ecosof.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/bcc/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_cmv3eco_ua_nsptoyenkh_naukhuyezkv_ecosof.webp",
@@ -9938,6 +10120,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Придбавши комплект із 4 картриджів, ви зможете замінити одразу всі змінні елементи у вашому фільтрі.",
+    "sku": "CHV4POST75GPD",
+    "subcategory": "roc-absolute",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/6c4/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_4_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_absolute_byei_pyryeuaoyiakh.webp",
     "details": {
       "documents": [
@@ -9957,6 +10141,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Мембранний елемент — головний елемент домашнього фільтра зворотного осмосу. Саме мембрана робить воду з вашого крана питною та безпечною навіть для дітей.",
+    "sku": "CSV181250ECO",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/6b3/564_564_140cd750bba9870f18aada2478b24840a/ru_pyepbuara_ecosoft_50gpd_eoya_espayrysh_chyoekhusv_sbuakhrsgs_sfpsfa_csv181250eco_ua_pyepbuara_eco.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/6b3/564_564_140cd750bba9870f18aada2478b24840a/ru_pyepbuara_ecosoft_50gpd_eoya_espayrysh_chyoekhusv_sbuakhrsgs_sfpsfa_csv181250eco_ua_pyepbuara_eco.webp",
@@ -10012,6 +10198,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Комплект картриджів — гарант чистої та смачної води для всієї сім'ї",
+    "sku": "CPV5POSTMIN",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/4a8/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_5_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_f_pyryeuaoyiakhsus.webp",
     "details": {
       "documents": [
@@ -10031,6 +10219,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Мембранний елемент — головний елемент домашнього фільтра зворотного осмосу. Саме мембрана робить воду з вашого крана питною та безпечною навіть для дітей.",
+    "sku": "CSV181275ECO",
+    "subcategory": "roc-absolute",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/eb6/564_564_140cd750bba9870f18aada2478b24840a/ru_pyepbuara_ecosoft_75gpd_eoya_espayrysh_chyoekhusv_sbuakhrsgs_sfpsfa_csv181275eco_ua_pyepbuara_eco.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/eb6/564_564_140cd750bba9870f18aada2478b24840a/ru_pyepbuara_ecosoft_75gpd_eoya_espayrysh_chyoekhusv_sbuakhrsgs_sfpsfa_csv181275eco_ua_pyepbuara_eco.webp",
@@ -10086,6 +10276,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Додайте в своє життя смаку та комфорту з Absolute.",
+    "sku": "CHV5ECOABS",
+    "subcategory": "roc-absolute",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/049/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_6_pyefyashchyev_chv5ecoabs_ua_nsptoyenkh_naukhuyezkv_eco.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/049/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_6_pyefyashchyev_chv5ecoabs_ua_nsptoyenkh_naukhuyezkv_eco.webp",
@@ -10111,6 +10303,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Комплект картриджів Ecosoft для потрійного фильтра — це",
+    "sku": "CRV3ECO",
+    "subcategory": "roc-flow",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/df7/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_nsptoyenkh_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_crv3eco_ua_tsnuayerym_nspto.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/df7/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_nsptoyenkh_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_crv3eco_ua_tsnuayerym_nspto.webp",
@@ -10136,6 +10330,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Комплект картриджів Ecosoft для потрійного фільтра — це",
+    "sku": "CMV6ECO",
+    "subcategory": "roc-flow",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/57c/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_cmv6eco_ua_ukrym_iataf_naukhuyezkv_ec.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/57c/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_cmv6eco_ua_ukrym_iataf_naukhuyezkv_ec.webp",
@@ -10162,6 +10358,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Придбавши комплект із 5 картриджів, ви зможете замінити одразу всі змінні елементи у вашому фільтрі.",
+    "sku": "CPV5POST50GPD",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/aef/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_standard_yi_5_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_byei_pyryeuaoyiakh.webp",
     "details": {
       "documents": [
@@ -10181,6 +10379,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Комплект картриджів — гарант чистої та смачної води для всієї сім'ї",
+    "sku": "CPV5MCSVECO",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/5ff/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_5_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_ua_nsptoyenkh_.webp",
     "details": {
       "documents": [
@@ -10200,6 +10400,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Мембранний елемент — головний елемент домашнього фільтра зворотного осмосу. Саме мембрана робить воду з вашого крана питною та безпечною навіть для дітей.",
+    "sku": "CSV1812100ECO",
+    "subcategory": "roc-pure",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/b26/564_564_140cd750bba9870f18aada2478b24840a/ru_pyepbuara_ecosoft_100gpd_eoya_espayrysh_chyoekhusv_sbuakhrsgs_sfpsfa_csv1812100eco_ua_pyepbuara_e.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/b26/564_564_140cd750bba9870f18aada2478b24840a/ru_pyepbuara_ecosoft_100gpd_eoya_espayrysh_chyoekhusv_sbuakhrsgs_sfpsfa_csv1812100eco_ua_pyepbuara_e.webp",
@@ -10255,6 +10457,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Придбавши комплект із 6 картриджів, ви зможете замінити одразу всі змінні елементи у вашому фільтрі зворотного осмосу Ecosoft Standard з мінералізатором.",
+    "sku": "CPV6POSTMIN50GPD",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/a4e/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_6_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_f_pyryeuaoyiakhsus.webp",
     "details": {
       "documents": [
@@ -10274,6 +10478,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Придбавши комплект із 5 картриджів, ви зможете замінити одразу всі змінні елементи у вашому фільтрі.",
+    "sku": "CHV5POST75GPD",
+    "subcategory": "roc-absolute",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/fb7/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_5_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_absolute_byei_pyryeuaoyiakh.webp",
     "details": {
       "documents": [
@@ -10293,6 +10499,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Комплект картриджів призначений для одноразової заміни всіх фільтрувальних елементів фільтра.",
+    "sku": "CHV6ECOABS",
+    "subcategory": "roc-absolute",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/6eb/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_12_pyefyashchyev_chv6ecoabs_ua_nsptoyenkh_naukhuyezkv_ec.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/6eb/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_12_pyefyashchyev_chv6ecoabs_ua_nsptoyenkh_naukhuyezkv_ec.webp",
@@ -10318,6 +10526,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Комплект картриджів Ecosoft для потрійного фильтра — це",
+    "sku": "CRV6ECO",
+    "subcategory": "roc-flow",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/1cf/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_crv6eco_ua_tsnuayerym_uk.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/1cf/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_crv6eco_ua_tsnuayerym_uk.webp",
@@ -10343,6 +10553,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Додайте в своє життя смаку та комфорту з PURE AquaCalcium.",
+    "sku": "CHV5PUREMAC",
+    "subcategory": "roc-pure",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/855/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_aquacalcium_mint_6_pyefyashchyev_ua_nsptoyenkh_naukhuyezkv_e.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/855/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_aquacalcium_mint_6_pyefyashchyev_ua_nsptoyenkh_naukhuyezkv_e.webp",
@@ -10368,6 +10580,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Три картриджі НАША ВОДА необхідні для підготовки води перед проходженням зворотноосмотичної мембрани.",
+    "sku": "CPV15POST50GPD",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/0aa/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_standard_byei_pyryeuaoyiakhsu.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/0aa/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_standard_byei_pyryeuaoyiakhsu.webp",
@@ -10393,6 +10607,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Додайте в своє життя смаку та комфорту з PURE Balance.",
+    "sku": "CHV5PUREBAL",
+    "subcategory": "roc-pure",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/022/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_balance_6_pyefyashchyev_chv5purebal_ua_nsptoyenkh_naukhuyezk.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/022/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_balance_6_pyefyashchyev_chv5purebal_ua_nsptoyenkh_naukhuyezk.webp",
@@ -10418,6 +10634,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Додайте в своє життя смаку та комфорту з P'URE Alkafuse.",
+    "sku": "CHV5PUREALC",
+    "subcategory": "roc-pure",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/e87/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_alkafuse_6_pyefyashchyev_chv5purealc_ua_nsptoyenkh_naukhuyez.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/e87/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_alkafuse_6_pyefyashchyev_chv5purealc_ua_nsptoyenkh_naukhuyez.webp",
@@ -10442,6 +10660,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Річний комплект картриджів — безлімітний запас чистої та смачної води з кальцієм для всієї сім'ї!",
+    "sku": "CPV9MIN50GPD",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/541/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_ua_ukrym.webp",
     "details": {
       "documents": [
@@ -10461,6 +10681,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Безлімітний запас чистої та смачної води на цілий рік",
+    "sku": "CHV15POST75GPD",
+    "subcategory": "roc-absolute",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/97b/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_absolute_byei_pyryeuaoyiakhsu.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/97b/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_absolute_byei_pyryeuaoyiakhsu.webp",
@@ -10485,6 +10707,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Три картриджі НАША ВОДА необхідні для підготовки води перед проходженням зворотноосмотичної мембрани.",
+    "sku": "CPV17POSTMIN50GPD",
+    "subcategory": "roc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/72b/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_standard_f_pyryeuaoyiakhsusp_.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/72b/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_standard_f_pyryeuaoyiakhsusp_.webp",
@@ -10511,6 +10735,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Додайте в своє життя смаку та комфорту з PURE AquaCalcium.",
+    "sku": "CHV6PUREMAC",
+    "subcategory": "roc-pure",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/345/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_aquacalcium_mint_12_pyefyashchyev_ua_nsptoyenkh_naukhuyezkv_.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/345/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_aquacalcium_mint_12_pyefyashchyev_ua_nsptoyenkh_naukhuyezkv_.webp",
@@ -10536,6 +10762,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Безлімітний запас чистої та смачної води на цілий рік",
+    "sku": "CHV17POSTMIN75GPD",
+    "subcategory": "roc-absolute",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/596/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_f_pyryeuaoyiakhsusp_ecosoft_absolute_.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/596/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_f_pyryeuaoyiakhsusp_ecosoft_absolute_.webp",
@@ -10561,6 +10789,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Додайте в своє життя смаку та комфорту з P'URE Alkafuse.",
+    "sku": "CHV6PUREALC",
+    "subcategory": "roc-pure",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/773/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_alkafuse_12_pyefyashchyev_chv6purealc_ua_nsptoyenkh_naukhuye.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/773/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_alkafuse_12_pyefyashchyev_chv6purealc_ua_nsptoyenkh_naukhuye.webp",
@@ -10585,6 +10815,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Додайте в своє життя смаку та комфорту з PURE Balance.",
+    "sku": "CHV6PUREBAL",
+    "subcategory": "roc-pure",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/12e/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_balance_12_pyefyashchyev_chv6purebal_ua_nsptoyenkh_naukhuyez.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/12e/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_balance_12_pyefyashchyev_chv6purebal_ua_nsptoyenkh_naukhuyez.webp",
@@ -10610,6 +10842,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Річний запас картриджів для фільтра зворотного осмосу Ecosoft PURE AquaCalcium Mint",
+    "sku": "CHV11PUREMAC",
+    "subcategory": "roc-pure",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/9b6/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_pure_aquacalcium_mint_ua_ukry.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/9b6/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_pure_aquacalcium_mint_ua_ukry.webp",
@@ -10635,6 +10869,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Річний запас картриджів для фільтра зворотного осмосу Ecosoft PURE Alkafuse",
+    "sku": "CHV11PUREALC",
+    "subcategory": "roc-pure",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/286/564_564_140cd750bba9870f18aada2478b24840a/ru_godovoy_zapas_kartridzhey_dlya_filtra_obratnogo_osmosa_ecosoft_p_ure_alkafuse_ua_richniy_zapas_ka.webp",
     "details": {
       "documents": [
@@ -10653,6 +10889,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Річний запас картриджів для фільтра зворотного осмосу Ecosoft PURE Balance",
+    "sku": "CHV11PUREBAL",
+    "subcategory": "roc-pure",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/589/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_pure_balance_ua_ukrym_iataf_n.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/589/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_pure_balance_ua_ukrym_iataf_n.webp",
@@ -10678,6 +10916,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж Ecosoft 2,5''x10 '' 1 мкм зі спіненого поліпропілену оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і…",
+    "sku": "CPV25101ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/4d4/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_1_pnp_cpv25101eco_ua_naukhuyez_ik_ftkrye.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/4d4/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_1_pnp_cpv25101eco_ua_naukhuyez_ik_ftkrye.webp",
@@ -10702,6 +10942,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж Ecosoft 2,5''x10 '' 5 мкм зі спіненого поліпропілену оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і…",
+    "sku": "CPV25105ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/461/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_5_pnp_cpv25105eco_ua_naukhuyez_ik_ftkrye.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/461/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_5_pnp_cpv25105eco_ua_naukhuyez_ik_ftkrye.webp",
@@ -10726,6 +10968,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж Ecosoft 2,5''x10 '' 10 мкм зі спіненого поліпропілену оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і…",
+    "sku": "CPV251010ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/e2f/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_10_pnp_cpv251010eco_ua_naukhuyez_ik_ftk.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/e2f/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_10_pnp_cpv251010eco_ua_naukhuyez_ik_ftk.webp",
@@ -10788,6 +11032,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж Ecosoft 2,5''x10 '' 20 мкм зі спіненого поліпропілену оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і…",
+    "sku": "CPV251020ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/bdc/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_20_pnp_cpv251020eco_ua_naukhuyez_ik_ftk.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/bdc/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_20_pnp_cpv251020eco_ua_naukhuyez_ik_ftk.webp",
@@ -10812,6 +11058,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Стабільні характеристики щільності намотування",
+    "sku": "CPN25101ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/23b/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_2_5_x10_1_pnp_cpn25101eco_ua_naukhuyez_i_tsoktustkoye.webp",
     "details": {
       "specs": [
@@ -10865,6 +11113,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Стабільні характеристики щільності намотування",
+    "sku": "CPN25105ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/ab7/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_2_5_x10_5_pnp_cpn25105eco_ua_naukhuyez_i_tsoktustkoye.webp",
     "details": {
       "specs": [
@@ -10918,6 +11168,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Стабільні характеристики щільності намотування",
+    "sku": "CPN251010ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/bee/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_2_5_x10_10_pnp_cpn251010eco_ua_naukhuyez_i_tsoktustk.webp",
     "details": {
       "specs": [
@@ -10971,6 +11223,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Стабільні характеристики щільності намотування",
+    "sku": "CPN251020ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/269/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_2_5_x10_20_pnp_cpn251020eco_ua_naukhuyez_i_tsoktustk.webp",
     "details": {
       "specs": [
@@ -11024,6 +11278,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж зі спіненого поліпропілену з бактеріостатичним ефектом Ecosoft 2,5\"x10\" 5 мкм",
+    "sku": "CPV25105BECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/046/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_bankhyeuysfkhakhyyefnym_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_sh10_5_pnp_cpv25105.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/046/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_bankhyeuysfkhakhyyefnym_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_sh10_5_pnp_cpv25105.webp",
@@ -11046,6 +11302,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Градієнтний картридж зі спіненого поліпропілену Ecosoft 2,5''x10'' оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул…",
+    "sku": "CPV2510205ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/ccb/564_564_140cd750bba9870f18aada2478b24840a/ru_guaeyyerkhr_m_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_cpv2510205eco_ua_guaekzhr.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/ccb/564_564_140cd750bba9870f18aada2478b24840a/ru_guaeyyerkhr_m_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_cpv2510205eco_ua_guaekzhr.webp",
@@ -11103,6 +11361,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Комплект складається з 3 картриджів Ecosoft 2,5''x10 '' 5 мкм зі спіненого поліпропілену оптимально підходить для очищення води від механічних домішок - таких, як…",
+    "sku": "CPV325105ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/11f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_3_ykh_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_5_pnp_cpv325105eco_.webp",
     "details": {
       "specs": [
@@ -11156,6 +11416,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж Ecosoft 4,5''x10'' 5 мкм зі спіненого поліпропілену оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і…",
+    "sku": "CPV45105ECO",
+    "subcategory": "mlc-bb10",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/29d/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_4_5_x10_5_pnp_cpv45105eco_ua_naukhuyez_ik_ftkrye.webp",
     "details": {
       "specs": [
@@ -11209,6 +11471,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Усередині картриджа для видалення хлору Ecosoft 2,5''х10'' міститься 100% високоякісне гранульоване активоване вугілля зі шкаралупи кокосових горіхів.",
+    "sku": "CHV2510ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/6ca/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_f_guartsoyusvarr_p_ankhyvyusvarr_p_tsgoyep_ecosoft_2_5_sh10_chv2510eco_ua_naukhuyez_i_g.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/6ca/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_f_guartsoyusvarr_p_ankhyvyusvarr_p_tsgoyep_ecosoft_2_5_sh10_chv2510eco_ua_naukhuyez_i_g.webp",
@@ -11258,6 +11522,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "В якості фільтруючого матеріалу використовується спресований активоване вугілля зі шкаралупи кокосового горіха. Картридж видаляє з води хлор і хлорорганічні сполуки,…",
+    "sku": "CHVCB2510ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/1d8/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tuyeffsvarrsgs_ankhyvyusvarrsgs_tsgoya_ecosoft_cto10_2_5_sh10_chvcb2510eco_ua_naukhu.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/1d8/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tuyeffsvarrsgs_ankhyvyusvarrsgs_tsgoya_ecosoft_cto10_2_5_sh10_chvcb2510eco_ua_naukhu.webp",
@@ -11311,6 +11577,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Доступна ціна за бездоганної якості",
+    "sku": "CMV2510ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/2df/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tspyagyeryya_vse_ecosoft_2_5_sh10_cmv2510eco_ua_naukhuyez_eoya_tsp_yanyyerrya_vsey.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/2df/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tspyagyeryya_vse_ecosoft_2_5_sh10_cmv2510eco_ua_naukhuyez_eoya_tsp_yanyyerrya_vsey.webp",
@@ -11360,6 +11628,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж Ecosoft 4,5''x10'' 5 мкм з поліпропіленової нитки оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д.",
+    "sku": "CPN45105ECO",
+    "subcategory": "mlc-bb10",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/0f1/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_4_5_x10_5_pnp_cpn45105eco_ua_naukhuyez_i_tsoktustkoye.webp",
     "details": {
       "specs": [
@@ -11413,6 +11683,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж Ecosoft 4,5''x20'' 5 мкм зі спіненого поліпропілену оптимально підходить для очищення води від механічних домішок розміром понад 5 мкм — таких, як іржа,…",
+    "sku": "CPV45205ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/bb8/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_4_5_x20_5_pnp_cpv45205eco_ua_naukhuyez_ik_ftkrye.webp",
     "details": {
       "specs": [
@@ -11466,6 +11738,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж зі спіненого поліпропілену Ecosoft 4,5\"x20\" 20 мкм",
+    "sku": "CPV452020ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/44b/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_4_5_x20_20_pnp_cpv452020eco_ua_naukhuyez_ik_ftk.webp",
     "details": {
       "specs": [
@@ -11519,6 +11793,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Постійні експлуатаційні властивості протягом усього ресурсу",
+    "sku": "CRVF2510ECO",
+    "subcategory": "mlc-standard",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/b9c/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tseaoyeryya_zyeoyeia_ecosoft_2_5_sh10_crvf2510eco_ua_naukhuyez_eoya_vyeaoyerrya_ia.webp",
     "details": {
       "documents": [
@@ -11538,6 +11814,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Стабільні характеристики щодо утримання часток",
+    "sku": "CPV4520205ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/65a/564_564_140cd750bba9870f18aada2478b24840a/ru_guaeyyerkhr_m_naukhuyez_yi_vftyeryerrsgs_tsoytustyeoyera_ecosoft_45_sh_20_20_5_pnp_cpv4520205eco_.webp",
     "details": {
       "specs": [
@@ -11591,6 +11869,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж Ecosoft 4,5''x20'' 20 мкм з поліпропіленової нитки оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д.",
+    "sku": "CPN452020ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/111/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_4_5_x20_20_pnp_cpn452020eco_ua_naukhuyez_i_tsoktustk.webp",
     "details": {
       "specs": [
@@ -11644,6 +11924,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж Ecosoft 4,5''x20'' 5 мкм зі спіненого поліпропілену оптимально підходить для очищення води від механічних домішок розміром понад 5 мкм — таких, як іржа,…",
+    "sku": "CPV245205ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/0a9/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_4_5_x20_5_pnp_2ykh_cpv245205eco_ua_naukhuyez_ik.webp",
     "details": {
       "specs": [
@@ -11697,6 +11979,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж зі спіненого поліпропілену Ecosoft 4,5\"x20\" 20 мкм 2шт.",
+    "sku": "CPV2452020ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/3ff/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_4_5_x20_20_pnp_2ykh_cpv2452020eco_ua_naukhuyez_.webp",
     "details": {
       "specs": [
@@ -11750,6 +12034,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Смачна вода – в картриджі 100% гранульоване вугілля зі шкаралупи кокосових горіхів",
+    "sku": "CHV4510ECO",
+    "subcategory": "mlc-bb10",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/068/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_f_guartsoyusvarr_p_ankhyvyusvarr_p_tsgoyep_ecosoft_4_5_sh10_chv4510eco_ua_naukhuyez_i_g.webp",
     "details": {
       "specs": [
@@ -11795,6 +12081,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Стабільні характеристики щодо утримання часток",
+    "sku": "CPV24520205ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/319/564_564_140cd750bba9870f18aada2478b24840a/ru_guaeyyerkhr_m_naukhuyez_yi_vftyeryerrsgs_tsoytustyeoyera_ecosoft_45_sh_20_20_5_pnp_2_ykh_cpv24520.webp",
     "details": {
       "specs": [
@@ -11848,6 +12136,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "В картриджі міститься спресоване вугілля зі шкаралупи кокосових горіхів.",
+    "sku": "CHVCB4510ECO",
+    "subcategory": "mlc-bb10",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/523/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tuyeffsvarrsgs_ankhyvyusvarrsgs_tsgoya_ecosoft_cto10_4_5_sh10_chvcb4510eco_ua_naukhu.webp",
     "details": {
       "specs": [
@@ -11897,6 +12187,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Постійні експлуатаційні властивості протягом усього ресурсу",
+    "sku": "CRVF4520ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/aa3/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tseaoyeryya_zyeoyeia_ecosoft_4_5_sh20_crvf4520eco_ua_naukhuyez_eoya_vyeaoyerrya_ia.webp",
     "details": {
       "specs": [
@@ -11942,6 +12234,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Смачна вода – у картриджі 100% гранульоване вугілля зі шкаралупи кокосових горіхів",
+    "sku": "CHV4520ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/5a5/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_f_guartsoyusvarr_p_ankhyvyusvarr_p_tsgoyep_ecosoft_4_5_sh20_chv4520eco_ua_naukhuyez_i_g.webp",
     "details": {
       "specs": [
@@ -11987,6 +12281,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "У картриджі спресоване вугілля із шкаралупи кокосових горіхів.",
+    "sku": "CHVCB4520ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/29f/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tuyeffsvarrsgs_ankhyvyusvarrsgs_tsgoya_ecosoft_cto10_4_5_sh20_chvcb4520eco_ua_naukhu.webp",
     "details": {
       "specs": [
@@ -12036,6 +12332,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Висока ємність матеріалу по сірководню",
+    "sku": "CRVS4520ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/c38/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_4_5_sh20_crvs4520eco_ua_naukhuyez_eoya_vyeaoyerr.webp",
     "details": {
       "specs": [
@@ -12081,6 +12379,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Постійні експлуатаційні властивості протягом усього ресурсу",
+    "sku": "CRVF24520ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/b13/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tseaoyeryya_zyeoyeia_ecosoft_4_5_sh20_2ykh_crvf24520eco_ua_naukhuyez_eoya_vyeaoyer.webp",
     "details": {
       "specs": [
@@ -12126,6 +12426,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Смачна вода – у картриджі 100% гранульоване вугілля зі шкаралупи кокосових горіхів",
+    "sku": "CHV24520ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/c48/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_f_guartsoyusvarr_p_ankhyvyusvarr_p_tsgoyep_ecosoft_4_5_sh20_2ykh_chv24520eco_ua_naukhuy.webp",
     "details": {
       "specs": [
@@ -12171,6 +12473,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "У картриджі спресоване вугілля із шкаралупи кокосових горіхів.",
+    "sku": "CHVCB24520ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/8bb/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tuyeffsvarrsgs_ankhyvyusvarrsgs_tsgoya_ecosoft_cto10_4_5_sh20_2ykh_chvcb24520eco_ua_.webp",
     "details": {
       "specs": [
@@ -12220,6 +12524,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Висока ємність матеріалу по сірководню",
+    "sku": "CRVS24520ECO",
+    "subcategory": "mlc-bb20",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/7c5/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_4_5_sh20_2ykh_crvs24520eco_ua_naukhuyez_eoya_vye.webp",
     "details": {
       "specs": [
@@ -12265,6 +12571,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Кварцовий пісок з розміром частинок 2-6 мм використовується як підкладка в засипних фільтрах для забезпечення більш рівномірного потоку води по всьому поперечному…",
+    "sku": "QUS26",
+    "subcategory": "fm-mechanical",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/c05/564_564_140cd750bba9870f18aada2478b24840a/ru_kvartsevyy_pesok_2_6_mm_dlya_podlozhki_25_kg_ua.webp",
     "details": {
       "specs": [
@@ -12298,6 +12606,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Сіль для регенерацї Ecosoft Ecosil постачається у вигляді таблеток, фасованих у мішки по 25 л. Фасування не пропускає вологу та забезпечує тривале зберігання.",
+    "sku": "KECOSIL",
+    "subcategory": "fm-salt",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/8bd/564_564_140cd750bba9870f18aada2478b24840a/ru_khaboyekhyusvarraya_fsoe_ecosil_25_ng_kecosil_ua_khaboyekhsvara_fkoe_ecosil_25_ng_kecosil.webp",
     "details": {
       "documents": [
@@ -12322,6 +12632,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Filter-Ag — фільтруючий матеріал на основі неводного діоксиду кремнію, призначений для ефективного видалення з води завислих частинок. Використовується у фільтрах…",
+    "sku": "FLAG",
+    "subcategory": "fm-mechanical",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/746/350_350_140cd750bba9870f18aada2478b24840a/ru_filtruyushchiy_material_filter_ag_28_3_l_ua_filtruyuchiy_material_filter_ag_28_3_l.webp",
     "details": {
       "specs": [
@@ -12401,6 +12713,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Сіль для регенерації та дезінфекції BWT Sanitabs",
+    "sku": "94241",
+    "subcategory": "fm-salt",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/f57/564_564_140cd750bba9870f18aada2478b24840a/ru_sol_dlya_regeneratsii_i_dezinfektsii_bwt_sanitabs_ua_sil_dlya_regeneratsii_ta_dezinfektsii_bwt_sa.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/f57/564_564_140cd750bba9870f18aada2478b24840a/ru_sol_dlya_regeneratsii_i_dezinfektsii_bwt_sanitabs_ua_sil_dlya_regeneratsii_ta_dezinfektsii_bwt_sa.webp",
@@ -12429,6 +12743,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Dowex HCR S/S – це сильнокислотна катіонообмінна смола гелевого типу, розроблена корпорацією DOW Chemical (США) для використання в побутових, комерційних та…",
+    "sku": "HCRSS12",
+    "subcategory": "fm-resin",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/e52/564_564_140cd750bba9870f18aada2478b24840a/ru_ysrssbpyerraya_fpsoa_dowex_hcr_s_s_12_o_ua_ksrssbpkrra_fpsoa_dowex_hcr_s_s_12_o.webp",
     "details": {
       "specs": [
@@ -12482,6 +12798,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecosoft Ecolite Soft – це сильнокислотна катіонообмінна смола у натрієвій формі, призначена для ефективного пом’якшення води в побутових і комерційних системах.…",
+    "sku": "ECOLITES25",
+    "subcategory": "fm-resin",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/6eb/564_564_140cd750bba9870f18aada2478b24840a/ru_ecosoft_ecolite_soft_fyoersnyfoskhraya_ysrssbpyerraya_fpsoa_25_o_ua_ecosoft_ecolite_soft_fyoersny.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/6eb/564_564_140cd750bba9870f18aada2478b24840a/ru_ecosoft_ecolite_soft_fyoersnyfoskhraya_ysrssbpyerraya_fpsoa_25_o_ua_ecosoft_ecolite_soft_fyoersny.webp",
@@ -12602,6 +12920,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Filter-Ag Plus - це природний мінерал, що має низку унікальних переваг перед традиційними піщаними та змішаними фільтрувальними матеріалами, застосовуваними для…",
+    "sku": "FLAGPL",
+    "subcategory": "fm-mechanical",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/73d/350_350_140cd750bba9870f18aada2478b24840a/ru_filtruyushchiy_material_filter_ag_plus_28_3_l_ua_filtruyuchiy_material_filter_ag_plus_28_3_l.webp",
     "details": {
       "specs": [
@@ -12697,6 +13017,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecosoft Ecolite Ultrasoft – це сильнокислотна катіонообмінна смола у натрієвій формі з однорідним розміром гранул, призначена для високоефективного пом’якшення води у…",
+    "sku": "ECOLITEUS25",
+    "subcategory": "fm-resin",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/006/564_564_140cd750bba9870f18aada2478b24840a/ru_ecosoft_ecolite_ultrasoft_fyoersnyfoskhraya_ysrssbpyerraya_fpsoa_25_o_ua_ecosoft_ecolite_ultrasof.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/006/564_564_140cd750bba9870f18aada2478b24840a/ru_ecosoft_ecolite_ultrasoft_fyoersnyfoskhraya_ysrssbpyerraya_fpsoa_25_o_ua_ecosoft_ecolite_ultrasof.webp",
@@ -12817,6 +13139,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecomix P - високоефективний фільтрувальний матеріал для складної води. Використовується для очищення водопровідної та артезіанської води з одночасним пом'якшенням,…",
+    "sku": "ECOMIXP12",
+    "subcategory": "fm-ecomix",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/ac5/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_p_12_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_p_12_o.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/ac5/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_p_12_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_p_12_o.webp",
@@ -12921,6 +13245,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Dowex HCR S/S – це сильнокислотна катіонообмінна смола гелевого типу, розроблена корпорацією DOW Chemical (США) для використання в побутових, комерційних та…",
+    "sku": "HCRSS25",
+    "subcategory": "fm-resin",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/6dd/350_350_140cd750bba9870f18aada2478b24840a/ru_ysrssbpyerraya_fpsoa_dowex_hcr_s_s_25_o_ua_ksrssbpkrra_fpsoa_dowex_hcr_s_s_25_o.webp",
     "details": {
       "specs": [
@@ -12984,6 +13310,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecomix А - високоефективний фільтрувальний матеріал для складної води. Використовується для очищення водопровідної та артезіанської води з одночасним пом'якшенням,…",
+    "sku": "ECOMIXA12",
+    "subcategory": "fm-ecomix",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/8c5/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_a_12_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_a_12_o.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/8c5/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_a_12_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_a_12_o.webp",
@@ -13102,6 +13430,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecomix С - високоефективний фільтрувальний матеріал для складної води. Використовується для очищення водопровідної та артезіанської води з одночасним пом'якшенням,…",
+    "sku": "ECOMIXC12",
+    "subcategory": "fm-ecomix",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/7b7/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_f_12_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_c_12_o.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/7b7/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_f_12_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_c_12_o.webp",
@@ -13220,6 +13550,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecosoft Ecolite Demin – це високоефективна змішана іонообмінна смола, збалансована та однорідна, гелевого типу. Складається зі сильнокислотного катіоніту та…",
+    "sku": "ECOLITED25",
+    "subcategory": "fm-resin",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/d2b/564_564_140cd750bba9870f18aada2478b24840a/ru_ecosoft_ecolite_demin_fpyeyarraya_ysrssbpyerraya_fpsoa_25_o_ua_ecosoft_ecolite_demin_ipkyara_ksrs.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/d2b/564_564_140cd750bba9870f18aada2478b24840a/ru_ecosoft_ecolite_demin_fpyeyarraya_ysrssbpyerraya_fpsoa_25_o_ua_ecosoft_ecolite_demin_ipkyara_ksrs.webp",
@@ -13340,6 +13672,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecomix A – високоефективний фільтруючий матеріал для складної води. Використовується для очищення водопровідної та артезіанської води з одночасним пом'якшенням,…",
+    "sku": "ECOMIXP25",
+    "subcategory": "fm-ecomix",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/ca8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_p_25_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_p_25_o.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/ca8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_p_25_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_p_25_o.webp",
@@ -13444,6 +13778,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecomix А - високоефективний фільтрувальний матеріал для складної води. Використовується для очищення водопровідної та артезіанської води з одночасним пом'якшенням,…",
+    "sku": "ECOMIXA25",
+    "subcategory": "fm-ecomix",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/d6c/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_a_25_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_a_25_o.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/d6c/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_a_25_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_a_25_o.webp",
@@ -13562,6 +13898,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecomix C - високоефективний фільтрувальний матеріал для складної води. Використовується для очищення водопровідної та артезіанської води з одночасним пом'якшенням,…",
+    "sku": "ECOMIXC25",
+    "subcategory": "fm-ecomix",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/1bf/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_f_25_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_c_25_o.webp",
     "images": [
       "https://ecosoft.ua/upload/resize_cache/iblock/1bf/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_f_25_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_c_25_o.webp",
@@ -13680,6 +14018,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Centaur HSL 12х40 — бітумінозне гранульоване активоване вугілля, виробляється за запатентованою технологією. Використовується для видалення сірководню в побутовій,…",
+    "sku": "CENT1240",
+    "subcategory": "fm-carbon",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/d79/350_350_140cd750bba9870f18aada2478b24840a/ru_ankhyvyusvarr_m_tsgsoe_centaur_hsl_12x40_15_ng_ua_ankhyvsvarye_vtsgkooya_centaur_hsl_12x40_15_ng.webp",
     "details": {
       "specs": [
@@ -13766,6 +14106,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Filtrasorb 300 — це високоефективне активоване гранульоване вугілля для очищення води від механічних мікродомішок, хлору, хлорорганіки, гумінових речовин, коригування…",
+    "sku": "FILTR300",
+    "subcategory": "fm-carbon",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/61d/350_350_140cd750bba9870f18aada2478b24840a/ru_ankhyvyusvarr_m_tsgsoe_filtrasorb_300_25_ng_ua_ankhyvsvarye_vtsgkooya_filtrasorb_300_25_ng.webp",
     "details": {
       "specs": [
@@ -13832,6 +14174,8 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Dowex MB-50 – це регенерована суміш іонообмінних смол (катіоніт та аніоніт), розроблена корпорацією DOW Chemical (США) для виробництва води найвищої якості у…",
+    "sku": "MB20",
+    "subcategory": "fm-resin",
     "image": "https://ecosoft.ua/upload/resize_cache/iblock/ac5/564_564_140cd750bba9870f18aada2478b24840a/ru_ionoobmennaya_smola_amberlite_mb_20_h_oh_25_l_ua.webp",
     "details": {
       "specs": [
@@ -13927,6 +14271,7 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Лінійка фільтрів зворотного осмосу Ecosoft RObust — це достатня кількість чистої та безпечної води для всіх потреб: від приготування страв та напоїв до смачної питної…",
+    "sku": "ROBUST1000STD",
     "features": [
       "Продуктивність 60 л/год"
     ],
@@ -14065,6 +14410,7 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Лінійка фільтрів зворотного осмосу Ecosoft RObust — це достатня кількість чистої та безпечної води для всіх потреб: від приготування страв та напоїв до смачної питної…",
+    "sku": "ROBUST1500ECO",
     "features": [
       "Продуктивність 100 л/год"
     ],
@@ -14204,6 +14550,7 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Лінійка фільтрів зворотного осмосу Ecosoft RObust — це достатня кількість чистої та безпечної води для всіх потреб: від приготування страв та напоїв до смачної питної…",
+    "sku": "ROBUSTCOFFEE",
     "features": [
       "Продуктивність 75 л/год",
       "Вода для кави"
@@ -14328,6 +14675,7 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Лінійка фільтрів зворотного осмосу Ecosoft RObust — це достатня кількість чистої та безпечної води для всіх потреб: від приготування страв та напоїв до смачної питної…",
+    "sku": "ROBUST3000MAX",
     "features": [
       "Продуктивність 160 л/год"
     ],
@@ -14442,6 +14790,7 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "ctaType": "buy",
     "description": "Компактний високопродуктивний фільтр зворотного осмосу. З таким фільтром ви зможете отримати чисту, безпечну воду для пиття та приготування їжі.",
+    "sku": "ROBUST4000",
     "features": [
       "Продуктивність 180 л/год"
     ],

@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { Check } from "lucide-react";
 import { useCart } from "./cart-context";
+import { pushAddToCart } from "@/utils/gtmEcommerce";
 import type { Product } from "@/lib/products";
 
 export function AddToCartButton({
@@ -26,11 +27,15 @@ export function AddToCartButton({
       onClick={() => {
         add({
           slug: product.slug,
+          sku: product.sku,
           name: product.name,
           price: product.price,
           image: product.image,
           category: product.category,
+          subcategory: product.subcategory,
         });
+        // GA4: add_to_cart (quantity 1 — cards/detail add a single unit)
+        pushAddToCart(product, 1);
         setAdded(true);
         if (timer.current) clearTimeout(timer.current);
         timer.current = setTimeout(() => setAdded(false), 1400);

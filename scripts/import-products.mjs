@@ -112,6 +112,8 @@ for (const p of products) {
       clamp(longDescription, 220) ||
       `${p.name}.`,
   };
+  if (p.sku) product.sku = String(p.sku).trim();
+  if (p.subcategory) product.subcategory = String(p.subcategory).trim();
   if (features.length) product.features = features.slice(0, 6);
   if (image) product.image = image;
   if (images.length > 1) product.images = images;
@@ -182,8 +184,10 @@ export type ProductDetails = {
 
 export type Product = {
   slug: string;
+  sku?: string;
   name: string;
   category: CategoryKey;
+  subcategory?: string;
   price: number;
   oldPrice?: number;
   capacityLpd?: number;

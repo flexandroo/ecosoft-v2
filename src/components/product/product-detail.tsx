@@ -34,6 +34,7 @@ import {
 import { formatUah } from "@/lib/format";
 import { ProductCard } from "@/components/catalog/product-card";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
+import { ViewItemTracker } from "./view-item-tracker";
 import { DescriptionAccordion } from "./description-accordion";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
@@ -82,6 +83,17 @@ export function ProductDetail({ product }: { product: Product }) {
 
   return (
     <article>
+      <ViewItemTracker
+        product={{
+          sku: product.sku,
+          id: product.slug,
+          slug: product.slug,
+          name: product.name,
+          category: product.category,
+          subcategory: product.subcategory,
+          price: product.price,
+        }}
+      />
       {/* HERO */}
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-[1600px] px-4 pt-6 pb-12 md:px-8 md:pt-8 md:pb-16">

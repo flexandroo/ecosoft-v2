@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   Minus,
@@ -12,14 +12,58 @@ import {
   Check,
   Phone,
 } from "lucide-react";
-import { useCart } from "./cart-context";
+import { useCart, type CartLine } from "./cart-context";
 import { formatUah } from "@/lib/format";
+import { pushBeginCheckout, pushPurchase } from "@/utils/gtmEcommerce";
 
 const FREE_SHIPPING_THRESHOLD = 5000;
+
+function toGA4Items(lines: CartLine[]) {
+  return lines.map((l) => ({
+    sku: l.sku,
+    id: l.slug,
+    name: l.name,
+    category: l.category,
+    subcategory: l.subcategory,
+    price: l.price,
+    quantity: l.qty,
+  }));
+}
 
 export function CartView() {
   const { lines, total, count, hydrated, setQty, remove, clear } = useCart();
   const [placed, setPlaced] = useState(false);
+  const beganCheckout = useRef(false);
+
+  // GA4: begin_checkout — once per checkout session (this cart-page mount),
+  // as soon as the cart is hydrated and not empty.
+  useEffect(() => {
+    if (beganCheckout.current) return;
+    if (!hydrated || lines.length === 0) return;
+    beganCheckout.current = true;
+    pushBeginCheckout(toGA4Items(lines), total);
+  }, [hydrated, lines, total]);
+
+  function handlePlaceOrder() {
+    // Snapshot the order before the cart is cleared.
+    const items = toGA4Items(lines);
+    const orderTotal = total;
+    const shipping = orderTotal >= FREE_SHIPPING_THRESHOLD ? 0 : 0;
+    const transactionId = `ECO-${Date.now()}-${Math.random()
+      .toString(36)
+      .slice(2, 8)
+      .toUpperCase()}`;
+    // GA4: purchase — after the order is created, deduped by transaction_id.
+    pushPurchase({
+      transactionId,
+      total: orderTotal,
+      shipping,
+      tax: 0,
+      items,
+    });
+    clear();
+    setPlaced(true);
+  }
 
   // Avoid hydration flash: render nothing meaningful until storage is read.
   if (!hydrated) {
@@ -212,10 +256,7 @@ export function CartView() {
 
             <button
               type="button"
-              onClick={() => {
-                clear();
-                setPlaced(true);
-              }}
+              onClick={handlePlaceOrder}
               className="mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
             >
               Оформити замовлення

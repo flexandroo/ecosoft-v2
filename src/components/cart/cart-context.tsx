@@ -9,10 +9,12 @@ const STORAGE_KEY = "ecosoft-cart-v1";
 // to import the full (heavy) PRODUCTS catalogue just to render the cart.
 export type CartLine = {
   slug: string;
+  sku?: string;
   name: string;
   price: number;
   image?: string;
   category: CategoryKey;
+  subcategory?: string;
   qty: number;
 };
 
@@ -30,10 +32,12 @@ function sanitize(raw: unknown): CartLine[] {
     )
     .map((l) => ({
       slug: l.slug,
+      sku: typeof l.sku === "string" ? l.sku : undefined,
       name: l.name,
       price: l.price,
       image: typeof l.image === "string" ? l.image : undefined,
       category: l.category,
+      subcategory: typeof l.subcategory === "string" ? l.subcategory : undefined,
       qty: Math.max(1, Math.floor(Number(l.qty)) || 1),
     }));
 }
