@@ -72,6 +72,9 @@ export function ProductDetail({ product }: { product: Product }) {
   const CategoryIcon = ICON_BY_CATEGORY[product.category];
   const related = relatedProducts(product, 4);
   const comparison = buildComparison(product);
+  // Use a model-specific warranty if the data has one; otherwise stay neutral
+  // (no hardcoded "3 роки" / "5 років" that could contradict other pages).
+  const warranty = d.specs?.find((s) => /гаран/i.test(s.label))?.value;
   const gallery =
     product.images && product.images.length > 0
       ? product.images
@@ -196,9 +199,11 @@ export function ProductDetail({ product }: { product: Product }) {
                 </div>
 
                 <ul className="mt-4 space-y-1.5 text-xs text-muted-foreground">
-                  <li className="flex items-center gap-2">
-                    <ShieldCheck className="size-3.5 text-primary" />
-                    Гарантія 3 роки
+                  <li className="flex items-start gap-2">
+                    <ShieldCheck className="mt-0.5 size-3.5 shrink-0 text-primary" />
+                    {warranty
+                      ? `Гарантія ${warranty}`
+                      : "Гарантія залежить від моделі — уточнимо під час консультації"}
                   </li>
                   <li className="flex items-center gap-2">
                     <Wrench className="size-3.5 text-primary" />
@@ -556,44 +561,95 @@ function Badge({
   );
 }
 
+// Comparison fields per category (read from the product `filters` facets).
+const COMPARE_FIELDS: Partial<Record<CategoryKey, { label: string; key: string }[]>> = {
+  "reverse-osmosis": [
+    { label: "Лінійка", key: "line" },
+    { label: "Тип системи", key: "systemType" },
+    { label: "Мінералізація", key: "mineralization" },
+    { label: "Помпа", key: "pump" },
+    { label: "Рівень", key: "level" },
+  ],
+  "filtration-systems": [
+    { label: "Формат", key: "format" },
+    { label: "Завдання", key: "task" },
+    { label: "Завантаження", key: "media" },
+    { label: "Рівень", key: "level" },
+  ],
+  "mainline-filters": [
+    { label: "Тип", key: "type" },
+    { label: "Підключення", key: "connection" },
+    { label: "Температура", key: "temperature" },
+    { label: "Призначення", key: "purpose" },
+  ],
+  "ro-cartridges": [
+    { label: "Тип", key: "type" },
+    { label: "Сумісність", key: "compatibility" },
+    { label: "Термін заміни", key: "period" },
+    { label: "Мембрана (GPD)", key: "gpd" },
+  ],
+  "mainline-cartridges": [
+    { label: "Типорозмір", key: "size" },
+    { label: "Матеріал", key: "material" },
+    { label: "Завдання", key: "task" },
+    { label: "Рейтинг фільтрації", key: "micron" },
+  ],
+  "filter-media": [
+    { label: "Тип матеріалу", key: "materialType" },
+    { label: "Призначення", key: "purpose" },
+    { label: "Обʼєм / вага", key: "volume" },
+    { label: "Бренд", key: "brand" },
+  ],
+  horeca: [
+    { label: "Продуктивність", key: "capacity" },
+    { label: "Для кави", key: "forCoffee" },
+    { label: "Лінійка", key: "line" },
+  ],
+};
+
+function facetValue(p: Product, key: string): string {
+  const v = p.filters?.[key];
+  return v && v.length ? v.join(", ") : "";
+}
+
 function buildComparison(product: Product): {
   columns: { slug: string; name: string }[];
   rows: { label: string; values: string[] }[];
 } | null {
-  const siblings = PRODUCTS.filter(
-    (p) => p.category === product.category && p.slug !== product.slug,
-  )
+  // Compare within the same subcategory first, then fall back to the category.
+  let siblings = PRODUCTS.filter(
+    (p) =>
+      p.category === product.category &&
+      p.slug !== product.slug &&
+      (product.subcategory ? p.subcategory === product.subcategory : true),
+  );
+  if (siblings.length === 0) {
+    siblings = PRODUCTS.filter(
+      (p) => p.category === product.category && p.slug !== product.slug,
+    );
+  }
+  siblings = siblings
     .sort((a, b) => Math.abs(a.price - product.price) - Math.abs(b.price - product.price))
     .slice(0, 2);
 
   if (siblings.length === 0) return null;
 
   const cols = [product, ...siblings];
+  const fields = COMPARE_FIELDS[product.category] ?? [];
 
-  const rows = [
-    {
-      label: "Ціна",
-      values: cols.map((p) => formatUah(p.price)),
-    },
-    {
-      label: "Ступенів",
-      values: cols.map((p) => (p.stages != null ? `${p.stages}` : "—")),
-    },
-    {
-      label: "Продуктивність",
-      values: cols.map((p) =>
-        p.capacityLpd != null
-          ? p.capacityLpd >= 1000
-            ? `${p.capacityLpd / 1000} м³/добу`
-            : `${p.capacityLpd} л/добу`
-          : "—",
-      ),
-    },
-    {
-      label: "Наявність",
-      values: cols.map((p) => (p.inStock ? "В наявності" : "Під замовлення")),
-    },
+  const rows: { label: string; values: string[] }[] = [
+    { label: "Ціна", values: cols.map((p) => formatUah(p.price)) },
   ];
+  for (const f of fields) {
+    const values = cols.map((p) => facetValue(p, f.key));
+    // Only keep rows where at least one product actually has a value.
+    if (values.some((v) => v)) {
+      rows.push({ label: f.label, values: values.map((v) => v || "—") });
+    }
+  }
+
+  // Hide the table unless it carries something beyond price (price + ≥2 attrs).
+  if (rows.length < 3) return null;
 
   return {
     columns: cols.map((p) => ({ slug: p.slug, name: p.name })),

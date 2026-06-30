@@ -13,6 +13,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { formatUah } from "@/lib/format";
 import type { CategoryKey, Product } from "@/lib/products";
+import { getProductBadges } from "@/lib/catalog-filters";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
@@ -28,6 +29,7 @@ const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
 
 export function ProductCard({ product }: { product: Product }) {
   const Icon = ICON_BY_CATEGORY[product.category];
+  const badges = getProductBadges(product);
 
   const spec = [
     product.stages != null ? `${product.stages} ступенів` : null,
@@ -82,6 +84,19 @@ export function ProductCard({ product }: { product: Product }) {
           </h3>
         </Link>
         {spec && <p className="mt-1 text-xs text-muted-foreground">{spec}</p>}
+
+        {badges.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {badges.map((b) => (
+              <span
+                key={b}
+                className="inline-flex items-center rounded-full bg-primary/8 px-2 py-0.5 text-[11px] font-medium text-primary"
+              >
+                {b}
+              </span>
+            ))}
+          </div>
+        )}
 
         <div className="mt-3 flex items-baseline gap-2 tabular">
           <span className="font-[family-name:var(--font-manrope)] text-xl font-bold text-foreground">

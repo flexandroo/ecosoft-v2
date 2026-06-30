@@ -36,7 +36,7 @@ export function Hero() {
         <div className="max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md">
             <ShieldCheck className="size-3.5 text-white" />
-            Сертифіковано NSF · 12 років на ринку
+            Офіційний партнерський магазин Ecosoft
           </span>
 
           <h1 className="mt-5 font-[family-name:var(--font-manrope)] text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-[68px] lg:leading-[1.04]">
@@ -44,8 +44,8 @@ export function Hero() {
           </h1>
 
           <p className="mt-5 max-w-xl text-base text-white/85 sm:text-lg">
-            Системи зворотного осмосу, помʼякшувачі та фільтри від українського виробника.
-            Підбір під аналіз води, монтаж під ключ, гарантія 5 років.
+            Підбираємо, доставляємо, монтуємо та обслуговуємо системи очищення води Ecosoft.
+            Допоможемо обрати рішення для квартири, будинку чи бізнесу — гарантія до 5 років залежно від моделі.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -57,7 +57,7 @@ export function Hero() {
               <ArrowRight className="size-4 transition-transform duration-200 group-hover/cta:translate-x-0.5" />
             </Link>
             <Link
-              href="/consultation"
+              href="/contacts"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/5 px-6 text-sm font-semibold text-white backdrop-blur-md transition-all duration-200 hover:border-white/50 hover:bg-white/10 active:scale-[0.98]"
             >
               Безкоштовна консультація
@@ -66,7 +66,7 @@ export function Hero() {
 
           <dl className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-white/15 pt-6">
             <Stat value="52 000+" label="клієнтів" />
-            <Stat value="5 років" label="гарантія" />
+            <Stat value="до 5 р." label="гарантія" />
             <Stat value="24 год" label="монтаж" />
           </dl>
         </div>

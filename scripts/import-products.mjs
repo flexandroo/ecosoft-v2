@@ -63,6 +63,28 @@ function uniqueSlug(slug) {
   return s;
 }
 
+// ---- Spec normalisation: keep clean "Параметр — Значення" rows only ----
+function cleanSpecs(rawSpecs) {
+  if (!Array.isArray(rawSpecs)) return [];
+  const seen = new Set();
+  const out = [];
+  for (const s of rawSpecs) {
+    if (!s) continue;
+    const label = String(s.name || "").replace(/\s+/g, " ").trim();
+    const value = String(s.value || "").replace(/\s+/g, " ").trim();
+    if (!label || !value) continue; // drop empty
+    if (value.length > 70) continue; // drop description fragments
+    if (value.includes(" | ")) continue; // drop merged comparison cells
+    if (label.length > 55) continue; // drop sentence-like labels
+    if (label.toLowerCase() === value.toLowerCase()) continue; // drop label==value
+    const key = label.toLowerCase();
+    if (seen.has(key)) continue; // dedupe by label
+    seen.add(key);
+    out.push({ label, value });
+  }
+  return out;
+}
+
 // ---- Classification: derive line/type/purpose/problem/installation/tags + facet filters ----
 function norm(s) {
   return String(s || "").toLowerCase().replace(/[’ʼ`]/g, "'");
@@ -287,11 +309,7 @@ for (const p of products) {
   const slug = uniqueSlug(p.slug);
   const cls = classify(p, category);
 
-  const specs = Array.isArray(d.specs)
-    ? d.specs
-        .filter((s) => s && s.name && s.value)
-        .map((s) => ({ label: String(s.name).trim(), value: String(s.value).trim() }))
-    : [];
+  const specs = cleanSpecs(d.specs);
 
   const documents = Array.isArray(d.documents)
     ? d.documents

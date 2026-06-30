@@ -17,16 +17,14 @@ const COLS = [
       { href: "/about", label: "Про нас" },
       { href: "/blog", label: "Блог" },
       { href: "/contacts", label: "Контакти" },
-      { href: "/careers", label: "Карʼєра" },
     ],
   },
   {
     title: "Клієнтам",
     links: [
       { href: "/delivery", label: "Доставка та оплата" },
-      { href: "/warranty", label: "Гарантія" },
-      { href: "/service", label: "Сервіс" },
-      { href: "/faq", label: "FAQ" },
+      { href: "/returns", label: "Повернення та обмін" },
+      { href: "/contacts", label: "Підбір та консультація" },
     ],
   },
 ];
@@ -41,7 +39,8 @@ export function Footer() {
               ecosoft
             </div>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-              Український виробник систем водопідготовки. Чиста вода для дому та бізнесу.
+              Офіційний партнерський магазин Ecosoft. Підбираємо, доставляємо, монтуємо
+              та обслуговуємо системи очищення води для дому та бізнесу.
             </p>
             <a
               href="tel:+380800300999"
@@ -71,14 +70,10 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-start gap-2 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-          <div>© {new Date().getFullYear()} Ecosoft. Всі права захищені.</div>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-foreground">
-              Конфіденційність
-            </Link>
-            <Link href="/terms" className="hover:text-foreground">
-              Умови
-            </Link>
+          <div>© {new Date().getFullYear()} Партнерський магазин Ecosoft.</div>
+          <div className="max-w-md md:text-right">
+            Ecosoft — український виробник систем очищення води. Цей сайт — офіційний
+            партнерський магазин: продаж, підбір, монтаж і сервіс.
           </div>
         </div>
       </div>

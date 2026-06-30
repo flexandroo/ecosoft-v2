@@ -1,12 +1,13 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { SlidersHorizontal, X, ChevronDown } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { SlidersHorizontal, X, ChevronDown, Search } from "lucide-react";
 import { type CategoryKey, type Product } from "@/lib/products";
 import {
   facetsForCategory,
   getAvailableFacets,
   matchesFacets,
+  matchesQuery,
   type AvailableFacet,
   type SelectedFacets,
 } from "@/lib/catalog-filters";
@@ -30,11 +31,28 @@ export function CatalogView({
   lockedCategory?: CategoryKey;
 }) {
   const [selected, setSelected] = useState<SelectedFacets>({});
+  const [query, setQuery] = useState("");
   const [inStockOnly, setInStockOnly] = useState(false);
   const [priceMin, setPriceMin] = useState("");
   const [priceMax, setPriceMax] = useState("");
   const [sort, setSort] = useState<SortKey>("default");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
+  // Pre-fill the search from the URL after hydration (shareable ?q= links).
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (q) setQuery(q);
+  }, []);
+
+  // Keep ?q= in the URL in sync (write-only, no re-render / no dynamic rendering).
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (query.trim()) params.set("q", query);
+    else params.delete("q");
+    const qs = params.toString();
+    window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
+  }, [query]);
 
   // Available facets are driven by config + the products in scope; facets with
   // fewer than 2 distinct values are dropped automatically.
@@ -44,7 +62,9 @@ export function CatalogView({
   );
 
   const filtered = useMemo(() => {
-    let list = products.filter((p) => matchesFacets(p, selected));
+    let list = products.filter(
+      (p) => matchesQuery(p, query) && matchesFacets(p, selected),
+    );
 
     if (inStockOnly) list = list.filter((p) => p.inStock);
     const min = Number(priceMin);
@@ -62,7 +82,7 @@ export function CatalogView({
       default:
         return list;
     }
-  }, [products, selected, inStockOnly, priceMin, priceMax, sort]);
+  }, [products, query, selected, inStockOnly, priceMin, priceMax, sort]);
 
   const toggleFacet = (key: string, value: string) => {
     setSelected((prev) => {
@@ -78,6 +98,7 @@ export function CatalogView({
 
   const resetAll = () => {
     setSelected({});
+    setQuery("");
     setInStockOnly(false);
     setPriceMin("");
     setPriceMax("");
@@ -85,7 +106,11 @@ export function CatalogView({
 
   const selectedCount = Object.values(selected).reduce((s, v) => s + v.length, 0);
   const hasActiveFilters =
-    selectedCount > 0 || inStockOnly || priceMin !== "" || priceMax !== "";
+    selectedCount > 0 ||
+    query.trim() !== "" ||
+    inStockOnly ||
+    priceMin !== "" ||
+    priceMax !== "";
   const activeBadge = selectedCount + (inStockOnly ? 1 : 0) + (priceMin || priceMax ? 1 : 0);
 
   const minPriceOfAll = Math.min(...products.map((p) => p.price));
@@ -113,6 +138,28 @@ export function CatalogView({
         </aside>
 
         <div>
+          <div className="relative mb-4">
+            <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Пошук: CROSS, PURE, BB20, мембрана 75 GPD, помʼякшення…"
+              aria-label="Пошук по каталогу"
+              className="h-11 w-full rounded-xl border border-border bg-card pl-10 pr-10 text-sm outline-none transition-colors focus:border-ring focus:ring-2 focus:ring-ring/30"
+            />
+            {query && (
+              <button
+                type="button"
+                aria-label="Очистити пошук"
+                onClick={() => setQuery("")}
+                className="absolute right-2.5 top-1/2 grid size-7 -translate-y-1/2 place-items-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              >
+                <X className="size-4" />
+              </button>
+            )}
+          </div>
+
           <div className="mb-5 flex items-center justify-between gap-3">
             <p className="text-sm text-muted-foreground">
               <span className="tabular font-semibold text-foreground">{filtered.length}</span>{" "}
@@ -157,13 +204,13 @@ export function CatalogView({
                 Нічого не знайдено
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Спробуйте змінити фільтри або скинути всі обмеження.
+                За вашим запитом нічого не знайдено. Спробуйте змінити пошук або скинути фільтри.
               </p>
               <button
                 onClick={resetAll}
                 className="mt-4 inline-flex h-9 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
               >
-                Скинути фільтри
+                Скинути пошук і фільтри
               </button>
             </div>
           ) : (
