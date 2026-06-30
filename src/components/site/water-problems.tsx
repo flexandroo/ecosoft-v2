@@ -114,21 +114,6 @@ export function WaterProblems() {
         <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-background to-transparent md:w-16" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-background to-transparent md:w-16" />
       </div>
-
-      <div className="mx-auto mt-8 max-w-[1600px] px-4 md:px-8">
-        <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-primary/20 bg-primary/5 p-6 text-center sm:flex-row sm:text-left">
-          <p className="text-base font-medium text-foreground">
-            Не знаєте, що обрати? Отримайте безкоштовну консультацію з підбору.
-          </p>
-          <Link
-            href="/contacts"
-            className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
-          >
-            Отримати консультацію
-            <ArrowRight className="size-4" />
-          </Link>
-        </div>
-      </div>
     </section>
   );
 }
