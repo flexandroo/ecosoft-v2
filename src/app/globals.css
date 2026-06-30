@@ -152,6 +152,24 @@
   .tabular { font-variant-numeric: tabular-nums; }
 }
 
+/* Slow auto-scrolling carousel (marquee). Track holds two copies of the items,
+   so translating by -50% loops seamlessly. */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  width: max-content;
+  animation: marquee-x 60s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 /* Respect users who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -163,5 +181,8 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .marquee-track {
+    animation: none;
   }
 }

@@ -51,7 +51,7 @@ const CATEGORIES: Category[] = [
 
 export function Categories() {
   return (
-    <section className="mx-auto max-w-[1600px] px-4 py-20 md:px-8 md:py-28">
+    <section className="mx-auto max-w-[1600px] px-4 pb-20 pt-8 md:px-8 md:pb-28 md:pt-10">
       <div className="mb-10 flex flex-col gap-3 md:mb-14 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">Каталог</p>
