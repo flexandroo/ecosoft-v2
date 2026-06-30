@@ -3,6 +3,13 @@
 import { useMemo, useState } from "react";
 import { SlidersHorizontal, X, ChevronDown } from "lucide-react";
 import { type CategoryKey, type Product } from "@/lib/products";
+import {
+  facetsForCategory,
+  getAvailableFacets,
+  matchesFacets,
+  type AvailableFacet,
+  type SelectedFacets,
+} from "@/lib/catalog-filters";
 import { formatUah } from "@/lib/format";
 import { ProductCard } from "./product-card";
 
@@ -17,22 +24,29 @@ const SORT_OPTIONS: { key: SortKey; label: string }[] = [
 
 export function CatalogView({
   products,
+  lockedCategory,
 }: {
   products: Product[];
   lockedCategory?: CategoryKey;
 }) {
+  const [selected, setSelected] = useState<SelectedFacets>({});
   const [inStockOnly, setInStockOnly] = useState(false);
   const [priceMin, setPriceMin] = useState("");
   const [priceMax, setPriceMax] = useState("");
   const [sort, setSort] = useState<SortKey>("default");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
-  const filtered = useMemo(() => {
-    let list = products;
+  // Available facets are driven by config + the products in scope; facets with
+  // fewer than 2 distinct values are dropped automatically.
+  const availableFacets = useMemo(
+    () => getAvailableFacets(products, facetsForCategory(lockedCategory)),
+    [products, lockedCategory],
+  );
 
-    if (inStockOnly) {
-      list = list.filter((p) => p.inStock);
-    }
+  const filtered = useMemo(() => {
+    let list = products.filter((p) => matchesFacets(p, selected));
+
+    if (inStockOnly) list = list.filter((p) => p.inStock);
     const min = Number(priceMin);
     const max = Number(priceMax);
     if (priceMin && !Number.isNaN(min)) list = list.filter((p) => p.price >= min);
@@ -48,15 +62,31 @@ export function CatalogView({
       default:
         return list;
     }
-  }, [products, inStockOnly, priceMin, priceMax, sort]);
+  }, [products, selected, inStockOnly, priceMin, priceMax, sort]);
+
+  const toggleFacet = (key: string, value: string) => {
+    setSelected((prev) => {
+      const current = prev[key] ?? [];
+      const next = current.includes(value)
+        ? current.filter((v) => v !== value)
+        : [...current, value];
+      const updated = { ...prev, [key]: next };
+      if (next.length === 0) delete updated[key];
+      return updated;
+    });
+  };
 
   const resetAll = () => {
+    setSelected({});
     setInStockOnly(false);
     setPriceMin("");
     setPriceMax("");
   };
 
-  const hasActiveFilters = inStockOnly || priceMin !== "" || priceMax !== "";
+  const selectedCount = Object.values(selected).reduce((s, v) => s + v.length, 0);
+  const hasActiveFilters =
+    selectedCount > 0 || inStockOnly || priceMin !== "" || priceMax !== "";
+  const activeBadge = selectedCount + (inStockOnly ? 1 : 0) + (priceMin || priceMax ? 1 : 0);
 
   const minPriceOfAll = Math.min(...products.map((p) => p.price));
   const maxPriceOfAll = Math.max(...products.map((p) => p.price));
@@ -66,6 +96,9 @@ export function CatalogView({
       <div className="grid gap-8 lg:grid-cols-[260px_1fr]">
         <aside className="hidden lg:block">
           <FiltersPanel
+            facets={availableFacets}
+            selected={selected}
+            toggleFacet={toggleFacet}
             inStockOnly={inStockOnly}
             setInStockOnly={setInStockOnly}
             priceMin={priceMin}
@@ -93,9 +126,9 @@ export function CatalogView({
                 className="inline-flex h-9 items-center gap-2 rounded-lg border border-border bg-card px-3 text-sm font-medium text-foreground transition-colors hover:bg-muted lg:hidden"
               >
                 <SlidersHorizontal className="size-4" /> Фільтри
-                {hasActiveFilters && (
+                {activeBadge > 0 && (
                   <span className="ml-1 grid size-5 place-items-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground">
-                    {(inStockOnly ? 1 : 0) + (priceMin || priceMax ? 1 : 0)}
+                    {activeBadge}
                   </span>
                 )}
               </button>
@@ -164,6 +197,9 @@ export function CatalogView({
               </button>
             </div>
             <FiltersPanel
+              facets={availableFacets}
+              selected={selected}
+              toggleFacet={toggleFacet}
               inStockOnly={inStockOnly}
               setInStockOnly={setInStockOnly}
               priceMin={priceMin}
@@ -190,6 +226,9 @@ export function CatalogView({
 }
 
 function FiltersPanel({
+  facets,
+  selected,
+  toggleFacet,
   inStockOnly,
   setInStockOnly,
   priceMin,
@@ -201,6 +240,9 @@ function FiltersPanel({
   hasActiveFilters,
   onReset,
 }: {
+  facets: AvailableFacet[];
+  selected: SelectedFacets;
+  toggleFacet: (key: string, value: string) => void;
   inStockOnly: boolean;
   setInStockOnly: (v: boolean) => void;
   priceMin: string;
@@ -228,6 +270,31 @@ function FiltersPanel({
           </button>
         )}
       </div>
+
+      {facets.map(({ def, options }) => (
+        <FilterGroup key={def.key} title={def.label}>
+          {options.map((opt) => {
+            const checked = (selected[def.key] ?? []).includes(opt.value);
+            return (
+              <label
+                key={opt.value}
+                className="flex cursor-pointer items-center justify-between rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-muted"
+              >
+                <span className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => toggleFacet(def.key, opt.value)}
+                    className="size-4 rounded border-border text-primary focus:ring-2 focus:ring-ring/30"
+                  />
+                  <span className="text-foreground">{opt.value}</span>
+                </span>
+                <span className="text-xs text-muted-foreground tabular">{opt.count}</span>
+              </label>
+            );
+          })}
+        </FilterGroup>
+      ))}
 
       <FilterGroup title="Ціна, ₴">
         <div className="flex items-center gap-2">
