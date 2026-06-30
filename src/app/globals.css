@@ -152,22 +152,13 @@
   .tabular { font-variant-numeric: tabular-nums; }
 }
 
-/* Slow auto-scrolling carousel (marquee). Track holds two copies of the items,
-   so translating by -50% loops seamlessly. */
-@keyframes marquee-x {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* Hide the scrollbar on the draggable carousel (still scrollable). */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.marquee-track {
-  width: max-content;
-  animation: marquee-x 60s linear infinite;
-}
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Respect users who prefer less motion */
@@ -181,8 +172,5 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-  .marquee-track {
-    animation: none;
   }
 }

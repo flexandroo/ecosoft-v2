@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   Droplets,
@@ -8,6 +11,8 @@ import {
   ShieldCheck,
   Coffee,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -69,6 +74,7 @@ function ProblemCard({ p, hidden }: { p: Problem; hidden?: boolean }) {
       href={p.href}
       aria-hidden={hidden}
       tabIndex={hidden ? -1 : undefined}
+      draggable={false}
       className="group mr-4 flex w-[280px] shrink-0 flex-col rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10"
     >
       <span className="inline-flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -87,32 +93,114 @@ function ProblemCard({ p, hidden }: { p: Problem; hidden?: boolean }) {
 }
 
 export function WaterProblems() {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const pausedRef = useRef(false);
+  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Slow auto-scroll via rAF; loops seamlessly over the duplicated set.
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let raf = 0;
+    let last = performance.now();
+    const SPEED = 26; // px / second — slow
+
+    const tick = (now: number) => {
+      const dt = (now - last) / 1000;
+      last = now;
+      if (!pausedRef.current) {
+        el.scrollLeft += SPEED * dt;
+        // period = distance between a card and its duplicate (seamless wrap).
+        const first = (el.children[0] as HTMLElement | undefined)?.offsetLeft ?? 0;
+        const dup = (el.children[PROBLEMS.length] as HTMLElement | undefined)?.offsetLeft;
+        const loop = dup != null ? dup - first : undefined;
+        if (loop && el.scrollLeft >= loop) el.scrollLeft -= loop;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  const pause = () => {
+    pausedRef.current = true;
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+  };
+  const resume = (delay = 0) => {
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    resumeTimer.current = setTimeout(() => {
+      pausedRef.current = false;
+    }, delay);
+  };
+
+  const page = (dir: 1 | -1) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    pause();
+    const card = (el.children[0] as HTMLElement | undefined)?.offsetWidth ?? 296;
+    const perPage = Math.max(1, Math.floor(el.clientWidth / (card + 16)));
+    el.scrollBy({ left: dir * perPage * (card + 16), behavior: "smooth" });
+    resume(2500); // resume auto-scroll a little after manual paging
+  };
+
   return (
     <section className="py-16 md:pb-10 md:pt-24">
-      <div className="mx-auto mb-8 max-w-[1600px] px-4 md:mb-10 md:px-8">
-        <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-          Підбір рішення
-        </p>
-        <h2 className="mt-2 font-[family-name:var(--font-manrope)] text-3xl font-bold tracking-tight md:text-4xl">
-          Підібрати фільтр за проблемою води
-        </h2>
-        <p className="mt-3 max-w-2xl text-muted-foreground">
-          Оберіть, що вас турбує — ми покажемо відповідні рішення Ecosoft для
-          квартири, будинку або бізнесу.
-        </p>
+      <div className="mx-auto mb-8 flex max-w-[1600px] items-end justify-between gap-4 px-4 md:mb-10 md:px-8">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+            Підбір рішення
+          </p>
+          <h2 className="mt-2 font-[family-name:var(--font-manrope)] text-3xl font-bold tracking-tight md:text-4xl">
+            Підібрати фільтр за проблемою води
+          </h2>
+          <p className="mt-3 max-w-2xl text-muted-foreground">
+            Оберіть, що вас турбує — ми покажемо відповідні рішення Ecosoft для
+            квартири, будинку або бізнесу.
+          </p>
+        </div>
+
+        {/* paging arrows (desktop) */}
+        <div className="hidden shrink-0 gap-2 sm:flex">
+          <button
+            type="button"
+            aria-label="Попередні"
+            onClick={() => page(-1)}
+            className="grid size-10 place-items-center rounded-full border border-border bg-card text-foreground transition-colors hover:border-primary/40 hover:text-primary active:scale-95"
+          >
+            <ChevronLeft className="size-5" />
+          </button>
+          <button
+            type="button"
+            aria-label="Наступні"
+            onClick={() => page(1)}
+            className="grid size-10 place-items-center rounded-full border border-border bg-card text-foreground transition-colors hover:border-primary/40 hover:text-primary active:scale-95"
+          >
+            <ChevronRight className="size-5" />
+          </button>
+        </div>
       </div>
 
-      {/* Single-row auto-scrolling carousel (pauses on hover). Two identical
-          copies + per-card right margin make translateX(-50%) loop seamlessly. */}
-      <div className="marquee relative overflow-hidden">
-        <div className="marquee-track flex w-max py-2">
+      {/* Draggable / swipeable carousel that also auto-scrolls. */}
+      <div
+        className="relative"
+        onMouseEnter={pause}
+        onMouseLeave={() => resume(0)}
+      >
+        <div
+          ref={scrollerRef}
+          onPointerDown={pause}
+          onPointerUp={() => resume(2500)}
+          className="no-scrollbar flex overflow-x-auto px-4 py-2 md:px-8"
+        >
           {[...PROBLEMS, ...PROBLEMS].map((p, i) => (
             <ProblemCard key={i} p={p} hidden={i >= PROBLEMS.length} />
           ))}
         </div>
         {/* edge fades */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-background to-transparent md:w-16" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-background to-transparent md:w-16" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-background to-transparent md:w-16" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-background to-transparent md:w-16" />
       </div>
     </section>
   );
