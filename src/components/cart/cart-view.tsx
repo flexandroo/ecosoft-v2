@@ -33,7 +33,16 @@ function toGA4Items(lines: CartLine[]) {
 export function CartView() {
   const { lines, total, count, hydrated, setQty, remove, clear } = useCart();
   const [placed, setPlaced] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [comment, setComment] = useState("");
+  const [company, setCompany] = useState(""); // honeypot
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const beganCheckout = useRef(false);
+
+  const contactValid = name.trim().length >= 2 && phone.replace(/\D/g, "").length >= 9;
 
   // GA4: begin_checkout — once per checkout session (this cart-page mount),
   // as soon as the cart is hydrated and not empty.
@@ -44,25 +53,63 @@ export function CartView() {
     pushBeginCheckout(toGA4Items(lines), total);
   }, [hydrated, lines, total]);
 
-  function handlePlaceOrder() {
+  async function handlePlaceOrder(e: React.FormEvent) {
+    e.preventDefault();
+    if (submitting || !contactValid) return;
+
     // Snapshot the order before the cart is cleared.
     const items = toGA4Items(lines);
     const orderTotal = total;
-    const shipping = orderTotal >= FREE_SHIPPING_THRESHOLD ? 0 : 0;
-    const transactionId = `ECO-${Date.now()}-${Math.random()
-      .toString(36)
-      .slice(2, 8)
-      .toUpperCase()}`;
-    // GA4: purchase — after the order is created, deduped by transaction_id.
-    pushPurchase({
-      transactionId,
-      total: orderTotal,
-      shipping,
-      tax: 0,
-      items,
-    });
-    clear();
-    setPlaced(true);
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          customer: {
+            name: name.trim(),
+            phone: phone.trim(),
+            address: address.trim(),
+            comment: comment.trim(),
+          },
+          company, // honeypot
+          items: items.map((it) => ({
+            name: it.name,
+            sku: it.sku,
+            qty: it.quantity,
+            price: it.price,
+          })),
+        }),
+      });
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        orderId?: string;
+      };
+      if (!res.ok || !data.ok) {
+        throw new Error("order_failed");
+      }
+
+      // GA4: purchase — after the order is created, deduped by transaction_id.
+      pushPurchase({
+        transactionId:
+          data.orderId ??
+          `ECO-${Date.now()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`,
+        total: orderTotal,
+        shipping: orderTotal >= FREE_SHIPPING_THRESHOLD ? 0 : 0,
+        tax: 0,
+        items,
+      });
+      clear();
+      setPlaced(true);
+    } catch {
+      setError(
+        "Не вдалося надіслати замовлення. Спробуйте ще раз або зателефонуйте нам.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   // Avoid hydration flash: render nothing meaningful until storage is read.
@@ -254,14 +301,91 @@ export function CartView() {
               </span>
             </div>
 
-            <button
-              type="button"
-              onClick={handlePlaceOrder}
-              className="mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
-            >
-              Оформити замовлення
-              <ArrowRight className="size-4" />
-            </button>
+            <form onSubmit={handlePlaceOrder} className="mt-5 space-y-3">
+              {/* Honeypot — hidden from users, filled only by bots. */}
+              <input
+                type="text"
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                className="hidden"
+                aria-hidden="true"
+              />
+              <div>
+                <label htmlFor="ord-name" className="sr-only">
+                  Імʼя
+                </label>
+                <input
+                  id="ord-name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  placeholder="Імʼя *"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="h-11 w-full rounded-lg border border-border bg-background px-3 text-sm outline-none transition-colors focus:border-ring focus:ring-2 focus:ring-ring/30"
+                />
+              </div>
+              <div>
+                <label htmlFor="ord-phone" className="sr-only">
+                  Телефон
+                </label>
+                <input
+                  id="ord-phone"
+                  type="tel"
+                  required
+                  autoComplete="tel"
+                  placeholder="+380 __ ___ __ __ *"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="h-11 w-full rounded-lg border border-border bg-background px-3 text-sm tabular outline-none transition-colors focus:border-ring focus:ring-2 focus:ring-ring/30"
+                />
+              </div>
+              <div>
+                <label htmlFor="ord-address" className="sr-only">
+                  Місто та відділення / адреса доставки
+                </label>
+                <input
+                  id="ord-address"
+                  type="text"
+                  autoComplete="street-address"
+                  placeholder="Місто, відділення Нової пошти / адреса"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  className="h-11 w-full rounded-lg border border-border bg-background px-3 text-sm outline-none transition-colors focus:border-ring focus:ring-2 focus:ring-ring/30"
+                />
+              </div>
+              <div>
+                <label htmlFor="ord-comment" className="sr-only">
+                  Коментар
+                </label>
+                <textarea
+                  id="ord-comment"
+                  rows={2}
+                  placeholder="Коментар до замовлення (необовʼязково)"
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                  className="w-full resize-y rounded-lg border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-ring focus:ring-2 focus:ring-ring/30"
+                />
+              </div>
+
+              {error && (
+                <p className="rounded-lg bg-destructive/10 px-3 py-2 text-xs font-medium text-destructive">
+                  {error}
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={submitting || !contactValid}
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {submitting ? "Надсилаємо…" : "Оформити замовлення"}
+                {!submitting && <ArrowRight className="size-4" />}
+              </button>
+            </form>
             <p className="mt-3 text-center text-xs text-muted-foreground">
               Підтвердження та оплата — після дзвінка менеджера.
             </p>

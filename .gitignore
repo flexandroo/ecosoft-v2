@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local price-list spreadsheets (data source, not app code)
+*.xlsx

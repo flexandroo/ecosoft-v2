@@ -90,7 +90,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-obratnogo-osmosa-ecosoft-standard-pro",
     "name": "Фільтр зворотного осмосу Ecosoft Standard PRO з мінералізацією",
     "category": "reverse-osmosis",
-    "price": 6335,
+    "price": 6418,
     "inStock": true,
     "ctaType": "buy",
     "description": "Зворотний осмос — найбільш досконала технологія очищення води до бездоганної якості. Вона очищає воду від 99.8% домішок, зокрема вірусів та бактерій, а також запахів…",
@@ -261,7 +261,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-obratnogo-osmosa-ecosoft-standard-s-mineralizatorom",
     "name": "Фільтр зворотного осмосу Ecosoft Standard з мінералізатором",
     "category": "reverse-osmosis",
-    "price": 6822,
+    "price": 6912,
     "inStock": true,
     "ctaType": "buy",
     "description": "Зворотний осмос — найбільш досконала технологія очищення води до бездоганної якості. Вона очищає воду від 99.8% домішок, зокрема вірусів та бактерій, а також запахів…",
@@ -437,10 +437,185 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
+    "slug": "filtr-obratnogo-osmosa-ecosoft-standard-pro-s-pompoy",
+    "name": "Фільтр зворотного осмосу Ecosoft Standard PRO з мінералізацією та помпою",
+    "category": "reverse-osmosis",
+    "price": 10368,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Для водопровідних мереж зі слабким напором води",
+    "sku": "MO550MPECOSTD",
+    "subcategory": "ro-standard",
+    "line": "Standard PRO",
+    "purpose": [
+      "Питна вода"
+    ],
+    "installation": "Під мийку",
+    "filters": {
+      "systemType": [
+        "З баком"
+      ],
+      "mineralization": [
+        "Є"
+      ],
+      "pump": [
+        "Є"
+      ],
+      "purpose": [
+        "Питна вода"
+      ],
+      "installation": [
+        "Під мийку"
+      ],
+      "level": [
+        "Покращений"
+      ],
+      "line": [
+        "Standard PRO"
+      ]
+    },
+    "features": [
+      "Для низького тиску"
+    ],
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/283/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_f_pyryeuaoyiashchyyem_y_tsptsm_mo550mpecostd_ua_ch.webp",
+    "images": [
+      "https://ecosoft.ua/upload/resize_cache/iblock/283/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_f_pyryeuaoyiashchyyem_y_tsptsm_mo550mpecostd_ua_ch.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/151/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_2_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/bda/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_3_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/95e/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_4_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/268/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_10_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/5ea/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_11_1200x1200.webp"
+    ],
+    "details": {
+      "specs": [
+        {
+          "label": "Накопичувальний бак",
+          "value": "7 л"
+        },
+        {
+          "label": "Тиск на вході, атм",
+          "value": "2–4,5"
+        },
+        {
+          "label": "Температура вхідної води, °С",
+          "value": "+4…+30"
+        },
+        {
+          "label": "Конверсія, %",
+          "value": "35"
+        },
+        {
+          "label": "Вага фільтра, кг",
+          "value": "10,48"
+        },
+        {
+          "label": "Зовнішнє підключення до водопроводу",
+          "value": "Різьбове, 1/2\""
+        },
+        {
+          "label": "Розміри фільтра, В х Ш х Г, мм",
+          "value": "455х410х195"
+        },
+        {
+          "label": "Розміри бака, В х Ш х Г, мм",
+          "value": "350х260х260"
+        },
+        {
+          "label": "pH",
+          "value": "6,5–8,5"
+        },
+        {
+          "label": "Мінералізація, мг/л",
+          "value": "<1500"
+        },
+        {
+          "label": "Твердість, мг-екв/л",
+          "value": "<10,0"
+        },
+        {
+          "label": "Хлор, мг/л",
+          "value": "<0,5"
+        },
+        {
+          "label": "Залізо, мг/л",
+          "value": "<0,3"
+        },
+        {
+          "label": "манган, мг/л",
+          "value": "<0,1"
+        },
+        {
+          "label": "Перманганатна окиснюваність, мг О2/л",
+          "value": "<5"
+        },
+        {
+          "label": "Загальне мікробне число (ЗМЧ), од/мг",
+          "value": "<50"
+        },
+        {
+          "label": "Coli-індекс",
+          "value": "<3"
+        },
+        {
+          "label": "Кальцій, мг/л",
+          "value": "<10"
+        },
+        {
+          "label": "Магній, мг/л",
+          "value": "<1"
+        },
+        {
+          "label": "Натрій + Калій, мг/л",
+          "value": "<5"
+        },
+        {
+          "label": "Гідрокарбонати, мг/л",
+          "value": "<10"
+        },
+        {
+          "label": "Хлориди, мг/л",
+          "value": "<5"
+        },
+        {
+          "label": "Тип фільтра",
+          "value": "зворотний осмос"
+        },
+        {
+          "label": "Призначення",
+          "value": "для питної води"
+        },
+        {
+          "label": "Монтаж",
+          "value": "під мийкою"
+        },
+        {
+          "label": "Комплектація",
+          "value": "мембрана, бак, мінералізатор, комплект картриджів, помпа"
+        },
+        {
+          "label": "Кількість ступенів очищення",
+          "value": "5"
+        }
+      ],
+      "documents": [
+        {
+          "name": "pasproall-_11_.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/692/pasproall-_11_.pdf",
+          "size": "17.4 MB"
+        },
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Для водопровідних мереж зі слабким напором води\n\nЯкі особливості моделі?\n\nФільтр зворотного осмосу Ecosoft Standard з помпою призначений для очищення води на молекулярному рівні в будинках та квартирах зі слабким напором в трубопроводі. Фільтр стійкий завдяки металевій підставці. Продуктивність фільтра — 8 л/год.\n\nТехнологія зворотного осмосу\n\nЗворотний осмос — найбільш досконала технологія очищення води до бездоганної якості. Вона очищає воду від 99.8% домішок.\n\nФільтр зворотного осмосу Ecosoft Standard з помпою – це:\n\n✓ мембрана Ecosoft (Україна),\n✓ 5 етапів очищення води,\n✓ 8 літрів питної води за годину,\n✓ накопичувальний бак корисним об'ємом до 7 літрів.\n\nПереваги фільтра Ecosoft Standard з помпою:\n\nУ вас вдома з'явиться джерело чистої та свіжої води, в безпеці якої ви абсолютно впевнені\n\nОвочі, приготовані на воді абсолютної якості, збережуть всі необхідні вашому організму корисні речовини\n\nЧай та кава будуть смачнішими та ароматнішими\n\nВоду не потрібно кип'ятити перед вживанням — завдяки технології зворотного осмосу питна вода стане не тільки смачною, а й абсолютно безпечною\n\nДо комплектації входить побутова помпа (насос) та спеціальна металева підставка, яка забезпечує стійкість фільтра."
+    }
+  },
+  {
     "slug": "filtr-obratnogo-osmosa-ecosoft-absolute-with-mineralization-new",
     "name": "Фільтр зворотного осмосу Ecosoft Absolute з мінералізатором",
     "category": "reverse-osmosis",
-    "price": 9979,
+    "price": 11894,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр зворотного осмосу Ecosoft Absolute з мінералізатором – це джерельний смак води завдяки використанню активованого вугілля зі шкаралупи кокосових горіхів та…",
@@ -618,29 +793,30 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
-    "slug": "filtr-obratnogo-osmosa-ecosoft-standard-pro-s-pompoy",
-    "name": "Фільтр зворотного осмосу Ecosoft Standard PRO з мінералізацією та помпою",
+    "slug": "compact-smart-filtr-dlya-pitevoy-vody-ecosoft-cross-solo",
+    "name": "Ультракомпактний розумний фільтр зворотного осмосу CROSS Solo",
     "category": "reverse-osmosis",
-    "price": 10233,
+    "price": 14767,
     "inStock": true,
     "ctaType": "buy",
-    "description": "Для водопровідних мереж зі слабким напором води",
-    "sku": "MO550MPECOSTD",
-    "subcategory": "ro-standard",
-    "line": "Standard PRO",
+    "description": "CROSS Solo – це компактний та ефективний прямоточний фільтр зворотного осмосу, ідеальний для пиття та приготування їжі. Завдяки компактним розмірам він підходить…",
+    "sku": "MO1500PECO",
+    "subcategory": "ro-cross",
+    "line": "CROSS",
     "purpose": [
       "Питна вода"
     ],
     "installation": "Під мийку",
     "filters": {
       "systemType": [
-        "З баком"
+        "Компактна",
+        "Розумна"
       ],
       "mineralization": [
-        "Є"
+        "Немає"
       ],
       "pump": [
-        "Є"
+        "Немає"
       ],
       "purpose": [
         "Питна вода"
@@ -649,114 +825,27 @@ export const PRODUCTS: Product[] = [
         "Під мийку"
       ],
       "level": [
-        "Покращений"
+        "Преміальний"
       ],
       "line": [
-        "Standard PRO"
+        "CROSS"
       ]
     },
     "features": [
-      "Для низького тиску"
+      "Смарт-індикація",
+      "Компактний"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/283/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_f_pyryeuaoyiashchyyem_y_tsptsm_mo550mpecostd_ua_ch.webp",
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/e79/564_564_140cd750bba9870f18aada2478b24840a/ru_tsoekhuansptankhr_m_tspr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross_solo_mo1500peco_ua_tsoekhuansptankhry.webp",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/283/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_f_pyryeuaoyiashchyyem_y_tsptsm_mo550mpecostd_ua_ch.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/151/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/bda/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_3_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/95e/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_4_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/268/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_10_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/5ea/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_11_1200x1200.webp"
+      "https://ecosoft.ua/upload/resize_cache/iblock/e79/564_564_140cd750bba9870f18aada2478b24840a/ru_tsoekhuansptankhr_m_tspr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross_solo_mo1500peco_ua_tsoekhuansptankhry.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/74c/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_1_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/7d3/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_6_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/628/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_2_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/148/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_5_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/e62/564_564_140cd750bba9870f18aada2478b24840a/csvpdro500_01.webp"
     ],
     "details": {
       "specs": [
-        {
-          "label": "Накопичувальний бак",
-          "value": "7 л"
-        },
-        {
-          "label": "Тиск на вході, атм",
-          "value": "2–4,5"
-        },
-        {
-          "label": "Температура вхідної води, °С",
-          "value": "+4…+30"
-        },
-        {
-          "label": "Конверсія, %",
-          "value": "35"
-        },
-        {
-          "label": "Вага фільтра, кг",
-          "value": "10,48"
-        },
-        {
-          "label": "Зовнішнє підключення до водопроводу",
-          "value": "Різьбове, 1/2\""
-        },
-        {
-          "label": "Розміри фільтра, В х Ш х Г, мм",
-          "value": "455х410х195"
-        },
-        {
-          "label": "Розміри бака, В х Ш х Г, мм",
-          "value": "350х260х260"
-        },
-        {
-          "label": "pH",
-          "value": "6,5–8,5"
-        },
-        {
-          "label": "Мінералізація, мг/л",
-          "value": "<1500"
-        },
-        {
-          "label": "Твердість, мг-екв/л",
-          "value": "<10,0"
-        },
-        {
-          "label": "Хлор, мг/л",
-          "value": "<0,5"
-        },
-        {
-          "label": "Залізо, мг/л",
-          "value": "<0,3"
-        },
-        {
-          "label": "манган, мг/л",
-          "value": "<0,1"
-        },
-        {
-          "label": "Перманганатна окиснюваність, мг О2/л",
-          "value": "<5"
-        },
-        {
-          "label": "Загальне мікробне число (ЗМЧ), од/мг",
-          "value": "<50"
-        },
-        {
-          "label": "Coli-індекс",
-          "value": "<3"
-        },
-        {
-          "label": "Кальцій, мг/л",
-          "value": "<10"
-        },
-        {
-          "label": "Магній, мг/л",
-          "value": "<1"
-        },
-        {
-          "label": "Натрій + Калій, мг/л",
-          "value": "<5"
-        },
-        {
-          "label": "Гідрокарбонати, мг/л",
-          "value": "<10"
-        },
-        {
-          "label": "Хлориди, мг/л",
-          "value": "<5"
-        },
         {
           "label": "Тип фільтра",
           "value": "зворотний осмос"
@@ -766,37 +855,102 @@ export const PRODUCTS: Product[] = [
           "value": "для питної води"
         },
         {
-          "label": "Монтаж",
-          "value": "під мийкою"
+          "label": "Робочий тиск",
+          "value": "1-4 бар"
         },
         {
-          "label": "Комплектація",
-          "value": "мембрана, бак, мінералізатор, комплект картриджів, помпа"
+          "label": "Температура вихідної води",
+          "value": "5-30 ℃"
         },
         {
-          "label": "Кількість ступенів очищення",
-          "value": "5"
+          "label": "Продуктивність",
+          "value": "78 л/год (1,3 л/хв)"
+        },
+        {
+          "label": "Рекавері",
+          "value": "50%"
+        },
+        {
+          "label": "Електроживлення",
+          "value": "230 В, 50 Гц"
+        },
+        {
+          "label": "Температура навколишнього середовища",
+          "value": "+4...+40 °С"
+        },
+        {
+          "label": "Рекомендована вологість",
+          "value": "≤90% (в приміщенні)"
+        },
+        {
+          "label": "Габарити (В × Ш × Г)",
+          "value": "300 × 140 × 200 мм"
+        },
+        {
+          "label": "pH",
+          "value": "6,5–8,5"
+        },
+        {
+          "label": "Загальна мінералізація",
+          "value": "≤ 1000 мг/л"
+        },
+        {
+          "label": "Жорсткість",
+          "value": "≤ 300 мг/л CaCO₃ (≤ 20 °dH)"
+        },
+        {
+          "label": "Каламутність",
+          "value": "≤ 3,5 NTU"
+        },
+        {
+          "label": "Вільний хлор",
+          "value": "≤ 0,01 мг/л"
+        },
+        {
+          "label": "Загальне залізо",
+          "value": "≤ 0,3 мг/л"
+        },
+        {
+          "label": "Марганець",
+          "value": "≤ 0,1 мг/л"
+        },
+        {
+          "label": "Хімічне споживання кисню",
+          "value": "≤ 5 мг O₂/л"
+        },
+        {
+          "label": "Загальна бактеріальна кількість",
+          "value": "≤ 50 КУО/мл"
+        },
+        {
+          "label": "Колі-індекс",
+          "value": "≤ 3"
         }
       ],
       "documents": [
         {
-          "name": "pasproall-_11_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/692/pasproall-_11_.pdf",
-          "size": "17.4 MB"
+          "name": "guidecross_solo.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/768/guidecross_solo.pdf",
+          "size": "4.1 MB"
+        },
+        {
+          "name": "paspmo1500peco.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/b3c/paspmo1500peco.pdf",
+          "size": "4.3 MB"
         },
         {
           "name": "Каталог продукції",
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
       ],
-      "longDescription": "Для водопровідних мереж зі слабким напором води\n\nЯкі особливості моделі?\n\nФільтр зворотного осмосу Ecosoft Standard з помпою призначений для очищення води на молекулярному рівні в будинках та квартирах зі слабким напором в трубопроводі. Фільтр стійкий завдяки металевій підставці. Продуктивність фільтра — 8 л/год.\n\nТехнологія зворотного осмосу\n\nЗворотний осмос — найбільш досконала технологія очищення води до бездоганної якості. Вона очищає воду від 99.8% домішок.\n\nФільтр зворотного осмосу Ecosoft Standard з помпою – це:\n\n✓ мембрана Ecosoft (Україна),\n✓ 5 етапів очищення води,\n✓ 8 літрів питної води за годину,\n✓ накопичувальний бак корисним об'ємом до 7 літрів.\n\nПереваги фільтра Ecosoft Standard з помпою:\n\nУ вас вдома з'явиться джерело чистої та свіжої води, в безпеці якої ви абсолютно впевнені\n\nОвочі, приготовані на воді абсолютної якості, збережуть всі необхідні вашому організму корисні речовини\n\nЧай та кава будуть смачнішими та ароматнішими\n\nВоду не потрібно кип'ятити перед вживанням — завдяки технології зворотного осмосу питна вода стане не тільки смачною, а й абсолютно безпечною\n\nДо комплектації входить побутова помпа (насос) та спеціальна металева підставка, яка забезпечує стійкість фільтра."
+      "longDescription": "CROSS Solo – це компактний та ефективний прямоточний фільтр зворотного осмосу, ідеальний для пиття та приготування їжі. Завдяки компактним розмірам він підходить навіть для найменших просторів, забезпечуючи миттєвий доступ до чистої питної води. Завдяки технології економії води він також оптимізує скидання води в каналізацію.\n\nЯк це працює?\n\nCROSS Solo використовує передову технологію зворотного осмосу для високоякісного очищення води. Фільтр працює на основі змінного 2-в-1 картриджу, який поєднує мембрану 500 GPD та вугільний фільтр на основі кокосового вугілля, видаляючи до 99% забруднень, включаючи бактерії, віруси та PFAS. Він також коригує смак очищеної води.\n\nCROSS Solo забезпечує миттєве очищення води зі швидкістю 1,3 л/хв, зменшуючи витрати води завдяки функції економії води. Для збереження ефективності фільтр має автоматичне промивання мембранного елементу, яке запобігає засміченню та подовжує термін його служби. Також передбачена функція запобігання понаднормовій роботі, яка зупиняє роботу фільтра після 30 хвилин безперервного використання."
     }
   },
   {
     "slug": "filtr-zvorotnoho-osmosu-absoliut-mineralizator-pompa",
     "name": "Фільтр зворотного осмосу Ecosoft Absolute з мінералізатором з помпою на станині",
     "category": "reverse-osmosis",
-    "price": 13367,
+    "price": 15934,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр з функцією економії води, призначений для водопровідних мереж зі слабким напором води та мінералізацією",
@@ -978,164 +1132,10 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
-    "slug": "compact-smart-filtr-dlya-pitevoy-vody-ecosoft-cross-solo",
-    "name": "Ультракомпактний розумний фільтр зворотного осмосу CROSS Solo",
-    "category": "reverse-osmosis",
-    "price": 14575,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "CROSS Solo – це компактний та ефективний прямоточний фільтр зворотного осмосу, ідеальний для пиття та приготування їжі. Завдяки компактним розмірам він підходить…",
-    "sku": "MO1500PECO",
-    "subcategory": "ro-cross",
-    "line": "CROSS",
-    "purpose": [
-      "Питна вода"
-    ],
-    "installation": "Під мийку",
-    "filters": {
-      "systemType": [
-        "Компактна",
-        "Розумна"
-      ],
-      "mineralization": [
-        "Немає"
-      ],
-      "pump": [
-        "Немає"
-      ],
-      "purpose": [
-        "Питна вода"
-      ],
-      "installation": [
-        "Під мийку"
-      ],
-      "level": [
-        "Преміальний"
-      ],
-      "line": [
-        "CROSS"
-      ]
-    },
-    "features": [
-      "Смарт-індикація",
-      "Компактний"
-    ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/e79/564_564_140cd750bba9870f18aada2478b24840a/ru_tsoekhuansptankhr_m_tspr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross_solo_mo1500peco_ua_tsoekhuansptankhry.webp",
-    "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/e79/564_564_140cd750bba9870f18aada2478b24840a/ru_tsoekhuansptankhr_m_tspr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross_solo_mo1500peco_ua_tsoekhuansptankhry.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/74c/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_1_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/7d3/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_6_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/628/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/148/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_5_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e62/564_564_140cd750bba9870f18aada2478b24840a/csvpdro500_01.webp"
-    ],
-    "details": {
-      "specs": [
-        {
-          "label": "Тип фільтра",
-          "value": "зворотний осмос"
-        },
-        {
-          "label": "Призначення",
-          "value": "для питної води"
-        },
-        {
-          "label": "Робочий тиск",
-          "value": "1-4 бар"
-        },
-        {
-          "label": "Температура вихідної води",
-          "value": "5-30 ℃"
-        },
-        {
-          "label": "Продуктивність",
-          "value": "78 л/год (1,3 л/хв)"
-        },
-        {
-          "label": "Рекавері",
-          "value": "50%"
-        },
-        {
-          "label": "Електроживлення",
-          "value": "230 В, 50 Гц"
-        },
-        {
-          "label": "Температура навколишнього середовища",
-          "value": "+4...+40 °С"
-        },
-        {
-          "label": "Рекомендована вологість",
-          "value": "≤90% (в приміщенні)"
-        },
-        {
-          "label": "Габарити (В × Ш × Г)",
-          "value": "300 × 140 × 200 мм"
-        },
-        {
-          "label": "pH",
-          "value": "6,5–8,5"
-        },
-        {
-          "label": "Загальна мінералізація",
-          "value": "≤ 1000 мг/л"
-        },
-        {
-          "label": "Жорсткість",
-          "value": "≤ 300 мг/л CaCO₃ (≤ 20 °dH)"
-        },
-        {
-          "label": "Каламутність",
-          "value": "≤ 3,5 NTU"
-        },
-        {
-          "label": "Вільний хлор",
-          "value": "≤ 0,01 мг/л"
-        },
-        {
-          "label": "Загальне залізо",
-          "value": "≤ 0,3 мг/л"
-        },
-        {
-          "label": "Марганець",
-          "value": "≤ 0,1 мг/л"
-        },
-        {
-          "label": "Хімічне споживання кисню",
-          "value": "≤ 5 мг O₂/л"
-        },
-        {
-          "label": "Загальна бактеріальна кількість",
-          "value": "≤ 50 КУО/мл"
-        },
-        {
-          "label": "Колі-індекс",
-          "value": "≤ 3"
-        }
-      ],
-      "documents": [
-        {
-          "name": "guidecross_solo.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/768/guidecross_solo.pdf",
-          "size": "4.1 MB"
-        },
-        {
-          "name": "paspmo1500peco.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/b3c/paspmo1500peco.pdf",
-          "size": "4.3 MB"
-        },
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "CROSS Solo – це компактний та ефективний прямоточний фільтр зворотного осмосу, ідеальний для пиття та приготування їжі. Завдяки компактним розмірам він підходить навіть для найменших просторів, забезпечуючи миттєвий доступ до чистої питної води. Завдяки технології економії води він також оптимізує скидання води в каналізацію.\n\nЯк це працює?\n\nCROSS Solo використовує передову технологію зворотного осмосу для високоякісного очищення води. Фільтр працює на основі змінного 2-в-1 картриджу, який поєднує мембрану 500 GPD та вугільний фільтр на основі кокосового вугілля, видаляючи до 99% забруднень, включаючи бактерії, віруси та PFAS. Він також коригує смак очищеної води.\n\nCROSS Solo забезпечує миттєве очищення води зі швидкістю 1,3 л/хв, зменшуючи витрати води завдяки функції економії води. Для збереження ефективності фільтр має автоматичне промивання мембранного елементу, яке запобігає засміченню та подовжує термін його служби. Також передбачена функція запобігання понаднормовій роботі, яка зупиняє роботу фільтра після 30 хвилин безперервного використання."
-    }
-  },
-  {
     "slug": "filtr-zvorotnoho-osmosu-ecosoft-p-ure-aquacalcium-mint",
     "name": "Фільтр зворотного осмосу Ecosoft PURE AQUACALCIUM Mint",
     "category": "reverse-osmosis",
-    "price": 16834,
+    "price": 17056,
     "inStock": true,
     "ctaType": "buy",
     "description": "Створюйте воду з мінералами, як сама природа",
@@ -1333,7 +1333,7 @@ export const PRODUCTS: Product[] = [
     "slug": "compact-smart-filtr-dlya-pitevoy-vody-ecosoft-cross-max",
     "name": "Ультракомпактний розумний прямоточний фільтр зворотного осмосу CROSS Max",
     "category": "reverse-osmosis",
-    "price": 17942,
+    "price": 18178,
     "inStock": true,
     "ctaType": "buy",
     "description": "CROSS Max — це прямоточний фільтр зворотного осмосу без накопичувального бака, призначений для встановлення під кухонною мийкою в квартирах та приватних будинках.",
@@ -1487,7 +1487,7 @@ export const PRODUCTS: Product[] = [
     "slug": "compact-smart-filtr-dlya-pitevoy-vody-ecosoft-cross60",
     "name": "Компактний розумний фільтр зворотного осмосу CROSS60",
     "category": "reverse-osmosis",
-    "price": 22150,
+    "price": 22442,
     "inStock": true,
     "ctaType": "buy",
     "description": "Компактний розумний фільтр зворотного осмосу Ecosoft CROSS 60 – це інноваційна розробка наших вчених-інженерів, яка поєднує бездоганну технологію очищення води, SMART…",
@@ -1600,7 +1600,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-ecosoft-p-ure-aquacalcium-mint-pump-metal-frame",
     "name": "Фільтр зворотного осмосу Ecosoft PURE AquaCalcium Mint з помпою на станині",
     "category": "reverse-osmosis",
-    "price": 22593,
+    "price": 22890,
     "inStock": true,
     "ctaType": "buy",
     "description": "Створюйте воду з мінералами, як сама природа",
@@ -1788,7 +1788,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-dlya-pitevoy-vody-ecosoft-p-ure-balance",
     "name": "Фільтр зворотного осмосу Ecosoft PURE BALANCE",
     "category": "reverse-osmosis",
-    "price": 25694,
+    "price": 26032,
     "inStock": true,
     "ctaType": "buy",
     "description": "Поєднання природних процесів та створених нами технологій",
@@ -1968,7 +1968,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-dlya-pitevoy-vody-ecosoft-p-ure-balance-pump-metal-frame",
     "name": "Фільтр зворотного осмосу Ecosoft PURE BALANCE з помпою на станині",
     "category": "reverse-osmosis",
-    "price": 30567,
+    "price": 30969,
     "inStock": true,
     "ctaType": "buy",
     "description": "Поєднання природних процесів та створених нами технологій",
@@ -2144,7 +2144,7 @@ export const PRODUCTS: Product[] = [
     "slug": "compact-smart-filtr-dlya-pitevoy-vody-ecosoft-cross90",
     "name": "Компактний розумний фільтр зворотного осмосу CROSS90",
     "category": "reverse-osmosis",
-    "price": 30789,
+    "price": 31194,
     "inStock": true,
     "ctaType": "buy",
     "description": "Компактний розумний фільтр зворотного осмосу Ecosoft CROSS 90 – це інноваційна розробка наших вчених-інженерів, яка поєднує бездоганну технологію очищення води, SMART…",
@@ -2258,7 +2258,7 @@ export const PRODUCTS: Product[] = [
     "slug": "compact-smart-filtr-dlya-pitevoy-vody-ecosoft-cross90-balance",
     "name": "Компактний розумний фільтр зворотного осмосу CROSS90 Balance",
     "category": "reverse-osmosis",
-    "price": 32738,
+    "price": 33169,
     "inStock": true,
     "ctaType": "buy",
     "description": "Компактний розумний фільтр зворотного осмосу CROSS90 Balance",
@@ -2369,7 +2369,7 @@ export const PRODUCTS: Product[] = [
     "slug": "troynoy-filtr-ecosoft-standard",
     "name": "Потрійний фільтр Ecosoft Standard",
     "category": "flow-filters",
-    "price": 2304,
+    "price": 2334,
     "inStock": true,
     "ctaType": "buy",
     "description": "Потрійний фільтр Ecosoft Standard — це:",
@@ -2430,7 +2430,7 @@ export const PRODUCTS: Product[] = [
     "slug": "ustanovka-mekhanicheskoy-filtratsii-ecosoft-fp-1054",
     "name": "Фільтр механічного очищення Ecosoft FP 1054CT",
     "category": "filtration-systems",
-    "price": 23701,
+    "price": 24013,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FР 1054CT призначений для очищення води від механічних домішок (мул, пісок, іржа, окалина), підходить для використання у квартирі або котеджі з 1…",
@@ -2558,7 +2558,7 @@ export const PRODUCTS: Product[] = [
     "slug": "ustanovka-mekhanicheskoy-filtratsii-ecosoft-fp-1252",
     "name": "Фільтр механічного очищення Ecosoft FP 1252CT",
     "category": "filtration-systems",
-    "price": 28441,
+    "price": 28815,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FР 1252CT призначений для очищення води від механічних домішок (мул, пісок, іржа, окалина), підходить для використання у квартирі або котеджі з 1-2…",
@@ -2686,7 +2686,7 @@ export const PRODUCTS: Product[] = [
     "slug": "ustanovka-mekhanicheskoy-filtratsii-ecosoft-fp-1354",
     "name": "Фільтр механічного очищення Ecosoft FP 1354CT",
     "category": "filtration-systems",
-    "price": 29637,
+    "price": 30027,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FР 1054CT призначений для очищення води від механічних домішок (мул, пісок, іржа, окалина), підходить для використання у квартирі або котеджі з 1…",
@@ -2814,7 +2814,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-umyagcheniya-vody-ecosoft-fu1054ci",
     "name": "Фільтр пом'якшення води Ecosoft FU1054CI",
     "category": "filtration-systems",
-    "price": 33668,
+    "price": 34111,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1054CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає від 3 до 4 осіб.",
@@ -2985,181 +2985,6 @@ export const PRODUCTS: Product[] = [
         }
       ],
       "longDescription": "Фільтр Ecosoft FU 1054CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає від 3 до 4 осіб.\n\nФільтр складається з корпусу, заповненого іонообмінною смолою, багатофункціонального керуючого клапана і сольового бака для регенерації фільтра.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра, піклується про постійне запасі очищеної води і не вимагає до себе зайвої уваги.\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nЧиста і м'яка вода кожен день\nНадійна і ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі і мале скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nШовковиста шкіра і здорове волосся\nСяюча сантехніка і посуд\nЯкість і колір одягу і білизни зберігається значно довше\nІстотна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера і чайника)\nЕкономія до 30% електроенергії"
-    }
-  },
-  {
-    "slug": "kompaktnyi-filtr-pomiakshennya-vody-ecosoft-core-110-ci",
-    "name": "Компактний фільтр пом'якшення води Ecosoft Core 110 CI",
-    "category": "filtration-systems",
-    "price": 35885,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується…",
-    "sku": "FU1013CABCIMVCR",
-    "subcategory": "softening-systems",
-    "line": "Core",
-    "type": "Пом'якшення",
-    "purpose": [
-      "Весь будинок"
-    ],
-    "problem": [
-      "Жорсткість"
-    ],
-    "installation": "Кабінетний",
-    "tags": [
-      "cabinet-systems",
-      "Core"
-    ],
-    "filters": {
-      "format": [
-        "Кабінетна"
-      ],
-      "series": [
-        "FU",
-        "Core"
-      ],
-      "task": [
-        "Пом'якшення"
-      ],
-      "media": [
-        "Іонообмінна смола"
-      ],
-      "purpose": [
-        "Весь будинок"
-      ],
-      "problem": [
-        "Жорсткість"
-      ],
-      "installation": [
-        "Кабінетний"
-      ],
-      "level": [
-        "Стандарт"
-      ],
-      "line": [
-        "Core"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/81a/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspyagykhyeoe_vse_ecosoft_core_110_ua_nsptankhrym_tsp_yanytsva_vsey_ecosoft_core_110.webp",
-    "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/81a/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspyagykhyeoe_vse_ecosoft_core_110_ua_nsptankhrym_tsp_yanytsva_vsey_ecosoft_core_110.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/313/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_5.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/899/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_1.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/4a6/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_3.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/64f/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_4.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/01a/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_2.webp"
-    ],
-    "details": {
-      "specs": [
-        {
-          "label": "Продуктивність робоча / максимальна, м3/год",
-          "value": "1,0 / 1,2"
-        },
-        {
-          "label": "Об'єм фільтрувального матеріалу, л",
-          "value": "11"
-        },
-        {
-          "label": "Ресурс, м3 (при твердості 5 мг-екв/л)",
-          "value": "2"
-        },
-        {
-          "label": "Витрата солі на регенерацію, кг",
-          "value": "1,2"
-        },
-        {
-          "label": "Витрата води на регенерацію (об'єм стоків), м3",
-          "value": "0,5"
-        },
-        {
-          "label": "Тривалість регенерації, хв",
-          "value": "50"
-        },
-        {
-          "label": "Перепад тиску в робочому режимі, бар",
-          "value": "0,5"
-        },
-        {
-          "label": "Робочий тиск, бар",
-          "value": "2…6"
-        },
-        {
-          "label": "Електроживлення",
-          "value": "230 В, 50 Гц"
-        },
-        {
-          "label": "Енергоспоживання, Вт",
-          "value": "30"
-        },
-        {
-          "label": "Діаметр підключення трубопроводу",
-          "value": "3/4\""
-        },
-        {
-          "label": "Вага, кг",
-          "value": "14"
-        },
-        {
-          "label": "Габаритні розміри фільтра, (В х Ш х Г), см",
-          "value": "521 × 270 × 430"
-        },
-        {
-          "label": "Тип фільтра",
-          "value": "Пом’якшення води Ecosoft FU"
-        },
-        {
-          "label": "Проблема",
-          "value": "Солі твердості, накип, вапняковий наліт"
-        },
-        {
-          "label": "Застосування",
-          "value": "Квартира, котедж, дача"
-        },
-        {
-          "label": "Фільтрувальний матеріал",
-          "value": "іонообмінна смола"
-        },
-        {
-          "label": "Тип корпусу",
-          "value": "кабінет"
-        },
-        {
-          "label": "Твердість, мг-екв/л",
-          "value": "350"
-        },
-        {
-          "label": "Вміст заліза, мг/л",
-          "value": "0,2"
-        },
-        {
-          "label": "Вміст мангану, мг/л",
-          "value": "0,05"
-        },
-        {
-          "label": "Перманганатна окиснюваність, мг О2/л",
-          "value": "5,0"
-        },
-        {
-          "label": "Необхідний рівень очищення від механічних домішок, мкм",
-          "value": "100"
-        },
-        {
-          "label": "Температура вхідної води, °С",
-          "value": "+4…+30"
-        }
-      ],
-      "documents": [
-        {
-          "name": "manualcoreci110_250.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/143/manualcoreci110_250.pdf",
-          "size": "2.8 MB"
-        },
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується високоякісна іонообмінна смола. Під час фільтрування відбувається іонообмінна реакція, в результаті якої іони солей твердості замінюються безпечними іонами натрію, і рівень твердості води нормалізується."
     }
   },
   {
@@ -3350,7 +3175,7 @@ export const PRODUCTS: Product[] = [
     "slug": "ustanovka-mekhanicheskoy-filtratsii-ecosoft-fp-1465",
     "name": "Фільтр механічного очищення Ecosoft FP 1465CT",
     "category": "filtration-systems",
-    "price": 36326,
+    "price": 36804,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FР 1465CT призначений для очищення води від механічних домішок (мул, пісок, іржа, окалина), підходить для використання у квартирі або котеджі з 1-2…",
@@ -3475,185 +3300,10 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
-    "slug": "kompaktnyi-filtr-pomiakshennya-vody-ecosoft-core-150-ci",
-    "name": "Компактний фільтр пом'якшення води Ecosoft Core 150 CI",
-    "category": "filtration-systems",
-    "price": 36449,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується…",
-    "sku": "FU1016CABCIMVCR",
-    "subcategory": "softening-systems",
-    "line": "Core",
-    "type": "Пом'якшення",
-    "purpose": [
-      "Весь будинок"
-    ],
-    "problem": [
-      "Жорсткість"
-    ],
-    "installation": "Кабінетний",
-    "tags": [
-      "cabinet-systems",
-      "Core"
-    ],
-    "filters": {
-      "format": [
-        "Кабінетна"
-      ],
-      "series": [
-        "FU",
-        "Core"
-      ],
-      "task": [
-        "Пом'якшення"
-      ],
-      "media": [
-        "Іонообмінна смола"
-      ],
-      "purpose": [
-        "Весь будинок"
-      ],
-      "problem": [
-        "Жорсткість"
-      ],
-      "installation": [
-        "Кабінетний"
-      ],
-      "level": [
-        "Стандарт"
-      ],
-      "line": [
-        "Core"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/17b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_150_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
-    "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/17b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_150_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/15f/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_4.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/da0/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_1.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b33/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_5.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/49b/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_10.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f5a/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_2.webp"
-    ],
-    "details": {
-      "specs": [
-        {
-          "label": "Продуктивність робоча / максимальна, м3/год",
-          "value": "1,3 / 1,5"
-        },
-        {
-          "label": "Об'єм фільтрувального матеріалу, л",
-          "value": "15"
-        },
-        {
-          "label": "Ресурс, м3 (при твердості 5 мг-екв/л)",
-          "value": "3"
-        },
-        {
-          "label": "Витрата солі на регенерацію, кг",
-          "value": "1,8"
-        },
-        {
-          "label": "Витрата води на регенерацію (об'єм стоків), м3",
-          "value": "0,6"
-        },
-        {
-          "label": "Тривалість регенерації, хв",
-          "value": "70"
-        },
-        {
-          "label": "Перепад тиску в робочому режимі, бар",
-          "value": "0,5"
-        },
-        {
-          "label": "Робочий тиск, бар",
-          "value": "2…6"
-        },
-        {
-          "label": "Електроживлення",
-          "value": "230 В, 50 Гц"
-        },
-        {
-          "label": "Енергоспоживання, Вт",
-          "value": "30"
-        },
-        {
-          "label": "Діаметр підключення трубопроводу",
-          "value": "3/4\""
-        },
-        {
-          "label": "Вага, кг",
-          "value": "19"
-        },
-        {
-          "label": "Габаритні розміри фільтра, (В х Ш х Г), см",
-          "value": "591 × 270 × 430"
-        },
-        {
-          "label": "Тип фільтра",
-          "value": "Пом’якшення води Ecosoft FU"
-        },
-        {
-          "label": "Проблема",
-          "value": "Солі твердості, накип, вапняковий наліт"
-        },
-        {
-          "label": "Застосування",
-          "value": "Квартира, котедж, дача"
-        },
-        {
-          "label": "Фільтрувальний матеріал",
-          "value": "іонообмінна смола"
-        },
-        {
-          "label": "Тип корпусу",
-          "value": "кабінет"
-        },
-        {
-          "label": "Твердість, мг-екв/л",
-          "value": "500"
-        },
-        {
-          "label": "Вміст заліза, мг/л",
-          "value": "0,2"
-        },
-        {
-          "label": "Вміст мангану, мг/л",
-          "value": "0,05"
-        },
-        {
-          "label": "Перманганатна окиснюваність, мг О2/л",
-          "value": "5,0"
-        },
-        {
-          "label": "Необхідний рівень очищення від механічних домішок, мкм",
-          "value": "100"
-        },
-        {
-          "label": "Температура вхідної води, °С",
-          "value": "+4…+30"
-        }
-      ],
-      "documents": [
-        {
-          "name": "manualcoreci110_250.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/4bc/manualcoreci110_250.pdf",
-          "size": "2.8 MB"
-        },
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується високоякісна іонообмінна смола. Під час фільтрування відбувається іонообмінна реакція, в результаті якої іони солей твердості замінюються безпечними іонами натрію, і рівень твердості води нормалізується."
-    }
-  },
-  {
     "slug": "filtr-umyagcheniya-vody-ecosoft-fu1252ci",
     "name": "Фільтр пом'якшення води Ecosoft FU1252CI",
     "category": "filtration-systems",
-    "price": 37079,
+    "price": 37567,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1252CE призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає до 5 осіб.",
@@ -3737,7 +3387,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-dlya-udaleniya-serovodoroda-ecosoft-fpc-1054",
     "name": "Фільтр для видалення сірководню Ecosoft FPC 1054CT",
     "category": "filtration-systems",
-    "price": 37123,
+    "price": 37612,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPC 1054CT призначений для очищення води від сірководню, використовується в будинках з 1-2 санвузлами, в яких проживає до 5 осіб. Фільтр складається з…",
@@ -3877,7 +3527,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-dlya-udaleniya-khlora-ecosoft-fpa-1054",
     "name": "Фільтр для видалення хлору Ecosoft FPA 1054CT",
     "category": "filtration-systems",
-    "price": 37832,
+    "price": 38330,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPA 1354CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води,…",
@@ -4030,185 +3680,10 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
-    "slug": "kompaktnyi-filtr-pomiakshennya-vody-ecosoft-core-250-ci",
-    "name": "Компактний фільтр пом'якшення води Ecosoft Core 250 CI",
-    "category": "filtration-systems",
-    "price": 39161,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується…",
-    "sku": "FU1024CABCIMVCR",
-    "subcategory": "softening-systems",
-    "line": "Core",
-    "type": "Пом'якшення",
-    "purpose": [
-      "Весь будинок"
-    ],
-    "problem": [
-      "Жорсткість"
-    ],
-    "installation": "Кабінетний",
-    "tags": [
-      "cabinet-systems",
-      "Core"
-    ],
-    "filters": {
-      "format": [
-        "Кабінетна"
-      ],
-      "series": [
-        "FU",
-        "Core"
-      ],
-      "task": [
-        "Пом'якшення"
-      ],
-      "media": [
-        "Іонообмінна смола"
-      ],
-      "purpose": [
-        "Весь будинок"
-      ],
-      "problem": [
-        "Жорсткість"
-      ],
-      "installation": [
-        "Кабінетний"
-      ],
-      "level": [
-        "Стандарт"
-      ],
-      "line": [
-        "Core"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/391/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_250_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
-    "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/391/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_250_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/fb5/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_5.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b40/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_1.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/5ec/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_4.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e61/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_6.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c1a/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_2.webp"
-    ],
-    "details": {
-      "specs": [
-        {
-          "label": "Продуктивність робоча / максимальна, м3/год",
-          "value": "1,6 / 1,8"
-        },
-        {
-          "label": "Об'єм фільтрувального матеріалу, л",
-          "value": "24"
-        },
-        {
-          "label": "Ресурс, м3 (при твердості 5 мг-екв/л)",
-          "value": "4,6"
-        },
-        {
-          "label": "Витрата солі на регенерацію, кг",
-          "value": "2,9"
-        },
-        {
-          "label": "Витрата води на регенерацію (об'єм стоків), м3",
-          "value": "0,7"
-        },
-        {
-          "label": "Тривалість регенерації, хв",
-          "value": "70"
-        },
-        {
-          "label": "Перепад тиску в робочому режимі, бар",
-          "value": "0,5"
-        },
-        {
-          "label": "Робочий тиск, бар",
-          "value": "2…6"
-        },
-        {
-          "label": "Електроживлення",
-          "value": "230 В, 50 Гц"
-        },
-        {
-          "label": "Енергоспоживання, Вт",
-          "value": "30"
-        },
-        {
-          "label": "Діаметр підключення трубопроводу",
-          "value": "3/4\""
-        },
-        {
-          "label": "Вага, кг",
-          "value": "29"
-        },
-        {
-          "label": "Габаритні розміри фільтра, (В х Ш х Г), см",
-          "value": "793 × 270 × 430"
-        },
-        {
-          "label": "Тип фільтра",
-          "value": "Пом’якшення води Ecosoft FU"
-        },
-        {
-          "label": "Проблема",
-          "value": "Солі твердості, накип, вапняковий наліт"
-        },
-        {
-          "label": "Застосування",
-          "value": "Квартира, котедж, дача"
-        },
-        {
-          "label": "Фільтрувальний матеріал",
-          "value": "іонообмінна смола"
-        },
-        {
-          "label": "Тип корпусу",
-          "value": "кабінет"
-        },
-        {
-          "label": "Твердість, мг-екв/л",
-          "value": "500"
-        },
-        {
-          "label": "Вміст заліза, мг/л",
-          "value": "0,2"
-        },
-        {
-          "label": "Вміст мангану, мг/л",
-          "value": "0,05"
-        },
-        {
-          "label": "Перманганатна окиснюваність, мг О2/л",
-          "value": "5,0"
-        },
-        {
-          "label": "Необхідний рівень очищення від механічних домішок, мкм",
-          "value": "100"
-        },
-        {
-          "label": "Температура вхідної води, °С",
-          "value": "+4…+30"
-        }
-      ],
-      "documents": [
-        {
-          "name": "manualcoreci110_250.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/855/manualcoreci110_250.pdf",
-          "size": "2.8 MB"
-        },
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується високоякісна іонообмінна смола. Під час фільтрування відбувається іонообмінна реакція, в результаті якої іони солей твердості замінюються безпечними іонами натрію, і рівень твердості води нормалізується."
-    }
-  },
-  {
     "slug": "filtr-obezzhelezivaniya-i-umyagcheniya-vody-ecosoft-fk1054cimixa",
     "name": "Фільтр знезалізнення та пом'якшення води Ecosoft FK1054CIMIXA",
     "category": "filtration-systems",
-    "price": 39250,
+    "price": 39767,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK1054CIMIXA — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
@@ -4392,7 +3867,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-umyagcheniya-vody-ecosoft-fu1354ci",
     "name": "Фільтр пом'якшення води Ecosoft FU1354CI",
     "category": "filtration-systems",
-    "price": 39914,
+    "price": 40440,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1252CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 3 санвузлами, в якому проживає від до 5 осіб.",
@@ -4564,190 +4039,6 @@ export const PRODUCTS: Product[] = [
         }
       ],
       "longDescription": "Фільтр Ecosoft FU 1252CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 3 санвузлами, в якому проживає від до 5 осіб.\n\nФільтр складається з корпусу, заповненого іонообмінною смолою, багатофункціонального керуючого клапана і сольового бака для регенерації фільтра.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра, піклується про постійне запасі очищеної води і не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nЧиста і м'яка вода кожен день\nНадійна і ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі і мале скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nШовковиста шкіра і здорове волосся\nСяюча сантехніка і посуд\nЯкість і колір одягу і білизни зберігається значно довше\nІстотна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера і чайника)\nЕкономія до 30% електроенергії"
-    }
-  },
-  {
-    "slug": "kompaktnyi-filtr-pomiakshennya-vody-ecosoft-a-soft-110-ce",
-    "name": "Компактний фільтр пом'якшення води Ecosoft A-Soft 110 CE",
-    "category": "filtration-systems",
-    "price": 40667,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft A-Soft. В якості фільтрувального матеріалу використовується…",
-    "sku": "FU1013CABCEMVAS",
-    "subcategory": "softening-systems",
-    "line": "A-Soft",
-    "type": "Пом'якшення",
-    "purpose": [
-      "Весь будинок"
-    ],
-    "problem": [
-      "Жорсткість"
-    ],
-    "installation": "Кабінетний",
-    "tags": [
-      "cabinet-systems",
-      "A-Soft"
-    ],
-    "filters": {
-      "format": [
-        "Кабінетна"
-      ],
-      "series": [
-        "FU",
-        "A-Soft"
-      ],
-      "task": [
-        "Пом'якшення"
-      ],
-      "media": [
-        "Іонообмінна смола"
-      ],
-      "purpose": [
-        "Весь будинок"
-      ],
-      "problem": [
-        "Жорсткість"
-      ],
-      "installation": [
-        "Кабінетний"
-      ],
-      "level": [
-        "Стандарт"
-      ],
-      "line": [
-        "A-Soft"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/a6f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_a_soft_110_ce_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
-    "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/a6f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_a_soft_110_ce_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/44e/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_05_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e20/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c5c/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_07_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/044/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_09_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/7d1/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_04_1200x1200.webp"
-    ],
-    "details": {
-      "specs": [
-        {
-          "label": "Продуктивність робоча / максимальна, м3/год",
-          "value": "2,0/2,5"
-        },
-        {
-          "label": "Об'єм фільтрувального матеріалу, л",
-          "value": "11"
-        },
-        {
-          "label": "Об'ємна ємність, м3 250/350/500 твердість вихідної води",
-          "value": "2,4/1,7/1,2"
-        },
-        {
-          "label": "Витрата солі на регенерацію, кг",
-          "value": "1,2"
-        },
-        {
-          "label": "Витрата води на регенерацію (об'єм стоків), л",
-          "value": "60"
-        },
-        {
-          "label": "Тривалість регенерації, хв",
-          "value": "47"
-        },
-        {
-          "label": "Перепад тиску в робочому режимі, бар",
-          "value": "0,5"
-        },
-        {
-          "label": "Робочий тиск, бар",
-          "value": "2-6"
-        },
-        {
-          "label": "Електроживлення",
-          "value": "230 В, 50 Гц"
-        },
-        {
-          "label": "Енергоспоживання, Вт",
-          "value": "30"
-        },
-        {
-          "label": "Діаметр підключення трубопроводу",
-          "value": "3/4\""
-        },
-        {
-          "label": "Ємність соляного бака, кг",
-          "value": "15"
-        },
-        {
-          "label": "Вага, кг",
-          "value": "16"
-        },
-        {
-          "label": "Габаритні розміри фільтра, (В х Ш х Г), см",
-          "value": "523 × 271 × 426"
-        },
-        {
-          "label": "Тип фільтра",
-          "value": "Пом’якшення води Ecosoft FU"
-        },
-        {
-          "label": "Проблема",
-          "value": "Солі твердості, накип, вапняковий наліт"
-        },
-        {
-          "label": "Застосування",
-          "value": "Квартира, котедж, дача"
-        },
-        {
-          "label": "Фільтрувальний матеріал",
-          "value": "Смола Ультрасофт"
-        },
-        {
-          "label": "Тип корпусу",
-          "value": "Кабінет"
-        },
-        {
-          "label": "Твердість, мг-екв/л",
-          "value": "500"
-        },
-        {
-          "label": "Вміст заліза, мг/л",
-          "value": "0,2"
-        },
-        {
-          "label": "Вміст мангану, мг/л",
-          "value": "0,05"
-        },
-        {
-          "label": "Перманганатна окиснюваність, мг О2/л",
-          "value": "5,0"
-        },
-        {
-          "label": "Необхідний рівень очищення від механічних домішок, мкм",
-          "value": "100"
-        },
-        {
-          "label": "Температура вхідної води, °С",
-          "value": "+4…+30"
-        }
-      ],
-      "documents": [
-        {
-          "name": "manualasoftce-_1_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/9b9/manualasoftce-_1_.pdf",
-          "size": "2.6 MB"
-        },
-        {
-          "name": "tds_fu1013cabcemvas_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/8e7/tds_fu1013cabcemvas_ua.pdf",
-          "size": "1.6 MB"
-        },
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft A-Soft. В якості фільтрувального матеріалу використовується високоякісна іонообмінна смола. Під час фільтрування відбувається іонообмінна реакція, в результаті якої іони солей твердості замінюються безпечними іонами натрію, і рівень твердості води нормалізується."
     }
   },
   {
@@ -4938,7 +4229,7 @@ export const PRODUCTS: Product[] = [
     "slug": "ustanovka-mekhanicheskoy-filtratsii-ecosoft-fp-1665",
     "name": "Фільтр механічного очищення Ecosoft FP 1665CT",
     "category": "filtration-systems",
-    "price": 41864,
+    "price": 42415,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FP 1665CT призначений для очищення води від механічних домішок (мул, пісок, іржа, окалина), підходить для використання у квартирі або котеджі з 2-3…",
@@ -5063,99 +4354,96 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
-    "slug": "filtr-obezzhelezivaniya-i-umyagcheniya-vody-ecosoft-fk1252cimixa",
-    "name": "Фільтр знезалізнення та пом'якшення води Ecosoft FK1252CIMIXA",
+    "slug": "kompaktnyi-filtr-pomiakshennya-vody-ecosoft-core-110-ci",
+    "name": "Компактний фільтр пом'якшення води Ecosoft Core 110 CI",
     "category": "filtration-systems",
-    "price": 43617,
+    "price": 42774,
     "inStock": true,
     "ctaType": "buy",
-    "description": "Фільтр Ecosoft FK1252CIMIXA — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
-    "sku": "FK1252CIMIXA",
-    "subcategory": "iron-softening-systems",
-    "line": "FK",
-    "type": "Знезалізнення та пом'якшення",
+    "description": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується…",
+    "sku": "FU1013CABCIMVCR",
+    "subcategory": "softening-systems",
+    "line": "Core",
+    "type": "Пом'якшення",
     "purpose": [
       "Весь будинок"
     ],
     "problem": [
-      "Залізо",
       "Жорсткість"
     ],
-    "installation": "Колонний",
+    "installation": "Кабінетний",
     "tags": [
-      "column-systems"
+      "cabinet-systems",
+      "Core"
     ],
     "filters": {
       "format": [
-        "Колонна"
+        "Кабінетна"
       ],
       "series": [
-        "FK"
+        "FU",
+        "Core"
       ],
       "task": [
-        "Знезалізнення та пом'якшення"
+        "Пом'якшення"
       ],
       "media": [
-        "ECOMIX"
+        "Іонообмінна смола"
       ],
       "purpose": [
         "Весь будинок"
       ],
       "problem": [
-        "Залізо",
         "Жорсткість"
       ],
       "installation": [
-        "Колонний"
+        "Кабінетний"
       ],
       "level": [
         "Стандарт"
       ],
       "line": [
-        "FK"
+        "Core"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ce8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/81a/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspyagykhyeoe_vse_ecosoft_core_110_ua_nsptankhrym_tsp_yanytsva_vsey_ecosoft_core_110.webp",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/ce8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a93/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/053/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/011/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/122/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "https://ecosoft.ua/upload/resize_cache/iblock/81a/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspyagykhyeoe_vse_ecosoft_core_110_ua_nsptankhrym_tsp_yanytsva_vsey_ecosoft_core_110.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/313/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_5.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/899/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_1.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/4a6/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_3.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/64f/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_4.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/01a/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_2.webp"
     ],
     "details": {
       "specs": [
         {
-          "label": "Тип фільтра",
-          "value": "Знезалізнення та пом'якшення води Ecosoft FK"
-        },
-        {
-          "label": "Продуктивність робоча/максимальна, м3/год",
-          "value": "1,7/2,0"
+          "label": "Продуктивність робоча / максимальна, м3/год",
+          "value": "1,0 / 1,2"
         },
         {
           "label": "Об'єм фільтрувального матеріалу, л",
-          "value": "50"
+          "value": "11"
         },
         {
           "label": "Ресурс, м3 (при твердості 5 мг-екв/л)",
-          "value": "7,0"
+          "value": "2"
         },
         {
           "label": "Витрата солі на регенерацію, кг",
-          "value": "5,0…8,0"
+          "value": "1,2"
         },
         {
           "label": "Витрата води на регенерацію (об'єм стоків), м3",
-          "value": "0,50"
+          "value": "0,5"
         },
         {
           "label": "Тривалість регенерації, хв",
-          "value": "80…110"
+          "value": "50"
         },
         {
           "label": "Перепад тиску в робочому режимі, бар",
-          "value": "0,5...1,0"
+          "value": "0,5"
         },
         {
           "label": "Робочий тиск, бар",
@@ -5171,47 +4459,51 @@ export const PRODUCTS: Product[] = [
         },
         {
           "label": "Діаметр підключення трубопроводу",
-          "value": "1\""
+          "value": "3/4\""
         },
         {
           "label": "Вага, кг",
-          "value": "58"
+          "value": "14"
         },
         {
           "label": "Габаритні розміри фільтра, (В х Ш х Г), см",
-          "value": "155 х 75 х 45"
+          "value": "521 × 270 × 430"
+        },
+        {
+          "label": "Тип фільтра",
+          "value": "Пом’якшення води Ecosoft FU"
         },
         {
           "label": "Проблема",
-          "value": "Залізо, манган, солі твердості, амоній, кольоровість"
+          "value": "Солі твердості, накип, вапняковий наліт"
         },
         {
           "label": "Застосування",
-          "value": "приватний будинок, котедж, дача"
+          "value": "Квартира, котедж, дача"
         },
         {
           "label": "Фільтрувальний матеріал",
-          "value": "Ecomix"
+          "value": "іонообмінна смола"
         },
         {
           "label": "Тип корпусу",
-          "value": "колона"
+          "value": "кабінет"
         },
         {
           "label": "Твердість, мг-екв/л",
-          "value": "15,0"
+          "value": "350"
         },
         {
           "label": "Вміст заліза, мг/л",
-          "value": "15,0"
+          "value": "0,2"
         },
         {
           "label": "Вміст мангану, мг/л",
-          "value": "3,0"
+          "value": "0,05"
         },
         {
           "label": "Перманганатна окиснюваність, мг О2/л",
-          "value": "8,0"
+          "value": "5,0"
         },
         {
           "label": "Необхідний рівень очищення від механічних домішок, мкм",
@@ -5224,33 +4516,198 @@ export const PRODUCTS: Product[] = [
       ],
       "documents": [
         {
-          "name": "tsu_-ecosoft-fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/9ff/tsu_-ecosoft-fk.pdf",
-          "size": "288 KB"
-        },
-        {
-          "name": "manual_ecosoft_water_filter.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/f20/manual_ecosoft_water_filter.pdf",
-          "size": "4.7 MB"
-        },
-        {
-          "name": "instructci.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/54a/instructci.pdf",
-          "size": "55.2 MB"
+          "name": "manualcoreci110_250.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/143/manualcoreci110_250.pdf",
+          "size": "2.8 MB"
         },
         {
           "name": "Каталог продукції",
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
       ],
-      "longDescription": "Фільтр Ecosoft FK1252CIMIXA — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних домішок. Використовується для котеджу або заміського будинку з 2 санвузлами, в якому проживає від 3 до 4 осіб.\n\nФільтр складається з корпусу з фільтрувальним матеріалом Ecomix, багатофункціонального керуючого клапана і сольового бака для регенерації системи.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи системи, дбає про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги:\n\nФільтр повністю автоматизований, безшумний\nБезперервна подача чистої та м'якої води\nНадійна й ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі та низьке скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами CE та ISO\n\nРезультати використання\n\nПрозора вода без запаху в кожному крані, сяюча сантехніка і посуд\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігається значно довше\nЗначна економія прального порошку і мийних засобів — до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної та посудомийної машин, бойлера і чайника)"
+      "longDescription": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується високоякісна іонообмінна смола. Під час фільтрування відбувається іонообмінна реакція, в результаті якої іони солей твердості замінюються безпечними іонами натрію, і рівень твердості води нормалізується."
+    }
+  },
+  {
+    "slug": "kompaktnyi-filtr-pomiakshennya-vody-ecosoft-core-150-ci",
+    "name": "Компактний фільтр пом'якшення води Ecosoft Core 150 CI",
+    "category": "filtration-systems",
+    "price": 43447,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується…",
+    "sku": "FU1016CABCIMVCR",
+    "subcategory": "softening-systems",
+    "line": "Core",
+    "type": "Пом'якшення",
+    "purpose": [
+      "Весь будинок"
+    ],
+    "problem": [
+      "Жорсткість"
+    ],
+    "installation": "Кабінетний",
+    "tags": [
+      "cabinet-systems",
+      "Core"
+    ],
+    "filters": {
+      "format": [
+        "Кабінетна"
+      ],
+      "series": [
+        "FU",
+        "Core"
+      ],
+      "task": [
+        "Пом'якшення"
+      ],
+      "media": [
+        "Іонообмінна смола"
+      ],
+      "purpose": [
+        "Весь будинок"
+      ],
+      "problem": [
+        "Жорсткість"
+      ],
+      "installation": [
+        "Кабінетний"
+      ],
+      "level": [
+        "Стандарт"
+      ],
+      "line": [
+        "Core"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/17b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_150_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
+    "images": [
+      "https://ecosoft.ua/upload/resize_cache/iblock/17b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_150_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/15f/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_4.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/da0/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_1.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/b33/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_5.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/49b/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_10.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/f5a/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_2.webp"
+    ],
+    "details": {
+      "specs": [
+        {
+          "label": "Продуктивність робоча / максимальна, м3/год",
+          "value": "1,3 / 1,5"
+        },
+        {
+          "label": "Об'єм фільтрувального матеріалу, л",
+          "value": "15"
+        },
+        {
+          "label": "Ресурс, м3 (при твердості 5 мг-екв/л)",
+          "value": "3"
+        },
+        {
+          "label": "Витрата солі на регенерацію, кг",
+          "value": "1,8"
+        },
+        {
+          "label": "Витрата води на регенерацію (об'єм стоків), м3",
+          "value": "0,6"
+        },
+        {
+          "label": "Тривалість регенерації, хв",
+          "value": "70"
+        },
+        {
+          "label": "Перепад тиску в робочому режимі, бар",
+          "value": "0,5"
+        },
+        {
+          "label": "Робочий тиск, бар",
+          "value": "2…6"
+        },
+        {
+          "label": "Електроживлення",
+          "value": "230 В, 50 Гц"
+        },
+        {
+          "label": "Енергоспоживання, Вт",
+          "value": "30"
+        },
+        {
+          "label": "Діаметр підключення трубопроводу",
+          "value": "3/4\""
+        },
+        {
+          "label": "Вага, кг",
+          "value": "19"
+        },
+        {
+          "label": "Габаритні розміри фільтра, (В х Ш х Г), см",
+          "value": "591 × 270 × 430"
+        },
+        {
+          "label": "Тип фільтра",
+          "value": "Пом’якшення води Ecosoft FU"
+        },
+        {
+          "label": "Проблема",
+          "value": "Солі твердості, накип, вапняковий наліт"
+        },
+        {
+          "label": "Застосування",
+          "value": "Квартира, котедж, дача"
+        },
+        {
+          "label": "Фільтрувальний матеріал",
+          "value": "іонообмінна смола"
+        },
+        {
+          "label": "Тип корпусу",
+          "value": "кабінет"
+        },
+        {
+          "label": "Твердість, мг-екв/л",
+          "value": "500"
+        },
+        {
+          "label": "Вміст заліза, мг/л",
+          "value": "0,2"
+        },
+        {
+          "label": "Вміст мангану, мг/л",
+          "value": "0,05"
+        },
+        {
+          "label": "Перманганатна окиснюваність, мг О2/л",
+          "value": "5,0"
+        },
+        {
+          "label": "Необхідний рівень очищення від механічних домішок, мкм",
+          "value": "100"
+        },
+        {
+          "label": "Температура вхідної води, °С",
+          "value": "+4…+30"
+        }
+      ],
+      "documents": [
+        {
+          "name": "manualcoreci110_250.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/4bc/manualcoreci110_250.pdf",
+          "size": "2.8 MB"
+        },
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується високоякісна іонообмінна смола. Під час фільтрування відбувається іонообмінна реакція, в результаті якої іони солей твердості замінюються безпечними іонами натрію, і рівень твердості води нормалізується."
     }
   },
   {
     "slug": "filtr-dlya-udaleniya-khlora-ecosoft-fpa-1252",
     "name": "Фільтр для видалення хлору Ecosoft FPA 1252 CT",
     "category": "filtration-systems",
-    "price": 43857,
+    "price": 44434,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPA 1252CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води,…",
@@ -5590,7 +5047,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-umyagcheniya-vody-ecosoft-fu1465ci",
     "name": "Фільтр пом'якшення води Ecosoft FU1465CI",
     "category": "filtration-systems",
-    "price": 45673,
+    "price": 46275,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1054CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає від 3 до 4 осіб.",
@@ -5765,10 +5222,185 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
+    "slug": "kompaktnyi-filtr-pomiakshennya-vody-ecosoft-core-250-ci",
+    "name": "Компактний фільтр пом'якшення води Ecosoft Core 250 CI",
+    "category": "filtration-systems",
+    "price": 46679,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується…",
+    "sku": "FU1024CABCIMVCR",
+    "subcategory": "softening-systems",
+    "line": "Core",
+    "type": "Пом'якшення",
+    "purpose": [
+      "Весь будинок"
+    ],
+    "problem": [
+      "Жорсткість"
+    ],
+    "installation": "Кабінетний",
+    "tags": [
+      "cabinet-systems",
+      "Core"
+    ],
+    "filters": {
+      "format": [
+        "Кабінетна"
+      ],
+      "series": [
+        "FU",
+        "Core"
+      ],
+      "task": [
+        "Пом'якшення"
+      ],
+      "media": [
+        "Іонообмінна смола"
+      ],
+      "purpose": [
+        "Весь будинок"
+      ],
+      "problem": [
+        "Жорсткість"
+      ],
+      "installation": [
+        "Кабінетний"
+      ],
+      "level": [
+        "Стандарт"
+      ],
+      "line": [
+        "Core"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/391/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_250_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
+    "images": [
+      "https://ecosoft.ua/upload/resize_cache/iblock/391/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_250_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/fb5/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_5.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/b40/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_1.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/5ec/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_4.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/e61/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_6.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/c1a/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_2.webp"
+    ],
+    "details": {
+      "specs": [
+        {
+          "label": "Продуктивність робоча / максимальна, м3/год",
+          "value": "1,6 / 1,8"
+        },
+        {
+          "label": "Об'єм фільтрувального матеріалу, л",
+          "value": "24"
+        },
+        {
+          "label": "Ресурс, м3 (при твердості 5 мг-екв/л)",
+          "value": "4,6"
+        },
+        {
+          "label": "Витрата солі на регенерацію, кг",
+          "value": "2,9"
+        },
+        {
+          "label": "Витрата води на регенерацію (об'єм стоків), м3",
+          "value": "0,7"
+        },
+        {
+          "label": "Тривалість регенерації, хв",
+          "value": "70"
+        },
+        {
+          "label": "Перепад тиску в робочому режимі, бар",
+          "value": "0,5"
+        },
+        {
+          "label": "Робочий тиск, бар",
+          "value": "2…6"
+        },
+        {
+          "label": "Електроживлення",
+          "value": "230 В, 50 Гц"
+        },
+        {
+          "label": "Енергоспоживання, Вт",
+          "value": "30"
+        },
+        {
+          "label": "Діаметр підключення трубопроводу",
+          "value": "3/4\""
+        },
+        {
+          "label": "Вага, кг",
+          "value": "29"
+        },
+        {
+          "label": "Габаритні розміри фільтра, (В х Ш х Г), см",
+          "value": "793 × 270 × 430"
+        },
+        {
+          "label": "Тип фільтра",
+          "value": "Пом’якшення води Ecosoft FU"
+        },
+        {
+          "label": "Проблема",
+          "value": "Солі твердості, накип, вапняковий наліт"
+        },
+        {
+          "label": "Застосування",
+          "value": "Квартира, котедж, дача"
+        },
+        {
+          "label": "Фільтрувальний матеріал",
+          "value": "іонообмінна смола"
+        },
+        {
+          "label": "Тип корпусу",
+          "value": "кабінет"
+        },
+        {
+          "label": "Твердість, мг-екв/л",
+          "value": "500"
+        },
+        {
+          "label": "Вміст заліза, мг/л",
+          "value": "0,2"
+        },
+        {
+          "label": "Вміст мангану, мг/л",
+          "value": "0,05"
+        },
+        {
+          "label": "Перманганатна окиснюваність, мг О2/л",
+          "value": "5,0"
+        },
+        {
+          "label": "Необхідний рівень очищення від механічних домішок, мкм",
+          "value": "100"
+        },
+        {
+          "label": "Температура вхідної води, °С",
+          "value": "+4…+30"
+        }
+      ],
+      "documents": [
+        {
+          "name": "manualcoreci110_250.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/855/manualcoreci110_250.pdf",
+          "size": "2.8 MB"
+        },
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft Core. В якості фільтрувального матеріалу використовується високоякісна іонообмінна смола. Під час фільтрування відбувається іонообмінна реакція, в результаті якої іони солей твердості замінюються безпечними іонами натрію, і рівень твердості води нормалізується."
+    }
+  },
+  {
     "slug": "kompaktnyi-pomiakshuvach-ecosoft-anthracite-azure-250-ci",
     "name": "Компактний пом'якшувач води Ecosoft Anthracite Azure 250 CI",
     "category": "filtration-systems",
-    "price": 46604,
+    "price": 47217,
     "inStock": true,
     "ctaType": "buy",
     "description": "Високопродуктивний фільтр Ecosoft FU1035CABGCI призначений для зменшення твердості води. Система складається з двох основних компонентів — модуля фільтрування (балон…",
@@ -5916,10 +5548,378 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
+    "slug": "kompaktnyi-filtr-pomiakshennya-vody-ecosoft-a-soft-110-ce",
+    "name": "Компактний фільтр пом'якшення води Ecosoft A-Soft 110 CE",
+    "category": "filtration-systems",
+    "price": 48474,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft A-Soft. В якості фільтрувального матеріалу використовується…",
+    "sku": "FU1013CABCEMVAS",
+    "subcategory": "softening-systems",
+    "line": "A-Soft",
+    "type": "Пом'якшення",
+    "purpose": [
+      "Весь будинок"
+    ],
+    "problem": [
+      "Жорсткість"
+    ],
+    "installation": "Кабінетний",
+    "tags": [
+      "cabinet-systems",
+      "A-Soft"
+    ],
+    "filters": {
+      "format": [
+        "Кабінетна"
+      ],
+      "series": [
+        "FU",
+        "A-Soft"
+      ],
+      "task": [
+        "Пом'якшення"
+      ],
+      "media": [
+        "Іонообмінна смола"
+      ],
+      "purpose": [
+        "Весь будинок"
+      ],
+      "problem": [
+        "Жорсткість"
+      ],
+      "installation": [
+        "Кабінетний"
+      ],
+      "level": [
+        "Стандарт"
+      ],
+      "line": [
+        "A-Soft"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/a6f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_a_soft_110_ce_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
+    "images": [
+      "https://ecosoft.ua/upload/resize_cache/iblock/a6f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_a_soft_110_ce_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/44e/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_05_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/e20/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_02_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/c5c/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_07_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/044/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_09_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/7d1/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_04_1200x1200.webp"
+    ],
+    "details": {
+      "specs": [
+        {
+          "label": "Продуктивність робоча / максимальна, м3/год",
+          "value": "2,0/2,5"
+        },
+        {
+          "label": "Об'єм фільтрувального матеріалу, л",
+          "value": "11"
+        },
+        {
+          "label": "Об'ємна ємність, м3 250/350/500 твердість вихідної води",
+          "value": "2,4/1,7/1,2"
+        },
+        {
+          "label": "Витрата солі на регенерацію, кг",
+          "value": "1,2"
+        },
+        {
+          "label": "Витрата води на регенерацію (об'єм стоків), л",
+          "value": "60"
+        },
+        {
+          "label": "Тривалість регенерації, хв",
+          "value": "47"
+        },
+        {
+          "label": "Перепад тиску в робочому режимі, бар",
+          "value": "0,5"
+        },
+        {
+          "label": "Робочий тиск, бар",
+          "value": "2-6"
+        },
+        {
+          "label": "Електроживлення",
+          "value": "230 В, 50 Гц"
+        },
+        {
+          "label": "Енергоспоживання, Вт",
+          "value": "30"
+        },
+        {
+          "label": "Діаметр підключення трубопроводу",
+          "value": "3/4\""
+        },
+        {
+          "label": "Ємність соляного бака, кг",
+          "value": "15"
+        },
+        {
+          "label": "Вага, кг",
+          "value": "16"
+        },
+        {
+          "label": "Габаритні розміри фільтра, (В х Ш х Г), см",
+          "value": "523 × 271 × 426"
+        },
+        {
+          "label": "Тип фільтра",
+          "value": "Пом’якшення води Ecosoft FU"
+        },
+        {
+          "label": "Проблема",
+          "value": "Солі твердості, накип, вапняковий наліт"
+        },
+        {
+          "label": "Застосування",
+          "value": "Квартира, котедж, дача"
+        },
+        {
+          "label": "Фільтрувальний матеріал",
+          "value": "Смола Ультрасофт"
+        },
+        {
+          "label": "Тип корпусу",
+          "value": "Кабінет"
+        },
+        {
+          "label": "Твердість, мг-екв/л",
+          "value": "500"
+        },
+        {
+          "label": "Вміст заліза, мг/л",
+          "value": "0,2"
+        },
+        {
+          "label": "Вміст мангану, мг/л",
+          "value": "0,05"
+        },
+        {
+          "label": "Перманганатна окиснюваність, мг О2/л",
+          "value": "5,0"
+        },
+        {
+          "label": "Необхідний рівень очищення від механічних домішок, мкм",
+          "value": "100"
+        },
+        {
+          "label": "Температура вхідної води, °С",
+          "value": "+4…+30"
+        }
+      ],
+      "documents": [
+        {
+          "name": "manualasoftce-_1_.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/9b9/manualasoftce-_1_.pdf",
+          "size": "2.6 MB"
+        },
+        {
+          "name": "tds_fu1013cabcemvas_ua.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/8e7/tds_fu1013cabcemvas_ua.pdf",
+          "size": "1.6 MB"
+        },
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Для зменшення твердості води побутового призначення використовуються фільтри-пом'якшувачі, такі як Ecosoft A-Soft. В якості фільтрувального матеріалу використовується високоякісна іонообмінна смола. Під час фільтрування відбувається іонообмінна реакція, в результаті якої іони солей твердості замінюються безпечними іонами натрію, і рівень твердості води нормалізується."
+    }
+  },
+  {
+    "slug": "filtr-obezzhelezivaniya-i-umyagcheniya-vody-ecosoft-fk1252cimixa",
+    "name": "Фільтр знезалізнення та пом'якшення води Ecosoft FK1252CIMIXA",
+    "category": "filtration-systems",
+    "price": 49102,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Фільтр Ecosoft FK1252CIMIXA — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
+    "sku": "FK1252CIMIXA",
+    "subcategory": "iron-softening-systems",
+    "line": "FK",
+    "type": "Знезалізнення та пом'якшення",
+    "purpose": [
+      "Весь будинок"
+    ],
+    "problem": [
+      "Залізо",
+      "Жорсткість"
+    ],
+    "installation": "Колонний",
+    "tags": [
+      "column-systems"
+    ],
+    "filters": {
+      "format": [
+        "Колонна"
+      ],
+      "series": [
+        "FK"
+      ],
+      "task": [
+        "Знезалізнення та пом'якшення"
+      ],
+      "media": [
+        "ECOMIX"
+      ],
+      "purpose": [
+        "Весь будинок"
+      ],
+      "problem": [
+        "Залізо",
+        "Жорсткість"
+      ],
+      "installation": [
+        "Колонний"
+      ],
+      "level": [
+        "Стандарт"
+      ],
+      "line": [
+        "FK"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ce8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "images": [
+      "https://ecosoft.ua/upload/resize_cache/iblock/ce8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/a93/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/053/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/011/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/122/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+    ],
+    "details": {
+      "specs": [
+        {
+          "label": "Тип фільтра",
+          "value": "Знезалізнення та пом'якшення води Ecosoft FK"
+        },
+        {
+          "label": "Продуктивність робоча/максимальна, м3/год",
+          "value": "1,7/2,0"
+        },
+        {
+          "label": "Об'єм фільтрувального матеріалу, л",
+          "value": "50"
+        },
+        {
+          "label": "Ресурс, м3 (при твердості 5 мг-екв/л)",
+          "value": "7,0"
+        },
+        {
+          "label": "Витрата солі на регенерацію, кг",
+          "value": "5,0…8,0"
+        },
+        {
+          "label": "Витрата води на регенерацію (об'єм стоків), м3",
+          "value": "0,50"
+        },
+        {
+          "label": "Тривалість регенерації, хв",
+          "value": "80…110"
+        },
+        {
+          "label": "Перепад тиску в робочому режимі, бар",
+          "value": "0,5...1,0"
+        },
+        {
+          "label": "Робочий тиск, бар",
+          "value": "2…6"
+        },
+        {
+          "label": "Електроживлення",
+          "value": "230 В, 50 Гц"
+        },
+        {
+          "label": "Енергоспоживання, Вт",
+          "value": "30"
+        },
+        {
+          "label": "Діаметр підключення трубопроводу",
+          "value": "1\""
+        },
+        {
+          "label": "Вага, кг",
+          "value": "58"
+        },
+        {
+          "label": "Габаритні розміри фільтра, (В х Ш х Г), см",
+          "value": "155 х 75 х 45"
+        },
+        {
+          "label": "Проблема",
+          "value": "Залізо, манган, солі твердості, амоній, кольоровість"
+        },
+        {
+          "label": "Застосування",
+          "value": "приватний будинок, котедж, дача"
+        },
+        {
+          "label": "Фільтрувальний матеріал",
+          "value": "Ecomix"
+        },
+        {
+          "label": "Тип корпусу",
+          "value": "колона"
+        },
+        {
+          "label": "Твердість, мг-екв/л",
+          "value": "15,0"
+        },
+        {
+          "label": "Вміст заліза, мг/л",
+          "value": "15,0"
+        },
+        {
+          "label": "Вміст мангану, мг/л",
+          "value": "3,0"
+        },
+        {
+          "label": "Перманганатна окиснюваність, мг О2/л",
+          "value": "8,0"
+        },
+        {
+          "label": "Необхідний рівень очищення від механічних домішок, мкм",
+          "value": "100"
+        },
+        {
+          "label": "Температура вхідної води, °С",
+          "value": "+4…+30"
+        }
+      ],
+      "documents": [
+        {
+          "name": "tsu_-ecosoft-fk.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/9ff/tsu_-ecosoft-fk.pdf",
+          "size": "288 KB"
+        },
+        {
+          "name": "manual_ecosoft_water_filter.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/f20/manual_ecosoft_water_filter.pdf",
+          "size": "4.7 MB"
+        },
+        {
+          "name": "instructci.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/54a/instructci.pdf",
+          "size": "55.2 MB"
+        },
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Фільтр Ecosoft FK1252CIMIXA — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних домішок. Використовується для котеджу або заміського будинку з 2 санвузлами, в якому проживає від 3 до 4 осіб.\n\nФільтр складається з корпусу з фільтрувальним матеріалом Ecomix, багатофункціонального керуючого клапана і сольового бака для регенерації системи.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи системи, дбає про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги:\n\nФільтр повністю автоматизований, безшумний\nБезперервна подача чистої та м'якої води\nНадійна й ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі та низьке скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами CE та ISO\n\nРезультати використання\n\nПрозора вода без запаху в кожному крані, сяюча сантехніка і посуд\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігається значно довше\nЗначна економія прального порошку і мийних засобів — до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної та посудомийної машин, бойлера і чайника)"
+    }
+  },
+  {
     "slug": "filtr-dlya-udaleniya-serovodoroda-ecosoft-fpc-1252",
     "name": "Фільтр для видалення сірководню Ecosoft FPC 1252CT",
     "category": "filtration-systems",
-    "price": 48597,
+    "price": 49237,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPC 1354CT призначений для очищення води від сірководню, використовується в будинках з 1 санвузлом, в яких проживає до 4 осіб.",
@@ -6064,7 +6064,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kompaktnyi-filtr-ecosoft-anthracite-gold-250-ci",
     "name": "Компактний фільтр знезалізнення та пом'якшення води Ecosoft Anthracite Gold 250 CI",
     "category": "filtration-systems",
-    "price": 49084,
+    "price": 49731,
     "inStock": true,
     "ctaType": "buy",
     "description": "Високопродуктивний фільтр FK1035CABGCIMIXA призначений для очищення складної води в домашніх умовах. ECOMIX® А усуває жорсткість, залізо, марганець, органіку та…",
@@ -6405,7 +6405,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-umyagcheniya-vody-kompaktnogo-tipa-ecosoft-fu-1018-cab-cemv",
     "name": "Компактний фільтр пом'якшення води Ecosoft FU1018CABCEMV",
     "category": "filtration-systems",
-    "price": 52584,
+    "price": 53276,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1018 CAB CE — компактний фільтр очищення води для квартири з 1 санвузлом, в якій проживає 1-2 особи. Виконаний в сучасному дизайні, призначений для…",
@@ -6591,7 +6591,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-dlya-udaleniya-serovodoroda-ecosoft-fpc-1354",
     "name": "Фільтр для видалення сірководню Ecosoft FPC 1354CT",
     "category": "filtration-systems",
-    "price": 53736,
+    "price": 54443,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPC 1354CT призначений для очищення води від сірководню, використовується в будинках з 1 санвузлом, в яких проживає до 4 осіб.",
@@ -6736,7 +6736,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-obezzhelezivaniya-i-umyagcheniya-vody-ecosoft-fk1354cimixa",
     "name": "Фільтр знезалізнення та пом'якшення води Ecosoft FK1354CIMIXA",
     "category": "filtration-systems",
-    "price": 53825,
+    "price": 54533,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK1354CIMIXA — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
@@ -6920,7 +6920,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-umyagcheniya-vody-ecosoft-fu1665ci",
     "name": "Фільтр пом'якшення води Ecosoft FU1665CI",
     "category": "filtration-systems",
-    "price": 53825,
+    "price": 54533,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1665 CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 5-6 санвузлами, в якому проживає від 8 до 10 осіб.",
@@ -7098,7 +7098,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kompaktnyi-filtr-ecosoft-anthracite-gold-370-ci",
     "name": "Компактний фільтр знезалізнення та пом'якшення води Ecosoft Anthracite Gold 370 CI",
     "category": "filtration-systems",
-    "price": 54135,
+    "price": 54847,
     "inStock": true,
     "ctaType": "buy",
     "description": "Високопродуктивний фільтр FK1235CABGCIMIXA призначений для очищення складної води в домашніх умовах. ECOMIX® А усуває жорсткість, залізо, марганець, органіку та…",
@@ -7450,7 +7450,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-dlya-udaleniya-khlora-ecosoft-pfa-1354",
     "name": "Фільтр для видалення хлору Ecosoft FPA 1354CT",
     "category": "filtration-systems",
-    "price": 55375,
+    "price": 56104,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPA 1354CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води,…",
@@ -7601,7 +7601,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-obezzhelezivaniya-i-umyagcheniya-vody-ecosoft-fk-1054-ce",
     "name": "Фільтр знезалізнення та пом'якшення води Ecosoft FK1054CEMIXA",
     "category": "filtration-systems",
-    "price": 55818,
+    "price": 56553,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK 1054 CE — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
@@ -7789,7 +7789,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kompaktnyy-filtr-dlya-kompleksnoy-ochistki-vody-ecosoft-fk1018cabcemixc",
     "name": "Компактний фільтр знезалізнення та пом'якшення води Ecosoft FK1018CABCEMIXC",
     "category": "filtration-systems",
-    "price": 58033,
+    "price": 58797,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FК 1018 CAB CE - призначений для очищення води від сполук заліза, мангану, солей твердості й органічних домішок. Має сучасний дизайн і підходить для…",
@@ -7958,162 +7958,6 @@ export const PRODUCTS: Product[] = [
         }
       ],
       "longDescription": "Фільтр Ecosoft FК 1018 CAB CE - призначений для очищення води від сполук заліза, мангану, солей твердості й органічних домішок. Має сучасний дизайн і підходить для квартири з 1 санвузлом, в якій проживає 1-2 людини.\n\nФільтр складається з компактного кабінету, в якому встановлений балон з фільтруючим матеріалом Ecomix і керуючого клапана. В кабінеті також встановлена ​​сольова система для регенерації (відновлення ресурсу) фільтруючого матеріалу. Безпосередньо в корпус кабінету засипається таблетована сіль для регенерації.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра і постійний запас очищеної води, при цьому не вимагає до себе зайвої уваги.\n\nОсновні переваги: ​​\n\nФільтр повністю автоматизований, безшумний\nПривабливий і компактний дизайн\nНадійна і ефективна робота протягом не менше 5 років\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання:\n\nПрозора вода без запаху в кожному крані, сяюча сантехніка і посуд\nШовковиста шкіра і здорове волосся\nЯкість та колір одягу зберігається значно довше\nЗначна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера, чайника)"
-    }
-  },
-  {
-    "slug": "filtr-dlya-udaleniya-khlora-ecosoft-fpa-1465",
-    "name": "Фільтр для видалення хлору Ecosoft FPA 1465CT",
-    "category": "filtration-systems",
-    "price": 59052,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Фільтр Ecosoft FPA 1252CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води,…",
-    "sku": "FPA1465CT",
-    "subcategory": "chlorine-removal-systems",
-    "line": "FPA",
-    "type": "Видалення хлору",
-    "purpose": [
-      "Весь будинок"
-    ],
-    "problem": [
-      "Хлор"
-    ],
-    "installation": "Колонний",
-    "tags": [
-      "column-systems"
-    ],
-    "filters": {
-      "format": [
-        "Колонна"
-      ],
-      "series": [
-        "FPA"
-      ],
-      "task": [
-        "Видалення хлору"
-      ],
-      "media": [
-        "Активоване вугілля"
-      ],
-      "purpose": [
-        "Весь будинок"
-      ],
-      "problem": [
-        "Хлор"
-      ],
-      "installation": [
-        "Колонний"
-      ],
-      "level": [
-        "Стандарт"
-      ],
-      "line": [
-        "FPA"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/fe2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1465ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
-    "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/fe2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1465ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/1f3/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/279/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
-    ],
-    "details": {
-      "specs": [
-        {
-          "label": "Продуктивність робоча, м3/год",
-          "value": "1,2"
-        },
-        {
-          "label": "Продуктивність після фільтрів Ecosoft FK або FU, м3/год",
-          "value": "2,4"
-        },
-        {
-          "label": "Об'єм активованого вугілля FILTRASORB® 300, кг",
-          "value": "50"
-        },
-        {
-          "label": "Витрата води на регенерацію, м3/год",
-          "value": "2,4"
-        },
-        {
-          "label": "Тривалість регенерації, хв",
-          "value": "15…30"
-        },
-        {
-          "label": "Об'єм води на одну регенерацію, м3",
-          "value": "0,6...1,1"
-        },
-        {
-          "label": "Необхідний рівень передочищення від механічних домішок",
-          "value": "100 мкм"
-        },
-        {
-          "label": "Робочий тиск, бар",
-          "value": "2…6"
-        },
-        {
-          "label": "Перепад тиску в робочому режимі, бар",
-          "value": "0,5…1,0"
-        },
-        {
-          "label": "Температура вихідної води, °C",
-          "value": "+4…+30"
-        },
-        {
-          "label": "Підключення установки (зовнішня різьба)",
-          "value": "1”"
-        },
-        {
-          "label": "Вага нетто, кг",
-          "value": "70"
-        },
-        {
-          "label": "Габаритні розміри фільтра, (В х Д), см",
-          "value": "186 х 37"
-        },
-        {
-          "label": "Тип фільтра",
-          "value": "Вугільні фільтри для води"
-        },
-        {
-          "label": "Проблема",
-          "value": "Хлор, кольоровість води"
-        },
-        {
-          "label": "Застосування",
-          "value": "Приватний будинок, котедж, дача"
-        },
-        {
-          "label": "Фільтрувальний матеріал",
-          "value": "Активоване вугілля"
-        },
-        {
-          "label": "Тип корпусу",
-          "value": "Колона"
-        }
-      ],
-      "documents": [
-        {
-          "name": "manual_ecosoft_water_filter.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/a9e/manual_ecosoft_water_filter.pdf",
-          "size": "4.7 MB"
-        },
-        {
-          "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/ff7/about-clack.pdf",
-          "size": "317 KB"
-        },
-        {
-          "name": "instructct.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/dd0/instructct.pdf",
-          "size": "14.9 MB"
-        },
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "Фільтр Ecosoft FPA 1252CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води, підходить для сім'ї до 5 осіб, яка мешкає у квартирі або будинку з 1-2 санвузлами.\n\nФільтр складається з міцного корпусу, заповненого високоякісним активованим вугіллям FILTRASORB® 300 (Calgon Carbon Corporation, США), і багатофункціонального керуючого клапана.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США), забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nНадійна та ефективна робота протягом не менше ніж 5 років/li>\nнизьке скидання стоків/li>\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO/li>\n\nРезультати використання\n\nПовна відсутність запаху хлору\nЧиста вода в кожному крані\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігаються значно довше"
     }
   },
   {
@@ -8312,10 +8156,166 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
+    "slug": "filtr-dlya-udaleniya-khlora-ecosoft-fpa-1465",
+    "name": "Фільтр для видалення хлору Ecosoft FPA 1465CT",
+    "category": "filtration-systems",
+    "price": 59829,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Фільтр Ecosoft FPA 1252CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води,…",
+    "sku": "FPA1465CT",
+    "subcategory": "chlorine-removal-systems",
+    "line": "FPA",
+    "type": "Видалення хлору",
+    "purpose": [
+      "Весь будинок"
+    ],
+    "problem": [
+      "Хлор"
+    ],
+    "installation": "Колонний",
+    "tags": [
+      "column-systems"
+    ],
+    "filters": {
+      "format": [
+        "Колонна"
+      ],
+      "series": [
+        "FPA"
+      ],
+      "task": [
+        "Видалення хлору"
+      ],
+      "media": [
+        "Активоване вугілля"
+      ],
+      "purpose": [
+        "Весь будинок"
+      ],
+      "problem": [
+        "Хлор"
+      ],
+      "installation": [
+        "Колонний"
+      ],
+      "level": [
+        "Стандарт"
+      ],
+      "line": [
+        "FPA"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/fe2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1465ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
+    "images": [
+      "https://ecosoft.ua/upload/resize_cache/iblock/fe2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1465ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/1f3/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/279/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+    ],
+    "details": {
+      "specs": [
+        {
+          "label": "Продуктивність робоча, м3/год",
+          "value": "1,2"
+        },
+        {
+          "label": "Продуктивність після фільтрів Ecosoft FK або FU, м3/год",
+          "value": "2,4"
+        },
+        {
+          "label": "Об'єм активованого вугілля FILTRASORB® 300, кг",
+          "value": "50"
+        },
+        {
+          "label": "Витрата води на регенерацію, м3/год",
+          "value": "2,4"
+        },
+        {
+          "label": "Тривалість регенерації, хв",
+          "value": "15…30"
+        },
+        {
+          "label": "Об'єм води на одну регенерацію, м3",
+          "value": "0,6...1,1"
+        },
+        {
+          "label": "Необхідний рівень передочищення від механічних домішок",
+          "value": "100 мкм"
+        },
+        {
+          "label": "Робочий тиск, бар",
+          "value": "2…6"
+        },
+        {
+          "label": "Перепад тиску в робочому режимі, бар",
+          "value": "0,5…1,0"
+        },
+        {
+          "label": "Температура вихідної води, °C",
+          "value": "+4…+30"
+        },
+        {
+          "label": "Підключення установки (зовнішня різьба)",
+          "value": "1”"
+        },
+        {
+          "label": "Вага нетто, кг",
+          "value": "70"
+        },
+        {
+          "label": "Габаритні розміри фільтра, (В х Д), см",
+          "value": "186 х 37"
+        },
+        {
+          "label": "Тип фільтра",
+          "value": "Вугільні фільтри для води"
+        },
+        {
+          "label": "Проблема",
+          "value": "Хлор, кольоровість води"
+        },
+        {
+          "label": "Застосування",
+          "value": "Приватний будинок, котедж, дача"
+        },
+        {
+          "label": "Фільтрувальний матеріал",
+          "value": "Активоване вугілля"
+        },
+        {
+          "label": "Тип корпусу",
+          "value": "Колона"
+        }
+      ],
+      "documents": [
+        {
+          "name": "manual_ecosoft_water_filter.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/a9e/manual_ecosoft_water_filter.pdf",
+          "size": "4.7 MB"
+        },
+        {
+          "name": "about-clack.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/ff7/about-clack.pdf",
+          "size": "317 KB"
+        },
+        {
+          "name": "instructct.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/dd0/instructct.pdf",
+          "size": "14.9 MB"
+        },
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Фільтр Ecosoft FPA 1252CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води, підходить для сім'ї до 5 осіб, яка мешкає у квартирі або будинку з 1-2 санвузлами.\n\nФільтр складається з міцного корпусу, заповненого високоякісним активованим вугіллям FILTRASORB® 300 (Calgon Carbon Corporation, США), і багатофункціонального керуючого клапана.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США), забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nНадійна та ефективна робота протягом не менше ніж 5 років/li>\nнизьке скидання стоків/li>\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO/li>\n\nРезультати використання\n\nПовна відсутність запаху хлору\nЧиста вода в кожному крані\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігаються значно довше"
+    }
+  },
+  {
     "slug": "kompaktnyy-filtr-umyagcheniya-vody-ecosoft-fu1035cabcemvta",
     "name": "Компактний фільтр пом'якшення води Ecosoft Titanium 300 FU1035CABCEMVTA",
     "category": "filtration-systems",
-    "price": 61488,
+    "price": 62298,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FU 1035 CAB CE — компактний фільтр очищення води для квартири з 2 санвузлами, в якій проживає до 3-4 особи. Виконаний в сучасному дизайні, призначений…",
@@ -8510,7 +8510,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-obezzhelezivaniya-i-umyagcheniya-vody-ecosoft-fk1465cimixa",
     "name": "Фільтр знезалізнення та пом'якшення води Ecosoft FK1465CIMIXA",
     "category": "filtration-systems",
-    "price": 61799,
+    "price": 62612,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK1465CIMIXA — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
@@ -8694,7 +8694,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-kompleksnoy-ochistki-vody-ecosoft-fk-1252-ce",
     "name": "Фільтр знезалізнення та пом'якшення води Ecosoft FK1252CEMIXA",
     "category": "filtration-systems",
-    "price": 62419,
+    "price": 63241,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK 1252 CE — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, мангану, солей твердості та органічних…",
@@ -8882,7 +8882,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kompaktnyy-filtr-dlya-kompleksnoy-ochistki-vody-ecosoft-titanium-gold-250",
     "name": "Компактний фільтр знезалізнення та пом'якшення води Ecosoft Titanium Gold 250",
     "category": "filtration-systems",
-    "price": 66317,
+    "price": 67190,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK 1035 CAB CE - призначений для очищення води від сполук заліза, марганцю, солей жорсткості та органічних домішок. Має сучасний дизайн і підходить для…",
@@ -9061,7 +9061,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-kompleksnoy-ochistki-vody-ecosoft-fk-1354-ce",
     "name": "Фільтр знезалізнення та пом'якшення води Ecosoft FK1354CEMIXA",
     "category": "filtration-systems",
-    "price": 69019,
+    "price": 69928,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FK 1354 CE — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, марганцю, солей твердості та органічних…",
@@ -9249,7 +9249,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-dlya-udaleniya-serovodoroda-ecosoft-fpc-1465",
     "name": "Фільтр для видалення сірководню Ecosoft FPC 1465CT",
     "category": "filtration-systems",
-    "price": 71899,
+    "price": 72846,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPC 1465CT призначений для очищення води від сірководню, використовується в будинках з 1-2 санвузлами, в яких проживає до 5 осіб.",
@@ -9389,7 +9389,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kompaktnyy-filtr-dlya-kompleksnoy-ochistki-vody-ecosoft-titanium-gold-370",
     "name": "Компактний фільтр знезалізнення та пом'якшення води Ecosoft Titanium Gold 370",
     "category": "filtration-systems",
-    "price": 72076,
+    "price": 73025,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FК 1235 CAB CE - призначений для очищення води від сполук заліза, марганцю, солей жорсткості та органічних домішок. Має сучасний дизайн і підходить для…",
@@ -9569,7 +9569,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-dlya-udaleniya-khlora-ecosoft-fpa-1665",
     "name": "Фільтр для видалення хлору Ecosoft FPA 1665CT",
     "category": "filtration-systems",
-    "price": 75664,
+    "price": 76661,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPA 1665CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води,…",
@@ -9720,7 +9720,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-dlya-udaleniya-serovodoroda-ecosoft-fpc-1665",
     "name": "Фільтр для видалення сірководню Ecosoft FPC 1665CT",
     "category": "filtration-systems",
-    "price": 77436,
+    "price": 78456,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FPC 1665CT призначений для очищення води від сірководню, використовується в будинках з 2-3 санвузлами, в яких проживає до 8 осіб.",
@@ -9865,7 +9865,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-kompleksnoy-ochistki-vody-ecosoft-fk-1465-ce",
     "name": "Фільтр знезалізнення та пом'якшення води Ecosoft FK1465CEMIXA",
     "category": "filtration-systems",
-    "price": 77525,
+    "price": 78546,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр Ecosoft FК 1665 CE — це автономний фільтр комплексного очищення води з одночасним зниженням вмісту сполук заліза, марганцю, солей твердості та органічних…",
@@ -10053,7 +10053,7 @@ export const PRODUCTS: Product[] = [
     "slug": "napolnitel-dlya-filtrov-ot-nakipi-ecosoft-scalex-200-ml",
     "name": "Наповнювач для фільтрів від накипу Ecosoft SCALEX 200 мл",
     "category": "mainline-filters",
-    "price": 279,
+    "price": 283,
     "inStock": true,
     "ctaType": "buy",
     "description": "Не містить фосфатів та поліфосфатів – не впливає на здоров'я людини та нешкідливий для природи",
@@ -10110,7 +10110,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-ot-nakipi-ecosoft-scalex-dlya-stiralnykh-i-posudomoechnykh-mashin",
     "name": "Фільтр від накипу Ecosoft SCALEX для пральних та посудомийних машин",
     "category": "mainline-filters",
-    "price": 301,
+    "price": 305,
     "inStock": true,
     "ctaType": "buy",
     "description": "Утворення накипу знижує ефективність роботи пральної або посудомийної машини аж до остаточної поломки без можливості відновлення.",
@@ -10202,7 +10202,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-dlya-filtra-ot-nakipi-ecosoft-scalex",
     "name": "Картридж для фільтра від накипу Ecosoft SCALEX",
     "category": "mainline-filters",
-    "price": 532,
+    "price": 539,
     "inStock": true,
     "ctaType": "buy",
     "description": "Не містить фосфати — безпечний для людини та природи",
@@ -10258,7 +10258,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-mekhanicheskoy-ochistki-ecosoft-1-2",
     "name": "Фільтр механічного очищення Ecosoft 1/2\"",
     "category": "mainline-filters",
-    "price": 665,
+    "price": 673,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр механічного очищення високого тиску Ecosoft 1/2'' призначений для очищення холодної води господарсько-побутового призначення від різних механічних домішок. Він…",
@@ -10373,7 +10373,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-ot-nakipi-ecosoft-ecozon-dlya-boylerov-i-kotlov",
     "name": "Фільтр від накипу Ecosoft SCALEX для бойлерів та котлів",
     "category": "mainline-filters",
-    "price": 696,
+    "price": 705,
     "inStock": true,
     "ctaType": "buy",
     "description": "Утворення накипу знижує ефективність роботи домашнього бойлера або котла аж до остаточної поломки без можливості відновлення.",
@@ -10463,10 +10463,125 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
+    "slug": "filtr-mekhanicheskoy-ochistki-ecosoft-3-4",
+    "name": "Фільтр механічного очищення Ecosoft 3/4\"",
+    "category": "mainline-filters",
+    "price": 718,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Фільтр механічного очищення високого тиску Ecosoft 3/4''призначений для очищення холодної води господарсько-побутового призначення від різних механічних домішок. Він…",
+    "sku": "FPV34ECO",
+    "subcategory": "ml-cartridge",
+    "type": "Механічний",
+    "purpose": [
+      "Будинок"
+    ],
+    "problem": [
+      "Механічні домішки"
+    ],
+    "installation": "Магістральний",
+    "filters": {
+      "type": [
+        "Механічний"
+      ],
+      "body": [
+        "Стандартний"
+      ],
+      "temperature": [
+        "Холодна"
+      ],
+      "connection": [
+        "3/4\""
+      ],
+      "purpose": [
+        "Будинок"
+      ],
+      "problem": [
+        "Механічні домішки"
+      ],
+      "installation": [
+        "Магістральний"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/fb1/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_3_4_fpv34eco_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_3_.webp",
+    "images": [
+      "https://ecosoft.ua/upload/resize_cache/iblock/fb1/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_3_4_fpv34eco_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_3_.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/9d1/564_564_140cd750bba9870f18aada2478b24840a/korfpv12eco_korfpv34eco.webp"
+    ],
+    "details": {
+      "specs": [
+        {
+          "label": "Типорозмір",
+          "value": "2,5\"×10\""
+        },
+        {
+          "label": "Монтажне положення фільтра",
+          "value": "вертикальне"
+        },
+        {
+          "label": "Діаметр підключення",
+          "value": "3/4''"
+        },
+        {
+          "label": "Порт приєднання",
+          "value": "латунь"
+        },
+        {
+          "label": "Максимальна продуктивність",
+          "value": "10 л/хв"
+        },
+        {
+          "label": "Робочий тиск",
+          "value": "3,5–4 бар"
+        },
+        {
+          "label": "Максимальний тиск",
+          "value": "6 барів"
+        },
+        {
+          "label": "Температура води",
+          "value": "+5...+35°C"
+        },
+        {
+          "label": "Тип продукту",
+          "value": "картриджний фільтр"
+        },
+        {
+          "label": "Водопровід",
+          "value": "холодної води"
+        },
+        {
+          "label": "Матеріал корпусу",
+          "value": "пластик"
+        },
+        {
+          "label": "Бренд",
+          "value": "Ecosoft"
+        },
+        {
+          "label": "Застосування",
+          "value": "квартира, приватний будинок, дача"
+        }
+      ],
+      "documents": [
+        {
+          "name": "paspfpveco.pdf",
+          "href": "https://ecosoft.ua/upload/iblock/13a/paspfpveco.pdf",
+          "size": "448 KB"
+        },
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Фільтр механічного очищення високого тиску Ecosoft 3/4''призначений для очищення холодної води господарсько-побутового призначення від різних механічних домішок. Він ефективно видаляє з водопровідної та свердловинної води пісок, мул, іржу, окалину й інші механічні забруднення розміром понад 5 мкм. З'єднання до трубопроводу виготовлені у вигляді латунних втулок. Ідеальний для приміщень з 1 санвузлом, де проживають до 3 осіб."
+    }
+  },
+  {
     "slug": "filtr-mekhanicheskoy-ochistki-vysokogo-davleniya-ecosoft-1-2",
     "name": "Фільтр механічного очищення високого тиску Ecosoft 1/2\"",
     "category": "mainline-filters",
-    "price": 708,
+    "price": 898,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр механічного очищення високого тиску Ecosoft 1/2'' призначений для очищення холодної води господарсько-побутового призначення від різних механічних домішок. Він…",
@@ -10582,125 +10697,10 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
-    "slug": "filtr-mekhanicheskoy-ochistki-ecosoft-3-4",
-    "name": "Фільтр механічного очищення Ecosoft 3/4\"",
-    "category": "mainline-filters",
-    "price": 709,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Фільтр механічного очищення високого тиску Ecosoft 3/4''призначений для очищення холодної води господарсько-побутового призначення від різних механічних домішок. Він…",
-    "sku": "FPV34ECO",
-    "subcategory": "ml-cartridge",
-    "type": "Механічний",
-    "purpose": [
-      "Будинок"
-    ],
-    "problem": [
-      "Механічні домішки"
-    ],
-    "installation": "Магістральний",
-    "filters": {
-      "type": [
-        "Механічний"
-      ],
-      "body": [
-        "Стандартний"
-      ],
-      "temperature": [
-        "Холодна"
-      ],
-      "connection": [
-        "3/4\""
-      ],
-      "purpose": [
-        "Будинок"
-      ],
-      "problem": [
-        "Механічні домішки"
-      ],
-      "installation": [
-        "Магістральний"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/fb1/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_3_4_fpv34eco_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_3_.webp",
-    "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/fb1/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_3_4_fpv34eco_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_3_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9d1/564_564_140cd750bba9870f18aada2478b24840a/korfpv12eco_korfpv34eco.webp"
-    ],
-    "details": {
-      "specs": [
-        {
-          "label": "Типорозмір",
-          "value": "2,5\"×10\""
-        },
-        {
-          "label": "Монтажне положення фільтра",
-          "value": "вертикальне"
-        },
-        {
-          "label": "Діаметр підключення",
-          "value": "3/4''"
-        },
-        {
-          "label": "Порт приєднання",
-          "value": "латунь"
-        },
-        {
-          "label": "Максимальна продуктивність",
-          "value": "10 л/хв"
-        },
-        {
-          "label": "Робочий тиск",
-          "value": "3,5–4 бар"
-        },
-        {
-          "label": "Максимальний тиск",
-          "value": "6 барів"
-        },
-        {
-          "label": "Температура води",
-          "value": "+5...+35°C"
-        },
-        {
-          "label": "Тип продукту",
-          "value": "картриджний фільтр"
-        },
-        {
-          "label": "Водопровід",
-          "value": "холодної води"
-        },
-        {
-          "label": "Матеріал корпусу",
-          "value": "пластик"
-        },
-        {
-          "label": "Бренд",
-          "value": "Ecosoft"
-        },
-        {
-          "label": "Застосування",
-          "value": "квартира, приватний будинок, дача"
-        }
-      ],
-      "documents": [
-        {
-          "name": "paspfpveco.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/13a/paspfpveco.pdf",
-          "size": "448 KB"
-        },
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "Фільтр механічного очищення високого тиску Ecosoft 3/4''призначений для очищення холодної води господарсько-побутового призначення від різних механічних домішок. Він ефективно видаляє з водопровідної та свердловинної води пісок, мул, іржу, окалину й інші механічні забруднення розміром понад 5 мкм. З'єднання до трубопроводу виготовлені у вигляді латунних втулок. Ідеальний для приміщень з 1 санвузлом, де проживають до 3 осіб."
-    }
-  },
-  {
     "slug": "filtr-mekhanicheskoy-ochistki-vysokogo-davleniya-ecosoft-3-4",
     "name": "Фільтр механічного очищення високого тиску Ecosoft 3/4\"",
     "category": "mainline-filters",
-    "price": 744,
+    "price": 943,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр механічного очищення високого тиску Ecosoft 1/2",
@@ -10819,7 +10819,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-mekhanicheskoy-ochistki-dlya-goryachey-vody-ecosoft-1-2",
     "name": "Фільтр механічного очищення для гарячої води Ecosoft 1/2\"",
     "category": "mainline-filters",
-    "price": 1240,
+    "price": 1257,
     "inStock": true,
     "ctaType": "buy",
     "description": "Фільтр механічного очищення Ecosoft 1/2'' призначений для очищення гарячої води господарсько-побутового призначення від різних механічних домішок. Він ефективно…",
@@ -10930,7 +10930,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kolba-mekhanicheskoy-ochistki-ecosoft-bb10-1",
     "name": "Колба механічного очищення Ecosoft BB10 1\"",
     "category": "mainline-filters",
-    "price": 2082,
+    "price": 2110,
     "inStock": true,
     "ctaType": "buy",
     "description": "Виготовлений з високоякісного і міцного матеріалу",
@@ -11197,7 +11197,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kolba-mekhanicheskoy-ochistki-ecosoft-bb20-1",
     "name": "Колба механічного очищення Ecosoft BB20 1\"",
     "category": "mainline-filters",
-    "price": 2437,
+    "price": 2469,
     "inStock": true,
     "ctaType": "buy",
     "description": "Картриджний фільтр Ecosoft BB20 призначений для очищення холодної води господарсько-побутового призначення. Домішки, які може видаляти фільтр, залежать від…",
@@ -11415,7 +11415,7 @@ export const PRODUCTS: Product[] = [
     "slug": "diskoviy-filtr-mehnicheskoy-ochistki-ecosoft-1",
     "name": "Дисковий фільтр механічного очищення Ecosoft 1\"",
     "category": "mainline-filters",
-    "price": 4917,
+    "price": 4982,
     "inStock": true,
     "ctaType": "buy",
     "description": "Дисковий фільтр механічного очищення з ручною промивкою — це надійне рішення для ефективного видалення з води піску, іржі, окалини та інших механічних домішок. Він…",
@@ -11829,7 +11829,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-dlya-vsoho-budynku-ecosoft-aquapoint-xl-duo",
     "name": "Фільтр для всього будинку Ecosoft Aquapoint XL Duo",
     "category": "mainline-filters",
-    "price": 7664,
+    "price": 7765,
     "inStock": true,
     "ctaType": "buy",
     "description": "Картриджний фільтр Ecosoft BB20 призначений для очищення холодної води господарсько-побутового призначення. Домішки, які може видаляти фільтр, залежать від…",
@@ -11961,7 +11961,7 @@ export const PRODUCTS: Product[] = [
     "slug": "diskoviy-filtr-mehnicheskoy-ochistki-ecosoft-1-ar",
     "name": "Дисковий фільтр механічного очищення Ecosoft 1\" AR",
     "category": "mainline-filters",
-    "price": 11695,
+    "price": 11849,
     "inStock": true,
     "ctaType": "buy",
     "description": "Дисковий фільтр механічного очищення з ручною промивкою — це надійне рішення для ефективного видалення з води піску, іржі, окалини та інших механічних домішок. Він…",
@@ -12074,7 +12074,7 @@ export const PRODUCTS: Product[] = [
     "slug": "komplekt-kartridzhey-ecosoft-1-2-3-dlya-filtra-obratnogo-osmosa",
     "name": "Комплект картриджів Ecosoft 1-2-3 для фільтрів зворотного осмосу",
     "category": "ro-cartridges",
-    "price": 399,
+    "price": 404,
     "inStock": true,
     "ctaType": "buy",
     "description": "В комплект входять три картриджі Ecosoft, які необхідні для попереднього очищення води перед мембранним елементом у фільтрі зворотного осмосу.",
@@ -12123,7 +12123,7 @@ export const PRODUCTS: Product[] = [
     "slug": "ugolnyy-postfiltr-ecosoft-dlya-filtra-obratnogo-osmosa",
     "name": "Вугільний постфільтр Ecosoft для фільтрів зворотного осмосу",
     "category": "ro-cartridges",
-    "price": 416,
+    "price": 422,
     "inStock": true,
     "ctaType": "buy",
     "description": "Смачна вода — в постфільтрі вугілля зі шкарлупи кокосових горіхів",
@@ -12194,7 +12194,7 @@ export const PRODUCTS: Product[] = [
     "slug": "mineralizator-ecosoft-dlya-filtra-obratnogo-osmosa",
     "name": "Мінералізатор Ecosoft для фільтрів зворотного осмосу",
     "category": "ro-cartridges",
-    "price": 452,
+    "price": 458,
     "inStock": true,
     "ctaType": "buy",
     "description": "Вода з необхідними організму мінералами",
@@ -12293,7 +12293,7 @@ export const PRODUCTS: Product[] = [
     "slug": "komplekt-kartrydzhiv-ecosoft-1-2-3-aquagreen-standard",
     "name": "Комплект картриджів Ecosoft 1-2-3 AQUAGREEN Standard",
     "category": "ro-cartridges",
-    "price": 532,
+    "price": 539,
     "inStock": true,
     "ctaType": "buy",
     "description": "В комплект входять три картриджі Ecosoft, які необхідні для попереднього очищення води перед мембранним елементом у фільтрі зворотного осмосу.",
@@ -12342,7 +12342,7 @@ export const PRODUCTS: Product[] = [
     "slug": "uluchshennyy-komplekt-kartridzhey-ecosoft-1-2-3-dlya-filtra-obratnogo-osmosa",
     "name": "Покращений комплект картриджів Ecosoft 1-2-3 для фільтрів зворотного осмосу",
     "category": "ro-cartridges",
-    "price": 682,
+    "price": 691,
     "inStock": true,
     "ctaType": "buy",
     "description": "В комплект входять три картриджі Ecosoft, які необхідні для попереднього очищення води перед мембранним елементом у фільтрі зворотного осмосу. До покращеного…",
@@ -12478,7 +12478,7 @@ export const PRODUCTS: Product[] = [
     "slug": "komplekt-kartrydzhiv-aquagreen",
     "name": "Покращений комплект картриджів Ecosoft 1-2-3 для фільтрів зворотного осмосу з функцією економії води",
     "category": "ro-cartridges",
-    "price": 789,
+    "price": 799,
     "inStock": true,
     "ctaType": "buy",
     "description": "В комплект входять три картриджі Ecosoft, які необхідні для попереднього очищення води перед мембранним елементом у фільтрі зворотного осмосу. До покращеного…",
@@ -12527,7 +12527,7 @@ export const PRODUCTS: Product[] = [
     "slug": "komplekt-kartridzhey-ecosoft-dlya-troynogo-filtra",
     "name": "Комплект картриджів Ecosoft для потрійного фільтра",
     "category": "ro-cartridges",
-    "price": 930,
+    "price": 943,
     "inStock": true,
     "ctaType": "buy",
     "description": "Комплект картриджів Ecosoft для потрійного фільтра — це",
@@ -12619,7 +12619,7 @@ export const PRODUCTS: Product[] = [
     "slug": "membrannyy-element-ecosoft-50gpd-dlya-domashnikh-filtrov-obratnogo-osmosa",
     "name": "Мембрана Ecosoft 50GPD для домашніх фільтрів зворотного осмосу",
     "category": "ro-cartridges",
-    "price": 1108,
+    "price": 1122,
     "inStock": true,
     "ctaType": "buy",
     "description": "Мембранний елемент — головний елемент домашнього фільтра зворотного осмосу. Саме мембрана робить воду з вашого крана питною та безпечною навіть для дітей.",
@@ -12741,7 +12741,7 @@ export const PRODUCTS: Product[] = [
     "slug": "membrannyy-element-ecosoft-75gpd-dlya-domashnikh-filtrov-obratnogo-osmosa",
     "name": "Мембрана Ecosoft 75GPD для домашніх фільтрів зворотного осмосу",
     "category": "ro-cartridges",
-    "price": 1329,
+    "price": 1346,
     "inStock": true,
     "ctaType": "buy",
     "description": "Мембранний елемент — головний елемент домашнього фільтра зворотного осмосу. Саме мембрана робить воду з вашого крана питною та безпечною навіть для дітей.",
@@ -12817,59 +12817,10 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
-    "slug": "absolute-komplect-6-months",
-    "name": "Комплект картриджів Ecosoft Absolute \"6 місяців\"",
-    "category": "ro-cartridges",
-    "price": 1467,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Додайте в своє життя смаку та комфорту з Absolute.",
-    "sku": "CHV5ECOABS",
-    "subcategory": "roc-absolute",
-    "type": "Комплект картриджів",
-    "purpose": [
-      "Сервіс"
-    ],
-    "installation": "Змінний картридж",
-    "filters": {
-      "type": [
-        "Комплект картриджів"
-      ],
-      "compatibility": [
-        "Absolute"
-      ],
-      "period": [
-        "6 місяців"
-      ],
-      "purpose": [
-        "Сервіс"
-      ],
-      "installation": [
-        "Змінний картридж"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/049/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_6_pyefyashchyev_chv5ecoabs_ua_nsptoyenkh_naukhuyezkv_eco.webp",
-    "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/049/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_6_pyefyashchyev_chv5ecoabs_ua_nsptoyenkh_naukhuyezkv_eco.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9d7/564_564_140cd750bba9870f18aada2478b24840a/chv5ecoabs_2026_03_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/49a/564_564_140cd750bba9870f18aada2478b24840a/chv5ecoabs_2026_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e81/564_564_140cd750bba9870f18aada2478b24840a/chv5ecoabs_2026_01_1200x1200.webp"
-    ],
-    "details": {
-      "documents": [
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "Додайте в своє життя смаку та комфорту з Absolute.\n\nВ комплект картриджів Ecosoft Absolute"
-    }
-  },
-  {
     "slug": "uluchshennyy-komplekt-kartridzhey-ecosoft-dlya-troynyh-filtrov",
     "name": "Покращений комплект картриджів Ecosoft для потрійного фільтра",
     "category": "ro-cartridges",
-    "price": 1506,
+    "price": 1526,
     "inStock": true,
     "ctaType": "buy",
     "description": "Комплект картриджів Ecosoft для потрійного фильтра — це",
@@ -12912,6 +12863,55 @@ export const PRODUCTS: Product[] = [
         }
       ],
       "longDescription": "Комплект картриджів Ecosoft для потрійного фильтра — це\n\n3 000* л питної води джерельної якості\n\nочищення жорсткої водопровідної води, в якій багато заліза та шкідливих органічних домішок\n\n* залежить від якості вихідної води\n\nЗ потрійним фільтром Ecosoft, вода буде чистою та м'якою, отже\n\nстрави стануть смачнішими\n\nчай та кава будуть ароматнішими\n\nпобутові прилади — чайник, праска, пароварка, зволожувач повітря — будуть захищені від накипу\n\nКартриджі підходять для потрійних фільтрів інших виробників"
+    }
+  },
+  {
+    "slug": "absolute-komplect-6-months",
+    "name": "Комплект картриджів Ecosoft Absolute \"6 місяців\"",
+    "category": "ro-cartridges",
+    "price": 1652,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Додайте в своє життя смаку та комфорту з Absolute.",
+    "sku": "CHV5ECOABS",
+    "subcategory": "roc-absolute",
+    "type": "Комплект картриджів",
+    "purpose": [
+      "Сервіс"
+    ],
+    "installation": "Змінний картридж",
+    "filters": {
+      "type": [
+        "Комплект картриджів"
+      ],
+      "compatibility": [
+        "Absolute"
+      ],
+      "period": [
+        "6 місяців"
+      ],
+      "purpose": [
+        "Сервіс"
+      ],
+      "installation": [
+        "Змінний картридж"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/049/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_6_pyefyashchyev_chv5ecoabs_ua_nsptoyenkh_naukhuyezkv_eco.webp",
+    "images": [
+      "https://ecosoft.ua/upload/resize_cache/iblock/049/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_6_pyefyashchyev_chv5ecoabs_ua_nsptoyenkh_naukhuyezkv_eco.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/9d7/564_564_140cd750bba9870f18aada2478b24840a/chv5ecoabs_2026_03_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/49a/564_564_140cd750bba9870f18aada2478b24840a/chv5ecoabs_2026_02_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/e81/564_564_140cd750bba9870f18aada2478b24840a/chv5ecoabs_2026_01_1200x1200.webp"
+    ],
+    "details": {
+      "documents": [
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Додайте в своє життя смаку та комфорту з Absolute.\n\nВ комплект картриджів Ecosoft Absolute"
     }
   },
   {
@@ -13058,7 +13058,7 @@ export const PRODUCTS: Product[] = [
     "slug": "membrannyy-element-ecosoft-100gpd-dlya-domashnikh-filtrov-obratnogo-osmosa",
     "name": "Мембрана Ecosoft 100GPD для домашніх фільтрів зворотного осмосу",
     "category": "ro-cartridges",
-    "price": 1905,
+    "price": 1930,
     "inStock": true,
     "ctaType": "buy",
     "description": "Мембранний елемент — головний елемент домашнього фільтра зворотного осмосу. Саме мембрана робить воду з вашого крана питною та безпечною навіть для дітей.",
@@ -13220,55 +13220,6 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
-    "slug": "absolute-komplect-12-months",
-    "name": "Комплект картриджів Ecosoft Absolute \"12 місяців\"",
-    "category": "ro-cartridges",
-    "price": 2647,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Комплект картриджів призначений для одноразової заміни всіх фільтрувальних елементів фільтра.",
-    "sku": "CHV6ECOABS",
-    "subcategory": "roc-absolute",
-    "type": "Комплект картриджів",
-    "purpose": [
-      "Сервіс"
-    ],
-    "installation": "Змінний картридж",
-    "filters": {
-      "type": [
-        "Комплект картриджів"
-      ],
-      "compatibility": [
-        "Absolute"
-      ],
-      "period": [
-        "12 місяців"
-      ],
-      "purpose": [
-        "Сервіс"
-      ],
-      "installation": [
-        "Змінний картридж"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/6eb/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_12_pyefyashchyev_chv6ecoabs_ua_nsptoyenkh_naukhuyezkv_ec.webp",
-    "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/6eb/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_12_pyefyashchyev_chv6ecoabs_ua_nsptoyenkh_naukhuyezkv_ec.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/372/564_564_140cd750bba9870f18aada2478b24840a/chv6ecoabs_2026_03_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/6a0/564_564_140cd750bba9870f18aada2478b24840a/chv6ecoabs_2026_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/fe0/564_564_140cd750bba9870f18aada2478b24840a/chv6ecoabs_2026_01_1200x1200.webp"
-    ],
-    "details": {
-      "documents": [
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "Комплект картриджів призначений для одноразової заміни всіх фільтрувальних елементів фільтра.\n\nВ комплект картриджів Ecosoft Absolute"
-    }
-  },
-  {
     "slug": "uluchshennyy-richniy-zapas-kartridzhey-ecosoft-dlya-troynyh-filtrov",
     "name": "Покращений річний запас картриджів Ecosoft для потрійного фільтра",
     "category": "ro-cartridges",
@@ -13324,7 +13275,7 @@ export const PRODUCTS: Product[] = [
     "slug": "pure-mint-aquacalcium-komplect-6-months",
     "name": "Комплект картриджів Ecosoft PURE AquaCalcium Mint \"6 місяців\"",
     "category": "ro-cartridges",
-    "price": 2747,
+    "price": 2783,
     "inStock": true,
     "ctaType": "buy",
     "description": "Додайте в своє життя смаку та комфорту з PURE AquaCalcium.",
@@ -13368,6 +13319,55 @@ export const PRODUCTS: Product[] = [
         }
       ],
       "longDescription": "Додайте в своє життя смаку та комфорту з PURE AquaCalcium.\n\nВ комплект картриджів Ecosoft PURE AquaCalcium"
+    }
+  },
+  {
+    "slug": "absolute-komplect-12-months",
+    "name": "Комплект картриджів Ecosoft Absolute \"12 місяців\"",
+    "category": "ro-cartridges",
+    "price": 2980,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Комплект картриджів призначений для одноразової заміни всіх фільтрувальних елементів фільтра.",
+    "sku": "CHV6ECOABS",
+    "subcategory": "roc-absolute",
+    "type": "Комплект картриджів",
+    "purpose": [
+      "Сервіс"
+    ],
+    "installation": "Змінний картридж",
+    "filters": {
+      "type": [
+        "Комплект картриджів"
+      ],
+      "compatibility": [
+        "Absolute"
+      ],
+      "period": [
+        "12 місяців"
+      ],
+      "purpose": [
+        "Сервіс"
+      ],
+      "installation": [
+        "Змінний картридж"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/6eb/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_12_pyefyashchyev_chv6ecoabs_ua_nsptoyenkh_naukhuyezkv_ec.webp",
+    "images": [
+      "https://ecosoft.ua/upload/resize_cache/iblock/6eb/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_12_pyefyashchyev_chv6ecoabs_ua_nsptoyenkh_naukhuyezkv_ec.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/372/564_564_140cd750bba9870f18aada2478b24840a/chv6ecoabs_2026_03_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/6a0/564_564_140cd750bba9870f18aada2478b24840a/chv6ecoabs_2026_02_1200x1200.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/fe0/564_564_140cd750bba9870f18aada2478b24840a/chv6ecoabs_2026_01_1200x1200.webp"
+    ],
+    "details": {
+      "documents": [
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Комплект картриджів призначений для одноразової заміни всіх фільтрувальних елементів фільтра.\n\nВ комплект картриджів Ecosoft Absolute"
     }
   },
   {
@@ -13423,7 +13423,7 @@ export const PRODUCTS: Product[] = [
     "slug": "pure-balance-komplect-6-months",
     "name": "Комплект картриджів Ecosoft PURE Balance \"6 місяців\"",
     "category": "ro-cartridges",
-    "price": 3190,
+    "price": 3232,
     "inStock": true,
     "ctaType": "buy",
     "description": "Додайте в своє життя смаку та комфорту з PURE Balance.",
@@ -13470,10 +13470,54 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
+    "slug": "richnyi-zapas-kartrydzhiv-zvorotnoho-osmosu-ecosoft-standard-pro",
+    "name": "Річний запас картриджів Ecosoft для фільтра зворотного осмосу Ecosoft Standard PRO",
+    "category": "ro-cartridges",
+    "price": 3247,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Річний комплект картриджів — безлімітний запас чистої та смачної води з кальцієм для всієї сім'ї!",
+    "sku": "CPV9MIN50GPD",
+    "subcategory": "roc-standard",
+    "type": "Річний запас",
+    "purpose": [
+      "Сервіс"
+    ],
+    "installation": "Змінний картридж",
+    "filters": {
+      "type": [
+        "Річний запас"
+      ],
+      "compatibility": [
+        "Standard",
+        "Standard PRO"
+      ],
+      "period": [
+        "12 місяців"
+      ],
+      "purpose": [
+        "Сервіс"
+      ],
+      "installation": [
+        "Змінний картридж"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/541/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_ua_ukrym.webp",
+    "details": {
+      "documents": [
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Річний комплект картриджів — безлімітний запас чистої та смачної води з кальцієм для всієї сім'ї!\n\nПокупка річного запасу картриджів забезпечить вашу сім'ю ідеально чистою водою. Вам не потрібно буде перейматись щодо картриджів кожних три місяці, та й до того ж ви заощаджуєте кошти завдяки акції."
+    }
+  },
+  {
     "slug": "pure-alkafuse-komplect-6-months",
     "name": "Комплект картриджів Ecosoft PURE Alkafuse \"6 місяців\"",
     "category": "ro-cartridges",
-    "price": 3207,
+    "price": 3250,
     "inStock": true,
     "ctaType": "buy",
     "description": "Додайте в своє життя смаку та комфорту з P'URE Alkafuse.",
@@ -13516,50 +13560,6 @@ export const PRODUCTS: Product[] = [
         }
       ],
       "longDescription": "Додайте в своє життя смаку та комфорту з P'URE Alkafuse.\n\nВ комплект картриджів Ecosoft P'URE Alkafuse"
-    }
-  },
-  {
-    "slug": "richnyi-zapas-kartrydzhiv-zvorotnoho-osmosu-ecosoft-standard-pro",
-    "name": "Річний запас картриджів Ecosoft для фільтра зворотного осмосу Ecosoft Standard PRO",
-    "category": "ro-cartridges",
-    "price": 3247,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Річний комплект картриджів — безлімітний запас чистої та смачної води з кальцієм для всієї сім'ї!",
-    "sku": "CPV9MIN50GPD",
-    "subcategory": "roc-standard",
-    "type": "Річний запас",
-    "purpose": [
-      "Сервіс"
-    ],
-    "installation": "Змінний картридж",
-    "filters": {
-      "type": [
-        "Річний запас"
-      ],
-      "compatibility": [
-        "Standard",
-        "Standard PRO"
-      ],
-      "period": [
-        "12 місяців"
-      ],
-      "purpose": [
-        "Сервіс"
-      ],
-      "installation": [
-        "Змінний картридж"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/541/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_ua_ukrym.webp",
-    "details": {
-      "documents": [
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "Річний комплект картриджів — безлімітний запас чистої та смачної води з кальцієм для всієї сім'ї!\n\nПокупка річного запасу картриджів забезпечить вашу сім'ю ідеально чистою водою. Вам не потрібно буде перейматись щодо картриджів кожних три місяці, та й до того ж ви заощаджуєте кошти завдяки акції."
     }
   },
   {
@@ -13664,7 +13664,7 @@ export const PRODUCTS: Product[] = [
     "slug": "pure-mint-aquacalcium-komplect-12-months",
     "name": "Комплект картриджів Ecosoft PURE AquaCalcium Mint \"12 місяців\"",
     "category": "ro-cartridges",
-    "price": 4058,
+    "price": 4111,
     "inStock": true,
     "ctaType": "buy",
     "description": "Додайте в своє життя смаку та комфорту з PURE AquaCalcium.",
@@ -13812,7 +13812,7 @@ export const PRODUCTS: Product[] = [
     "slug": "pure-balance-komplect-for-12-months",
     "name": "Комплект картриджів Ecosoft PURE Balance \"12 місяців\"",
     "category": "ro-cartridges",
-    "price": 4501,
+    "price": 4560,
     "inStock": true,
     "ctaType": "buy",
     "description": "Додайте в своє життя смаку та комфорту з PURE Balance.",
@@ -14232,10 +14232,136 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
+    "slug": "kartridzh-bakteriostaticheskiy-iz-vspenennogo-polipropilena-ecosoft-2-5-kh10-5-mkm",
+    "name": "Картридж зі спіненого поліпропілену з бактеріостатичним ефектом Ecosoft 2,5\"x10\" 5 мкм",
+    "category": "mainline-cartridges",
+    "price": 94,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Картридж зі спіненого поліпропілену з бактеріостатичним ефектом Ecosoft 2,5\"x10\" 5 мкм",
+    "sku": "CPV25105BECO",
+    "subcategory": "mlc-standard",
+    "type": "Бактерії",
+    "installation": "Змінний картридж",
+    "tags": [
+      "bacteriostatic"
+    ],
+    "filters": {
+      "size": [
+        "2,5\"×10\""
+      ],
+      "material": [
+        "Спінений поліпропілен"
+      ],
+      "task": [
+        "Бактерії"
+      ],
+      "micron": [
+        "5 мкм"
+      ],
+      "qty": [
+        "1"
+      ],
+      "installation": [
+        "Змінний картридж"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/046/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_bankhyeuysfkhakhyyefnym_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_sh10_5_pnp_cpv25105.webp",
+    "images": [
+      "https://ecosoft.ua/upload/resize_cache/iblock/046/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_bankhyeuysfkhakhyyefnym_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_sh10_5_pnp_cpv25105.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/cd4/564_564_140cd750bba9870f18aada2478b24840a/cpv25105beco_2-_1_.webp"
+    ],
+    "details": {
+      "documents": [
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "dvukh-gradientnyy-kartridzh-iz-vspenennogo-polipropilena-ecosoft-2-5-x10",
+    "name": "Градієнтний картридж зі спіненого поліпропілену Ecosoft 2,5\"x10\"",
+    "category": "mainline-cartridges",
+    "price": 94,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Градієнтний картридж зі спіненого поліпропілену Ecosoft 2,5''x10'' оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул…",
+    "sku": "CPV2510205ECO",
+    "subcategory": "mlc-standard",
+    "type": "Механічне очищення",
+    "installation": "Змінний картридж",
+    "tags": [
+      "gradient"
+    ],
+    "filters": {
+      "size": [
+        "2,5\"×10\""
+      ],
+      "material": [
+        "Спінений поліпропілен"
+      ],
+      "task": [
+        "Механічне очищення"
+      ],
+      "qty": [
+        "1"
+      ],
+      "installation": [
+        "Змінний картридж"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ccb/564_564_140cd750bba9870f18aada2478b24840a/ru_guaeyyerkhr_m_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_cpv2510205eco_ua_guaekzhr.webp",
+    "images": [
+      "https://ecosoft.ua/upload/resize_cache/iblock/ccb/564_564_140cd750bba9870f18aada2478b24840a/ru_guaeyyerkhr_m_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_cpv2510205eco_ua_guaekzhr.webp",
+      "https://ecosoft.ua/upload/resize_cache/iblock/74c/564_564_140cd750bba9870f18aada2478b24840a/cpv2510205eco_1-_1_.webp"
+    ],
+    "details": {
+      "specs": [
+        {
+          "label": "Тип картриджа",
+          "value": "двох градієнтний для механічних фільтрів"
+        },
+        {
+          "label": "Матеріал",
+          "value": "поліпропіленове волокно"
+        },
+        {
+          "label": "Типорозмір",
+          "value": "2,5\" × 10\""
+        },
+        {
+          "label": "Температура води, °C",
+          "value": "+3...+43"
+        },
+        {
+          "label": "Висота, мм",
+          "value": "250 ± 2,0"
+        },
+        {
+          "label": "Зовнішній діаметр, мм",
+          "value": "60 ± 2,0"
+        },
+        {
+          "label": "Рекомендована швидкість фільтрування, л/хв",
+          "value": "8"
+        }
+      ],
+      "documents": [
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Градієнтний картридж зі спіненого поліпропілену Ecosoft 2,5''x10'' оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д. Забезпечує захист сантехніки та трубопроводів від пошкоджень.\n\nРесурс картриджа збільшений в три рази та становить 30 000 л, завдяки особливій двошаровій структурі картриджа. Верхній шар затримує частинки розміром понад 20 мкм, а внутрішній видаляє забруднення розміром понад 5 мкм, що збільшує фільтрувальну поверхню.\n\nКартридж призначений для доочищення холодної водопровідної води від механічних домішок розміром понад 5 мкм."
+    }
+  },
+  {
     "slug": "kartridzh-iz-polipropilenovoy-niti-ecosoft-2-5-x10-1-mkm",
     "name": "Картридж з поліпропіленової нитки Ecosoft 2,5\"x10\" 1 мкм",
     "category": "mainline-cartridges",
-    "price": 81,
+    "price": 103,
     "inStock": true,
     "ctaType": "buy",
     "description": "Стабільні характеристики щільності намотування",
@@ -14312,7 +14438,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-iz-polipropilenovoy-niti-ecosoft-2-5-x10-5-mkm",
     "name": "Картридж з поліпропіленової нитки Ecosoft 2,5\"x10\" 5 мкм",
     "category": "mainline-cartridges",
-    "price": 81,
+    "price": 103,
     "inStock": true,
     "ctaType": "buy",
     "description": "Стабільні характеристики щільності намотування",
@@ -14389,7 +14515,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-iz-polipropilenovoy-niti-ecosoft-2-5-x10-10-mkm",
     "name": "Картридж з поліпропіленової нитки Ecosoft 2,5\"x10\" 10 мкм",
     "category": "mainline-cartridges",
-    "price": 81,
+    "price": 103,
     "inStock": true,
     "ctaType": "buy",
     "description": "Стабільні характеристики щільності намотування",
@@ -14466,7 +14592,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-iz-polipropilenovoy-niti-ecosoft-2-5-x10-20-mkm",
     "name": "Картридж з поліпропіленової нитки Ecosoft 2,5\"x10\" 20 мкм",
     "category": "mainline-cartridges",
-    "price": 81,
+    "price": 103,
     "inStock": true,
     "ctaType": "buy",
     "description": "Стабільні характеристики щільності намотування",
@@ -14537,132 +14663,6 @@ export const PRODUCTS: Product[] = [
         }
       ],
       "longDescription": "5 головних переваг:\n\nРесурс 10 000 літрів\nВисока ефективність очищення\nСтабільні характеристики щільності намотування\nЯкісна нитка від українського виробника\nЗахист сантехніки та трубопроводів\n\nГоловне про картриджі\n\nКартридж Ecosoft 2,5''x10'' 20 мкм з поліпропіленової нитки оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д.\n\nКартридж призначений для доочистки холодної водопровідної води від механічних домішок понад 20 мкм.\n\nКористувачі\n\nСім'я до 3 осіб, що проживає у квартирі або будинку з 1 санвузлом.\n\nЯкі зміни відбудуться після покупки фільтра?\n\nВи будете із задоволенням приймати душ або ванну в чистій і прозорій воді\nВаша сантехніка буде виблискувати, а труби будуть чистими\nФорсунки душової кабіни, гідромасажної ванни та душової лійки тепер не заб'ються, і будуть радувати хорошим тиском\nВаші побутові прилади, система опалення та сантехніка прослужать вам довше\nКартриджі в вашому фільтрі для питної води на кухні потрібно буде міняти значно рідше"
-    }
-  },
-  {
-    "slug": "kartridzh-bakteriostaticheskiy-iz-vspenennogo-polipropilena-ecosoft-2-5-kh10-5-mkm",
-    "name": "Картридж зі спіненого поліпропілену з бактеріостатичним ефектом Ecosoft 2,5\"x10\" 5 мкм",
-    "category": "mainline-cartridges",
-    "price": 93,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Картридж зі спіненого поліпропілену з бактеріостатичним ефектом Ecosoft 2,5\"x10\" 5 мкм",
-    "sku": "CPV25105BECO",
-    "subcategory": "mlc-standard",
-    "type": "Бактерії",
-    "installation": "Змінний картридж",
-    "tags": [
-      "bacteriostatic"
-    ],
-    "filters": {
-      "size": [
-        "2,5\"×10\""
-      ],
-      "material": [
-        "Спінений поліпропілен"
-      ],
-      "task": [
-        "Бактерії"
-      ],
-      "micron": [
-        "5 мкм"
-      ],
-      "qty": [
-        "1"
-      ],
-      "installation": [
-        "Змінний картридж"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/046/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_bankhyeuysfkhakhyyefnym_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_sh10_5_pnp_cpv25105.webp",
-    "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/046/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_bankhyeuysfkhakhyyefnym_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_sh10_5_pnp_cpv25105.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/cd4/564_564_140cd750bba9870f18aada2478b24840a/cpv25105beco_2-_1_.webp"
-    ],
-    "details": {
-      "documents": [
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ]
-    }
-  },
-  {
-    "slug": "dvukh-gradientnyy-kartridzh-iz-vspenennogo-polipropilena-ecosoft-2-5-x10",
-    "name": "Градієнтний картридж зі спіненого поліпропілену Ecosoft 2,5\"x10\"",
-    "category": "mainline-cartridges",
-    "price": 93,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Градієнтний картридж зі спіненого поліпропілену Ecosoft 2,5''x10'' оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул…",
-    "sku": "CPV2510205ECO",
-    "subcategory": "mlc-standard",
-    "type": "Механічне очищення",
-    "installation": "Змінний картридж",
-    "tags": [
-      "gradient"
-    ],
-    "filters": {
-      "size": [
-        "2,5\"×10\""
-      ],
-      "material": [
-        "Спінений поліпропілен"
-      ],
-      "task": [
-        "Механічне очищення"
-      ],
-      "qty": [
-        "1"
-      ],
-      "installation": [
-        "Змінний картридж"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ccb/564_564_140cd750bba9870f18aada2478b24840a/ru_guaeyyerkhr_m_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_cpv2510205eco_ua_guaekzhr.webp",
-    "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/ccb/564_564_140cd750bba9870f18aada2478b24840a/ru_guaeyyerkhr_m_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_cpv2510205eco_ua_guaekzhr.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/74c/564_564_140cd750bba9870f18aada2478b24840a/cpv2510205eco_1-_1_.webp"
-    ],
-    "details": {
-      "specs": [
-        {
-          "label": "Тип картриджа",
-          "value": "двох градієнтний для механічних фільтрів"
-        },
-        {
-          "label": "Матеріал",
-          "value": "поліпропіленове волокно"
-        },
-        {
-          "label": "Типорозмір",
-          "value": "2,5\" × 10\""
-        },
-        {
-          "label": "Температура води, °C",
-          "value": "+3...+43"
-        },
-        {
-          "label": "Висота, мм",
-          "value": "250 ± 2,0"
-        },
-        {
-          "label": "Зовнішній діаметр, мм",
-          "value": "60 ± 2,0"
-        },
-        {
-          "label": "Рекомендована швидкість фільтрування, л/хв",
-          "value": "8"
-        }
-      ],
-      "documents": [
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "Градієнтний картридж зі спіненого поліпропілену Ecosoft 2,5''x10'' оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д. Забезпечує захист сантехніки та трубопроводів від пошкоджень.\n\nРесурс картриджа збільшений в три рази та становить 30 000 л, завдяки особливій двошаровій структурі картриджа. Верхній шар затримує частинки розміром понад 20 мкм, а внутрішній видаляє забруднення розміром понад 5 мкм, що збільшує фільтрувальну поверхню.\n\nКартридж призначений для доочищення холодної водопровідної води від механічних домішок розміром понад 5 мкм."
     }
   },
   {
@@ -14746,7 +14746,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-iz-vspenennogo-polipropilena-ecosoft-4-5-x10-5-mkm",
     "name": "Картридж зі спіненого поліпропілену Ecosoft 4,5\"x10\" 5 мкм",
     "category": "mainline-cartridges",
-    "price": 204,
+    "price": 206,
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж Ecosoft 4,5''x10'' 5 мкм зі спіненого поліпропілену оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і…",
@@ -14823,7 +14823,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-s-granulirovannym-aktivirovannym-uglem-ecosoft-2-5-kh10",
     "name": "Картридж з гранульованим активованим вугіллям Ecosoft 2,5\"х10\"",
     "category": "mainline-cartridges",
-    "price": 310,
+    "price": 314,
     "inStock": true,
     "ctaType": "buy",
     "description": "Усередині картриджа для видалення хлору Ecosoft 2,5''х10'' міститься 100% високоякісне гранульоване активоване вугілля зі шкаралупи кокосових горіхів.",
@@ -14893,7 +14893,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-iz-spressovannogo-uglya-ecosoft-2-5-kh10",
     "name": "Картридж зі спресованого активованого вугілля Ecosoft CTO10 2,5\"х10\"",
     "category": "mainline-cartridges",
-    "price": 328,
+    "price": 332,
     "inStock": true,
     "ctaType": "buy",
     "description": "В якості фільтруючого матеріалу використовується спресований активоване вугілля зі шкаралупи кокосового горіха. Картридж видаляє з води хлор і хлорорганічні сполуки,…",
@@ -14967,7 +14967,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-dlya-umyagcheniya-vody-ecosoft-2-5-kh10",
     "name": "Картридж для пом'якшення води Ecosoft 2,5\"х10\"",
     "category": "mainline-cartridges",
-    "price": 328,
+    "price": 332,
     "inStock": true,
     "ctaType": "buy",
     "description": "Доступна ціна за бездоганної якості",
@@ -15040,87 +15040,10 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
-    "slug": "kartridzh-iz-polipropilenovoy-niti-ecosoft-4-5-x10-5-mkm",
-    "name": "Картридж з поліпропіленової нитки Ecosoft 4,5\"x10\" 5 мкм",
-    "category": "mainline-cartridges",
-    "price": 372,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Картридж Ecosoft 4,5''x10'' 5 мкм з поліпропіленової нитки оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д.",
-    "sku": "CPN45105ECO",
-    "subcategory": "mlc-bb10",
-    "type": "Механічне очищення",
-    "installation": "Змінний картридж",
-    "filters": {
-      "size": [
-        "4,5\"×10\""
-      ],
-      "material": [
-        "Поліпропіленова нитка"
-      ],
-      "task": [
-        "Механічне очищення"
-      ],
-      "micron": [
-        "5 мкм"
-      ],
-      "qty": [
-        "1"
-      ],
-      "installation": [
-        "Змінний картридж"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/0f1/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_4_5_x10_5_pnp_cpn45105eco_ua_naukhuyez_i_tsoktustkoye.webp",
-    "details": {
-      "specs": [
-        {
-          "label": "Тип картриджа",
-          "value": "для механічних фільтрів"
-        },
-        {
-          "label": "Матеріал",
-          "value": "міцна поліпропіленова нитка"
-        },
-        {
-          "label": "Типорозмір",
-          "value": "4,5\" × 10\""
-        },
-        {
-          "label": "Рейтинг фільтрування, мкм",
-          "value": "5"
-        },
-        {
-          "label": "Температура води, °C",
-          "value": "+3...+60"
-        },
-        {
-          "label": "Висота, мм",
-          "value": "254±2,0"
-        },
-        {
-          "label": "Зовнішній діаметр, мм",
-          "value": "112±2,0"
-        },
-        {
-          "label": "Рекомендована швидкість фільтрування, л/хв",
-          "value": "15"
-        }
-      ],
-      "documents": [
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "Головне про картриджі\n\nКартридж Ecosoft 4,5''x10'' 5 мкм з поліпропіленової нитки оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д.\n\nКартридж призначений для доочистки холодної водопровідної води від механічних домішок понад 5 мкм.\n\nКористувачі\n\nСім'я до 4 осіб, що проживають в квартирі або будинку з 1-2 санвузлами."
-    }
-  },
-  {
     "slug": "kartridzh-iz-vspenennogo-polipropilena-ecosoft-4-5-x20-5-mkm",
     "name": "Картридж зі спіненого поліпропілену Ecosoft 4,5\"x20\" 5 мкм",
     "category": "mainline-cartridges",
-    "price": 399,
+    "price": 404,
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж Ecosoft 4,5''x20'' 5 мкм зі спіненого поліпропілену оптимально підходить для очищення води від механічних домішок розміром понад 5 мкм — таких, як іржа,…",
@@ -15197,7 +15120,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-iz-vspenennogo-polipropilena-ecosoft-4-5-x20-20-mkm",
     "name": "Картридж зі спіненого поліпропілену Ecosoft 4,5\"x20\" 20 мкм",
     "category": "mainline-cartridges",
-    "price": 399,
+    "price": 404,
     "inStock": true,
     "ctaType": "buy",
     "description": "Картридж зі спіненого поліпропілену Ecosoft 4,5\"x20\" 20 мкм",
@@ -15274,7 +15197,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-dlya-udaleniya-zheleza-ecosoft-2-5-kh10",
     "name": "Картридж для видалення заліза Ecosoft 2,5\"х10\"",
     "category": "mainline-cartridges",
-    "price": 434,
+    "price": 440,
     "inStock": true,
     "ctaType": "buy",
     "description": "Постійні експлуатаційні властивості протягом усього ресурсу",
@@ -15317,10 +15240,87 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
+    "slug": "kartridzh-iz-polipropilenovoy-niti-ecosoft-4-5-x10-5-mkm",
+    "name": "Картридж з поліпропіленової нитки Ecosoft 4,5\"x10\" 5 мкм",
+    "category": "mainline-cartridges",
+    "price": 471,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Картридж Ecosoft 4,5''x10'' 5 мкм з поліпропіленової нитки оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д.",
+    "sku": "CPN45105ECO",
+    "subcategory": "mlc-bb10",
+    "type": "Механічне очищення",
+    "installation": "Змінний картридж",
+    "filters": {
+      "size": [
+        "4,5\"×10\""
+      ],
+      "material": [
+        "Поліпропіленова нитка"
+      ],
+      "task": [
+        "Механічне очищення"
+      ],
+      "micron": [
+        "5 мкм"
+      ],
+      "qty": [
+        "1"
+      ],
+      "installation": [
+        "Змінний картридж"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/0f1/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_4_5_x10_5_pnp_cpn45105eco_ua_naukhuyez_i_tsoktustkoye.webp",
+    "details": {
+      "specs": [
+        {
+          "label": "Тип картриджа",
+          "value": "для механічних фільтрів"
+        },
+        {
+          "label": "Матеріал",
+          "value": "міцна поліпропіленова нитка"
+        },
+        {
+          "label": "Типорозмір",
+          "value": "4,5\" × 10\""
+        },
+        {
+          "label": "Рейтинг фільтрування, мкм",
+          "value": "5"
+        },
+        {
+          "label": "Температура води, °C",
+          "value": "+3...+60"
+        },
+        {
+          "label": "Висота, мм",
+          "value": "254±2,0"
+        },
+        {
+          "label": "Зовнішній діаметр, мм",
+          "value": "112±2,0"
+        },
+        {
+          "label": "Рекомендована швидкість фільтрування, л/хв",
+          "value": "15"
+        }
+      ],
+      "documents": [
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Головне про картриджі\n\nКартридж Ecosoft 4,5''x10'' 5 мкм з поліпропіленової нитки оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д.\n\nКартридж призначений для доочистки холодної водопровідної води від механічних домішок понад 5 мкм.\n\nКористувачі\n\nСім'я до 4 осіб, що проживають в квартирі або будинку з 1-2 санвузлами."
+    }
+  },
+  {
     "slug": "gradientnyy-kartridzh-dlya-mekhanicheskoy-ochistki-vody-ecosoft-bb20",
     "name": "Градієнтний картридж зі спіненого поліпропілену Ecosoft 45\"х 20\" 20-5 мкм",
     "category": "mainline-cartridges",
-    "price": 647,
+    "price": 655,
     "inStock": true,
     "ctaType": "buy",
     "description": "Стабільні характеристики щодо утримання часток",
@@ -15390,83 +15390,6 @@ export const PRODUCTS: Product[] = [
         }
       ],
       "longDescription": "5 головних переваг:\n\nРесурс 10000 літрів\n\nВисока ефективність очищення\n\nСтабільні характеристики щодо утримання часток\n\nДля виробництва використовується європейський поліпропілен із високою плинністю\n\nЗахист сантехніки та трубопроводів\n\nГоловне про картриджу\n\nКартридж НАША ВОДА 2,5''x10'' 5 мкм із спіненого поліпропілену оптимально підходить для очищення води від механічних домішок – таких як іржа, пісок, окалина, мул і т.д.\n\nЗабезпечує захист сантехніки та трубопроводів від пошкоджень.\n\nРесурс картриджа становить 10000 л.\n\nКартридж призначений для доочищення холодної водопровідної води від механічних домішок більше 5 мкм.\n\nКористувачі\n\nСім'я до 3 осіб, що проживає у квартирі чи будинку з 1 санвузлом.\n\nЯкі зміни відбудуться після покупки фільтра?\n\nВи будете з насолодою приймати душ або ванну в чистій та прозорій воді\n\nВаша сантехніка виблискуватиме, а труби будуть чистими\n\nФорсунки душової кабіни, гідромасажної ванни та душової лійки тепер не заб'ються, і радуватимуть гарним натиском\n\nВаші побутові прилади, система опалення та сантехніка прослужать вам довше\n\nКартриджі у вашому фільтрі для питної води на кухні потрібно буде міняти значно рідше"
-    }
-  },
-  {
-    "slug": "kartridzh-iz-polipropilenovoy-niti-ecosoft-4-5-x20-20-mkm",
-    "name": "Картридж з поліпропіленової нитки Ecosoft 4,5\"x20\" 20 мкм",
-    "category": "mainline-cartridges",
-    "price": 736,
-    "inStock": true,
-    "ctaType": "buy",
-    "description": "Картридж Ecosoft 4,5''x20'' 20 мкм з поліпропіленової нитки оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д.",
-    "sku": "CPN452020ECO",
-    "subcategory": "mlc-bb20",
-    "type": "Механічне очищення",
-    "installation": "Змінний картридж",
-    "filters": {
-      "size": [
-        "4,5\"×20\""
-      ],
-      "material": [
-        "Поліпропіленова нитка"
-      ],
-      "task": [
-        "Механічне очищення"
-      ],
-      "micron": [
-        "20 мкм"
-      ],
-      "qty": [
-        "1"
-      ],
-      "installation": [
-        "Змінний картридж"
-      ]
-    },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/111/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_4_5_x20_20_pnp_cpn452020eco_ua_naukhuyez_i_tsoktustk.webp",
-    "details": {
-      "specs": [
-        {
-          "label": "Тип картриджа",
-          "value": "для механічних фільтрів"
-        },
-        {
-          "label": "Матеріал",
-          "value": "міцна поліпропіленова нитка"
-        },
-        {
-          "label": "Типорозмір",
-          "value": "4,5\" × 20\""
-        },
-        {
-          "label": "Рейтинг фільтрування, мкм",
-          "value": "20"
-        },
-        {
-          "label": "Температура води, °C",
-          "value": "+3...+60"
-        },
-        {
-          "label": "Висота, мм",
-          "value": "514±2,0"
-        },
-        {
-          "label": "Зовнішній діаметр, мм",
-          "value": "112±2,0"
-        },
-        {
-          "label": "Рекомендована швидкість фільтрування, л/хв",
-          "value": "30"
-        }
-      ],
-      "documents": [
-        {
-          "name": "Каталог продукції",
-          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
-        }
-      ],
-      "longDescription": "Головне про картриджі\n\nКартридж Ecosoft 4,5''x20'' 20 мкм з поліпропіленової нитки оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д.\n\nКартридж призначений для доочистки холодної водопровідної води від механічних домішок понад 20 мкм.\n\nКористувачі\n\nСім'я до 5 осіб, що проживають в квартирі або будинку з 1-2 санвузлами."
     }
   },
   {
@@ -15624,10 +15547,87 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
+    "slug": "kartridzh-iz-polipropilenovoy-niti-ecosoft-4-5-x20-20-mkm",
+    "name": "Картридж з поліпропіленової нитки Ecosoft 4,5\"x20\" 20 мкм",
+    "category": "mainline-cartridges",
+    "price": 934,
+    "inStock": true,
+    "ctaType": "buy",
+    "description": "Картридж Ecosoft 4,5''x20'' 20 мкм з поліпропіленової нитки оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д.",
+    "sku": "CPN452020ECO",
+    "subcategory": "mlc-bb20",
+    "type": "Механічне очищення",
+    "installation": "Змінний картридж",
+    "filters": {
+      "size": [
+        "4,5\"×20\""
+      ],
+      "material": [
+        "Поліпропіленова нитка"
+      ],
+      "task": [
+        "Механічне очищення"
+      ],
+      "micron": [
+        "20 мкм"
+      ],
+      "qty": [
+        "1"
+      ],
+      "installation": [
+        "Змінний картридж"
+      ]
+    },
+    "image": "https://ecosoft.ua/upload/resize_cache/iblock/111/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_4_5_x20_20_pnp_cpn452020eco_ua_naukhuyez_i_tsoktustk.webp",
+    "details": {
+      "specs": [
+        {
+          "label": "Тип картриджа",
+          "value": "для механічних фільтрів"
+        },
+        {
+          "label": "Матеріал",
+          "value": "міцна поліпропіленова нитка"
+        },
+        {
+          "label": "Типорозмір",
+          "value": "4,5\" × 20\""
+        },
+        {
+          "label": "Рейтинг фільтрування, мкм",
+          "value": "20"
+        },
+        {
+          "label": "Температура води, °C",
+          "value": "+3...+60"
+        },
+        {
+          "label": "Висота, мм",
+          "value": "514±2,0"
+        },
+        {
+          "label": "Зовнішній діаметр, мм",
+          "value": "112±2,0"
+        },
+        {
+          "label": "Рекомендована швидкість фільтрування, л/хв",
+          "value": "30"
+        }
+      ],
+      "documents": [
+        {
+          "name": "Каталог продукції",
+          "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
+        }
+      ],
+      "longDescription": "Головне про картриджі\n\nКартридж Ecosoft 4,5''x20'' 20 мкм з поліпропіленової нитки оптимально підходить для очищення води від механічних домішок - таких, як іржа, пісок, окалина, мул і т.д.\n\nКартридж призначений для доочистки холодної водопровідної води від механічних домішок понад 20 мкм.\n\nКористувачі\n\nСім'я до 5 осіб, що проживають в квартирі або будинку з 1-2 санвузлами."
+    }
+  },
+  {
     "slug": "kartridzh-s-granulirovannym-aktivirovannym-uglem-ecosoft-4-5-kh10",
     "name": "Картридж з гранульованим активованим вугіллям Ecosoft 4,5\"х10\"",
     "category": "mainline-cartridges",
-    "price": 1240,
+    "price": 1257,
     "inStock": true,
     "ctaType": "buy",
     "description": "Смачна вода – в картриджі 100% гранульоване вугілля зі шкаралупи кокосових горіхів",
@@ -15769,7 +15769,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-iz-spressovannogo-uglya-ecosoft-4-5-kh10",
     "name": "Картридж зі спресованого активованого вугілля Ecosoft CTO10 4,5\"х10\"",
     "category": "mainline-cartridges",
-    "price": 1400,
+    "price": 1418,
     "inStock": true,
     "ctaType": "buy",
     "description": "В картриджі міститься спресоване вугілля зі шкаралупи кокосових горіхів.",
@@ -15839,7 +15839,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-dlya-udaleniya-zheleza-ecosoft-4-5-kh20",
     "name": "Картридж для видалення заліза Ecosoft 4,5\"х20\"",
     "category": "mainline-cartridges",
-    "price": 2091,
+    "price": 2118,
     "inStock": true,
     "ctaType": "buy",
     "description": "Постійні експлуатаційні властивості протягом усього ресурсу",
@@ -15911,7 +15911,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-s-granulirovannym-aktivirovannym-uglem-ecosoft-4-5-kh20",
     "name": "Картридж з гранульованим активованим вугіллям Ecosoft 4,5\"х20\"",
     "category": "mainline-cartridges",
-    "price": 2747,
+    "price": 2783,
     "inStock": true,
     "ctaType": "buy",
     "description": "Смачна вода – у картриджі 100% гранульоване вугілля зі шкаралупи кокосових горіхів",
@@ -15977,7 +15977,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-iz-spressovannogo-uglya-ecosoft-4-5-kh20",
     "name": "Картридж зі спресованого активованого вугілля Ecosoft CTO10 4,5\"х20\"",
     "category": "mainline-cartridges",
-    "price": 2800,
+    "price": 2837,
     "inStock": true,
     "ctaType": "buy",
     "description": "У картриджі спресоване вугілля із шкаралупи кокосових горіхів.",
@@ -16047,7 +16047,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kartridzh-dlya-udaleniya-serovodoroda-ecosoft-4-5-kh20",
     "name": "Картридж для видалення сірководню Ecosoft 4,5\"х20\"",
     "category": "mainline-cartridges",
-    "price": 3287,
+    "price": 3330,
     "inStock": true,
     "ctaType": "buy",
     "description": "Висока ємність матеріалу по сірководню",
@@ -16399,7 +16399,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kvartsevyy-pesok-2-6-mm-dlya-podlozhki",
     "name": "Кварцовий пісок 2-6 мм для підкладки 25 кг",
     "category": "filter-media",
-    "price": 400,
+    "price": 393,
     "inStock": true,
     "ctaType": "buy",
     "description": "Кварцовий пісок з розміром частинок 2-6 мм використовується як підкладка в засипних фільтрах для забезпечення більш рівномірного потоку води по всьому поперечному…",
@@ -16452,7 +16452,7 @@ export const PRODUCTS: Product[] = [
     "slug": "tabletirovannaya-sol-ecosil1709",
     "name": "Таблетована сіль Ecosoft 25 кг",
     "category": "filter-media",
-    "price": 775,
+    "price": 785,
     "inStock": true,
     "ctaType": "buy",
     "description": "Сіль для регенерацї Ecosoft Ecosil постачається у вигляді таблеток, фасованих у мішки по 25 л. Фасування не пропускає вологу та забезпечує тривале зберігання.",
@@ -16496,7 +16496,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtruyushchiy-material-filter-ag",
     "name": "Фільтруючий матеріал Filter-Ag 28,3 л",
     "category": "filter-media",
-    "price": 1698,
+    "price": 1715,
     "inStock": true,
     "ctaType": "buy",
     "description": "Filter-Ag — фільтруючий матеріал на основі неводного діоксиду кремнію, призначений для ефективного видалення з води завислих частинок. Використовується у фільтрах…",
@@ -16646,7 +16646,7 @@ export const PRODUCTS: Product[] = [
     "slug": "dowex-hcr-s-s-12",
     "name": "Іонообмінна смола Dowex HCR-S/S 12 л",
     "category": "filter-media",
-    "price": 2388,
+    "price": 2424,
     "inStock": true,
     "ctaType": "buy",
     "description": "Dowex HCR S/S – це сильнокислотна катіонообмінна смола гелевого типу, розроблена корпорацією DOW Chemical (США) для використання в побутових, комерційних та…",
@@ -16714,7 +16714,7 @@ export const PRODUCTS: Product[] = [
     "slug": "ionoobmennaya-smola-ecolite-soft-25-l",
     "name": "Ecosoft Ecolite Soft сильнокислотна іонообмінна смола 25 л",
     "category": "filter-media",
-    "price": 3175,
+    "price": 3209,
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecosoft Ecolite Soft – це сильнокислотна катіонообмінна смола у натрієвій формі, призначена для ефективного пом’якшення води в побутових і комерційних системах.…",
@@ -16857,7 +16857,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtruyushchiy-material-filter-ag-plus",
     "name": "Фільтруючий матеріал Filter-Ag Plus 28,3 л",
     "category": "filter-media",
-    "price": 3255,
+    "price": 3303,
     "inStock": true,
     "ctaType": "buy",
     "description": "Filter-Ag Plus - це природний мінерал, що має низку унікальних переваг перед традиційними піщаними та змішаними фільтрувальними матеріалами, застосовуваними для…",
@@ -16975,7 +16975,7 @@ export const PRODUCTS: Product[] = [
     "slug": "ionoobmennaya-smola-ecolite-ultrasoft-25-l",
     "name": "Ecosoft Ecolite Ultrasoft сильнокислотна іонообмінна смола 25 л",
     "category": "filter-media",
-    "price": 4425,
+    "price": 4488,
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecosoft Ecolite Ultrasoft – це сильнокислотна катіонообмінна смола у натрієвій формі з однорідним розміром гранул, призначена для високоефективного пом’якшення води у…",
@@ -17118,7 +17118,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtruyushchiy-material-ecomix-p-12-l",
     "name": "Фільтруючий матеріал ECOMIX P 12 л",
     "category": "filter-media",
-    "price": 4620,
+    "price": 4686,
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecomix P - високоефективний фільтрувальний матеріал для складної води. Використовується для очищення водопровідної та артезіанської води з одночасним пом'якшенням,…",
@@ -17323,7 +17323,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtruyushchiy-material-ecomix-a-12-l",
     "name": "Фільтруючий матеріал ECOMIX A 12 л",
     "category": "filter-media",
-    "price": 5422,
+    "price": 5494,
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecomix А - високоефективний фільтрувальний матеріал для складної води. Використовується для очищення водопровідної та артезіанської води з одночасним пом'якшенням,…",
@@ -17464,7 +17464,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtruyushchiy-material-ecomix-s-12-l",
     "name": "Фільтруючий матеріал ECOMIX C 12 л",
     "category": "filter-media",
-    "price": 5901,
+    "price": 5978,
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecomix С - високоефективний фільтрувальний матеріал для складної води. Використовується для очищення водопровідної та артезіанської води з одночасним пом'якшенням,…",
@@ -17605,7 +17605,7 @@ export const PRODUCTS: Product[] = [
     "slug": "ionoobmennaya-smola-ecolite-demin-25-l",
     "name": "Ecosoft Ecolite Demin змішана іонообмінна смола 25 л",
     "category": "filter-media",
-    "price": 9200,
+    "price": 9313,
     "inStock": true,
     "ctaType": "buy",
     "description": "Ecosoft Ecolite Demin – це високоефективна змішана іонообмінна смола, збалансована та однорідна, гелевого типу. Складається зі сильнокислотного катіоніту та…",
@@ -18153,7 +18153,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtruyushchiy-material-centaur-hsl-12x40",
     "name": "Активоване вугілля Centaur 12x40 15 кг",
     "category": "filter-media",
-    "price": 13290,
+    "price": 13465,
     "inStock": true,
     "ctaType": "buy",
     "description": "Centaur HSL 12х40 — бітумінозне гранульоване активоване вугілля, виробляється за запатентованою технологією. Використовується для видалення сірководню в побутовій,…",
@@ -18254,7 +18254,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtruyushchiy-material-filtrasorb-300",
     "name": "Активоване вугілля Filtrasorb 300 25 кг",
     "category": "filter-media",
-    "price": 15950,
+    "price": 16158,
     "inStock": true,
     "ctaType": "buy",
     "description": "Filtrasorb 300 — це високоефективне активоване гранульоване вугілля для очищення води від механічних мікродомішок, хлору, хлорорганіки, гумінових речовин, коригування…",
@@ -18339,7 +18339,7 @@ export const PRODUCTS: Product[] = [
     "slug": "ionoobmennaya-smola-amberlite-mb-20-h-oh-25-l",
     "name": "Іонообмінна смола Amberlite MB-20 H/OH 25 л",
     "category": "filter-media",
-    "price": 18275,
+    "price": 18514,
     "inStock": true,
     "ctaType": "buy",
     "description": "Dowex MB-50 – це регенерована суміш іонообмінних смол (катіоніт та аніоніт), розроблена корпорацією DOW Chemical (США) для виробництва води найвищої якості у…",
@@ -18429,7 +18429,7 @@ export const PRODUCTS: Product[] = [
     "slug": "ecosoft-robust-mini",
     "name": "Фільтр зворотного осмосу Ecosoft RObust Mini",
     "category": "horeca",
-    "price": 18606,
+    "price": 18851,
     "inStock": true,
     "ctaType": "buy",
     "description": "Лінійка фільтрів зворотного осмосу Ecosoft RObust — це достатня кількість чистої та безпечної води для всіх потреб: від приготування страв та напоїв до смачної питної…",
@@ -18581,7 +18581,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-obratnogo-osmosa-ecosoft-robust-1500eco",
     "name": "Фільтр зворотного осмосу Ecosoft RObust 1500ECO",
     "category": "horeca",
-    "price": 33181,
+    "price": 33618,
     "inStock": true,
     "ctaType": "buy",
     "description": "Лінійка фільтрів зворотного осмосу Ecosoft RObust — це достатня кількість чистої та безпечної води для всіх потреб: від приготування страв та напоїв до смачної питної…",
@@ -18742,7 +18742,7 @@ export const PRODUCTS: Product[] = [
     "slug": "filtr-zvorotnoho-osmosu-ecosoft-robustcoffee",
     "name": "Фільтр зворотного осмосу Ecosoft RObust COFFEE",
     "category": "horeca",
-    "price": 39826,
+    "price": 40350,
     "inStock": true,
     "ctaType": "buy",
     "description": "Лінійка фільтрів зворотного осмосу Ecosoft RObust — це достатня кількість чистої та безпечної води для всіх потреб: від приготування страв та напоїв до смачної питної…",
@@ -18889,7 +18889,7 @@ export const PRODUCTS: Product[] = [
     "slug": "kommercheskaya-sistema-obratnogo-osmosa-ecosoft-robust-30001513",
     "name": "Фільтр зворотного осмосу Ecosoft RObust 3000MAX",
     "category": "horeca",
-    "price": 57546,
+    "price": 58303,
     "inStock": true,
     "ctaType": "buy",
     "description": "Лінійка фільтрів зворотного осмосу Ecosoft RObust — це достатня кількість чистої та безпечної води для всіх потреб: від приготування страв та напоїв до смачної питної…",
@@ -19025,7 +19025,7 @@ export const PRODUCTS: Product[] = [
     "slug": "systema-zvorotnoho-osmosu-ecosoft-robust-4000",
     "name": "Фільтр зворотного осмосу Ecosoft RObust 4000",
     "category": "horeca",
-    "price": 64191,
+    "price": 65036,
     "inStock": true,
     "ctaType": "buy",
     "description": "Компактний високопродуктивний фільтр зворотного осмосу. З таким фільтром ви зможете отримати чисту, безпечну воду для пиття та приготування їжі.",

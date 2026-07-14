@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Phone, ShoppingCart, Search, Menu, X, ChevronDown } from "lucide-react";
 import { useCart } from "@/components/cart/cart-context";
+import { CallbackButton } from "@/components/site/callback-button";
 
 const PRIMARY_NAV = [
   { href: "/", label: "Головна" },
@@ -171,6 +172,18 @@ export function Header() {
             <Phone className="size-4" aria-hidden />
             0 800 300 999
           </a>
+          <CallbackButton
+            source="header"
+            className={[
+              "hidden items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-all duration-200 active:scale-[0.98] xl:inline-flex",
+              onHero
+                ? "border border-white/30 bg-white/10 text-white backdrop-blur-md hover:bg-white/20"
+                : "bg-primary text-primary-foreground hover:bg-primary/90",
+            ].join(" ")}
+          >
+            <Phone className="size-4" aria-hidden />
+            Безкоштовний дзвінок
+          </CallbackButton>
           <IconButton onHero={onHero} label="Пошук">
             <Search className="size-4" />
           </IconButton>
@@ -238,6 +251,12 @@ export function Header() {
             >
               <Phone className="size-4" /> 0 800 300 999
             </a>
+            <CallbackButton
+              source="header-mobile"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
+            >
+              <Phone className="size-4" /> Безкоштовний дзвінок
+            </CallbackButton>
           </nav>
         </div>
       )}
