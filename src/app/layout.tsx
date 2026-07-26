@@ -26,8 +26,7 @@ export const metadata: Metadata = {
     template: "%s · Магазин Ecosoft",
   },
   description: SITE_DESCRIPTION,
-  metadataBase: new URL("https://ecosoft.ua"),
-  alternates: { canonical: "/" },
+  metadataBase: new URL("https://sofiivkawater.com"),
   openGraph: {
     type: "website",
     locale: "uk_UA",
