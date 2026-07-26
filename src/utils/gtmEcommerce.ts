@@ -2,6 +2,7 @@
 // Every push first clears the previous ecommerce object, then dispatches the
 // event. All functions are client-only and safe to call during SSR (no-op).
 import { findCategory } from "@/lib/products";
+import { getProductItemId } from "@/lib/product-identity";
 
 type DataLayerObject = Record<string, unknown>;
 
@@ -62,7 +63,7 @@ export function mapProductToGA4Item(
 ): GA4Item {
   const qty = Math.max(1, Math.floor(quantity) || 1);
   return {
-    item_id: String(product.sku || product.id || product.slug || ""),
+    item_id: getProductItemId(product),
     item_name: product.name,
     item_brand: product.brand || DEFAULT_BRAND,
     item_category: categoryName(product.category),
