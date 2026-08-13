@@ -56,18 +56,12 @@ function formatPrice(value: number): string {
   return `${value.toFixed(2)} UAH`;
 }
 
-function productImages(product: Product, siteUrl: string): string[] {
-  const candidates = [product.image, ...(product.images ?? [])].filter(
-    (image): image is string => Boolean(image),
-  );
-
-  return [...new Set(candidates.map((image) => absoluteUrl(image, siteUrl)))];
+function metaImageFilename(itemId: string): string {
+  return `${itemId.replace(/[^a-zA-Z0-9._-]/g, "_")}.jpg`;
 }
 
 function productXml(product: Product, siteUrl: string): string {
   const itemId = getProductItemId(product);
-  const images = productImages(product, siteUrl);
-  const [mainImage, ...additionalImages] = images;
   const hasSalePrice =
     typeof product.oldPrice === "number" && product.oldPrice > product.price;
   const regularPrice = hasSalePrice ? product.oldPrice! : product.price;
@@ -78,9 +72,11 @@ function productXml(product: Product, siteUrl: string): string {
   if (!itemId) {
     throw new Error(`Meta feed: product "${product.slug}" has no item ID.`);
   }
-  if (!mainImage) {
-    throw new Error(`Meta feed: product "${product.slug}" has no image.`);
-  }
+
+  const mainImage = absoluteUrl(
+    `/images/meta-products/${metaImageFilename(itemId)}`,
+    siteUrl,
+  );
 
   const fields = [
     `<g:id>${xmlText(itemId)}</g:id>`,
@@ -96,10 +92,6 @@ function productXml(product: Product, siteUrl: string): string {
     "<g:condition>new</g:condition>",
     "<g:brand>Ecosoft</g:brand>",
     `<g:product_type>${xmlText(categoryTitles.get(product.category) ?? product.category)}</g:product_type>`,
-    ...additionalImages.map(
-      (image) =>
-        `<g:additional_image_link>${xmlText(image)}</g:additional_image_link>`,
-    ),
   ].filter(Boolean);
 
   return `    <item>\n      ${fields.join("\n      ")}\n    </item>`;
