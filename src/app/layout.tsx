@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/seo/json-ld";
+import { PHONE_CONTACTS } from "@/lib/contact-details";
 
 const GTM_ID = "GTM-NGD37LTG";
 
@@ -85,7 +86,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 "@id": "https://sofiivkawater.com/#store",
                 name: "Sofiivka Water — партнерський магазин Ecosoft",
                 url: "https://sofiivkawater.com/",
-                telephone: "+380800300999",
+                telephone: PHONE_CONTACTS.map((phone) => phone.raw),
                 email: "info@ecosoft.ua",
                 address: {
                   "@type": "PostalAddress",

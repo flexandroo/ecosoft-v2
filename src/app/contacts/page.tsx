@@ -6,6 +6,7 @@ import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
 import { SectionHeading } from "@/components/site/content";
 import { ContactForm } from "@/components/site/contact-form";
+import { PHONE_CONTACTS } from "@/lib/contact-details";
 
 export const metadata: Metadata = {
   title: "Контакти",
@@ -31,10 +32,17 @@ type Contact = {
 const CONTACTS: Contact[] = [
   {
     icon: Phone,
-    label: "Телефон",
-    value: "0 800 300 999",
-    href: "tel:+380800300999",
-    hint: "Безкоштовно по Україні",
+    label: "Телефон 1",
+    value: PHONE_CONTACTS[0].display,
+    href: PHONE_CONTACTS[0].href,
+    hint: "Дзвінки за тарифами вашого оператора",
+  },
+  {
+    icon: Phone,
+    label: "Телефон 2",
+    value: PHONE_CONTACTS[1].display,
+    href: PHONE_CONTACTS[1].href,
+    hint: "Дзвінки за тарифами вашого оператора",
   },
   {
     icon: Mail,

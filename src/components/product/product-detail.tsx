@@ -32,6 +32,7 @@ import {
   PRODUCTS,
 } from "@/lib/products";
 import { formatUah } from "@/lib/format";
+import { PHONE_CONTACTS } from "@/lib/contact-details";
 import { ProductCard } from "@/components/catalog/product-card";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 import { ViewItemTracker } from "./view-item-tracker";
@@ -190,12 +191,17 @@ export function ProductDetail({ product }: { product: Product }) {
                     Купити зараз
                     <ArrowRight className="size-4" />
                   </AddToCartButton>
-                  <a
-                    href="tel:+380800300999"
-                    className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card text-sm font-semibold text-foreground transition-colors hover:bg-muted"
-                  >
-                    <Phone className="size-4" /> 0 800 300 999
-                  </a>
+                  <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                    {PHONE_CONTACTS.map((phone) => (
+                      <a
+                        key={phone.raw}
+                        href={phone.href}
+                        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card px-3 text-xs font-semibold text-foreground transition-colors hover:bg-muted"
+                      >
+                        <Phone className="size-4 shrink-0" /> {phone.display}
+                      </a>
+                    ))}
+                  </div>
                 </div>
 
                 <ul className="mt-4 space-y-1.5 text-xs text-muted-foreground">

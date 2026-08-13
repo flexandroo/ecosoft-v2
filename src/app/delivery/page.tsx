@@ -13,6 +13,7 @@ import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
 import { SectionHeading, InfoCard, CtaNote } from "@/components/site/content";
+import { PHONE_CONTACTS } from "@/lib/contact-details";
 
 export const metadata: Metadata = {
   title: "Доставка і оплата",
@@ -91,7 +92,10 @@ const requisites: { legal: string; rows: { label: string; value: string }[] }[] 
         value:
           "08131, Київська обл., Бучанський р-н, с. Софіївська Борщагівка, вул. Київська, 3",
       },
-      { label: "Телефон", value: "(044) 496-83-06" },
+      {
+        label: "Телефони",
+        value: PHONE_CONTACTS.map((phone) => phone.display).join(" · "),
+      },
       { label: "Код ЄДРПОУ", value: "37074476" },
       { label: "ІПН", value: "370744710131" },
     ],

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Phone, ShoppingCart, Search, Menu, X, ChevronDown } from "lucide-react";
 import { useCart } from "@/components/cart/cart-context";
 import { CallbackButton } from "@/components/site/callback-button";
+import { PHONE_CONTACTS } from "@/lib/contact-details";
 
 const PRIMARY_NAV = [
   { href: "/", label: "Головна" },
@@ -181,16 +182,25 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-1">
-          <a
-            href="tel:+380800300999"
+          <div
             className={[
-              "hidden items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold transition-colors md:flex",
-              onHero ? "text-white hover:text-white/80" : "text-foreground hover:bg-muted",
+              "hidden items-center gap-2 rounded-md px-3 py-1 text-xs font-semibold leading-5 xl:flex",
+              onHero ? "text-white" : "text-foreground",
             ].join(" ")}
           >
-            <Phone className="size-4" aria-hidden />
-            0 800 300 999
-          </a>
+            <Phone className="size-4 shrink-0" aria-hidden />
+            <div className="flex flex-col">
+              {PHONE_CONTACTS.map((phone) => (
+                <a
+                  key={phone.raw}
+                  href={phone.href}
+                  className={onHero ? "hover:text-white/80" : "hover:text-primary"}
+                >
+                  {phone.display}
+                </a>
+              ))}
+            </div>
+          </div>
           <CallbackButton
             source="header"
             className={[
@@ -267,12 +277,17 @@ export function Header() {
             >
               Контакти
             </Link>
-            <a
-              href="tel:+380800300999"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground"
-            >
-              <Phone className="size-4" /> 0 800 300 999
-            </a>
+            <div className="mt-2 grid gap-2 sm:grid-cols-2">
+              {PHONE_CONTACTS.map((phone) => (
+                <a
+                  key={phone.raw}
+                  href={phone.href}
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-primary px-3 py-2.5 text-sm font-semibold text-primary-foreground"
+                >
+                  <Phone className="size-4 shrink-0" /> {phone.display}
+                </a>
+              ))}
+            </div>
             <CallbackButton
               source="header-mobile"
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"

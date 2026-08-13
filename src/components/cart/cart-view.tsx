@@ -15,6 +15,7 @@ import {
 import { useCart, type CartLine } from "./cart-context";
 import { formatUah } from "@/lib/format";
 import { isValidUkrainianPhone } from "@/lib/validation";
+import { PHONE_CONTACTS } from "@/lib/contact-details";
 import { pushBeginCheckout, pushPurchase } from "@/utils/gtmEcommerce";
 
 const FREE_SHIPPING_THRESHOLD = 5000;
@@ -148,12 +149,15 @@ export function CartView() {
             Повернутися до каталогу
             <ArrowRight className="size-4" />
           </Link>
-          <a
-            href="tel:+380800300999"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card px-6 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
-          >
-            <Phone className="size-4" /> 0 800 300 999
-          </a>
+          {PHONE_CONTACTS.map((phone) => (
+            <a
+              key={phone.raw}
+              href={phone.href}
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
+            >
+              <Phone className="size-4 shrink-0" /> {phone.display}
+            </a>
+          ))}
         </div>
       </div>
     );

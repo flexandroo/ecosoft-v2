@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
+import { PHONE_CONTACTS } from "@/lib/contact-details";
 
 export const metadata: Metadata = {
   title: "Політика конфіденційності",
@@ -58,9 +59,14 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-2 leading-relaxed text-muted-foreground">
               Зателефонуйте за номером{" "}
-              <a href="tel:+380800300999" className="font-medium text-foreground underline underline-offset-2">
-                0 800 300 999
-              </a>{" "}
+              {PHONE_CONTACTS.map((phone, index) => (
+                <span key={phone.raw}>
+                  {index > 0 && " або "}
+                  <a href={phone.href} className="font-medium text-foreground underline underline-offset-2">
+                    {phone.display}
+                  </a>
+                </span>
+              ))}{" "}
               або скористайтеся формою на сторінці контактів. Актуальний продавець і платіжні реквізити зазначаються під час підтвердження замовлення.
             </p>
           </section>

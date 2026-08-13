@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PHONE_CONTACTS } from "@/lib/contact-details";
 
 const COLS = [
   {
@@ -43,12 +44,17 @@ export function Footer() {
               Офіційний партнерський магазин Ecosoft. Підбираємо, доставляємо, монтуємо
               та обслуговуємо системи очищення води для дому та бізнесу.
             </p>
-            <a
-              href="tel:+380800300999"
-              className="mt-4 inline-block font-[family-name:var(--font-manrope)] text-xl font-bold text-foreground"
-            >
-              0 800 300 999
-            </a>
+            <div className="mt-4 flex flex-col items-start gap-1">
+              {PHONE_CONTACTS.map((phone) => (
+                <a
+                  key={phone.raw}
+                  href={phone.href}
+                  className="font-[family-name:var(--font-manrope)] text-lg font-bold text-foreground transition-colors hover:text-primary"
+                >
+                  {phone.display}
+                </a>
+              ))}
+            </div>
           </div>
 
           {COLS.map((col) => (
