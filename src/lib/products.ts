@@ -127,9 +127,9 @@ export const PRODUCTS: Product[] = [
     "features": [
       "Збагачує мінералами"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/049/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_f_pyryeuaoyiashchyyem_mo550mecostd_ua_chkoekhu_iv.webp",
+    "image": "/images/meta-products/MO550MECOSTD.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/049/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_f_pyryeuaoyiashchyyem_mo550mecostd_ua_chkoekhu_iv.webp",
+      "/images/meta-products/MO550MECOSTD.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/536/564_564_140cd750bba9870f18aada2478b24840a/mo550mecostd_1_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/137/564_564_140cd750bba9870f18aada2478b24840a/mo550mecostd_3_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/35e/564_564_140cd750bba9870f18aada2478b24840a/mo550mecostd_2_1200x1200.webp",
@@ -298,9 +298,9 @@ export const PRODUCTS: Product[] = [
     "features": [
       "Збагачує мінералами"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/2e4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_standard_f_pyryeuaoyiakhsusp_mo650mecostd_ua_chkoekhu_ivsuskhr.webp",
+    "image": "/images/meta-products/MO650MECOSTD.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/2e4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_standard_f_pyryeuaoyiakhsusp_mo650mecostd_ua_chkoekhu_ivsuskhr.webp",
+      "/images/meta-products/MO650MECOSTD.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/ceb/564_564_140cd750bba9870f18aada2478b24840a/mo650mecostd_1_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/4b7/564_564_140cd750bba9870f18aada2478b24840a/mo650mecostd_2_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/0a7/564_564_140cd750bba9870f18aada2478b24840a/mo650mecostd_3_.webp",
@@ -477,9 +477,9 @@ export const PRODUCTS: Product[] = [
     "features": [
       "Для низького тиску"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/283/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_f_pyryeuaoyiashchyyem_y_tsptsm_mo550mpecostd_ua_ch.webp",
+    "image": "/images/meta-products/MO550MPECOSTD.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/283/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_f_pyryeuaoyiashchyyem_y_tsptsm_mo550mpecostd_ua_ch.webp",
+      "/images/meta-products/MO550MPECOSTD.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/151/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_2_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/bda/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_3_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/95e/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_4_1200x1200.webp",
@@ -654,9 +654,9 @@ export const PRODUCTS: Product[] = [
       "Збагачує мінералами",
       "Сервіс 2 рази/рік"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/24b/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_absolute_f_pyryeuaoyiakhsusp_mo675meco_ua_chkoekhu_ivsuskhrsgs.webp",
+    "image": "/images/meta-products/MO675MECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/24b/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_absolute_f_pyryeuaoyiakhsusp_mo675meco_ua_chkoekhu_ivsuskhrsgs.webp",
+      "/images/meta-products/MO675MECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/f09/564_564_140cd750bba9870f18aada2478b24840a/mo675meco_01_2026_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/026/564_564_140cd750bba9870f18aada2478b24840a/mo675meco_2_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/7c8/564_564_140cd750bba9870f18aada2478b24840a/mo675meco_3_1200x1200.webp",
@@ -835,9 +835,9 @@ export const PRODUCTS: Product[] = [
       "Смарт-індикація",
       "Компактний"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/e79/564_564_140cd750bba9870f18aada2478b24840a/ru_tsoekhuansptankhr_m_tspr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross_solo_mo1500peco_ua_tsoekhuansptankhry.webp",
+    "image": "/images/meta-products/MO1500PECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/e79/564_564_140cd750bba9870f18aada2478b24840a/ru_tsoekhuansptankhr_m_tspr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross_solo_mo1500peco_ua_tsoekhuansptankhry.webp",
+      "/images/meta-products/MO1500PECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/74c/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_1_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/7d3/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_6_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/628/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_2_1200x1200.webp",
@@ -988,9 +988,9 @@ export const PRODUCTS: Product[] = [
       "Збагачує мінералами",
       "Для низького тиску"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ef9/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_absolute_f_pyryeuaoyiakhsusp_f_tsptsm_ra_fkharyrye_mo675mpseco.webp",
+    "image": "/images/meta-products/MO675MPSECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/ef9/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_absolute_f_pyryeuaoyiakhsusp_f_tsptsm_ra_fkharyrye_mo675mpseco.webp",
+      "/images/meta-products/MO675MPSECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/528/564_564_140cd750bba9870f18aada2478b24840a/mo675mpseco_2_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/86c/564_564_140cd750bba9870f18aada2478b24840a/mo675mpseco_3_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/e6f/564_564_140cd750bba9870f18aada2478b24840a/mo675mpseco_18_.webp",
@@ -1174,9 +1174,9 @@ export const PRODUCTS: Product[] = [
       "Збагачує Са",
       "Сервіс 2 рази/рік"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/b58/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_pure_aquacalcium_mint_mo675puremaceco_ua_chkoekhu_ivsuskhrsgs_.webp",
+    "image": "/images/meta-products/MO675PUREMACECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/b58/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_pure_aquacalcium_mint_mo675puremaceco_ua_chkoekhu_ivsuskhrsgs_.webp",
+      "/images/meta-products/MO675PUREMACECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/0df/564_564_140cd750bba9870f18aada2478b24840a/mo675puremaceco_3_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/963/564_564_140cd750bba9870f18aada2478b24840a/mo675puremaceco_2_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/1bf/564_564_140cd750bba9870f18aada2478b24840a/mo675puremaceco_15_1200x1200.webp",
@@ -1373,9 +1373,9 @@ export const PRODUCTS: Product[] = [
       "Смарт-індикація",
       "Компактний"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/b71/564_564_140cd750bba9870f18aada2478b24840a/ru_tsoekhuansptankhr_m_tspr_m_tuyapskhsr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross_max_mo2800peco_ua_tsoekh.webp",
+    "image": "/images/meta-products/MO2800PECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/b71/564_564_140cd750bba9870f18aada2478b24840a/ru_tsoekhuansptankhr_m_tspr_m_tuyapskhsr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross_max_mo2800peco_ua_tsoekh.webp",
+      "/images/meta-products/MO2800PECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/231/564_564_140cd750bba9870f18aada2478b24840a/mo2800peco_2_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/cc8/564_564_140cd750bba9870f18aada2478b24840a/mo2800peco_3_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/0c1/564_564_140cd750bba9870f18aada2478b24840a/mo2800peco_36_1200x1200.webp",
@@ -1527,9 +1527,9 @@ export const PRODUCTS: Product[] = [
       "Смарт-індикація",
       "Компактний"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/37b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross60_mo3400peco_ua_nsptankhrym_usitsprym_chkoekh.webp",
+    "image": "/images/meta-products/MO3400PECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/37b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross60_mo3400peco_ua_nsptankhrym_usitsprym_chkoekh.webp",
+      "/images/meta-products/MO3400PECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/cc5/564_564_140cd750bba9870f18aada2478b24840a/mo3400peco_01_0.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/946/564_564_140cd750bba9870f18aada2478b24840a/mo3400peco_15.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/70b/564_564_140cd750bba9870f18aada2478b24840a/mo3400peco_12.webp",
@@ -1638,9 +1638,9 @@ export const PRODUCTS: Product[] = [
       "Збагачує Ca",
       "Для низького тиску"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ee0/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_pure_aquacalcium_mint_f_tsptsm_ra_fkharyrye_mo675psmaceco_ua_ch.webp",
+    "image": "/images/meta-products/MO675PSMACECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/ee0/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_pure_aquacalcium_mint_f_tsptsm_ra_fkharyrye_mo675psmaceco_ua_ch.webp",
+      "/images/meta-products/MO675PSMACECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/f3d/564_564_140cd750bba9870f18aada2478b24840a/mo675psmaceco_3_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/c70/564_564_140cd750bba9870f18aada2478b24840a/mo675psmaceco_2_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/425/564_564_140cd750bba9870f18aada2478b24840a/mo675psmaceco_19_1200x1200.webp",
@@ -1826,9 +1826,9 @@ export const PRODUCTS: Product[] = [
       "Збагачує Са та Mg",
       "Сервіс 2 рази/рік"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/e00/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_pure_balance_mo675mpurebaleco_ua_chkoekhu_ivsuskhrsgs_sfpsfts_.webp",
+    "image": "/images/meta-products/MO675MPUREBALECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/e00/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_pure_balance_mo675mpurebaleco_ua_chkoekhu_ivsuskhrsgs_sfpsfts_.webp",
+      "/images/meta-products/MO675MPUREBALECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/629/564_564_140cd750bba9870f18aada2478b24840a/mo675mpurebaleco_1_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/f61/564_564_140cd750bba9870f18aada2478b24840a/mo675mpurebaleco_2_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/39d/564_564_140cd750bba9870f18aada2478b24840a/mo675mpurebaleco_3_1200x1200.webp",
@@ -2006,9 +2006,9 @@ export const PRODUCTS: Product[] = [
       "Збагачує Са та Mg",
       "Для низького тиску"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/74e/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_pure_balance_f_tsptsm_ra_fkharyrye_mo675mbalpseco_ua_chkoekhu_.webp",
+    "image": "/images/meta-products/MO675MBALPSECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/74e/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_pure_balance_f_tsptsm_ra_fkharyrye_mo675mbalpseco_ua_chkoekhu_.webp",
+      "/images/meta-products/MO675MBALPSECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/de6/564_564_140cd750bba9870f18aada2478b24840a/mo675mbalpseco_1_2026_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/962/564_564_140cd750bba9870f18aada2478b24840a/mo675mbalpseco_2_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/5cb/564_564_140cd750bba9870f18aada2478b24840a/mo675mbalpseco_3_1200x1200.webp",
@@ -2184,9 +2184,9 @@ export const PRODUCTS: Product[] = [
       "Смарт-індикація",
       "Компактний"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/945/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross90_mo3600peco_ua_nsptankhrym_usitsprym_chkoekh.webp",
+    "image": "/images/meta-products/MO3600PECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/945/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross90_mo3600peco_ua_nsptankhrym_usitsprym_chkoekh.webp",
+      "/images/meta-products/MO3600PECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/3a4/564_564_140cd750bba9870f18aada2478b24840a/mo3600peco_21_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/c2d/564_564_140cd750bba9870f18aada2478b24840a/mo3600peco_05_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/299/564_564_140cd750bba9870f18aada2478b24840a/kormo3600peco_1200x1200.webp",
@@ -2298,9 +2298,9 @@ export const PRODUCTS: Product[] = [
       "Смарт-індикація",
       "Компактний"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/4f5/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross90_balance_mo3600mpeco_ua_nsptankhrym_usitspry.webp",
+    "image": "/images/meta-products/MO3600MPECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/4f5/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspr_m_chyoekhu_sbuakhrsgs_sfpsfa_cross90_balance_mo3600mpeco_ua_nsptankhrym_usitspry.webp",
+      "/images/meta-products/MO3600MPECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/b92/564_564_140cd750bba9870f18aada2478b24840a/mo3600mpeco_29_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/be1/564_564_140cd750bba9870f18aada2478b24840a/mo3600mpeco_17_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/d6f/564_564_140cd750bba9870f18aada2478b24840a/mo3600mpeco_14_1200x1200.webp"
@@ -2402,9 +2402,9 @@ export const PRODUCTS: Product[] = [
       "Компактний",
       "Зберігає мінерали"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/141/564_564_140cd750bba9870f18aada2478b24840a/ru_khusmrsm_chyoekhu_ecosoft_standard_fmv3ecostd_ua_tskhukmrym_chkoekhu_ecosoft_standard_fmv3ecostd.webp",
+    "image": "/images/meta-products/FMV3ECOSTD.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/141/564_564_140cd750bba9870f18aada2478b24840a/ru_khusmrsm_chyoekhu_ecosoft_standard_fmv3ecostd_ua_tskhukmrym_chkoekhu_ecosoft_standard_fmv3ecostd.webp",
+      "/images/meta-products/FMV3ECOSTD.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/0f8/564_564_140cd750bba9870f18aada2478b24840a/fmv3ecostd_2_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/8dd/564_564_140cd750bba9870f18aada2478b24840a/fmv3ecostd_5_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/459/564_564_140cd750bba9870f18aada2478b24840a/fmv3ecostd_4_1200x1200.webp",
@@ -2477,9 +2477,9 @@ export const PRODUCTS: Product[] = [
         "FP"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/b14/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1054ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_10.webp",
+    "image": "/images/meta-products/FP1054CTPL.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/b14/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1054ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_10.webp",
+      "/images/meta-products/FP1054CTPL.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/1bd/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/28b/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -2605,9 +2605,9 @@ export const PRODUCTS: Product[] = [
         "FP"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/426/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1252ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_12.webp",
+    "image": "/images/meta-products/FP1252CTPL.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/426/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1252ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_12.webp",
+      "/images/meta-products/FP1252CTPL.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/11d/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/6c7/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -2733,9 +2733,9 @@ export const PRODUCTS: Product[] = [
         "FP"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/8f5/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1354ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_13.webp",
+    "image": "/images/meta-products/FP1354CTPL.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/8f5/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1354ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_13.webp",
+      "/images/meta-products/FP1354CTPL.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/e2d/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/49b/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -2861,9 +2861,9 @@ export const PRODUCTS: Product[] = [
         "FU"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/dad/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1054ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1054ci.webp",
+    "image": "/images/meta-products/FU1054CI.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/dad/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1054ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1054ci.webp",
+      "/images/meta-products/FU1054CI.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/a66/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/15f/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/c39/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -2984,7 +2984,7 @@ export const PRODUCTS: Product[] = [
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
       ],
-      "longDescription": "Фільтр Ecosoft FU 1054CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає від 3 до 4 осіб.\n\nФільтр складається з корпусу, заповненого іонообмінною смолою, багатофункціонального керуючого клапана і сольового бака для регенерації фільтра.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра, піклується про постійне запасі очищеної води і не вимагає до себе зайвої уваги.\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nЧиста і м'яка вода кожен день\nНадійна і ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі і мале скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nШовковиста шкіра і здорове волосся\nСяюча сантехніка і посуд\nЯкість і колір одягу і білизни зберігається значно довше\nІстотна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера і чайника)\nЕкономія до 30% електроенергії"
+      "longDescription": "Фільтр Ecosoft FU 1054CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає від 3 до 4 осіб.\n\nФільтр складається з корпусу, заповненого іонообмінною смолою, багатофункціонального керуючого клапана і сольового бака для регенерації фільтра.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води і не вимагає до себе зайвої уваги.\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nЧиста і м'яка вода кожен день\nНадійна і ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі і мале скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nШовковиста шкіра і здорове волосся\nСяюча сантехніка і посуд\nЯкість і колір одягу і білизни зберігається значно довше\nІстотна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера і чайника)\nЕкономія до 30% електроенергії"
     }
   },
   {
@@ -3040,9 +3040,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/d05/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1054cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "/images/meta-products/FK1054CIMIXP.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/d05/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1054cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "/images/meta-products/FK1054CIMIXP.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/60d/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/4ac/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/8e0/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -3222,9 +3222,9 @@ export const PRODUCTS: Product[] = [
         "FP"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/4a0/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1465ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_14.webp",
+    "image": "/images/meta-products/FP1465CTPL.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/4a0/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1465ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_14.webp",
+      "/images/meta-products/FP1465CTPL.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/4cb/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/562/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -3350,9 +3350,9 @@ export const PRODUCTS: Product[] = [
         "FU"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/aee/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1252ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1252ci.webp",
+    "image": "/images/meta-products/FU1252CI.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/aee/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1252ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1252ci.webp",
+      "/images/meta-products/FU1252CI.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/07c/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/ee4/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/7d0/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -3380,7 +3380,7 @@ export const PRODUCTS: Product[] = [
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
       ],
-      "longDescription": "Фільтр Ecosoft FU 1252CE призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає до 5 осіб.\n\nФільтр складається з корпусу, заповненого іонообмінною смолою, багатофункціонального керуючого клапана і сольового бака для регенерації фільтра.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра, піклується про постійне запасі очищеної води і не вимагає до себе зайвої уваги.\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nЧиста і м'яка вода кожен день\nНадійна і ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі і мале скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nШовковиста шкіра і здорове волосся\nСяюча сантехніка і посуд\nЯкість і колір одягу і білизни зберігається значно довше\nІстотна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера і чайника)\nЕкономія до 30% електроенергії"
+      "longDescription": "Фільтр Ecosoft FU 1252CE призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає до 5 осіб.\n\nФільтр складається з корпусу, заповненого іонообмінною смолою, багатофункціонального керуючого клапана і сольового бака для регенерації фільтра.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води і не вимагає до себе зайвої уваги.\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nЧиста і м'яка вода кожен день\nНадійна і ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі і мале скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nШовковиста шкіра і здорове волосся\nСяюча сантехніка і посуд\nЯкість і колір одягу і білизни зберігається значно довше\nІстотна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера і чайника)\nЕкономія до 30% електроенергії"
     }
   },
   {
@@ -3431,9 +3431,9 @@ export const PRODUCTS: Product[] = [
         "FPC"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/95a/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1054ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
+    "image": "/images/meta-products/FPC1054CT.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/95a/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1054ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
+      "/images/meta-products/FPC1054CT.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/a18/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/fbe/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -3574,9 +3574,9 @@ export const PRODUCTS: Product[] = [
         "FPA"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/3a3/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1054ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
+    "image": "/images/meta-products/FPA1054CT.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/3a3/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1054ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
+      "/images/meta-products/FPA1054CT.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/3c1/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/43e/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -3676,7 +3676,7 @@ export const PRODUCTS: Product[] = [
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
       ],
-      "longDescription": "Фільтр Ecosoft FPA 1354CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води, підходить для сім'ї до 4 осіб, яка мешкає у квартирі або будинку з 1 санвузлом.\n\nФільтр складається з міцного корпусу, заповненого високоякісним активованим вугіллям FILTRASORB® 300 (Calgon Carbon Corporation, США), і багатофункціонального керуючого клапана.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США), забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nНадійна та ефективна робота протягом не менше ніж 5 років/li>\nнизьке скидання стоків/li>\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO/li>\n\nРезультати використання\n\nПовна відсутність запаху хлору\nЧиста вода в кожному крані\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігаються значно довше"
+      "longDescription": "Фільтр Ecosoft FPA 1354CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води, підходить для сім'ї до 4 осіб, яка мешкає у квартирі або будинку з 1 санвузлом.\n\nФільтр складається з міцного корпусу, заповненого високоякісним активованим вугіллям FILTRASORB® 300 (Calgon Carbon Corporation, США), і багатофункціонального керуючого клапана.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США), забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nНадійна та ефективна робота протягом не менше ніж 5 років\nнизьке скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nПовна відсутність запаху хлору\nЧиста вода в кожному крані\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігаються значно довше"
     }
   },
   {
@@ -3732,9 +3732,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/edf/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1054cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "/images/meta-products/FK1054CIMIXA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/edf/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1054cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "/images/meta-products/FK1054CIMIXA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/ee4/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/86a/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/3aa/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -3870,7 +3870,7 @@ export const PRODUCTS: Product[] = [
     "price": 40440,
     "inStock": true,
     "ctaType": "buy",
-    "description": "Фільтр Ecosoft FU 1252CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 3 санвузлами, в якому проживає від до 5 осіб.",
+    "description": "Фільтр Ecosoft FU 1252CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 3 санвузлами, в якому проживає до 5 осіб.",
     "sku": "FU1354CI",
     "subcategory": "softening-systems",
     "line": "FU",
@@ -3914,9 +3914,9 @@ export const PRODUCTS: Product[] = [
         "FU"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/4a0/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1354ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1354ci.webp",
+    "image": "/images/meta-products/FU1354CI.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/4a0/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1354ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1354ci.webp",
+      "/images/meta-products/FU1354CI.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/761/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/c23/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/c7e/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -4038,7 +4038,7 @@ export const PRODUCTS: Product[] = [
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
       ],
-      "longDescription": "Фільтр Ecosoft FU 1252CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 3 санвузлами, в якому проживає від до 5 осіб.\n\nФільтр складається з корпусу, заповненого іонообмінною смолою, багатофункціонального керуючого клапана і сольового бака для регенерації фільтра.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра, піклується про постійне запасі очищеної води і не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nЧиста і м'яка вода кожен день\nНадійна і ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі і мале скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nШовковиста шкіра і здорове волосся\nСяюча сантехніка і посуд\nЯкість і колір одягу і білизни зберігається значно довше\nІстотна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера і чайника)\nЕкономія до 30% електроенергії"
+      "longDescription": "Фільтр Ecosoft FU 1252CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 3 санвузлами, в якому проживає до 5 осіб.\n\nФільтр складається з корпусу, заповненого іонообмінною смолою, багатофункціонального керуючого клапана і сольового бака для регенерації фільтра.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води і не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nЧиста і м'яка вода кожен день\nНадійна і ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі і мале скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nШовковиста шкіра і здорове волосся\nСяюча сантехніка і посуд\nЯкість і колір одягу і білизни зберігається значно довше\nІстотна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера і чайника)\nЕкономія до 30% електроенергії"
     }
   },
   {
@@ -4094,9 +4094,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/1c6/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "/images/meta-products/FK1252CIMIXP.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/1c6/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "/images/meta-products/FK1252CIMIXP.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/f53/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/676/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/77a/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -4276,9 +4276,9 @@ export const PRODUCTS: Product[] = [
         "FP"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ff6/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1665ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_16.webp",
+    "image": "/images/meta-products/FP1665CTPL.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/ff6/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_fp_1665ct_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_fp_16.webp",
+      "/images/meta-products/FP1665CTPL.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/e0f/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/d53/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -4406,9 +4406,9 @@ export const PRODUCTS: Product[] = [
         "Core"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/81a/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspyagykhyeoe_vse_ecosoft_core_110_ua_nsptankhrym_tsp_yanytsva_vsey_ecosoft_core_110.webp",
+    "image": "/images/meta-products/FU1013CABCIMVCR.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/81a/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspyagykhyeoe_vse_ecosoft_core_110_ua_nsptankhrym_tsp_yanytsva_vsey_ecosoft_core_110.webp",
+      "/images/meta-products/FU1013CABCIMVCR.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/313/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_5.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/899/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_1.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/4a6/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_3.webp",
@@ -4581,9 +4581,9 @@ export const PRODUCTS: Product[] = [
         "Core"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/17b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_150_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
+    "image": "/images/meta-products/FU1016CABCIMVCR.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/17b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_150_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
+      "/images/meta-products/FU1016CABCIMVCR.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/15f/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_4.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/da0/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_1.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/b33/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_5.webp",
@@ -4754,9 +4754,9 @@ export const PRODUCTS: Product[] = [
         "FPA"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/1d1/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1252_ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft.webp",
+    "image": "/images/meta-products/FPA1252CT.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/1d1/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1252_ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft.webp",
+      "/images/meta-products/FPA1252CT.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/f36/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/bc2/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -4856,7 +4856,7 @@ export const PRODUCTS: Product[] = [
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
       ],
-      "longDescription": "Фільтр Ecosoft FPA 1252CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води, підходить для сім'ї до 3 осіб, яка мешкає у квартирі або будинку з 1 санвузлом.\n\nФільтр складається з міцного корпусу, заповненого високоякісним активованим вугіллям FILTRASORB® 300 (Calgon Carbon Corporation, США), і багатофункціонального керуючого клапана. Унікальний керуючий клапан, розроблений компанією Clack Corporation (США), забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nНадійна та ефективна робота протягом не менше ніж 5 років/li>\nнизьке скидання стоків/li>\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO/li>\n\nРезультати використання\n\nПовна відсутність запаху хлору\nЧиста вода в кожному крані\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігаються значно довше"
+      "longDescription": "Фільтр Ecosoft FPA 1252CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води, підходить для сім'ї до 3 осіб, яка мешкає у квартирі або будинку з 1 санвузлом.\n\nФільтр складається з міцного корпусу, заповненого високоякісним активованим вугіллям FILTRASORB® 300 (Calgon Carbon Corporation, США), і багатофункціонального керуючого клапана. Унікальний керуючий клапан, розроблений компанією Clack Corporation (США), забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nНадійна та ефективна робота протягом не менше ніж 5 років\nнизьке скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nПовна відсутність запаху хлору\nЧиста вода в кожному крані\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігаються значно довше"
     }
   },
   {
@@ -4912,9 +4912,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/dd4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1354cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "/images/meta-products/FK1354CIMIXP.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/dd4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1354cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "/images/meta-products/FK1354CIMIXP.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/3df/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/184/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/ab1/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -5094,9 +5094,9 @@ export const PRODUCTS: Product[] = [
         "FU"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/9d3/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1465ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1465ci.webp",
+    "image": "/images/meta-products/FU1465CI.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/9d3/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1465ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1465ci.webp",
+      "/images/meta-products/FU1465CI.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/a79/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/af0/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/494/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -5218,7 +5218,7 @@ export const PRODUCTS: Product[] = [
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
       ],
-      "longDescription": "Фільтр Ecosoft FU 1054CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає від 3 до 4 осіб.\n\nФільтр складається з корпусу, заповненого іонообмінною смолою, багатофункціонального керуючого клапана і сольового бака для регенерації фільтра.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра, піклується про постійне запасі очищеної води і не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nЧиста і м'яка вода кожен день\nНадійна і ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі і мале скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nШовковиста шкіра і здорове волосся\nСяюча сантехніка і посуд\nЯкість і колір одягу і білизни зберігається значно довше\nІстотна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера і чайника)\nЕкономія до 30% електроенергії"
+      "longDescription": "Фільтр Ecosoft FU 1054CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 2 санвузлами, в якому проживає від 3 до 4 осіб.\n\nФільтр складається з корпусу, заповненого іонообмінною смолою, багатофункціонального керуючого клапана і сольового бака для регенерації фільтра.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води і не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nЧиста і м'яка вода кожен день\nНадійна і ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі і мале скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nШовковиста шкіра і здорове волосся\nСяюча сантехніка і посуд\nЯкість і колір одягу і білизни зберігається значно довше\nІстотна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера і чайника)\nЕкономія до 30% електроенергії"
     }
   },
   {
@@ -5274,9 +5274,9 @@ export const PRODUCTS: Product[] = [
         "Core"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/391/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_250_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
+    "image": "/images/meta-products/FU1024CABCIMVCR.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/391/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_core_250_ci_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_v.webp",
+      "/images/meta-products/FU1024CABCIMVCR.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/fb5/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_5.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/b40/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_1.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/5ec/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_4.webp",
@@ -5449,9 +5449,9 @@ export const PRODUCTS: Product[] = [
         "Anthracite"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/d69/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspyagykhyeoe_vse_ecosoft_anthracite_azure_250_ci_ua_nsptankhrym_tsp_yanytsva_vsey_ec.webp",
+    "image": "/images/meta-products/FU1035CABGCI.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/d69/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_tspyagykhyeoe_vse_ecosoft_anthracite_azure_250_ci_ua_nsptankhrym_tsp_yanytsva_vsey_ec.webp",
+      "/images/meta-products/FU1035CABGCI.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/9f7/564_564_140cd750bba9870f18aada2478b24840a/fu1035cabgci_2_1200x1200.webp"
     ],
     "details": {
@@ -5600,9 +5600,9 @@ export const PRODUCTS: Product[] = [
         "A-Soft"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/a6f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_a_soft_110_ce_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
+    "image": "/images/meta-products/FU1013CABCEMVAS.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/a6f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_fpyagyeryya_vse_ecosoft_a_soft_110_ce_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
+      "/images/meta-products/FU1013CABCEMVAS.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/44e/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_05_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/e20/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/c5c/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_07_1200x1200.webp",
@@ -5784,9 +5784,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ce8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "/images/meta-products/FK1252CIMIXA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/ce8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "/images/meta-products/FK1252CIMIXA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/a93/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/053/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/011/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -5963,9 +5963,9 @@ export const PRODUCTS: Product[] = [
         "FPC"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/509/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1252ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
+    "image": "/images/meta-products/FPC1252CT.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/509/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1252ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
+      "/images/meta-products/FPC1252CT.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/b21/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/149/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -6115,9 +6115,9 @@ export const PRODUCTS: Product[] = [
         "Anthracite"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/a31/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_anthracite_gold_250_ua_nsptan.webp",
+    "image": "/images/meta-products/FK1035CABGCIMIXA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/a31/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_anthracite_gold_250_ua_nsptan.webp",
+      "/images/meta-products/FK1035CABGCIMIXA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/cf9/564_564_140cd750bba9870f18aada2478b24840a/fk1035cabgcimixa_2_1200x1200.webp"
     ],
     "details": {
@@ -6270,9 +6270,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/020/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1465cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "/images/meta-products/FK1465CIMIXP.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/020/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1465cimixp_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "/images/meta-products/FK1465CIMIXP.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/4cf/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/637/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/d48/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -6452,9 +6452,9 @@ export const PRODUCTS: Product[] = [
         "FU"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/51d/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu1018cabcemv_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
+    "image": "/images/meta-products/FU1018CABCEMV.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/51d/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu1018cabcemv_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
+      "/images/meta-products/FU1018CABCEMV.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/e2e/564_564_140cd750bba9870f18aada2478b24840a/fu1018cabce-_6_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/b5f/564_564_140cd750bba9870f18aada2478b24840a/fu1018cabce-_2_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/585/564_564_140cd750bba9870f18aada2478b24840a/fu1018cabce-_12_.webp"
@@ -6565,11 +6565,6 @@ export const PRODUCTS: Product[] = [
           "size": "288 KB"
         },
         {
-          "name": "manual_ecosoft_water_filter.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/86b/manual_ecosoft_water_filter.pdf",
-          "size": "4.7 MB"
-        },
-        {
           "name": "about_clack.pdf",
           "href": "https://ecosoft.ua/upload/iblock/847/about_clack.pdf",
           "size": "317 KB"
@@ -6635,9 +6630,9 @@ export const PRODUCTS: Product[] = [
         "FPC"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/917/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1354ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
+    "image": "/images/meta-products/FPC1354CT.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/917/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1354ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
+      "/images/meta-products/FPC1354CT.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/a6f/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/5a3/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -6785,9 +6780,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/f58/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1354cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "/images/meta-products/FK1354CIMIXA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/f58/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1354cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "/images/meta-products/FK1354CIMIXA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/37a/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/670/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/9bb/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -6967,9 +6962,9 @@ export const PRODUCTS: Product[] = [
         "FU"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ca4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1665ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1665ci.webp",
+    "image": "/images/meta-products/FU1665CI.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/ca4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_tspyagyeryya_vse_ecosoft_fu1665ci_ua_chkoekhu_tsp_yanyyerrya_vsey_ecosoft_fu1665ci.webp",
+      "/images/meta-products/FU1665CI.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/d80/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/103/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/26a/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -7091,7 +7086,7 @@ export const PRODUCTS: Product[] = [
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
       ],
-      "longDescription": "Фільтр Ecosoft FU 1665 CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 5-6 санвузлами, в якому проживає від 8 до 10 осіб.\n\nФільтр складається з корпусу, заповненого іонообмінною смолою, багатофункціонального керуючого клапана і сольового бака для регенерації фільтра. Унікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра, піклується про постійне запасі очищеної води і не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nЧиста і м'яка вода кожен день\nНадійна і ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі і мале скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nШовковиста шкіра і здорове волосся\nСяюча сантехніка і посуд\nЯкість і колір одягу і білизни зберігається значно довше\nІстотна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера і чайника)\nЕкономія до 30% електроенергії"
+      "longDescription": "Фільтр Ecosoft FU 1665 CI призначений для пом'якшення води (зниження вмісту солей твердості), підходить для будинку з 5-6 санвузлами, в якому проживає від 8 до 10 осіб.\n\nФільтр складається з корпусу, заповненого іонообмінною смолою, багатофункціонального керуючого клапана і сольового бака для регенерації фільтра. Унікальний керуючий клапан, розроблений компанією Clack Corporation (США) спільно з компанією Ecosoft, забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води і не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nЧиста і м'яка вода кожен день\nНадійна і ефективна робота протягом не менше ніж 5 років\nЕкономне споживання солі і мале скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nШовковиста шкіра і здорове волосся\nСяюча сантехніка і посуд\nЯкість і колір одягу і білизни зберігається значно довше\nІстотна економія прального порошку і миючих засобів - до 50%\nБільш тривалий термін служби нагрівального обладнання (пральної і посудомийної машин, бойлера і чайника)\nЕкономія до 30% електроенергії"
     }
   },
   {
@@ -7149,9 +7144,9 @@ export const PRODUCTS: Product[] = [
         "Anthracite"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/67d/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_anthracite_gold_370_ci_ua_nsp.webp",
+    "image": "/images/meta-products/FK1235CABGCIMIXA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/67d/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_anthracite_gold_370_ci_ua_nsp.webp",
+      "/images/meta-products/FK1235CABGCIMIXA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/171/564_564_140cd750bba9870f18aada2478b24840a/fk1035cabgcimixa_2_1200x1200.webp"
     ],
     "details": {
@@ -7304,9 +7299,9 @@ export const PRODUCTS: Product[] = [
         "Titanium"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/f01/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu1235cabceta_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
+    "image": "/images/meta-products/FU1235CABCETA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/f01/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu1235cabceta_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp",
+      "/images/meta-products/FU1235CABCETA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/5ce/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_6_-_1_-2.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/eb8/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_54-2.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/295/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_26.webp",
@@ -7497,9 +7492,9 @@ export const PRODUCTS: Product[] = [
         "FPA"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/610/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1354ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
+    "image": "/images/meta-products/FPA1354CT.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/610/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1354ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
+      "/images/meta-products/FPA1354CT.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/55a/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/f66/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -7594,7 +7589,7 @@ export const PRODUCTS: Product[] = [
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
       ],
-      "longDescription": "Фільтр Ecosoft FPA 1354CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води, підходить для сім'ї до 4 осіб, яка мешкає у квартирі або будинку з 1 санвузлом.\nФільтр складається з міцного корпусу, заповненого високоякісним активованим вугіллям FILTRASORB® 300 (Calgon Carbon Corporation, США), і багатофункціонального керуючого клапана.\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США), забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nНадійна та ефективна робота протягом не менше ніж 5 років/li>\nнизьке скидання стоків/li>\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO/li>\n\nРезультати використання\n\nПовна відсутність запаху хлору\nЧиста вода в кожному крані\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігаються значно довше"
+      "longDescription": "Фільтр Ecosoft FPA 1354CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води, підходить для сім'ї до 4 осіб, яка мешкає у квартирі або будинку з 1 санвузлом.\nФільтр складається з міцного корпусу, заповненого високоякісним активованим вугіллям FILTRASORB® 300 (Calgon Carbon Corporation, США), і багатофункціонального керуючого клапана.\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США), забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nНадійна та ефективна робота протягом не менше ніж 5 років\nнизьке скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nПовна відсутність запаху хлору\nЧиста вода в кожному крані\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігаються значно довше"
     }
   },
   {
@@ -7650,9 +7645,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/8a2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1054cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "/images/meta-products/FK1054CEMIXA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/8a2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1054cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "/images/meta-products/FK1054CEMIXA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/97f/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/592/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_04.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/e2e/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_01.webp",
@@ -7838,9 +7833,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/255/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1018cabcemixc_ua_nsptankhry.webp",
+    "image": "/images/meta-products/FK1018CABCEMIXC.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/255/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1018cabcemixc_ua_nsptankhry.webp",
+      "/images/meta-products/FK1018CABCEMIXC.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/c38/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu1018cabcemv_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp"
     ],
     "details": {
@@ -8013,9 +8008,9 @@ export const PRODUCTS: Product[] = [
         "Titanium"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/914/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu0835cabce_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_.webp",
+    "image": "/images/meta-products/FU0835CABCETA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/914/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu0835cabce_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya_.webp",
+      "/images/meta-products/FU0835CABCETA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/669/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_6_-_1_-2.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/0ff/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_54-2.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/b5a/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_26.webp",
@@ -8206,9 +8201,9 @@ export const PRODUCTS: Product[] = [
         "FPA"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/fe2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1465ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
+    "image": "/images/meta-products/FPA1465CT.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/fe2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1465ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
+      "/images/meta-products/FPA1465CT.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/1f3/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/279/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -8308,7 +8303,7 @@ export const PRODUCTS: Product[] = [
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
       ],
-      "longDescription": "Фільтр Ecosoft FPA 1252CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води, підходить для сім'ї до 5 осіб, яка мешкає у квартирі або будинку з 1-2 санвузлами.\n\nФільтр складається з міцного корпусу, заповненого високоякісним активованим вугіллям FILTRASORB® 300 (Calgon Carbon Corporation, США), і багатофункціонального керуючого клапана.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США), забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nНадійна та ефективна робота протягом не менше ніж 5 років/li>\nнизьке скидання стоків/li>\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO/li>\n\nРезультати використання\n\nПовна відсутність запаху хлору\nЧиста вода в кожному крані\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігаються значно довше"
+      "longDescription": "Фільтр Ecosoft FPA 1252CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води, підходить для сім'ї до 5 осіб, яка мешкає у квартирі або будинку з 1-2 санвузлами.\n\nФільтр складається з міцного корпусу, заповненого високоякісним активованим вугіллям FILTRASORB® 300 (Calgon Carbon Corporation, США), і багатофункціонального керуючого клапана.\n\nУнікальний керуючий клапан, розроблений компанією Clack Corporation (США), забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nНадійна та ефективна робота протягом не менше ніж 5 років\nнизьке скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nПовна відсутність запаху хлору\nЧиста вода в кожному крані\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігаються значно довше"
     }
   },
   {
@@ -8364,9 +8359,9 @@ export const PRODUCTS: Product[] = [
         "Titanium"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/bbf/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_titanium_300_fu1035cabcemvta_ua_nsptankhrym_chkoekh.webp",
+    "image": "/images/meta-products/FU1035CABCEMVTA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/bbf/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_titanium_300_fu1035cabcemvta_ua_nsptankhrym_chkoekh.webp",
+      "/images/meta-products/FU1035CABCEMVTA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/919/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_6_-_1_-2.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/494/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_54-2.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/c2a/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_26.webp",
@@ -8489,11 +8484,6 @@ export const PRODUCTS: Product[] = [
           "size": "6.6 MB"
         },
         {
-          "name": "manual-for-ecosoft-titanium-azure-softeners_3.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/c23/manual-for-ecosoft-titanium-azure-softeners_3.pdf",
-          "size": "1.5 MB"
-        },
-        {
           "name": "tds_fu1035cabcemvta_ua.pdf",
           "href": "https://ecosoft.ua/upload/iblock/c01/tds_fu1035cabcemvta_ua.pdf",
           "size": "365 KB"
@@ -8559,9 +8549,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/178/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1465cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "/images/meta-products/FK1465CIMIXA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/178/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1465cimixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "/images/meta-products/FK1465CIMIXA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/d88/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/fd9/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/48a/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
@@ -8743,9 +8733,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/81f/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "/images/meta-products/FK1252CEMIXA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/81f/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1252cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "/images/meta-products/FK1252CEMIXA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/1b3/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/4cd/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_04.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/9f3/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_01.webp",
@@ -8933,9 +8923,9 @@ export const PRODUCTS: Product[] = [
         "Titanium"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/cc9/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_titanium_gold_250_ua_nsptankh.webp",
+    "image": "/images/meta-products/FK1035CABCEMIXCOR.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/cc9/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_titanium_gold_250_ua_nsptankh.webp",
+      "/images/meta-products/FK1035CABCEMIXCOR.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/fd8/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_20.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/e45/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_6_-_1_-2.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/081/564_564_140cd750bba9870f18aada2478b24840a/fk1035cabcemixcor_08.webp"
@@ -9045,11 +9035,6 @@ export const PRODUCTS: Product[] = [
           "size": "360 KB"
         },
         {
-          "name": "manualcabc.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/5b9/manualcabc.pdf",
-          "size": "3.0 MB"
-        },
-        {
           "name": "Каталог продукції",
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
@@ -9110,9 +9095,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/d82/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1354cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "/images/meta-products/FK1354CEMIXA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/d82/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1354cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "/images/meta-products/FK1354CEMIXA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/793/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/2a7/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_04.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/284/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_01.webp",
@@ -9293,9 +9278,9 @@ export const PRODUCTS: Product[] = [
         "FPC"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/9a4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1465ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
+    "image": "/images/meta-products/FPC1465CT.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/9a4/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1465ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
+      "/images/meta-products/FPC1465CT.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/6bf/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/4bb/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -9440,9 +9425,9 @@ export const PRODUCTS: Product[] = [
         "Titanium"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/c5f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_titanium_gold_370_ua_nsptankh.webp",
+    "image": "/images/meta-products/FK1235CABCEMIXCOR.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/c5f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_titanium_gold_370_ua_nsptankh.webp",
+      "/images/meta-products/FK1235CABCEMIXCOR.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/fe1/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_titanium_gold_250_ua_nsptankh.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/e53/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_6_-_1_-2.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/a7c/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_20.webp",
@@ -9553,11 +9538,6 @@ export const PRODUCTS: Product[] = [
           "size": "360 KB"
         },
         {
-          "name": "manualcabc.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/75c/manualcabc.pdf",
-          "size": "3.0 MB"
-        },
-        {
           "name": "Каталог продукції",
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
@@ -9616,9 +9596,9 @@ export const PRODUCTS: Product[] = [
         "FPA"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/c77/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1665ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
+    "image": "/images/meta-products/FPA1665CT.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/c77/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_shosua_ecosoft_fpa_1665ct_ua_chkoekhu_eoya_vyeaoyerrya_shosuts_ecosoft_.webp",
+      "/images/meta-products/FPA1665CT.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/21d/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/33d/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -9713,7 +9693,7 @@ export const PRODUCTS: Product[] = [
           "href": "https://ecosoft.ua/ua/catalog/EcosoftCatalog2026.pdf"
         }
       ],
-      "longDescription": "Фільтр Ecosoft FPA 1665CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води, використовується у квартирі або будинку з 2-3 санвузлами, де проживає до 8 осіб. Фільтр складається з міцного корпусу, заповненого високоякісним активованим вугіллям FILTRASORB® 300 (Calgon Carbon Corporation, США), і багатофункціонального керуючого клапана. Унікальний керуючий клапан, розроблений компанією Clack Corporation (США), забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nНадійна та ефективна робота протягом не менше ніж 5 років/li>\nнизьке скидання стоків/li>\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO/li>\n\nРезультати використання\n\nПовна відсутність запаху хлору\nЧиста вода в кожному крані\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігаються значно довше"
+      "longDescription": "Фільтр Ecosoft FPA 1665CT призначений для очищення води від хлору і його токсичних сполук, а також органічних домішок, які обумовлюють жовтуватий відтінок води, використовується у квартирі або будинку з 2-3 санвузлами, де проживає до 8 осіб. Фільтр складається з міцного корпусу, заповненого високоякісним активованим вугіллям FILTRASORB® 300 (Calgon Carbon Corporation, США), і багатофункціонального керуючого клапана. Унікальний керуючий клапан, розроблений компанією Clack Corporation (США), забезпечує абсолютну автономність роботи фільтра, піклується про постійний запас очищеної води та не вимагає до себе зайвої уваги.\n\nОсновні переваги\n\nФільтр повністю автоматизований, безшумний\nНадійна та ефективна робота протягом не менше ніж 5 років\nнизьке скидання стоків\nГарантія якості, підтверджена міжнародними сертифікатами РЄ та ISO\n\nРезультати використання\n\nПовна відсутність запаху хлору\nЧиста вода в кожному крані\nШовковиста шкіра і здорове волосся\nЯкість і колір одягу і білизни зберігаються значно довше"
     }
   },
   {
@@ -9764,9 +9744,9 @@ export const PRODUCTS: Product[] = [
         "FPC"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/5e9/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1665ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
+    "image": "/images/meta-products/FPC1665CT.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/5e9/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_fpc_1665ct_ua_chkoekhu_eoya_vyeaoyerrya_fkunsvser.webp",
+      "/images/meta-products/FPC1665CT.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/43f/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/466/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
     ],
@@ -9914,9 +9894,9 @@ export const PRODUCTS: Product[] = [
         "FK"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/a06/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1465cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+    "image": "/images/meta-products/FK1465CEMIXA.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/a06/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_fk1465cemixa_ua_chkoekhu_iryeiaokiryerrya.webp",
+      "/images/meta-products/FK1465CEMIXA.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/f88/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/c84/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_04.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/d04/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_01.webp",
@@ -10087,9 +10067,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/104/564_564_140cd750bba9870f18aada2478b24840a/ru_napolnitel_dlya_filtrov_ot_nakipi_ecosoft_scalex_200_ml_pse200eco_ua_napovnyuvach_dlya_filtriv_vi.webp",
+    "image": "/images/meta-products/PSE200ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/104/564_564_140cd750bba9870f18aada2478b24840a/ru_napolnitel_dlya_filtrov_ot_nakipi_ecosoft_scalex_200_ml_pse200eco_ua_napovnyuvach_dlya_filtriv_vi.webp",
+      "/images/meta-products/PSE200ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/c44/564_564_140cd750bba9870f18aada2478b24840a/pse200eco_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/e93/564_564_140cd750bba9870f18aada2478b24840a/pse200eco_01_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/723/564_564_140cd750bba9870f18aada2478b24840a/pse200eco_03_1200x1200.webp",
@@ -10146,9 +10126,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/512/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_skh_ranyty_ecosoft_scalex_eoya_fkhyuaoer_sh_y_tsftsespsyer_sh_payyr_fose100eco_ua_chkoekh.webp",
+    "image": "/images/meta-products/FOSE100ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/512/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_skh_ranyty_ecosoft_scalex_eoya_fkhyuaoer_sh_y_tsftsespsyer_sh_payyr_fose100eco_ua_chkoekh.webp",
+      "/images/meta-products/FOSE100ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/996/564_564_140cd750bba9870f18aada2478b24840a/fose100eco_09.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/9f8/564_564_140cd750bba9870f18aada2478b24840a/fose100eco_10.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/3f8/564_564_140cd750bba9870f18aada2478b24840a/fose100eco_03.webp",
@@ -10236,9 +10216,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/349/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_chyoekhua_skh_ranyty_ecosoft_scalex_pse2005eco_ua_naukhuyez_eoya_chkoekhua_vke_ran.webp",
+    "image": "/images/meta-products/PSE2005ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/349/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_chyoekhua_skh_ranyty_ecosoft_scalex_pse2005eco_ua_naukhuyez_eoya_chkoekhua_vke_ran.webp",
+      "/images/meta-products/PSE2005ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/8da/564_564_140cd750bba9870f18aada2478b24840a/pse2005eco_03.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/9a0/564_564_140cd750bba9870f18aada2478b24840a/pse2005eco_04.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/52c/564_564_140cd750bba9870f18aada2478b24840a/pse2005eco_01.webp",
@@ -10295,9 +10275,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/2d8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_1_2_fpv12eco_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_1_.webp",
+    "image": "/images/meta-products/FPV12ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/2d8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_1_2_fpv12eco_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_1_.webp",
+      "/images/meta-products/FPV12ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/f3c/564_564_140cd750bba9870f18aada2478b24840a/korfpv12eco_korfpv34eco.webp"
     ],
     "details": {
@@ -10409,9 +10389,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/abb/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_skh_ranyty_ecosoft_scalex_eoya_bsmoyeusv_y_nskhosv_fose200eco_ua_chkoekhu_vke_ranytts_ec.webp",
+    "image": "/images/meta-products/FOSE200ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/abb/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_skh_ranyty_ecosoft_scalex_eoya_bsmoyeusv_y_nskhosv_fose200eco_ua_chkoekhu_vke_ranytts_ec.webp",
+      "/images/meta-products/FOSE200ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/f54/564_564_140cd750bba9870f18aada2478b24840a/fose200eco_2_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/4b8/564_564_140cd750bba9870f18aada2478b24840a/fose200eco_3_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/277/564_564_140cd750bba9870f18aada2478b24840a/fose200eco_6_1200x1200.webp",
@@ -10503,9 +10483,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/fb1/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_3_4_fpv34eco_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_3_.webp",
+    "image": "/images/meta-products/FPV34ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/fb1/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_3_4_fpv34eco_ua_chkoekhu_pyesharkrsgs_syyerrya_ecosoft_3_.webp",
+      "/images/meta-products/FPV34ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/9d1/564_564_140cd750bba9870f18aada2478b24840a/korfpv12eco_korfpv34eco.webp"
     ],
     "details": {
@@ -10618,9 +10598,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/854/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_v_fsnsgs_eavoyeryya_ecosoft_1_2_fpv12peco_ua_chkoekhu_pyesharkrsg.webp",
+    "image": "/images/meta-products/FPV12PECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/854/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_v_fsnsgs_eavoyeryya_ecosoft_1_2_fpv12peco_ua_chkoekhu_pyesharkrsg.webp",
+      "/images/meta-products/FPV12PECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/a8e/564_564_140cd750bba9870f18aada2478b24840a/korfpv12peco_korfpv34peco.webp"
     ],
     "details": {
@@ -10737,9 +10717,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/0b9/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_v_fsnsgs_eavoyeryya_ecosoft_3_4_fpv34peco_ua_chkoekhu_pyesharkrsg.webp",
+    "image": "/images/meta-products/FPV34PECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/0b9/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_pyesharyyefnsm_syfkhny_v_fsnsgs_eavoyeryya_ecosoft_3_4_fpv34peco_ua_chkoekhu_pyesharkrsg.webp",
+      "/images/meta-products/FPV34PECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/5b5/564_564_140cd750bba9870f18aada2478b24840a/korfpv12peco_korfpv34peco.webp"
     ],
     "details": {
@@ -10856,9 +10836,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/bb0/564_564_140cd750bba9870f18aada2478b24840a/ru_filtr_mekhanicheskoy_ochistki_dlya_goryachey_vody_ecosoft_1_2_ua_filtr_mekhanichnogo_ochishchennya.webp",
+    "image": "/images/meta-products/FPV12HWECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/bb0/564_564_140cd750bba9870f18aada2478b24840a/ru_filtr_mekhanicheskoy_ochistki_dlya_goryachey_vody_ecosoft_1_2_ua_filtr_mekhanichnogo_ochishchennya.webp",
+      "/images/meta-products/FPV12HWECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/2f9/564_564_140cd750bba9870f18aada2478b24840a/korfpv12hweco_korfpv34hweco.webp"
     ],
     "details": {
@@ -10967,9 +10947,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/8cb/564_564_140cd750bba9870f18aada2478b24840a/ru_kolba_mekhanicheskoy_ochistki_ecosoft_bb10_1_fpv4510ecogr_ua_kolba_mekhanichnogo_ochishchennya_ec.webp",
+    "image": "/images/meta-products/FPV4510ECOGR.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/8cb/564_564_140cd750bba9870f18aada2478b24840a/ru_kolba_mekhanicheskoy_ochistki_ecosoft_bb10_1_fpv4510ecogr_ua_kolba_mekhanichnogo_ochishchennya_ec.webp",
+      "/images/meta-products/FPV4510ECOGR.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/950/564_564_140cd750bba9870f18aada2478b24840a/fpv4510eco.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/d08/564_564_140cd750bba9870f18aada2478b24840a/fpv4510eco_1.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/808/564_564_140cd750bba9870f18aada2478b24840a/fpv4510eco_2.webp",
@@ -11079,7 +11059,7 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/8ba/564_564_140cd750bba9870f18aada2478b24840a/ru_fapstusp_vrsm_chyoekhu_2p_san_f_nsrryenkhsuapy_y_f_naukhuyezyep_f_fyekhnsm_yi_ryeuzavyeyuyem_fkha.webp",
+    "image": "/images/meta-products/FFNS2P1522_0118.jpg",
     "details": {
       "specs": [
         {
@@ -11157,7 +11137,7 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/390/564_564_140cd750bba9870f18aada2478b24840a/ru_fapstusp_vrsm_chyoekhu_2p_pa_r_f_nsrryenkhsuapy_y_f_naukhuyezyep_f_fyekhnsm_yi_ryeuzavyeyuyem_fkh.webp",
+    "image": "/images/meta-products/FFNN2P1522_0118.jpg",
     "details": {
       "specs": [
         {
@@ -11234,9 +11214,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/b7d/564_564_140cd750bba9870f18aada2478b24840a/ru_kolba_mekhanicheskoy_ochistki_ecosoft_bb20_1_fpv4520ecogr_ua_kolba_mekhanichnogo_ochishchennya_ec.webp",
+    "image": "/images/meta-products/FPV4520ECOGR.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/b7d/564_564_140cd750bba9870f18aada2478b24840a/ru_kolba_mekhanicheskoy_ochistki_ecosoft_bb20_1_fpv4520ecogr_ua_kolba_mekhanichnogo_ochishchennya_ec.webp",
+      "/images/meta-products/FPV4520ECOGR.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/083/564_564_140cd750bba9870f18aada2478b24840a/fpv4520eco.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/bd8/564_564_140cd750bba9870f18aada2478b24840a/fpv4520eco_1.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/367/564_564_140cd750bba9870f18aada2478b24840a/fpv4520eco_2.webp",
@@ -11345,7 +11325,7 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/559/564_564_140cd750bba9870f18aada2478b24840a/ru_filtr_dlya_kholodnoy_vody_s_regulyatorom_davleniya_bwt_protector_mini_hws_cr_ua_filtr_dlya_kholod.webp",
+    "image": "/images/meta-products/810548.jpg",
     "details": {
       "specs": [
         {
@@ -11452,9 +11432,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/7c7/564_564_140cd750bba9870f18aada2478b24840a/ru_eyfnsv_m_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_1_wptxhes2_ua_eyfnsvym_chkoekhu_pyesharkrsgs_syye.webp",
+    "image": "/images/meta-products/TXHES2.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/7c7/564_564_140cd750bba9870f18aada2478b24840a/ru_eyfnsv_m_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_1_wptxhes2_ua_eyfnsvym_chkoekhu_pyesharkrsgs_syye.webp",
+      "/images/meta-products/TXHES2.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/82b/564_564_140cd750bba9870f18aada2478b24840a/ericdm_1.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/9c4/564_564_140cd750bba9870f18aada2478b24840a/ericdm_2.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/5ba/564_564_140cd750bba9870f18aada2478b24840a/ericdm_11.webp",
@@ -11555,7 +11535,7 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/8b9/564_564_140cd750bba9870f18aada2478b24840a/ru_filtr_dlya_kholodnoy_vody_s_regulyatorom_davleniya_bwt_protector_mini_hws_cr_ua_filtr_dlya_kholod.webp",
+    "image": "/images/meta-products/810549.jpg",
     "details": {
       "specs": [
         {
@@ -11662,7 +11642,7 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/425/564_564_140cd750bba9870f18aada2478b24840a/ru_filtr_dlya_goryachey_vody_bwt_protector_mini_hws_hr_ua_filtr_dlya_garyachoi_vodi_bwt_protector_mi.webp",
+    "image": "/images/meta-products/810560.jpg",
     "details": {
       "specs": [
         {
@@ -11711,7 +11691,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "label": "Застосування",
-          "value": "квартира, частный дом, дача"
+          "value": "квартира, приватний будинок, дача"
         }
       ],
       "documents": [
@@ -11764,7 +11744,7 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ed0/350_350_140cd750bba9870f18aada2478b24840a/ru_filtr_dlya_goryachey_vody_bwt_protector_mini_hws_hr_ua_filtr_dlya_garyachoi_vodi_bwt_protector_mi.webp",
+    "image": "/images/meta-products/810563.jpg",
     "details": {
       "specs": [
         {
@@ -11813,7 +11793,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "label": "Застосування",
-          "value": "квартира, частный дом, дача"
+          "value": "квартира, приватний будинок, дача"
         }
       ],
       "documents": [
@@ -11863,9 +11843,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/cd2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_vfyegs_espa_ecosoft_aquapoint_xl_duo_ua_chkoekhu_eoya_vfesgs_btseyrnts_ecosoft_aqua.webp",
+    "image": "/images/meta-products/AQPDUO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/cd2/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_eoya_vfyegs_espa_ecosoft_aquapoint_xl_duo_ua_chkoekhu_eoya_vfesgs_btseyrnts_ecosoft_aqua.webp",
+      "/images/meta-products/AQPDUO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/76b/564_564_140cd750bba9870f18aada2478b24840a/aqpduo_2_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/982/564_564_140cd750bba9870f18aada2478b24840a/aqpduo_3_1200sh1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/1f6/564_564_140cd750bba9870f18aada2478b24840a/aqpduo_1200sh1200.webp",
@@ -11998,9 +11978,9 @@ export const PRODUCTS: Product[] = [
         "Магістральний"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/efb/564_564_140cd750bba9870f18aada2478b24840a/ru_eyfnsv_m_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_1_ar_wptxhes3_ua_eyfnsvym_chkoekhu_pyesharkrsgs_.webp",
+    "image": "/images/meta-products/TXHES3.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/efb/564_564_140cd750bba9870f18aada2478b24840a/ru_eyfnsv_m_chyoekhu_pyesharyyefnsm_syfkhny_ecosoft_1_ar_wptxhes3_ua_eyfnsvym_chkoekhu_pyesharkrsgs_.webp",
+      "/images/meta-products/TXHES3.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/e81/564_564_140cd750bba9870f18aada2478b24840a/ericdc_1.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/26c/564_564_140cd750bba9870f18aada2478b24840a/ericdc_10.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/0e0/564_564_140cd750bba9870f18aada2478b24840a/ericdc_24.webp"
@@ -12102,9 +12082,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/f38/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_eoya_chyoekhua_sbuakhrsgs_sfpsfa_cpv3ecostd_ua_nsptoyenkh_n.webp",
+    "image": "/images/meta-products/CPV3ECOSTD.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/f38/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_eoya_chyoekhua_sbuakhrsgs_sfpsfa_cpv3ecostd_ua_nsptoyenkh_n.webp",
+      "/images/meta-products/CPV3ECOSTD.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/7af/564_564_140cd750bba9870f18aada2478b24840a/cpv3ecostd_2026_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/973/564_564_140cd750bba9870f18aada2478b24840a/cpv3ecostd_2026_01_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/c00/564_564_140cd750bba9870f18aada2478b24840a/cpv3ecostd_04_1200x1200.webp"
@@ -12148,9 +12128,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/12f/564_564_140cd750bba9870f18aada2478b24840a/ru_tsgsoer_m_tsfkhchyoekhu_ecosoft_eoya_chyoekhusv_sbuakhrsgs_sfpsfa_chv2010ecopkg_ua_vtsgkoerym_tsf.webp",
+    "image": "/images/meta-products/CHV2010ECOPKG.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/12f/564_564_140cd750bba9870f18aada2478b24840a/ru_tsgsoer_m_tsfkhchyoekhu_ecosoft_eoya_chyoekhusv_sbuakhrsgs_sfpsfa_chv2010ecopkg_ua_vtsgkoerym_tsf.webp",
+      "/images/meta-products/CHV2010ECOPKG.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/725/564_564_140cd750bba9870f18aada2478b24840a/chv2010eco_01_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/187/564_564_140cd750bba9870f18aada2478b24840a/chv2010eco_02_1200x1200.webp"
     ],
@@ -12219,9 +12199,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/6c6/564_564_140cd750bba9870f18aada2478b24840a/ru_pyryeuaoyiakhsu_ecosoft_eoya_chyoekhusv_sbuakhrsgs_sfpsfa_pd2010ecopkg_ua_pkryeuaokiakhsu_ecosoft.webp",
+    "image": "/images/meta-products/PD2010ECOPKG.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/6c6/564_564_140cd750bba9870f18aada2478b24840a/ru_pyryeuaoyiakhsu_ecosoft_eoya_chyoekhusv_sbuakhrsgs_sfpsfa_pd2010ecopkg_ua_pkryeuaokiakhsu_ecosoft.webp",
+      "/images/meta-products/PD2010ECOPKG.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/ff3/564_564_140cd750bba9870f18aada2478b24840a/pd2010eco_01_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/87a/564_564_140cd750bba9870f18aada2478b24840a/pd2010eco_02_1200x1200.webp"
     ],
@@ -12321,9 +12301,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/071/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_aquagreen_standard_chvcb3ecoagr_ua_nsptoyenkh_naukhuyezkv_e.webp",
+    "image": "/images/meta-products/CHVCB3ECOAGR.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/071/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_aquagreen_standard_chvcb3ecoagr_ua_nsptoyenkh_naukhuyezkv_e.webp",
+      "/images/meta-products/CHVCB3ECOAGR.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/6f3/564_564_140cd750bba9870f18aada2478b24840a/chvcb3ecoagr_04_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/f3f/564_564_140cd750bba9870f18aada2478b24840a/chvcb3ecoagr_01_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/705/564_564_140cd750bba9870f18aada2478b24840a/chvcb3ecoagr_02_1200x1200.webp"
@@ -12370,9 +12350,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/5f7/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_eoya_chyoekhua_sbuakhrsgs_sfpsfa_chv3eco_ua_ts.webp",
+    "image": "/images/meta-products/CHV3ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/5f7/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_eoya_chyoekhua_sbuakhrsgs_sfpsfa_chv3eco_ua_ts.webp",
+      "/images/meta-products/CHV3ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/167/564_564_140cd750bba9870f18aada2478b24840a/chv3eco_04_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/9f5/564_564_140cd750bba9870f18aada2478b24840a/chv3eco_2026_02_200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/25e/564_564_140cd750bba9870f18aada2478b24840a/chv3eco_2026_01_1200x1200.webp"
@@ -12419,7 +12399,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/d6b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_4_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_byei_pyryeuaoyiakh.webp",
+    "image": "/images/meta-products/CPV4POST.jpg",
     "details": {
       "documents": [
         {
@@ -12463,7 +12443,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/59c/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_4_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_ua_nsptoyenkh_.webp",
+    "image": "/images/meta-products/CPV4MIN.jpg",
     "details": {
       "documents": [
         {
@@ -12506,9 +12486,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/1ec/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_eoya_chyoekhusv_sbuakhrsgs_sfpsfa_f_chtsrnshch.webp",
+    "image": "/images/meta-products/CHV3ECOAGR.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/1ec/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_nsptoyenkh_naukhuyezyem_ecosoft_1_2_3_eoya_chyoekhusv_sbuakhrsgs_sfpsfa_f_chtsrnshch.webp",
+      "/images/meta-products/CHV3ECOAGR.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/b17/564_564_140cd750bba9870f18aada2478b24840a/chv3ecoagr_04_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/b94/564_564_140cd750bba9870f18aada2478b24840a/chv3ecoagr_2026_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/18c/564_564_140cd750bba9870f18aada2478b24840a/chv3ecoagr_2026_01_1200x1200.webp"
@@ -12555,9 +12535,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/bcc/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_cmv3eco_ua_nsptoyenkh_naukhuyezkv_ecosof.webp",
+    "image": "/images/meta-products/CMV3ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/bcc/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_cmv3eco_ua_nsptoyenkh_naukhuyezkv_ecosof.webp",
+      "/images/meta-products/CMV3ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/faa/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_04_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/877/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_2026_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/965/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_2026_01_1200x1200.webp"
@@ -12604,7 +12584,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/6c4/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_4_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_absolute_byei_pyryeuaoyiakh.webp",
+    "image": "/images/meta-products/CHV4POST75GPD.jpg",
     "details": {
       "documents": [
         {
@@ -12647,9 +12627,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/6b3/564_564_140cd750bba9870f18aada2478b24840a/ru_pyepbuara_ecosoft_50gpd_eoya_espayrysh_chyoekhusv_sbuakhrsgs_sfpsfa_csv181250eco_ua_pyepbuara_eco.webp",
+    "image": "/images/meta-products/CSV181250ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/6b3/564_564_140cd750bba9870f18aada2478b24840a/ru_pyepbuara_ecosoft_50gpd_eoya_espayrysh_chyoekhusv_sbuakhrsgs_sfpsfa_csv181250eco_ua_pyepbuara_eco.webp",
+      "/images/meta-products/CSV181250ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/038/564_564_140cd750bba9870f18aada2478b24840a/csv181250eco_1200sh12000.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/fae/564_564_140cd750bba9870f18aada2478b24840a/csv181250eco_3_1200x1200.webp"
     ],
@@ -12726,7 +12706,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/4a8/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_5_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_f_pyryeuaoyiakhsus.webp",
+    "image": "/images/meta-products/CPV5POSTMIN.jpg",
     "details": {
       "documents": [
         {
@@ -12769,9 +12749,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/eb6/564_564_140cd750bba9870f18aada2478b24840a/ru_pyepbuara_ecosoft_75gpd_eoya_espayrysh_chyoekhusv_sbuakhrsgs_sfpsfa_csv181275eco_ua_pyepbuara_eco.webp",
+    "image": "/images/meta-products/CSV181275ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/eb6/564_564_140cd750bba9870f18aada2478b24840a/ru_pyepbuara_ecosoft_75gpd_eoya_espayrysh_chyoekhusv_sbuakhrsgs_sfpsfa_csv181275eco_ua_pyepbuara_eco.webp",
+      "/images/meta-products/CSV181275ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/52c/564_564_140cd750bba9870f18aada2478b24840a/csv181275eco_1_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/a6a/564_564_140cd750bba9870f18aada2478b24840a/csv181275eco_3_1200x1200.webp"
     ],
@@ -12848,9 +12828,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/df7/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_nsptoyenkh_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_crv3eco_ua_tsnuayerym_nspto.webp",
+    "image": "/images/meta-products/CRV3ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/df7/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_nsptoyenkh_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_crv3eco_ua_tsnuayerym_nspto.webp",
+      "/images/meta-products/CRV3ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/6b2/564_564_140cd750bba9870f18aada2478b24840a/crv3eco_04_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/b72/564_564_140cd750bba9870f18aada2478b24840a/crv3eco_2026_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/408/564_564_140cd750bba9870f18aada2478b24840a/crv3eco_2026_01_1200x1200.webp"
@@ -12897,9 +12877,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/049/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_6_pyefyashchyev_chv5ecoabs_ua_nsptoyenkh_naukhuyezkv_eco.webp",
+    "image": "/images/meta-products/CHV5ECOABS.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/049/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_6_pyefyashchyev_chv5ecoabs_ua_nsptoyenkh_naukhuyezkv_eco.webp",
+      "/images/meta-products/CHV5ECOABS.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/9d7/564_564_140cd750bba9870f18aada2478b24840a/chv5ecoabs_2026_03_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/49a/564_564_140cd750bba9870f18aada2478b24840a/chv5ecoabs_2026_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/e81/564_564_140cd750bba9870f18aada2478b24840a/chv5ecoabs_2026_01_1200x1200.webp"
@@ -12949,9 +12929,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/57c/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_cmv6eco_ua_ukrym_iataf_naukhuyezkv_ec.webp",
+    "image": "/images/meta-products/CMV6ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/57c/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_cmv6eco_ua_ukrym_iataf_naukhuyezkv_ec.webp",
+      "/images/meta-products/CMV6ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/96b/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_04_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/302/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_05_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/0ef/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_02_1200x1200.webp",
@@ -12999,7 +12979,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/aef/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_standard_yi_5_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_byei_pyryeuaoyiakh.webp",
+    "image": "/images/meta-products/CPV5POST50GPD.jpg",
     "details": {
       "documents": [
         {
@@ -13043,7 +13023,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/5ff/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_5_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_ua_nsptoyenkh_.webp",
+    "image": "/images/meta-products/CPV5MCSVECO.jpg",
     "details": {
       "documents": [
         {
@@ -13086,9 +13066,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/b26/564_564_140cd750bba9870f18aada2478b24840a/ru_pyepbuara_ecosoft_100gpd_eoya_espayrysh_chyoekhusv_sbuakhrsgs_sfpsfa_csv1812100eco_ua_pyepbuara_e.webp",
+    "image": "/images/meta-products/CSV1812100ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/b26/564_564_140cd750bba9870f18aada2478b24840a/ru_pyepbuara_ecosoft_100gpd_eoya_espayrysh_chyoekhusv_sbuakhrsgs_sfpsfa_csv1812100eco_ua_pyepbuara_e.webp",
+      "/images/meta-products/CSV1812100ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/e55/564_564_140cd750bba9870f18aada2478b24840a/csv1812100eco_3_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/e6a/564_564_140cd750bba9870f18aada2478b24840a/csv1812100eco_1_1200x1200.webp"
     ],
@@ -13165,7 +13145,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/a4e/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_6_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_f_pyryeuaoyiakhsus.webp",
+    "image": "/images/meta-products/CPV6POSTMIN50GPD.jpg",
     "details": {
       "documents": [
         {
@@ -13208,7 +13188,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/fb7/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_5_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_absolute_byei_pyryeuaoyiakh.webp",
+    "image": "/images/meta-products/CHV5POST75GPD.jpg",
     "details": {
       "documents": [
         {
@@ -13254,9 +13234,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/1cf/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_crv6eco_ua_tsnuayerym_uk.webp",
+    "image": "/images/meta-products/CRV6ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/1cf/564_564_140cd750bba9870f18aada2478b24840a/ru_tsotsyyerr_m_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_khusmrsgs_chyoekhua_crv6eco_ua_tsnuayerym_uk.webp",
+      "/images/meta-products/CRV6ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/f2c/564_564_140cd750bba9870f18aada2478b24840a/crv3eco_04_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/505/564_564_140cd750bba9870f18aada2478b24840a/crv3eco_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/176/564_564_140cd750bba9870f18aada2478b24840a/crv3eco_01_1200x1200.webp"
@@ -13304,10 +13284,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/855/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_aquacalcium_mint_6_pyefyashchyev_ua_nsptoyenkh_naukhuyezkv_e.webp",
+    "image": "/images/meta-products/CHV5PUREMAC.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/855/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_aquacalcium_mint_6_pyefyashchyev_ua_nsptoyenkh_naukhuyezkv_e.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a51/564_564_140cd750bba9870f18aada2478b24840a/chv5puremac_02_1200x1200.webp",
+      "/images/meta-products/CHV5PUREMAC.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/937/564_564_140cd750bba9870f18aada2478b24840a/pd2010mac_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/025/564_564_140cd750bba9870f18aada2478b24840a/pd2010mac_01_1200x1200.webp"
     ],
@@ -13353,9 +13332,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/6eb/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_12_pyefyashchyev_chv6ecoabs_ua_nsptoyenkh_naukhuyezkv_ec.webp",
+    "image": "/images/meta-products/CHV6ECOABS.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/6eb/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_absolute_12_pyefyashchyev_chv6ecoabs_ua_nsptoyenkh_naukhuyezkv_ec.webp",
+      "/images/meta-products/CHV6ECOABS.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/372/564_564_140cd750bba9870f18aada2478b24840a/chv6ecoabs_2026_03_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/6a0/564_564_140cd750bba9870f18aada2478b24840a/chv6ecoabs_2026_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/fe0/564_564_140cd750bba9870f18aada2478b24840a/chv6ecoabs_2026_01_1200x1200.webp"
@@ -13402,12 +13381,11 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/0aa/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_standard_byei_pyryeuaoyiakhsu.webp",
+    "image": "/images/meta-products/CPV15POST50GPD.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/0aa/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_standard_byei_pyryeuaoyiakhsu.webp",
+      "/images/meta-products/CPV15POST50GPD.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/2e7/564_564_140cd750bba9870f18aada2478b24840a/csv_1812_50_01.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d6d/564_564_140cd750bba9870f18aada2478b24840a/postfilter_year.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/591/564_564_140cd750bba9870f18aada2478b24840a/fpv3ecostd.webp"
+      "https://ecosoft.ua/upload/resize_cache/iblock/d6d/564_564_140cd750bba9870f18aada2478b24840a/postfilter_year.webp"
     ],
     "details": {
       "documents": [
@@ -13452,9 +13430,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/022/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_balance_6_pyefyashchyev_chv5purebal_ua_nsptoyenkh_naukhuyezk.webp",
+    "image": "/images/meta-products/CHV5PUREBAL.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/022/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_balance_6_pyefyashchyev_chv5purebal_ua_nsptoyenkh_naukhuyezk.webp",
+      "/images/meta-products/CHV5PUREBAL.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/557/564_564_140cd750bba9870f18aada2478b24840a/chv5purebal_2026_03_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/f96/564_564_140cd750bba9870f18aada2478b24840a/chv5purebal_2026_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/754/564_564_140cd750bba9870f18aada2478b24840a/chv5purebal_2026_01_1200x1200.webp"
@@ -13502,7 +13480,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/541/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_ua_ukrym.webp",
+    "image": "/images/meta-products/CPV9MIN50GPD.jpg",
     "details": {
       "documents": [
         {
@@ -13546,9 +13524,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/e87/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_alkafuse_6_pyefyashchyev_chv5purealc_ua_nsptoyenkh_naukhuyez.webp",
+    "image": "/images/meta-products/CHV5PUREALC.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/e87/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_alkafuse_6_pyefyashchyev_chv5purealc_ua_nsptoyenkh_naukhuyez.webp",
+      "/images/meta-products/CHV5PUREALC.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/535/564_564_140cd750bba9870f18aada2478b24840a/pd2010alceco.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/723/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_p_ure_alkafuse_6_pyefyashchyev_chv5purebal_ua_nsptoyenkh_naukhuye-_1_.webp"
     ],
@@ -13594,9 +13572,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/97b/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_absolute_byei_pyryeuaoyiakhsu.webp",
+    "image": "/images/meta-products/CHV15POST75GPD.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/97b/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_absolute_byei_pyryeuaoyiakhsu.webp",
+      "/images/meta-products/CHV15POST75GPD.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/ce8/564_564_140cd750bba9870f18aada2478b24840a/postfilter_year.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/77a/564_564_140cd750bba9870f18aada2478b24840a/ru_membrannyy_element_ecosoft_75gpd_dlya_domashnikh_filtrov_obratnogo_osmosa_ua_membranniy_element_e-_2_.webp"
     ],
@@ -13642,13 +13620,12 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/72b/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_standard_f_pyryeuaoyiakhsusp_.webp",
+    "image": "/images/meta-products/CPV17POSTMIN50GPD.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/72b/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_standard_f_pyryeuaoyiakhsusp_.webp",
+      "/images/meta-products/CPV17POSTMIN50GPD.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/3d5/564_564_140cd750bba9870f18aada2478b24840a/mineral_year.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/19e/564_564_140cd750bba9870f18aada2478b24840a/postfilter_year.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/878/564_564_140cd750bba9870f18aada2478b24840a/csv_1812_50_01.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/bc5/564_564_140cd750bba9870f18aada2478b24840a/fpv3ecostd.webp"
+      "https://ecosoft.ua/upload/resize_cache/iblock/878/564_564_140cd750bba9870f18aada2478b24840a/csv_1812_50_01.webp"
     ],
     "details": {
       "documents": [
@@ -13693,10 +13670,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/345/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_aquacalcium_mint_12_pyefyashchyev_ua_nsptoyenkh_naukhuyezkv_.webp",
+    "image": "/images/meta-products/CHV6PUREMAC.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/345/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_aquacalcium_mint_12_pyefyashchyev_ua_nsptoyenkh_naukhuyezkv_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/544/564_564_140cd750bba9870f18aada2478b24840a/chv6puremac_02_1200x1200.webp",
+      "/images/meta-products/CHV6PUREMAC.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/57b/564_564_140cd750bba9870f18aada2478b24840a/pd2010mac_02_1200x1200-_1_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/f28/564_564_140cd750bba9870f18aada2478b24840a/pd2010mac_01_1200x1200-_1_.webp"
     ],
@@ -13742,9 +13718,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/596/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_f_pyryeuaoyiakhsusp_ecosoft_absolute_.webp",
+    "image": "/images/meta-products/CHV17POSTMIN75GPD.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/596/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_f_pyryeuaoyiakhsusp_ecosoft_absolute_.webp",
+      "/images/meta-products/CHV17POSTMIN75GPD.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/43d/564_564_140cd750bba9870f18aada2478b24840a/mineral_year.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/0c7/564_564_140cd750bba9870f18aada2478b24840a/postfilter_year.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/097/564_564_140cd750bba9870f18aada2478b24840a/ru_membrannyy_element_ecosoft_75gpd_dlya_domashnikh_filtrov_obratnogo_osmosa_ua_membranniy_element_e-_2_.webp"
@@ -13792,9 +13768,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/773/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_alkafuse_12_pyefyashchyev_chv6purealc_ua_nsptoyenkh_naukhuye.webp",
+    "image": "/images/meta-products/CHV6PUREALC.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/773/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_alkafuse_12_pyefyashchyev_chv6purealc_ua_nsptoyenkh_naukhuye.webp",
+      "/images/meta-products/CHV6PUREALC.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/7f2/564_564_140cd750bba9870f18aada2478b24840a/ru_komplekt_kartridzhey_ecosoft_p_ure_alkafuse_12_mesyatsev_chv6purealc_ua_komplekt_kartridzhiv_ecos.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/b3c/564_564_140cd750bba9870f18aada2478b24840a/pd2010alceco.webp"
     ],
@@ -13841,9 +13817,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/12e/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_balance_12_pyefyashchyev_chv6purebal_ua_nsptoyenkh_naukhuyez.webp",
+    "image": "/images/meta-products/CHV6PUREBAL.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/12e/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_balance_12_pyefyashchyev_chv6purebal_ua_nsptoyenkh_naukhuyez.webp",
+      "/images/meta-products/CHV6PUREBAL.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/765/564_564_140cd750bba9870f18aada2478b24840a/chv6purebal_2026_04_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/67d/564_564_140cd750bba9870f18aada2478b24840a/chv6purebal_2026_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/191/564_564_140cd750bba9870f18aada2478b24840a/chv6purebal_2026_01_1200x1200.webp"
@@ -13891,9 +13867,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/9b6/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_pure_aquacalcium_mint_ua_ukry.webp",
+    "image": "/images/meta-products/CHV11PUREMAC.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/9b6/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_pure_aquacalcium_mint_ua_ukry.webp",
+      "/images/meta-products/CHV11PUREMAC.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/3a7/564_564_140cd750bba9870f18aada2478b24840a/chv5puremac_03_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/26f/564_564_140cd750bba9870f18aada2478b24840a/chv6puremac_03_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/eba/564_564_140cd750bba9870f18aada2478b24840a/chv5puremac_1200x1200.webp",
@@ -13941,7 +13917,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/286/564_564_140cd750bba9870f18aada2478b24840a/ru_godovoy_zapas_kartridzhey_dlya_filtra_obratnogo_osmosa_ecosoft_p_ure_alkafuse_ua_richniy_zapas_ka.webp",
+    "image": "/images/meta-products/CHV11PUREALC.jpg",
     "details": {
       "documents": [
         {
@@ -13984,9 +13960,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/589/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_pure_balance_ua_ukrym_iataf_n.webp",
+    "image": "/images/meta-products/CHV11PUREBAL.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/589/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_pure_balance_ua_ukrym_iataf_n.webp",
+      "/images/meta-products/CHV11PUREBAL.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/1aa/564_564_140cd750bba9870f18aada2478b24840a/chv6purebal_03_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/ae7/564_564_140cd750bba9870f18aada2478b24840a/chv5purebal_03_1200x1200-_1_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/c03/564_564_140cd750bba9870f18aada2478b24840a/chv6purebal_1200x1200.webp",
@@ -14033,9 +14009,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/4d4/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_1_pnp_cpv25101eco_ua_naukhuyez_ik_ftkrye.webp",
+    "image": "/images/meta-products/CPV25101ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/4d4/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_1_pnp_cpv25101eco_ua_naukhuyez_ik_ftkrye.webp",
+      "/images/meta-products/CPV25101ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/5f2/564_564_140cd750bba9870f18aada2478b24840a/pp_1-_1_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/ef8/564_564_140cd750bba9870f18aada2478b24840a/pp-_1_.webp"
     ],
@@ -14081,9 +14057,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/461/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_5_pnp_cpv25105eco_ua_naukhuyez_ik_ftkrye.webp",
+    "image": "/images/meta-products/CPV25105ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/461/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_5_pnp_cpv25105eco_ua_naukhuyez_ik_ftkrye.webp",
+      "/images/meta-products/CPV25105ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/d5f/564_564_140cd750bba9870f18aada2478b24840a/pp-_1_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/777/564_564_140cd750bba9870f18aada2478b24840a/pp_1-_1_.webp"
     ],
@@ -14129,9 +14105,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/e2f/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_10_pnp_cpv251010eco_ua_naukhuyez_ik_ftk.webp",
+    "image": "/images/meta-products/CPV251010ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/e2f/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_10_pnp_cpv251010eco_ua_naukhuyez_ik_ftk.webp",
+      "/images/meta-products/CPV251010ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/318/564_564_140cd750bba9870f18aada2478b24840a/pp-_1_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/5de/564_564_140cd750bba9870f18aada2478b24840a/pp_1-_1_.webp"
     ],
@@ -14215,9 +14191,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/bdc/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_20_pnp_cpv251020eco_ua_naukhuyez_ik_ftk.webp",
+    "image": "/images/meta-products/CPV251020ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/bdc/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_20_pnp_cpv251020eco_ua_naukhuyez_ik_ftk.webp",
+      "/images/meta-products/CPV251020ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/7a5/564_564_140cd750bba9870f18aada2478b24840a/pp-_1_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/372/564_564_140cd750bba9870f18aada2478b24840a/pp_1-_1_.webp"
     ],
@@ -14266,9 +14242,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/046/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_bankhyeuysfkhakhyyefnym_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_sh10_5_pnp_cpv25105.webp",
+    "image": "/images/meta-products/CPV25105BECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/046/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_bankhyeuysfkhakhyyefnym_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_sh10_5_pnp_cpv25105.webp",
+      "/images/meta-products/CPV25105BECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/cd4/564_564_140cd750bba9870f18aada2478b24840a/cpv25105beco_2-_1_.webp"
     ],
     "details": {
@@ -14312,9 +14288,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ccb/564_564_140cd750bba9870f18aada2478b24840a/ru_guaeyyerkhr_m_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_cpv2510205eco_ua_guaekzhr.webp",
+    "image": "/images/meta-products/CPV2510205ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/ccb/564_564_140cd750bba9870f18aada2478b24840a/ru_guaeyyerkhr_m_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_cpv2510205eco_ua_guaekzhr.webp",
+      "/images/meta-products/CPV2510205ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/74c/564_564_140cd750bba9870f18aada2478b24840a/cpv2510205eco_1-_1_.webp"
     ],
     "details": {
@@ -14389,7 +14365,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/23b/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_2_5_x10_1_pnp_cpn25101eco_ua_naukhuyez_i_tsoktustkoye.webp",
+    "image": "/images/meta-products/CPN25101ECO.jpg",
     "details": {
       "specs": [
         {
@@ -14466,7 +14442,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ab7/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_2_5_x10_5_pnp_cpn25105eco_ua_naukhuyez_i_tsoktustkoye.webp",
+    "image": "/images/meta-products/CPN25105ECO.jpg",
     "details": {
       "specs": [
         {
@@ -14543,7 +14519,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/bee/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_2_5_x10_10_pnp_cpn251010eco_ua_naukhuyez_i_tsoktustk.webp",
+    "image": "/images/meta-products/CPN251010ECO.jpg",
     "details": {
       "specs": [
         {
@@ -14620,7 +14596,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/269/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_2_5_x10_20_pnp_cpn251020eco_ua_naukhuyez_i_tsoktustk.webp",
+    "image": "/images/meta-products/CPN251020ECO.jpg",
     "details": {
       "specs": [
         {
@@ -14697,7 +14673,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/11f/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_3_ykh_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_2_5_x10_5_pnp_cpv325105eco_.webp",
+    "image": "/images/meta-products/CPV325105ECO.jpg",
     "details": {
       "specs": [
         {
@@ -14774,7 +14750,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/29d/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_4_5_x10_5_pnp_cpv45105eco_ua_naukhuyez_ik_ftkrye.webp",
+    "image": "/images/meta-products/CPV45105ECO.jpg",
     "details": {
       "specs": [
         {
@@ -14848,9 +14824,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/6ca/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_f_guartsoyusvarr_p_ankhyvyusvarr_p_tsgoyep_ecosoft_2_5_sh10_chv2510eco_ua_naukhuyez_i_g.webp",
+    "image": "/images/meta-products/CHV2510ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/6ca/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_f_guartsoyusvarr_p_ankhyvyusvarr_p_tsgoyep_ecosoft_2_5_sh10_chv2510eco_ua_naukhuyez_i_g.webp",
+      "/images/meta-products/CHV2510ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/299/564_564_140cd750bba9870f18aada2478b24840a/chv2510eco_1-_1_.webp"
     ],
     "details": {
@@ -14918,9 +14894,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/1d8/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tuyeffsvarrsgs_ankhyvyusvarrsgs_tsgoya_ecosoft_cto10_2_5_sh10_chvcb2510eco_ua_naukhu.webp",
+    "image": "/images/meta-products/CHVCB2510ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/1d8/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tuyeffsvarrsgs_ankhyvyusvarrsgs_tsgoya_ecosoft_cto10_2_5_sh10_chvcb2510eco_ua_naukhu.webp",
+      "/images/meta-products/CHVCB2510ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/673/564_564_140cd750bba9870f18aada2478b24840a/chvcb2510eco_1-_1_.webp"
     ],
     "details": {
@@ -14998,9 +14974,9 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/2df/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tspyagyeryya_vse_ecosoft_2_5_sh10_cmv2510eco_ua_naukhuyez_eoya_tsp_yanyyerrya_vsey.webp",
+    "image": "/images/meta-products/CMV2510ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/2df/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tspyagyeryya_vse_ecosoft_2_5_sh10_cmv2510eco_ua_naukhuyez_eoya_tsp_yanyyerrya_vsey.webp",
+      "/images/meta-products/CMV2510ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/e05/564_564_140cd750bba9870f18aada2478b24840a/cmv2510eco_1-_1_.webp"
     ],
     "details": {
@@ -15071,7 +15047,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/bb8/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_4_5_x20_5_pnp_cpv45205eco_ua_naukhuyez_ik_ftkrye.webp",
+    "image": "/images/meta-products/CPV45205ECO.jpg",
     "details": {
       "specs": [
         {
@@ -15148,7 +15124,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/44b/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_4_5_x20_20_pnp_cpv452020eco_ua_naukhuyez_ik_ftk.webp",
+    "image": "/images/meta-products/CPV452020ECO.jpg",
     "details": {
       "specs": [
         {
@@ -15228,7 +15204,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/b9c/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tseaoyeryya_zyeoyeia_ecosoft_2_5_sh10_crvf2510eco_ua_naukhuyez_eoya_vyeaoyerrya_ia.webp",
+    "image": "/images/meta-products/CRVF2510ECO.jpg",
     "details": {
       "documents": [
         {
@@ -15271,7 +15247,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/0f1/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_4_5_x10_5_pnp_cpn45105eco_ua_naukhuyez_i_tsoktustkoye.webp",
+    "image": "/images/meta-products/CPN45105ECO.jpg",
     "details": {
       "specs": [
         {
@@ -15351,7 +15327,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/65a/564_564_140cd750bba9870f18aada2478b24840a/ru_guaeyyerkhr_m_naukhuyez_yi_vftyeryerrsgs_tsoytustyeoyera_ecosoft_45_sh_20_20_5_pnp_cpv4520205eco_.webp",
+    "image": "/images/meta-products/CPV4520205ECO.jpg",
     "details": {
       "specs": [
         {
@@ -15424,7 +15400,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/0a9/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_4_5_x20_5_pnp_2ykh_cpv245205eco_ua_naukhuyez_ik.webp",
+    "image": "/images/meta-products/CPV245205ECO.jpg",
     "details": {
       "specs": [
         {
@@ -15501,7 +15477,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/3ff/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_vftyeryerrsgs_tsoytustyoyera_ecosoft_4_5_x20_20_pnp_2ykh_cpv2452020eco_ua_naukhuyez_.webp",
+    "image": "/images/meta-products/CPV2452020ECO.jpg",
     "details": {
       "specs": [
         {
@@ -15578,7 +15554,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/111/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tsoytustyoyersvsm_rykhy_ecosoft_4_5_x20_20_pnp_cpn452020eco_ua_naukhuyez_i_tsoktustk.webp",
+    "image": "/images/meta-products/CPN452020ECO.jpg",
     "details": {
       "specs": [
         {
@@ -15652,7 +15628,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/068/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_f_guartsoyusvarr_p_ankhyvyusvarr_p_tsgoyep_ecosoft_4_5_sh10_chv4510eco_ua_naukhuyez_i_g.webp",
+    "image": "/images/meta-products/CHV4510ECO.jpg",
     "details": {
       "specs": [
         {
@@ -15724,7 +15700,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/319/564_564_140cd750bba9870f18aada2478b24840a/ru_guaeyyerkhr_m_naukhuyez_yi_vftyeryerrsgs_tsoytustyeoyera_ecosoft_45_sh_20_20_5_pnp_2_ykh_cpv24520.webp",
+    "image": "/images/meta-products/CPV24520205ECO.jpg",
     "details": {
       "specs": [
         {
@@ -15794,7 +15770,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/523/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tuyeffsvarrsgs_ankhyvyusvarrsgs_tsgoya_ecosoft_cto10_4_5_sh10_chvcb4510eco_ua_naukhu.webp",
+    "image": "/images/meta-products/CHVCB4510ECO.jpg",
     "details": {
       "specs": [
         {
@@ -15870,7 +15846,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/aa3/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tseaoyeryya_zyeoyeia_ecosoft_4_5_sh20_crvf4520eco_ua_naukhuyez_eoya_vyeaoyerrya_ia.webp",
+    "image": "/images/meta-products/CRVF4520ECO.jpg",
     "details": {
       "specs": [
         {
@@ -15936,7 +15912,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/5a5/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_f_guartsoyusvarr_p_ankhyvyusvarr_p_tsgoyep_ecosoft_4_5_sh20_chv4520eco_ua_naukhuyez_i_g.webp",
+    "image": "/images/meta-products/CHV4520ECO.jpg",
     "details": {
       "specs": [
         {
@@ -16002,7 +15978,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/29f/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tuyeffsvarrsgs_ankhyvyusvarrsgs_tsgoya_ecosoft_cto10_4_5_sh20_chvcb4520eco_ua_naukhu.webp",
+    "image": "/images/meta-products/CHVCB4520ECO.jpg",
     "details": {
       "specs": [
         {
@@ -16078,7 +16054,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/c38/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_4_5_sh20_crvs4520eco_ua_naukhuyez_eoya_vyeaoyerr.webp",
+    "image": "/images/meta-products/CRVS4520ECO.jpg",
     "details": {
       "specs": [
         {
@@ -16150,7 +16126,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/b13/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tseaoyeryya_zyeoyeia_ecosoft_4_5_sh20_2ykh_crvf24520eco_ua_naukhuyez_eoya_vyeaoyer.webp",
+    "image": "/images/meta-products/CRVF24520ECO.jpg",
     "details": {
       "specs": [
         {
@@ -16216,7 +16192,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/c48/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_f_guartsoyusvarr_p_ankhyvyusvarr_p_tsgoyep_ecosoft_4_5_sh20_2ykh_chv24520eco_ua_naukhuy.webp",
+    "image": "/images/meta-products/CHV24520ECO.jpg",
     "details": {
       "specs": [
         {
@@ -16282,7 +16258,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/8bb/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_yi_tuyeffsvarrsgs_ankhyvyusvarrsgs_tsgoya_ecosoft_cto10_4_5_sh20_2ykh_chvcb24520eco_ua_.webp",
+    "image": "/images/meta-products/CHVCB24520ECO.jpg",
     "details": {
       "specs": [
         {
@@ -16358,7 +16334,7 @@ export const PRODUCTS: Product[] = [
         "Змінний картридж"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/7c5/564_564_140cd750bba9870f18aada2478b24840a/ru_naukhuyez_eoya_tseaoyeryya_fyeusvsesusea_ecosoft_4_5_sh20_2ykh_crvs24520eco_ua_naukhuyez_eoya_vye.webp",
+    "image": "/images/meta-products/CRVS24520ECO.jpg",
     "details": {
       "specs": [
         {
@@ -16423,7 +16399,7 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/c05/564_564_140cd750bba9870f18aada2478b24840a/ru_kvartsevyy_pesok_2_6_mm_dlya_podlozhki_25_kg_ua.webp",
+    "image": "/images/meta-products/QUS26.jpg",
     "details": {
       "specs": [
         {
@@ -16476,7 +16452,7 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/8bd/564_564_140cd750bba9870f18aada2478b24840a/ru_khaboyekhyusvarraya_fsoe_ecosil_25_ng_kecosil_ua_khaboyekhsvara_fkoe_ecosil_25_ng_kecosil.webp",
+    "image": "/images/meta-products/KECOSIL.jpg",
     "details": {
       "documents": [
         {
@@ -16523,7 +16499,7 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/746/350_350_140cd750bba9870f18aada2478b24840a/ru_filtruyushchiy_material_filter_ag_28_3_l_ua_filtruyuchiy_material_filter_ag_28_3_l.webp",
+    "image": "/images/meta-products/FLAG.jpg",
     "details": {
       "specs": [
         {
@@ -16622,9 +16598,9 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/f57/564_564_140cd750bba9870f18aada2478b24840a/ru_sol_dlya_regeneratsii_i_dezinfektsii_bwt_sanitabs_ua_sil_dlya_regeneratsii_ta_dezinfektsii_bwt_sa.webp",
+    "image": "/images/meta-products/94241.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/f57/564_564_140cd750bba9870f18aada2478b24840a/ru_sol_dlya_regeneratsii_i_dezinfektsii_bwt_sanitabs_ua_sil_dlya_regeneratsii_ta_dezinfektsii_bwt_sa.webp",
+      "/images/meta-products/94241.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/11f/564_564_140cd750bba9870f18aada2478b24840a/tabs.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/43a/564_564_140cd750bba9870f18aada2478b24840a/facebook_sanitabs_1000.webp"
     ],
@@ -16673,7 +16649,7 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/e52/564_564_140cd750bba9870f18aada2478b24840a/ru_ysrssbpyerraya_fpsoa_dowex_hcr_s_s_12_o_ua_ksrssbpkrra_fpsoa_dowex_hcr_s_s_12_o.webp",
+    "image": "/images/meta-products/HCRSS12.jpg",
     "details": {
       "specs": [
         {
@@ -16741,9 +16717,9 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/6eb/564_564_140cd750bba9870f18aada2478b24840a/ru_ecosoft_ecolite_soft_fyoersnyfoskhraya_ysrssbpyerraya_fpsoa_25_o_ua_ecosoft_ecolite_soft_fyoersny.webp",
+    "image": "/images/meta-products/ECOLITES25.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/6eb/564_564_140cd750bba9870f18aada2478b24840a/ru_ecosoft_ecolite_soft_fyoersnyfoskhraya_ysrssbpyerraya_fpsoa_25_o_ua_ecosoft_ecolite_soft_fyoersny.webp",
+      "/images/meta-products/ECOLITES25.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/577/564_564_140cd750bba9870f18aada2478b24840a/bagecolites_b.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/c65/564_564_140cd750bba9870f18aada2478b24840a/ecolite_sac_.webp"
     ],
@@ -16884,7 +16860,7 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/73d/350_350_140cd750bba9870f18aada2478b24840a/ru_filtruyushchiy_material_filter_ag_plus_28_3_l_ua_filtruyuchiy_material_filter_ag_plus_28_3_l.webp",
+    "image": "/images/meta-products/FLAGPL.jpg",
     "details": {
       "specs": [
         {
@@ -16952,16 +16928,8 @@ export const PRODUCTS: Product[] = [
           "href": "https://ecosoft.ua/upload/iblock/923/manual_ecosoft_water_filter.pdf"
         },
         {
-          "name": "Інструкція з налаштування клапана CT",
-          "href": "https://ecosoft.ua/upload/iblock/27c/instructct-_1_.pdf"
-        },
-        {
           "name": "Інструкція з налаштування клапана CE",
           "href": "https://ecosoft.ua/upload/iblock/fa1/instructce.pdf"
-        },
-        {
-          "name": "здесь",
-          "href": "https://ecosoft.ua/upload/iblock/d6d/filterag_plus_material_specifications.pdf"
         },
         {
           "name": "Каталог продукції",
@@ -17002,9 +16970,9 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/006/564_564_140cd750bba9870f18aada2478b24840a/ru_ecosoft_ecolite_ultrasoft_fyoersnyfoskhraya_ysrssbpyerraya_fpsoa_25_o_ua_ecosoft_ecolite_ultrasof.webp",
+    "image": "/images/meta-products/ECOLITEUS25.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/006/564_564_140cd750bba9870f18aada2478b24840a/ru_ecosoft_ecolite_ultrasoft_fyoersnyfoskhraya_ysrssbpyerraya_fpsoa_25_o_ua_ecosoft_ecolite_ultrasof.webp",
+      "/images/meta-products/ECOLITEUS25.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/c23/564_564_140cd750bba9870f18aada2478b24840a/bagecoliteus_b.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/753/564_564_140cd750bba9870f18aada2478b24840a/ecolite_sac_ups_.webp"
     ],
@@ -17145,9 +17113,9 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ac5/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_p_12_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_p_12_o.webp",
+    "image": "/images/meta-products/ECOMIXP12.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/ac5/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_p_12_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_p_12_o.webp",
+      "/images/meta-products/ECOMIXP12.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/374/564_564_140cd750bba9870f18aada2478b24840a/ecomixp25_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/bef/564_564_140cd750bba9870f18aada2478b24840a/ecomixp25_4.webp"
     ],
@@ -17272,7 +17240,7 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/6dd/350_350_140cd750bba9870f18aada2478b24840a/ru_ysrssbpyerraya_fpsoa_dowex_hcr_s_s_25_o_ua_ksrssbpkrra_fpsoa_dowex_hcr_s_s_25_o.webp",
+    "image": "/images/meta-products/HCRSS25.jpg",
     "details": {
       "specs": [
         {
@@ -17350,9 +17318,9 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/8c5/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_a_12_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_a_12_o.webp",
+    "image": "/images/meta-products/ECOMIXA12.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/8c5/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_a_12_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_a_12_o.webp",
+      "/images/meta-products/ECOMIXA12.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/1d8/564_564_140cd750bba9870f18aada2478b24840a/ecomixa25_02_1200x1200-_1_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/4f7/564_564_140cd750bba9870f18aada2478b24840a/ecomixa25_4.webp"
     ],
@@ -17491,9 +17459,9 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/7b7/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_f_12_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_c_12_o.webp",
+    "image": "/images/meta-products/ECOMIXC12.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/7b7/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_f_12_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_c_12_o.webp",
+      "/images/meta-products/ECOMIXC12.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/881/564_564_140cd750bba9870f18aada2478b24840a/ecomixc25_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/b78/564_564_140cd750bba9870f18aada2478b24840a/ecomixc25_4.webp"
     ],
@@ -17632,9 +17600,9 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/d2b/564_564_140cd750bba9870f18aada2478b24840a/ru_ecosoft_ecolite_demin_fpyeyarraya_ysrssbpyerraya_fpsoa_25_o_ua_ecosoft_ecolite_demin_ipkyara_ksrs.webp",
+    "image": "/images/meta-products/ECOLITED25.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/d2b/564_564_140cd750bba9870f18aada2478b24840a/ru_ecosoft_ecolite_demin_fpyeyarraya_ysrssbpyerraya_fpsoa_25_o_ua_ecosoft_ecolite_demin_ipkyara_ksrs.webp",
+      "/images/meta-products/ECOLITED25.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/d7e/564_564_140cd750bba9870f18aada2478b24840a/bagecolited_b.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/a03/564_564_140cd750bba9870f18aada2478b24840a/ecolite_mbd_.webp"
     ],
@@ -17771,9 +17739,9 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ca8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_p_25_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_p_25_o.webp",
+    "image": "/images/meta-products/ECOMIXP25.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/ca8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_p_25_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_p_25_o.webp",
+      "/images/meta-products/ECOMIXP25.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/dcf/564_564_140cd750bba9870f18aada2478b24840a/ecomixp25_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/b8c/564_564_140cd750bba9870f18aada2478b24840a/ecomixp25_4.webp"
     ],
@@ -17898,9 +17866,9 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/d6c/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_a_25_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_a_25_o.webp",
+    "image": "/images/meta-products/ECOMIXA25.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/d6c/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_a_25_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_a_25_o.webp",
+      "/images/meta-products/ECOMIXA25.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/0d1/564_564_140cd750bba9870f18aada2478b24840a/ecomixa25_02_1200x1200-_1_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/a1b/564_564_140cd750bba9870f18aada2478b24840a/ecomixa25_4.webp"
     ],
@@ -18039,9 +18007,9 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/1bf/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_f_25_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_c_25_o.webp",
+    "image": "/images/meta-products/ECOMIXC25.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/1bf/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhutsyuym_pakhyeuyao_ecomix_f_25_o_ua_chkoekhutsyuym_pakhyeukao_ecomix_c_25_o.webp",
+      "/images/meta-products/ECOMIXC25.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/8b7/564_564_140cd750bba9870f18aada2478b24840a/ecomixc25_02_1200x1200.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/920/564_564_140cd750bba9870f18aada2478b24840a/ecomixc25_4.webp"
     ],
@@ -18180,7 +18148,7 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/d79/350_350_140cd750bba9870f18aada2478b24840a/ru_ankhyvyusvarr_m_tsgsoe_centaur_hsl_12x40_15_ng_ua_ankhyvsvarye_vtsgkooya_centaur_hsl_12x40_15_ng.webp",
+    "image": "/images/meta-products/CENT1240.jpg",
     "details": {
       "specs": [
         {
@@ -18281,7 +18249,7 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/61d/350_350_140cd750bba9870f18aada2478b24840a/ru_ankhyvyusvarr_m_tsgsoe_filtrasorb_300_25_ng_ua_ankhyvsvarye_vtsgkooya_filtrasorb_300_25_ng.webp",
+    "image": "/images/meta-products/FILTR300.jpg",
     "details": {
       "specs": [
         {
@@ -18366,7 +18334,7 @@ export const PRODUCTS: Product[] = [
         "Засипка"
       ]
     },
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/ac5/564_564_140cd750bba9870f18aada2478b24840a/ru_ionoobmennaya_smola_amberlite_mb_20_h_oh_25_l_ua.webp",
+    "image": "/images/meta-products/MB20.jpg",
     "details": {
       "specs": [
         {
@@ -18462,9 +18430,9 @@ export const PRODUCTS: Product[] = [
     "features": [
       "Продуктивність 60 л/год"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/0e8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_robust_mini_ua_chkoekhu_ivsuskhrsgs_sfpsfts_ecosoft_robust_min.webp",
+    "image": "/images/meta-products/ROBUST1000STD.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/0e8/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_robust_mini_ua_chkoekhu_ivsuskhrsgs_sfpsfts_ecosoft_robust_min.webp",
+      "/images/meta-products/ROBUST1000STD.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/b54/564_564_140cd750bba9870f18aada2478b24840a/robust1000std-_4_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/4bb/564_564_140cd750bba9870f18aada2478b24840a/robust1000std-_5_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/a90/564_564_140cd750bba9870f18aada2478b24840a/robust1000std-_2_.webp",
@@ -18560,11 +18528,6 @@ export const PRODUCTS: Product[] = [
       ],
       "documents": [
         {
-          "name": "pasprobust.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/b3d/pasprobust.pdf",
-          "size": "26.2 MB"
-        },
-        {
           "name": "tds_robustmini_ua-_2_.pdf",
           "href": "https://ecosoft.ua/upload/iblock/317/tds_robustmini_ua-_2_.pdf",
           "size": "1.8 MB"
@@ -18614,9 +18577,9 @@ export const PRODUCTS: Product[] = [
     "features": [
       "Продуктивність 100 л/год"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/a21/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_robust_1500eco_ua_chkoekhu_ivsuskhrsgs_sfpsfts_ecosoft_robust_.webp",
+    "image": "/images/meta-products/ROBUST1500ECO.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/a21/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_robust_1500eco_ua_chkoekhu_ivsuskhrsgs_sfpsfts_ecosoft_robust_.webp",
+      "/images/meta-products/ROBUST1500ECO.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/442/564_564_140cd750bba9870f18aada2478b24840a/robust1500-_4_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/66e/564_564_140cd750bba9870f18aada2478b24840a/robust1500-_1_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/c76/564_564_140cd750bba9870f18aada2478b24840a/robust1500-_5_.webp",
@@ -18721,11 +18684,6 @@ export const PRODUCTS: Product[] = [
           "size": "3.2 MB"
         },
         {
-          "name": "pasprobust.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/977/pasprobust.pdf",
-          "size": "26.2 MB"
-        },
-        {
           "name": "tds_robust1500_ua-_2_.pdf",
           "href": "https://ecosoft.ua/upload/iblock/0d0/tds_robust1500_ua-_2_.pdf",
           "size": "13.9 MB"
@@ -18773,9 +18731,9 @@ export const PRODUCTS: Product[] = [
       "Продуктивність 75 л/год",
       "Вода для кави"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/a39/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_robust_coffee_ua_chkoekhu_ivsuskhrsgs_sfpsfts_ecosoft_robust_c.webp",
+    "image": "/images/meta-products/ROBUSTCOFFEE.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/a39/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_robust_coffee_ua_chkoekhu_ivsuskhrsgs_sfpsfts_ecosoft_robust_c.webp",
+      "/images/meta-products/ROBUSTCOFFEE.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/def/564_564_140cd750bba9870f18aada2478b24840a/robustcoffee_4.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/e39/564_564_140cd750bba9870f18aada2478b24840a/robustcoffee_6.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/b92/564_564_140cd750bba9870f18aada2478b24840a/robustcoffee_10.webp",
@@ -18868,11 +18826,6 @@ export const PRODUCTS: Product[] = [
           "size": "404 KB"
         },
         {
-          "name": "pasprobust.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/58e/pasprobust.pdf",
-          "size": "26.2 MB"
-        },
-        {
           "name": "tds_robustcoffee_ua-_2_.pdf",
           "href": "https://ecosoft.ua/upload/iblock/fd8/tds_robustcoffee_ua-_2_.pdf",
           "size": "4.0 MB"
@@ -18922,9 +18875,9 @@ export const PRODUCTS: Product[] = [
     "features": [
       "Продуктивність 160 л/год"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/117/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_robust_3000max_ua_chkoekhu_ivsuskhrsgs_sfpsfts_ecosoft_robust_.webp",
+    "image": "/images/meta-products/ROBUST3000MAX.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/117/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_robust_3000max_ua_chkoekhu_ivsuskhrsgs_sfpsfts_ecosoft_robust_.webp",
+      "/images/meta-products/ROBUST3000MAX.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/14f/564_564_140cd750bba9870f18aada2478b24840a/robust3000max_06.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/2aa/564_564_140cd750bba9870f18aada2478b24840a/robust3000max_07.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/395/564_564_140cd750bba9870f18aada2478b24840a/grg-1.webp",
@@ -19004,11 +18957,6 @@ export const PRODUCTS: Product[] = [
       ],
       "documents": [
         {
-          "name": "pasprobust.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/c05/pasprobust.pdf",
-          "size": "26.2 MB"
-        },
-        {
           "name": "tds_robust3000max_ua-_3_.pdf",
           "href": "https://ecosoft.ua/upload/iblock/903/tds_robust3000max_ua-_3_.pdf",
           "size": "6.3 MB"
@@ -19058,9 +19006,9 @@ export const PRODUCTS: Product[] = [
     "features": [
       "Продуктивність 180 л/год"
     ],
-    "image": "https://ecosoft.ua/upload/resize_cache/iblock/9d6/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_robust_4000_ua_chkoekhu_ivsuskhrsgs_sfpsfts_ecosoft_robust_400.webp",
+    "image": "/images/meta-products/ROBUST4000.jpg",
     "images": [
-      "https://ecosoft.ua/upload/resize_cache/iblock/9d6/564_564_140cd750bba9870f18aada2478b24840a/ru_chyoekhu_sbuakhrsgs_sfpsfa_ecosoft_robust_4000_ua_chkoekhu_ivsuskhrsgs_sfpsfts_ecosoft_robust_400.webp",
+      "/images/meta-products/ROBUST4000.jpg",
       "https://ecosoft.ua/upload/resize_cache/iblock/46c/564_564_140cd750bba9870f18aada2478b24840a/robust4000-_5_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/7ba/564_564_140cd750bba9870f18aada2478b24840a/robust4000-_6_.webp",
       "https://ecosoft.ua/upload/resize_cache/iblock/296/564_564_140cd750bba9870f18aada2478b24840a/robust4000-_4_.webp",
@@ -19139,11 +19087,6 @@ export const PRODUCTS: Product[] = [
         }
       ],
       "documents": [
-        {
-          "name": "pasprobust.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/4a4/pasprobust.pdf",
-          "size": "26.2 MB"
-        },
         {
           "name": "tds_robust4000_ua-_2_.pdf",
           "href": "https://ecosoft.ua/upload/iblock/f60/tds_robust4000_ua-_2_.pdf",

@@ -16,6 +16,7 @@ import { SectionHeading, InfoCard, CtaNote } from "@/components/site/content";
 
 export const metadata: Metadata = {
   title: "Доставка і оплата",
+  alternates: { canonical: "/delivery" },
   description:
     "Способи доставки та оплати замовлень систем очищення води: Нова Пошта, адресна доставка, власний транспорт, самовивіз. Реквізити для безготівкового розрахунку.",
 };

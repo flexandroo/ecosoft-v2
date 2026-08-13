@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { useCart, type CartLine } from "./cart-context";
 import { formatUah } from "@/lib/format";
+import { isValidUkrainianPhone } from "@/lib/validation";
 import { pushBeginCheckout, pushPurchase } from "@/utils/gtmEcommerce";
 
 const FREE_SHIPPING_THRESHOLD = 5000;
@@ -33,6 +34,7 @@ function toGA4Items(lines: CartLine[]) {
 export function CartView() {
   const { lines, total, count, hydrated, setQty, remove, clear } = useCart();
   const [placed, setPlaced] = useState(false);
+  const [orderId, setOrderId] = useState<string | null>(null);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -42,7 +44,7 @@ export function CartView() {
   const [error, setError] = useState<string | null>(null);
   const beganCheckout = useRef(false);
 
-  const contactValid = name.trim().length >= 2 && phone.replace(/\D/g, "").length >= 9;
+  const contactValid = name.trim().length >= 2 && isValidUkrainianPhone(phone);
 
   // GA4: begin_checkout — once per checkout session (this cart-page mount),
   // as soon as the cart is hydrated and not empty.
@@ -76,10 +78,8 @@ export function CartView() {
           },
           company, // honeypot
           items: items.map((it) => ({
-            name: it.name,
             sku: it.sku,
             qty: it.quantity,
-            price: it.price,
           })),
         }),
       });
@@ -101,6 +101,7 @@ export function CartView() {
         tax: 0,
         items,
       });
+      setOrderId(data.orderId ?? null);
       clear();
       setPlaced(true);
     } catch {
@@ -134,6 +135,11 @@ export function CartView() {
           Наш менеджер звʼяжеться з вами найближчим часом, щоб підтвердити
           деталі та доставку.
         </p>
+        {orderId && (
+          <p className="mt-3 text-sm font-semibold text-foreground tabular">
+            Номер звернення: {orderId}
+          </p>
+        )}
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
             href="/catalog"
@@ -372,7 +378,7 @@ export function CartView() {
               </div>
 
               {error && (
-                <p className="rounded-lg bg-destructive/10 px-3 py-2 text-xs font-medium text-destructive">
+                <p role="alert" aria-live="assertive" className="rounded-lg bg-destructive/10 px-3 py-2 text-xs font-medium text-destructive">
                   {error}
                 </p>
               )}
@@ -388,6 +394,13 @@ export function CartView() {
             </form>
             <p className="mt-3 text-center text-xs text-muted-foreground">
               Підтвердження та оплата — після дзвінка менеджера.
+            </p>
+            <p className="mt-2 text-center text-xs text-muted-foreground">
+              Оформлюючи замовлення, ви погоджуєтесь із{" "}
+              <Link href="/privacy" className="font-medium text-foreground underline underline-offset-2">
+                політикою конфіденційності
+              </Link>
+              .
             </p>
           </div>
         </aside>

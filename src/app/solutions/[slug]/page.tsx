@@ -24,7 +24,17 @@ export async function generateMetadata({
   const { slug } = await params;
   const s = findSolution(slug);
   if (!s) return {};
-  return { title: s.seoTitle, description: s.seoDescription };
+  return {
+    title: s.seoTitle,
+    description: s.seoDescription,
+    alternates: { canonical: `/solutions/${slug}` },
+    openGraph: {
+      url: `/solutions/${slug}`,
+      title: s.seoTitle,
+      description: s.seoDescription,
+      images: [{ url: "/opengraph-image", alt: "Sofiivka Water — партнерський магазин Ecosoft" }],
+    },
+  };
 }
 
 export default async function SolutionPage({

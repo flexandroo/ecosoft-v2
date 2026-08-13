@@ -36,6 +36,7 @@ import { ProductCard } from "@/components/catalog/product-card";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 import { ViewItemTracker } from "./view-item-tracker";
 import { DescriptionAccordion } from "./description-accordion";
+import { getProductImagePath } from "@/lib/product-identity";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
   "reverse-osmosis": Droplet,
@@ -75,17 +76,16 @@ export function ProductDetail({ product }: { product: Product }) {
   // Use a model-specific warranty if the data has one; otherwise stay neutral
   // (no hardcoded "3 роки" / "5 років" that could contradict other pages).
   const warranty = d.specs?.find((s) => /гаран/i.test(s.label))?.value;
-  const gallery =
-    product.images && product.images.length > 0
-      ? product.images
-      : product.image
-        ? [product.image]
-        : [];
+  const localImage = getProductImagePath(product);
+  const gallery = [
+    localImage,
+    ...(product.images ?? []).filter((image) => image && image !== product.image),
+  ].filter(Boolean);
   const mainImage = gallery[0];
   const thumbs = gallery.slice(0, 4);
 
   return (
-    <article>
+    <article className="pb-20 md:pb-0">
       <ViewItemTracker
         product={{
           sku: product.sku,
@@ -491,7 +491,7 @@ export function ProductDetail({ product }: { product: Product }) {
       </div>
 
       {/* MOBILE STICKY CTA */}
-      <div className="sticky bottom-0 z-40 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-md md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-[0_-12px_30px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden">
         <div className="flex items-center justify-between gap-3">
           <div>
             <div className="text-xs text-muted-foreground">Ціна</div>

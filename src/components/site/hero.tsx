@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
+import { HeroVideo } from "@/components/site/hero-video";
 
 const HERO_VIDEO_SRC = "/hero.mp4";
-const HERO_POSTER = "";
+const HERO_POSTER = "/images/hero-poster.webp";
 
 export function Hero() {
   return (
@@ -10,17 +11,16 @@ export function Hero() {
       className="relative isolate flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-[oklch(0.18_0.04_220)] text-white"
       aria-label="Чиста вода для дому"
     >
-      <video
-        className="absolute inset-0 -z-10 size-full object-cover"
-        src={HERO_VIDEO_SRC}
-        poster={HERO_POSTER}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
+      {/* The lightweight poster is the mobile/save-data experience. Video is
+          loaded only on larger screens without reduced-motion preferences. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="absolute inset-0 -z-20 size-full object-cover"
+        src={HERO_POSTER}
+        alt=""
         aria-hidden
       />
+      <HeroVideo src={HERO_VIDEO_SRC} />
 
       {/* Directional gradient: heaviest behind the left-aligned copy, lighter toward the asset */}
       <div

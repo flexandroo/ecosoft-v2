@@ -12,3 +12,10 @@ export type ProductIdentityInput = {
 export function getProductItemId(product: ProductIdentityInput): string {
   return String(product.sku || product.id || product.slug || "");
 }
+
+export function getProductImagePath(product: ProductIdentityInput): string {
+  const itemId = getProductItemId(product);
+  return itemId
+    ? `/images/meta-products/${itemId.replace(/[^a-zA-Z0-9._-]/g, "_")}.jpg`
+    : "";
+}

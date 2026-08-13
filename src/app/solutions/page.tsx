@@ -8,6 +8,7 @@ import { SOLUTIONS } from "@/lib/solutions";
 
 export const metadata: Metadata = {
   title: "Рішення для очищення води",
+  alternates: { canonical: "/solutions" },
   description:
     "Підбір систем очищення води за завданням: квартира, будинок, свердловина, залізо, накип, помʼякшення, осмос з мінералізатором, кавʼярня, картриджі.",
 };

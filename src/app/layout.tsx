@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
+import { JsonLd } from "@/components/seo/json-ld";
 
 const GTM_ID = "GTM-NGD37LTG";
 
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   metadataBase: new URL("https://sofiivkawater.com"),
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "uk_UA",
@@ -74,6 +76,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "OnlineStore",
+                "@id": "https://sofiivkawater.com/#store",
+                name: "Sofiivka Water — партнерський магазин Ecosoft",
+                url: "https://sofiivkawater.com/",
+                telephone: "+380800300999",
+                email: "info@ecosoft.ua",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "вул. Київська, 3",
+                  addressLocality: "Софіївська Борщагівка",
+                  addressRegion: "Київська область",
+                  postalCode: "08131",
+                  addressCountry: "UA",
+                },
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://sofiivkawater.com/#website",
+                url: "https://sofiivkawater.com/",
+                name: "Sofiivka Water",
+                publisher: { "@id": "https://sofiivkawater.com/#store" },
+                potentialAction: {
+                  "@type": "SearchAction",
+                  target: "https://sofiivkawater.com/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string",
+                },
+              },
+            ],
+          }}
+        />
         {children}
       </body>
     </html>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { SlidersHorizontal, X, ChevronDown, Search } from "lucide-react";
 import { type CategoryKey, type Product } from "@/lib/products";
 import {
@@ -15,6 +15,7 @@ import { formatUah } from "@/lib/format";
 import { ProductCard } from "./product-card";
 
 type SortKey = "default" | "price-asc" | "price-desc" | "name";
+const PAGE_SIZE = 24;
 
 const SORT_OPTIONS: { key: SortKey; label: string }[] = [
   { key: "default", label: "За замовчуванням" },
@@ -26,17 +27,26 @@ const SORT_OPTIONS: { key: SortKey; label: string }[] = [
 export function CatalogView({
   products,
   lockedCategory,
+  initialQuery = "",
+  searchMode = false,
 }: {
   products: Product[];
   lockedCategory?: CategoryKey;
+  initialQuery?: string;
+  searchMode?: boolean;
 }) {
   const [selected, setSelected] = useState<SelectedFacets>({});
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const [inStockOnly, setInStockOnly] = useState(false);
   const [priceMin, setPriceMin] = useState("");
   const [priceMax, setPriceMax] = useState("");
   const [sort, setSort] = useState<SortKey>("default");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const searchRef = useRef<HTMLInputElement>(null);
+  const filterTriggerRef = useRef<HTMLButtonElement>(null);
+  const filterDialogRef = useRef<HTMLDivElement>(null);
+  const filterCloseRef = useRef<HTMLButtonElement>(null);
 
   // Pre-fill the search from the URL after hydration (shareable ?q= links).
   useEffect(() => {
@@ -44,6 +54,45 @@ export function CatalogView({
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (q) setQuery(q);
   }, []);
+
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("focus") === "search") {
+      searchRef.current?.focus();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!mobileFiltersOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileFiltersOpen(false);
+        window.requestAnimationFrame(() => filterTriggerRef.current?.focus());
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const focusable = filterDialogRef.current?.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), input:not([disabled]), select:not([disabled]), a[href]',
+      );
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKeyDown);
+    window.requestAnimationFrame(() => filterCloseRef.current?.focus());
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [mobileFiltersOpen]);
 
   // Keep ?q= in the URL in sync (write-only, no re-render / no dynamic rendering).
   useEffect(() => {
@@ -84,6 +133,14 @@ export function CatalogView({
     }
   }, [products, query, selected, inStockOnly, priceMin, priceMax, sort]);
 
+  const showResults = !searchMode || query.trim().length > 0;
+  const visibleProducts = showResults ? filtered.slice(0, visibleCount) : [];
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setVisibleCount(PAGE_SIZE);
+  }, [query, selected, inStockOnly, priceMin, priceMax, sort]);
+
   const toggleFacet = (key: string, value: string) => {
     setSelected((prev) => {
       const current = prev[key] ?? [];
@@ -102,6 +159,11 @@ export function CatalogView({
     setInStockOnly(false);
     setPriceMin("");
     setPriceMax("");
+  };
+
+  const closeMobileFilters = () => {
+    setMobileFiltersOpen(false);
+    window.requestAnimationFrame(() => filterTriggerRef.current?.focus());
   };
 
   const selectedCount = Object.values(selected).reduce((s, v) => s + v.length, 0);
@@ -141,6 +203,7 @@ export function CatalogView({
           <div className="relative mb-4">
             <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             <input
+              ref={searchRef}
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -162,14 +225,19 @@ export function CatalogView({
 
           <div className="mb-5 flex items-center justify-between gap-3">
             <p className="text-sm text-muted-foreground">
-              <span className="tabular font-semibold text-foreground">{filtered.length}</span>{" "}
-              {pluralize(filtered.length, ["товар", "товари", "товарів"])}
+              <span className="tabular font-semibold text-foreground">
+                {showResults ? filtered.length : 0}
+              </span>{" "}
+              {pluralize(showResults ? filtered.length : 0, ["товар", "товари", "товарів"])}
             </p>
 
             <div className="flex items-center gap-2">
               <button
+                ref={filterTriggerRef}
                 type="button"
                 onClick={() => setMobileFiltersOpen(true)}
+                aria-expanded={mobileFiltersOpen}
+                aria-controls="mobile-catalog-filters"
                 className="inline-flex h-9 items-center gap-2 rounded-lg border border-border bg-card px-3 text-sm font-medium text-foreground transition-colors hover:bg-muted lg:hidden"
               >
                 <SlidersHorizontal className="size-4" /> Фільтри
@@ -198,7 +266,17 @@ export function CatalogView({
             </div>
           </div>
 
-          {filtered.length === 0 ? (
+          {!showResults ? (
+            <div className="rounded-2xl border border-dashed border-border bg-card p-12 text-center">
+              <Search className="mx-auto size-8 text-primary" aria-hidden />
+              <h2 className="mt-4 font-[family-name:var(--font-manrope)] text-xl font-bold">
+                Знайдіть товар за назвою або моделлю
+              </h2>
+              <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground">
+                Наприклад: CROSS, PURE, BB20, FU1054 або мембрана 75 GPD.
+              </p>
+            </div>
+          ) : filtered.length === 0 ? (
             <div className="rounded-2xl border border-dashed border-border bg-card p-12 text-center">
               <h3 className="font-[family-name:var(--font-manrope)] text-xl font-bold">
                 Нічого не знайдено
@@ -215,29 +293,53 @@ export function CatalogView({
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-              {filtered.map((p) => (
+              {visibleProducts.map((p) => (
                 <ProductCard key={p.slug} product={p} />
               ))}
+            </div>
+          )}
+          {showResults && visibleCount < filtered.length && (
+            <div className="mt-8 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
+                className="inline-flex h-11 items-center justify-center rounded-xl border border-border bg-card px-6 text-sm font-semibold text-foreground transition-colors hover:border-primary/40 hover:bg-muted"
+              >
+                Показати ще {Math.min(PAGE_SIZE, filtered.length - visibleCount)}
+              </button>
             </div>
           )}
         </div>
       </div>
 
       {mobileFiltersOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true">
+        <div
+          ref={filterDialogRef}
+          id="mobile-catalog-filters"
+          className="fixed inset-0 z-50 lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mobile-catalog-filters-title"
+        >
           <button
+            type="button"
             aria-label="Закрити фільтри"
-            onClick={() => setMobileFiltersOpen(false)}
+            onClick={closeMobileFilters}
             className="absolute inset-0 bg-foreground/40"
           />
           <div className="absolute inset-x-0 bottom-0 max-h-[85vh] overflow-y-auto rounded-t-2xl bg-background p-4">
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="font-[family-name:var(--font-manrope)] text-lg font-bold">
+              <h2
+                id="mobile-catalog-filters-title"
+                className="font-[family-name:var(--font-manrope)] text-lg font-bold"
+              >
                 Фільтри
               </h2>
               <button
+                ref={filterCloseRef}
+                type="button"
                 aria-label="Закрити"
-                onClick={() => setMobileFiltersOpen(false)}
+                onClick={closeMobileFilters}
                 className="grid size-9 place-items-center rounded-lg hover:bg-muted"
               >
                 <X className="size-5" />
@@ -259,7 +361,8 @@ export function CatalogView({
               onReset={resetAll}
             />
             <button
-              onClick={() => setMobileFiltersOpen(false)}
+              type="button"
+              onClick={closeMobileFilters}
               className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-lg bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
             >
               Показати {filtered.length}{" "}

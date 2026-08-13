@@ -9,6 +9,7 @@ import { ContactForm } from "@/components/site/contact-form";
 
 export const metadata: Metadata = {
   title: "Контакти",
+  alternates: { canonical: "/contacts" },
   description:
     "Звʼяжіться з Ecosoft: телефон, email, адреса та графік роботи. Залиште звернення — підберемо рішення під вашу воду.",
 };

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Send, Check } from "lucide-react";
 
@@ -42,7 +43,7 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <div className="rounded-2xl border border-primary/20 bg-primary/5 p-8 text-center">
+      <div role="status" aria-live="polite" className="rounded-2xl border border-primary/20 bg-primary/5 p-8 text-center">
         <span className="mx-auto grid size-12 place-items-center rounded-full bg-primary/10 text-primary">
           <Check className="size-6" />
         </span>
@@ -129,7 +130,7 @@ export function ContactForm() {
       </div>
 
       {error && (
-        <p className="mt-4 rounded-lg bg-destructive/10 px-3 py-2 text-sm font-medium text-destructive">
+        <p role="alert" aria-live="assertive" className="mt-4 rounded-lg bg-destructive/10 px-3 py-2 text-sm font-medium text-destructive">
           {error}
         </p>
       )}
@@ -143,7 +144,11 @@ export function ContactForm() {
         {!submitting && <Send className="size-4" />}
       </button>
       <p className="mt-3 text-xs text-muted-foreground">
-        Натискаючи «Надіслати», ви погоджуєтесь на обробку даних для звʼязку з вами.
+        Натискаючи «Надіслати», ви погоджуєтесь із{" "}
+        <Link href="/privacy" className="font-medium text-foreground underline underline-offset-2">
+          політикою конфіденційності
+        </Link>
+        .
       </p>
     </form>
   );

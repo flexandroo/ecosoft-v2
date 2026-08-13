@@ -6,6 +6,7 @@ import { CatalogCategories } from "@/components/catalog/catalog-categories";
 
 export const metadata: Metadata = {
   title: "Каталог",
+  alternates: { canonical: "/catalog" },
   description:
     "Категорії систем очищення води Ecosoft: зворотний осмос, фільтраційні системи, магістральні фільтри, картриджі, матеріали та рішення для бізнесу.",
 };

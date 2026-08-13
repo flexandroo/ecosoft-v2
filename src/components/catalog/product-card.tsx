@@ -15,6 +15,7 @@ import { formatUah } from "@/lib/format";
 import type { CategoryKey, Product } from "@/lib/products";
 import { getProductBadges } from "@/lib/catalog-filters";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
+import { getProductImagePath } from "@/lib/product-identity";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
   "reverse-osmosis": Droplet,
@@ -29,6 +30,7 @@ const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
 
 export function ProductCard({ product }: { product: Product }) {
   const Icon = ICON_BY_CATEGORY[product.category];
+  const image = getProductImagePath(product);
   const badges = getProductBadges(product);
 
   const spec = [
@@ -49,10 +51,10 @@ export function ProductCard({ product }: { product: Product }) {
         aria-label={product.name}
         className="relative grid aspect-square place-items-center overflow-hidden bg-white"
       >
-        {product.image ? (
+        {image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={product.image}
+            src={image}
             alt={product.name}
             loading="lazy"
             className="size-full object-contain p-3 transition-transform duration-300 group-hover:scale-105"

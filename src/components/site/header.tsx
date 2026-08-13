@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Phone, ShoppingCart, Search, Menu, X, ChevronDown } from "lucide-react";
@@ -10,6 +10,8 @@ import { CallbackButton } from "@/components/site/callback-button";
 const PRIMARY_NAV = [
   { href: "/", label: "Головна" },
   { href: "/catalog", label: "Каталог" },
+  { href: "/solutions", label: "Рішення" },
+  { href: "/blog", label: "Блог" },
 ];
 
 const CUSTOMER_NAV = [
@@ -25,6 +27,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [customerOpen, setCustomerOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!hasDarkHero) return;
@@ -33,6 +36,22 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [hasDarkHero]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setMobileOpen(false);
+      window.requestAnimationFrame(() => menuButtonRef.current?.focus());
+    };
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [mobileOpen]);
 
   const onHero = hasDarkHero && !scrolled && !mobileOpen;
 
@@ -184,7 +203,7 @@ export function Header() {
             <Phone className="size-4" aria-hidden />
             Безкоштовний дзвінок
           </CallbackButton>
-          <IconButton onHero={onHero} label="Пошук">
+          <IconButton onHero={onHero} label="Пошук" href="/search?focus=search">
             <Search className="size-4" />
           </IconButton>
           <IconButton
@@ -196,10 +215,13 @@ export function Header() {
             <ShoppingCart className="size-4" />
           </IconButton>
           <button
+            ref={menuButtonRef}
             aria-label={mobileOpen ? "Закрити меню" : "Меню"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
             onClick={() => setMobileOpen((v) => !v)}
             className={[
-              "grid size-9 place-items-center rounded-md transition-colors lg:hidden",
+              "grid size-11 place-items-center rounded-md transition-colors lg:hidden",
               onHero
                 ? "text-white hover:bg-white/10"
                 : "text-foreground hover:bg-muted",
@@ -211,7 +233,7 @@ export function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-border bg-background text-foreground lg:hidden">
+        <div id="mobile-navigation" className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-border bg-background text-foreground lg:hidden">
           <nav className="mx-auto flex max-w-[1600px] flex-col gap-1 px-4 py-4 md:px-8">
             {PRIMARY_NAV.map((item) => (
               <Link
@@ -278,7 +300,7 @@ function IconButton({
   badge?: number;
 }) {
   const className = [
-    "relative grid size-9 place-items-center rounded-md transition-colors",
+    "relative grid size-11 place-items-center rounded-md transition-colors",
     onHero
       ? "text-white hover:bg-white/10"
       : "text-muted-foreground hover:bg-muted hover:text-foreground",

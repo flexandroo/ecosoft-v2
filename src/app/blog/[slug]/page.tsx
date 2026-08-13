@@ -6,6 +6,7 @@ import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
 import { BLOG_POSTS, findPost } from "@/lib/blog";
+import { JsonLd } from "@/components/seo/json-ld";
 
 type Params = { slug: string };
 
@@ -21,7 +22,18 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = findPost(slug);
   if (!post) return {};
-  return { title: post.title, description: post.excerpt };
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      type: "article",
+      url: `/blog/${slug}`,
+      title: post.title,
+      description: post.excerpt,
+      images: [{ url: "/opengraph-image", alt: "Sofiivka Water — партнерський магазин Ecosoft" }],
+    },
+  };
 }
 
 export default async function BlogPostPage({
@@ -32,11 +44,25 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const post = findPost(slug);
   if (!post) notFound();
+  const url = `https://sofiivkawater.com/blog/${slug}`;
 
   return (
     <>
       <Header />
       <main id="main-content" className="flex-1">
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: post.excerpt,
+            datePublished: post.date,
+            dateModified: post.date,
+            mainEntityOfPage: url,
+            author: { "@type": "Organization", name: "Sofiivka Water" },
+            publisher: { "@id": "https://sofiivkawater.com/#store" },
+          }}
+        />
         <PageHeader
           title={post.title}
           crumbs={[

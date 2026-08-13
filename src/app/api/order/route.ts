@@ -1,5 +1,12 @@
 import { NextResponse } from "next/server";
 import { formatUah } from "@/lib/format";
+import { PRODUCTS } from "@/lib/products";
+import {
+  checkRateLimit,
+  cleanText,
+  isValidUkrainianPhone,
+  requestBodyTooLarge,
+} from "@/lib/request-guard";
 import { escapeHtml, sendTelegramMessage, telegramConfigured } from "@/lib/telegram";
 
 // Order submissions must run on the Node.js runtime and never be cached.
@@ -7,10 +14,8 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 type OrderItem = {
-  name?: unknown;
   sku?: unknown;
   qty?: unknown;
-  price?: unknown;
 };
 
 type OrderBody = {
@@ -25,11 +30,18 @@ type OrderBody = {
   company?: unknown;
 };
 
-function str(v: unknown): string {
-  return typeof v === "string" ? v.trim() : "";
-}
-
 export async function POST(req: Request) {
+  const rate = checkRateLimit(req, "order", 6, 15 * 60 * 1000);
+  if (!rate.allowed) {
+    return NextResponse.json(
+      { ok: false, error: "rate_limited" },
+      { status: 429, headers: { "Retry-After": String(rate.retryAfter) } },
+    );
+  }
+  if (requestBodyTooLarge(req)) {
+    return NextResponse.json({ ok: false, error: "payload_too_large" }, { status: 413 });
+  }
+
   let body: OrderBody;
   try {
     body = (await req.json()) as OrderBody;
@@ -38,32 +50,37 @@ export async function POST(req: Request) {
   }
 
   // Spam trap — pretend success so bots don't retry.
-  if (str(body.company)) {
+  if (cleanText(body.company, 100)) {
     return NextResponse.json({ ok: true, orderId: "ECO-SPAM" });
   }
 
-  const name = str(body.customer?.name);
-  const phone = str(body.customer?.phone);
-  const address = str(body.customer?.address);
-  const comment = str(body.customer?.comment);
+  const name = cleanText(body.customer?.name, 100);
+  const phone = cleanText(body.customer?.phone, 32);
+  const address = cleanText(body.customer?.address, 300);
+  const comment = cleanText(body.customer?.comment, 1_000);
   const items = Array.isArray(body.items) ? (body.items as OrderItem[]) : [];
 
-  if (name.length < 2 || phone.replace(/\D/g, "").length < 9) {
+  if (name.length < 2 || !isValidUkrainianPhone(phone)) {
     return NextResponse.json({ ok: false, error: "invalid_contact" }, { status: 422 });
   }
-  if (items.length === 0) {
+  if (items.length === 0 || items.length > 50) {
     return NextResponse.json({ ok: false, error: "empty_cart" }, { status: 422 });
   }
 
-  // Recompute the total server-side from the submitted lines (don't trust a
-  // client-sent total). The manager confirms exact pricing by phone anyway.
+  // Resolve every line from the server catalogue. Names, prices and stock state
+  // supplied by the browser are intentionally ignored.
   let total = 0;
-  const lines = items.map((it) => {
-    const qty = Math.max(1, Math.floor(Number(it.qty)) || 1);
-    const price = Math.max(0, Number(it.price) || 0);
-    total += qty * price;
-    return { name: str(it.name) || "—", sku: str(it.sku), qty, price };
-  });
+  const lines = [];
+  for (const item of items) {
+    const sku = cleanText(item.sku, 100);
+    const product = PRODUCTS.find((candidate) => candidate.sku === sku);
+    const qty = Math.floor(Number(item.qty));
+    if (!product || !product.inStock || !Number.isInteger(qty) || qty < 1 || qty > 20) {
+      return NextResponse.json({ ok: false, error: "invalid_items" }, { status: 422 });
+    }
+    total += qty * product.price;
+    lines.push({ name: product.name, sku, qty, price: product.price });
+  }
 
   const orderId = `ECO-${Date.now()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
 

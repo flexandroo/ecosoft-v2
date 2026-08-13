@@ -16,6 +16,47 @@ const details = JSON.parse(
   fs.readFileSync(path.join(SRC, "product-details.data.json"), "utf8"),
 );
 
+const BROKEN_DOCUMENT_URLS = new Set([
+  "https://ecosoft.ua/upload/iblock/86b/manual_ecosoft_water_filter.pdf",
+  "https://ecosoft.ua/upload/iblock/c23/manual-for-ecosoft-titanium-azure-softeners_3.pdf",
+  "https://ecosoft.ua/upload/iblock/5b9/manualcabc.pdf",
+  "https://ecosoft.ua/upload/iblock/75c/manualcabc.pdf",
+  "https://ecosoft.ua/upload/iblock/27c/instructct-_1_.pdf",
+  "https://ecosoft.ua/upload/iblock/d6d/filterag_plus_material_specifications.pdf",
+  "https://ecosoft.ua/upload/iblock/b3d/pasprobust.pdf",
+  "https://ecosoft.ua/upload/iblock/977/pasprobust.pdf",
+  "https://ecosoft.ua/upload/iblock/58e/pasprobust.pdf",
+  "https://ecosoft.ua/upload/iblock/c05/pasprobust.pdf",
+  "https://ecosoft.ua/upload/iblock/4a4/pasprobust.pdf",
+]);
+
+const BROKEN_IMAGE_URLS = new Set([
+  "https://ecosoft.ua/upload/resize_cache/iblock/d6b/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_4_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_byei_pyryeuaoyiakh.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/59c/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_4_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_ua_nsptoyenkh_.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/4a8/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_5_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_f_pyryeuaoyiakhsus.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/5ff/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_5_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_ua_nsptoyenkh_.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/aef/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_standard_yi_5_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_byei_pyryeuaoyiakh.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/a4e/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_yi_6_naukhuyezyem_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_f_pyryeuaoyiakhsus.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/a51/564_564_140cd750bba9870f18aada2478b24840a/chv5puremac_02_1200x1200.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/855/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_aquacalcium_mint_6_pyefyashchyev_ua_nsptoyenkh_naukhuyezkv_e.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/0aa/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_standard_byei_pyryeuaoyiakhsu.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/591/564_564_140cd750bba9870f18aada2478b24840a/fpv3ecostd.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/541/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_ecosoft_standard_pro_ua_ukrym.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/72b/564_564_140cd750bba9870f18aada2478b24840a/ru_gsesvsm_iataf_naukhuyezyem_ecosoft_eoya_chyoekhua_sbuakhrsgs_sfpsfa_standard_f_pyryeuaoyiakhsusp_.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/bc5/564_564_140cd750bba9870f18aada2478b24840a/fpv3ecostd.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/544/564_564_140cd750bba9870f18aada2478b24840a/chv6puremac_02_1200x1200.webp",
+  "https://ecosoft.ua/upload/resize_cache/iblock/345/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_pure_aquacalcium_mint_12_pyefyashchyev_ua_nsptoyenkh_naukhuyezkv_.webp",
+]);
+
+function cleanText(value) {
+  return String(value || "")
+    .replace(/\/li>/gi, "")
+    .replace(/постійне запасі/gi, "постійний запас")
+    .replace(/від до 5 осіб/gi, "до 5 осіб")
+    .replace(/квартира, частный дом, дача/gi, "квартира, приватний будинок, дача")
+    .trim();
+}
+
 // ---- real Ecosoft taxonomy: keep the source category as the CategoryKey ----
 const VALID_CATEGORIES = new Set([
   "reverse-osmosis",
@@ -49,7 +90,7 @@ function parseDocSize(title) {
 
 function clamp(str, max) {
   if (!str) return undefined;
-  const t = String(str).trim();
+  const t = cleanText(str);
   if (t.length <= max) return t;
   return t.slice(0, max).replace(/\s+\S*$/, "") + "…";
 }
@@ -70,8 +111,8 @@ function cleanSpecs(rawSpecs) {
   const out = [];
   for (const s of rawSpecs) {
     if (!s) continue;
-    const label = String(s.name || "").replace(/\s+/g, " ").trim();
-    const value = String(s.value || "").replace(/\s+/g, " ").trim();
+    const label = cleanText(s.name).replace(/\s+/g, " ");
+    const value = cleanText(s.value).replace(/\s+/g, " ");
     if (!label || !value) continue; // drop empty
     if (value.length > 70) continue; // drop description fragments
     if (value.includes(" | ")) continue; // drop merged comparison cells
@@ -313,17 +354,34 @@ for (const p of products) {
 
   const documents = Array.isArray(d.documents)
     ? d.documents
-        .filter((doc) => doc && doc.url && doc.title)
+        .filter(
+          (doc) =>
+            doc &&
+            doc.url &&
+            doc.title &&
+            !BROKEN_DOCUMENT_URLS.has(String(doc.url)),
+        )
         .map((doc) => {
           const { name, size } = parseDocSize(doc.title);
           return size ? { name, href: doc.url, size } : { name, href: doc.url };
         })
     : [];
 
-  const images = Array.isArray(d.images)
-    ? [...new Set(d.images.filter(Boolean))].slice(0, 6)
+  const itemId = String(p.sku || p.id || slug);
+  const image = `/images/meta-products/${itemId.replace(/[^a-zA-Z0-9._-]/g, "_")}.jpg`;
+  const secondaryImages = Array.isArray(d.images)
+    ? [
+        ...new Set(
+          d.images.filter(
+            (url) =>
+              url &&
+              url !== p.image &&
+              !BROKEN_IMAGE_URLS.has(String(url)),
+          ),
+        ),
+      ].slice(0, 5)
     : [];
-  const image = p.image || images[0];
+  const images = [image, ...secondaryImages];
 
   const features = Array.isArray(p.features)
     ? p.features.map((f) => String(f).trim()).filter(Boolean)
@@ -364,7 +422,7 @@ for (const p of products) {
     if (cls.note) product.reviewNote = cls.note;
   }
   if (features.length) product.features = features.slice(0, 6);
-  if (image) product.image = image;
+  product.image = image;
   if (images.length > 1) product.images = images;
   if (Object.keys(details_obj).length) product.details = details_obj;
 

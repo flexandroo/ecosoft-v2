@@ -6,6 +6,8 @@ import { CartView } from "@/components/cart/cart-view";
 
 export const metadata: Metadata = {
   title: "Кошик",
+  alternates: { canonical: "/cart" },
+  robots: { index: false, follow: false },
   description: "Ваш кошик — системи очищення води Ecosoft.",
 };
 

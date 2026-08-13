@@ -20,7 +20,7 @@ const CATEGORIES: Category[] = [
     icon: Droplet,
     span: "md:col-span-2 md:row-span-2",
     featured: true,
-    image: "/images/osmos-kitchen.png",
+    image: "/images/hero-poster.webp",
   },
   {
     href: "/catalog/mainline-filters",

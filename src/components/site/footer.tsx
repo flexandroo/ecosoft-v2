@@ -25,6 +25,7 @@ const COLS = [
       { href: "/delivery", label: "Доставка та оплата" },
       { href: "/returns", label: "Повернення та обмін" },
       { href: "/contacts", label: "Підбір та консультація" },
+      { href: "/privacy", label: "Політика конфіденційності" },
     ],
   },
 ];

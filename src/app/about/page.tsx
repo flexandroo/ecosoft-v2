@@ -22,6 +22,7 @@ import { SectionHeading, InfoCard } from "@/components/site/content";
 
 export const metadata: Metadata = {
   title: "Про нас",
+  alternates: { canonical: "/about" },
   description:
     "Підбираємо надійні системи очищення води Ecosoft для дому, бізнесу та комерційних об'єктів. Допомагаємо обрати, встановити та обслуговувати рішення під вашу воду.",
 };

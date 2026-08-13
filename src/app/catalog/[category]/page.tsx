@@ -20,14 +20,14 @@ export function generateStaticParams(): Params[] {
 
 // Generated category banners — keep in sync with files in /public/images/categories.
 const CATEGORY_IMAGES: Record<string, string> = {
-  "reverse-osmosis": "/images/categories/reverse-osmosis.png",
-  "flow-filters": "/images/categories/flow-filters.jpeg",
-  "filtration-systems": "/images/categories/filtration-systems.png",
-  "mainline-filters": "/images/categories/mainline-filters.jpeg",
-  "ro-cartridges": "/images/categories/ro-cartridges.jpeg",
-  "mainline-cartridges": "/images/categories/mainline-cartridges.jpeg",
-  "filter-media": "/images/categories/filter-media.jpeg",
-  horeca: "/images/categories/horeca.jpeg",
+  "reverse-osmosis": "/images/categories/reverse-osmosis.webp",
+  "flow-filters": "/images/categories/flow-filters.webp",
+  "filtration-systems": "/images/categories/filtration-systems.webp",
+  "mainline-filters": "/images/categories/mainline-filters.webp",
+  "ro-cartridges": "/images/categories/ro-cartridges.webp",
+  "mainline-cartridges": "/images/categories/mainline-cartridges.webp",
+  "filter-media": "/images/categories/filter-media.webp",
+  horeca: "/images/categories/horeca.webp",
 };
 
 function categoryImage(key: string): string | undefined {
@@ -45,6 +45,13 @@ export async function generateMetadata({
   return {
     title: cat.title,
     description: `${cat.title} — каталог Ecosoft. Доставка по Україні, гарантія, монтаж під ключ.`,
+    alternates: { canonical: `/catalog/${category}` },
+    openGraph: {
+      url: `/catalog/${category}`,
+      title: cat.title,
+      description: `${cat.title} — каталог Ecosoft. Доставка по Україні, гарантія, монтаж під ключ.`,
+      images: [{ url: categoryImage(category) ?? "/opengraph-image" }],
+    },
   };
 }
 

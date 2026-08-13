@@ -8,6 +8,7 @@ import { BLOG_POSTS } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "Блог про очищення води",
+  alternates: { canonical: "/blog" },
   description:
     "Поради з вибору фільтрів, догляду за системами та покращення якості води вдома чи в бізнесі.",
 };

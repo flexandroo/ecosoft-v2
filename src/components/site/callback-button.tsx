@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { Phone, X, Check } from "lucide-react";
+import { isValidUkrainianPhone } from "@/lib/validation";
 
 /**
  * "Безкоштовний дзвінок" — a callback request. Renders a trigger button that
@@ -21,10 +23,11 @@ export function CallbackButton({
   source?: string;
 }) {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)} className={className}>
+      <button ref={triggerRef} type="button" onClick={() => setOpen(true)} className={className}>
         {children ?? (
           <>
             <Phone className="size-4" aria-hidden />
@@ -32,7 +35,15 @@ export function CallbackButton({
           </>
         )}
       </button>
-      {open && <CallbackModal source={source} onClose={() => setOpen(false)} />}
+      {open && (
+        <CallbackModal
+          source={source}
+          onClose={() => {
+            setOpen(false);
+            window.requestAnimationFrame(() => triggerRef.current?.focus());
+          }}
+        />
+      )}
     </>
   );
 }
@@ -52,7 +63,7 @@ function CallbackModal({
   const [error, setError] = useState<string | null>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
 
-  const phoneValid = phone.replace(/\D/g, "").length >= 9;
+  const phoneValid = isValidUkrainianPhone(phone);
 
   useEffect(() => {
     phoneRef.current?.focus();
@@ -118,7 +129,7 @@ function CallbackModal({
         </button>
 
         {sent ? (
-          <div className="py-4 text-center">
+          <div role="status" aria-live="polite" className="py-4 text-center">
             <span className="mx-auto grid size-12 place-items-center rounded-full bg-primary/10 text-primary">
               <Check className="size-6" />
             </span>
@@ -194,7 +205,7 @@ function CallbackModal({
             </div>
 
             {error && (
-              <p className="mt-3 rounded-lg bg-destructive/10 px-3 py-2 text-xs font-medium text-destructive">
+              <p role="alert" aria-live="assertive" className="mt-3 rounded-lg bg-destructive/10 px-3 py-2 text-xs font-medium text-destructive">
                 {error}
               </p>
             )}
@@ -207,7 +218,11 @@ function CallbackModal({
               {submitting ? "Надсилаємо…" : "Замовити дзвінок"}
             </button>
             <p className="mt-3 text-center text-xs text-muted-foreground">
-              Натискаючи, ви погоджуєтесь на обробку даних для звʼязку з вами.
+              Натискаючи, ви погоджуєтесь із{" "}
+              <Link href="/privacy" className="font-medium text-foreground underline underline-offset-2">
+                політикою конфіденційності
+              </Link>
+              .
             </p>
           </form>
         )}

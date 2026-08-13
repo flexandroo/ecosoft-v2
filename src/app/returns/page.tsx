@@ -8,6 +8,7 @@ import { SectionHeading, InfoCard, CtaNote } from "@/components/site/content";
 
 export const metadata: Metadata = {
   title: "Повернення та обмін",
+  alternates: { canonical: "/returns" },
   description:
     "Умови повернення та обміну товарів Ecosoft: терміни, процедура, гарантійні випадки, як діяти при пошкодженні товару.",
 };
