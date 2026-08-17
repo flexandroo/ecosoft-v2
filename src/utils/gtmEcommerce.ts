@@ -46,6 +46,13 @@ export type GA4OrderInput = {
   items: (GA4ItemInput & { quantity: number })[];
 };
 
+export type GA4LeadInput = {
+  leadId: string;
+  leadType: "order" | "callback" | "contact";
+  total?: number;
+  items?: (GA4ItemInput & { quantity: number })[];
+};
+
 function round2(n: number): number {
   return Math.round((Number(n) || 0) * 100) / 100;
 }
@@ -106,6 +113,17 @@ export function pushBeginCheckout(
     currency: CURRENCY,
     value: round2(cartTotal),
     items: items.map((it) => mapProductToGA4Item(it, it.quantity)),
+  });
+}
+
+export function pushGenerateLead(lead: GA4LeadInput): void {
+  const items = lead.items ?? [];
+  pushEcommerce("generate_lead", {
+    lead_id: lead.leadId,
+    lead_type: lead.leadType,
+    currency: CURRENCY,
+    value: round2(lead.total || 0),
+    items: items.map((item) => mapProductToGA4Item(item, item.quantity)),
   });
 }
 

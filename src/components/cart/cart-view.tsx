@@ -16,7 +16,8 @@ import { useCart, type CartLine } from "./cart-context";
 import { formatUah } from "@/lib/format";
 import { isValidUkrainianPhone } from "@/lib/validation";
 import { PHONE_CONTACTS } from "@/lib/contact-details";
-import { pushBeginCheckout, pushPurchase } from "@/utils/gtmEcommerce";
+import { pushBeginCheckout, pushGenerateLead } from "@/utils/gtmEcommerce";
+import { createLeadIdentity, getMarketingAttribution } from "@/utils/marketing-attribution";
 
 const FREE_SHIPPING_THRESHOLD = 5000;
 
@@ -44,6 +45,7 @@ export function CartView() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const beganCheckout = useRef(false);
+  const orderIdentity = useRef<ReturnType<typeof createLeadIdentity> | null>(null);
 
   const contactValid = name.trim().length >= 2 && isValidUkrainianPhone(phone);
 
@@ -63,6 +65,8 @@ export function CartView() {
     // Snapshot the order before the cart is cleared.
     const items = toGA4Items(lines);
     const orderTotal = total;
+    orderIdentity.current ??= createLeadIdentity("ECO");
+    const identity = orderIdentity.current;
     setSubmitting(true);
     setError(null);
 
@@ -71,6 +75,9 @@ export function CartView() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          externalId: identity.externalId,
+          eventId: identity.eventId,
+          attribution: getMarketingAttribution(),
           customer: {
             name: name.trim(),
             phone: phone.trim(),
@@ -92,14 +99,11 @@ export function CartView() {
         throw new Error("order_failed");
       }
 
-      // GA4: purchase — after the order is created, deduped by transaction_id.
-      pushPurchase({
-        transactionId:
-          data.orderId ??
-          `ECO-${Date.now()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`,
+      // The form submission is a lead; Purchase is sent only after CRM completion.
+      pushGenerateLead({
+        leadId: data.orderId ?? identity.externalId,
+        leadType: "order",
         total: orderTotal,
-        shipping: orderTotal >= FREE_SHIPPING_THRESHOLD ? 0 : 0,
-        tax: 0,
         items,
       });
       setOrderId(data.orderId ?? null);

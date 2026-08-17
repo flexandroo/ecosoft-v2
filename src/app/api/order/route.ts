@@ -8,6 +8,11 @@ import {
   requestBodyTooLarge,
 } from "@/lib/request-guard";
 import { escapeHtml, sendTelegramMessage, telegramConfigured } from "@/lib/telegram";
+import {
+  requestClientContext,
+  sendCrmIntake,
+  type CrmAttribution,
+} from "@/lib/crm";
 
 // Order submissions must run on the Node.js runtime and never be cached.
 export const runtime = "nodejs";
@@ -19,6 +24,9 @@ type OrderItem = {
 };
 
 type OrderBody = {
+  externalId?: unknown;
+  eventId?: unknown;
+  attribution?: CrmAttribution;
   customer?: {
     name?: unknown;
     phone?: unknown;
@@ -82,7 +90,11 @@ export async function POST(req: Request) {
     lines.push({ name: product.name, sku, qty, price: product.price });
   }
 
-  const orderId = `ECO-${Date.now()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+  const requestedId = cleanText(body.externalId, 100);
+  const orderId = /^ECO-[A-Z0-9-]{8,}$/i.test(requestedId)
+    ? requestedId
+    : `ECO-${Date.now()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+  const eventId = cleanText(body.eventId, 120) || `lead-${orderId}`;
 
   const itemLines = lines
     .map(
@@ -101,17 +113,55 @@ export async function POST(req: Request) {
     `\n<b>Товари:</b>\n${itemLines}\n\n` +
     `💰 <b>Разом: ${formatUah(total)}</b>`;
 
+  const crmResult = await sendCrmIntake({
+    externalId: orderId,
+    eventId,
+    type: "order",
+    customer: { name, phone, address },
+    items: lines.map((line) => ({
+      sku: line.sku,
+      name: line.name,
+      quantity: line.qty,
+      price: line.price,
+    })),
+    total,
+    currency: "UAH",
+    paymentMethod: "none",
+    paymentStatus: "unpaid",
+    deliveryAddress: address,
+    comment,
+    source: "sofiivkawater.com",
+    sourceDetail: "cart",
+    attribution: body.attribution,
+    ...requestClientContext(req),
+  });
+
   try {
     if (!telegramConfigured()) {
       // Don't lose the order silently in dev / misconfig — log it server-side.
       console.error("[order] Telegram not configured. Order:\n", message);
-      return NextResponse.json({ ok: false, error: "not_configured" }, { status: 500 });
+      if (!crmResult.ok) {
+        return NextResponse.json({ ok: false, error: "not_configured" }, { status: 500 });
+      }
+    } else {
+      await sendTelegramMessage(message);
     }
-    await sendTelegramMessage(message);
   } catch (err) {
     console.error("[order] failed to notify:", err);
-    return NextResponse.json({ ok: false, error: "notify_failed" }, { status: 502 });
+    if (!crmResult.ok) {
+      return NextResponse.json({ ok: false, error: "notify_failed" }, { status: 502 });
+    }
   }
 
-  return NextResponse.json({ ok: true, orderId, total });
+  if (crmResult.configured && !crmResult.ok) {
+    console.error("[order] CRM intake failed:", crmResult.error);
+    return NextResponse.json({ ok: false, error: "crm_failed" }, { status: 502 });
+  }
+
+  return NextResponse.json({
+    ok: true,
+    orderId: crmResult.ok ? crmResult.dealId : orderId,
+    total,
+    crmSynced: crmResult.ok,
+  });
 }

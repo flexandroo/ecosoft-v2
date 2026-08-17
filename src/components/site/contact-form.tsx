@@ -1,19 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Send, Check } from "lucide-react";
+import { pushGenerateLead } from "@/utils/gtmEcommerce";
+import { createLeadIdentity, getMarketingAttribution } from "@/utils/marketing-attribution";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const leadIdentity = useRef<ReturnType<typeof createLeadIdentity> | null>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (submitting) return;
     const form = e.currentTarget;
     const fd = new FormData(form);
+    leadIdentity.current ??= createLeadIdentity("LEAD");
+    const identity = leadIdentity.current;
     setSubmitting(true);
     setError(null);
     try {
@@ -21,6 +26,9 @@ export function ContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          externalId: identity.externalId,
+          eventId: identity.eventId,
+          attribution: getMarketingAttribution(),
           name: fd.get("name"),
           phone: fd.get("phone"),
           email: fd.get("email"),
@@ -28,8 +36,9 @@ export function ContactForm() {
           company: fd.get("company"), // honeypot
         }),
       });
-      const data = (await res.json().catch(() => ({}))) as { ok?: boolean };
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; leadId?: string };
       if (!res.ok || !data.ok) throw new Error("failed");
+      pushGenerateLead({ leadId: data.leadId ?? identity.externalId, leadType: "contact" });
       form.reset();
       setSent(true);
     } catch {

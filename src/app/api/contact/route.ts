@@ -7,11 +7,15 @@ import {
   requestBodyTooLarge,
 } from "@/lib/request-guard";
 import { escapeHtml, sendTelegramMessage, telegramConfigured } from "@/lib/telegram";
+import { requestClientContext, sendCrmIntake, type CrmAttribution } from "@/lib/crm";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 type ContactBody = {
+  externalId?: unknown;
+  eventId?: unknown;
+  attribution?: CrmAttribution;
   name?: unknown;
   phone?: unknown;
   email?: unknown;
@@ -64,16 +68,43 @@ export async function POST(req: Request) {
     (email ? `📧 ${escapeHtml(email)}\n` : "") +
     (message ? `\n💬 ${escapeHtml(message)}` : "");
 
+  const requestedId = cleanText(body.externalId, 100);
+  const leadId = /^LEAD-[A-Z0-9-]{8,}$/i.test(requestedId)
+    ? requestedId
+    : `LEAD-${Date.now()}-${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
+  const crmResult = await sendCrmIntake({
+    externalId: leadId,
+    eventId: cleanText(body.eventId, 120) || `lead-${leadId}`,
+    type: "contact",
+    customer: { name, phone, email },
+    message,
+    source: "sofiivkawater.com",
+    sourceDetail: "contact_form",
+    paymentMethod: "none",
+    paymentStatus: "not_required",
+    attribution: body.attribution,
+    ...requestClientContext(req),
+  });
+
   try {
     if (!telegramConfigured()) {
       console.error("[contact] Telegram not configured. Message:\n", text);
-      return NextResponse.json({ ok: false, error: "not_configured" }, { status: 500 });
+      if (!crmResult.ok) {
+        return NextResponse.json({ ok: false, error: "not_configured" }, { status: 500 });
+      }
+    } else {
+      await sendTelegramMessage(text);
     }
-    await sendTelegramMessage(text);
   } catch (err) {
     console.error("[contact] failed to notify:", err);
-    return NextResponse.json({ ok: false, error: "notify_failed" }, { status: 502 });
+    if (!crmResult.ok) {
+      return NextResponse.json({ ok: false, error: "notify_failed" }, { status: 502 });
+    }
   }
 
-  return NextResponse.json({ ok: true });
+  if (crmResult.configured && !crmResult.ok) {
+    console.error("[contact] CRM intake failed:", crmResult.error);
+    return NextResponse.json({ ok: false, error: "crm_failed" }, { status: 502 });
+  }
+  return NextResponse.json({ ok: true, leadId, crmSynced: crmResult.ok });
 }
