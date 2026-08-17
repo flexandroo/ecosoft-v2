@@ -130,11 +130,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO550MECOSTD.jpg",
     "images": [
       "/images/meta-products/MO550MECOSTD.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/536/564_564_140cd750bba9870f18aada2478b24840a/mo550mecostd_1_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/137/564_564_140cd750bba9870f18aada2478b24840a/mo550mecostd_3_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/35e/564_564_140cd750bba9870f18aada2478b24840a/mo550mecostd_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d97/564_564_140cd750bba9870f18aada2478b24840a/mo550mecostd_9_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/207/564_564_140cd750bba9870f18aada2478b24840a/mo550mecostd_10_1200x1200.webp"
+      "/images/product-gallery/321111cb94f501d5-mo550mecostd_1_1200x1200.webp",
+      "/images/product-gallery/7ab0617e6497657b-mo550mecostd_3_1200x1200.webp",
+      "/images/product-gallery/f8ef7b7a4bc3a4db-mo550mecostd_2_1200x1200.webp",
+      "/images/product-gallery/0e82a4d2573b80ff-mo550mecostd_9_1200x1200.webp",
+      "/images/product-gallery/07dfc29d296f039d-mo550mecostd_10_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -301,11 +301,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO650MECOSTD.jpg",
     "images": [
       "/images/meta-products/MO650MECOSTD.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ceb/564_564_140cd750bba9870f18aada2478b24840a/mo650mecostd_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/4b7/564_564_140cd750bba9870f18aada2478b24840a/mo650mecostd_2_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/0a7/564_564_140cd750bba9870f18aada2478b24840a/mo650mecostd_3_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/015/564_564_140cd750bba9870f18aada2478b24840a/mo650mecostd_15_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/4fa/564_564_140cd750bba9870f18aada2478b24840a/mo650mecostd_4_.webp"
+      "/images/product-gallery/dfbc8bb5c810c6a3-mo650mecostd_1_.webp",
+      "/images/product-gallery/3645f29535f9ec5b-mo650mecostd_2_.webp",
+      "/images/product-gallery/b3f5af7cf0595181-mo650mecostd_3_.webp",
+      "/images/product-gallery/94a474fa1a9b016e-mo650mecostd_15_.webp",
+      "/images/product-gallery/c9481b12959d1179-mo650mecostd_4_.webp"
     ],
     "details": {
       "specs": [
@@ -480,11 +480,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO550MPECOSTD.jpg",
     "images": [
       "/images/meta-products/MO550MPECOSTD.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/151/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/bda/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_3_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/95e/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_4_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/268/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_10_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/5ea/564_564_140cd750bba9870f18aada2478b24840a/mo550mpecostd_11_1200x1200.webp"
+      "/images/product-gallery/2cf38c37eba3caaa-mo550mpecostd_2_1200x1200.webp",
+      "/images/product-gallery/c3a1b71502012bb1-mo550mpecostd_3_1200x1200.webp",
+      "/images/product-gallery/bdae75c61d3f1b2f-mo550mpecostd_4_1200x1200.webp",
+      "/images/product-gallery/c3dfc872171d1c2e-mo550mpecostd_10_1200x1200.webp",
+      "/images/product-gallery/0cad67ea254dd9f7-mo550mpecostd_11_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -657,11 +657,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO675MECO.jpg",
     "images": [
       "/images/meta-products/MO675MECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f09/564_564_140cd750bba9870f18aada2478b24840a/mo675meco_01_2026_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/026/564_564_140cd750bba9870f18aada2478b24840a/mo675meco_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/7c8/564_564_140cd750bba9870f18aada2478b24840a/mo675meco_3_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/36a/564_564_140cd750bba9870f18aada2478b24840a/mo675meco_18_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/af7/564_564_140cd750bba9870f18aada2478b24840a/mo675meco_07.webp"
+      "/images/product-gallery/22930fec4388daaf-mo675meco_01_2026_1200x1200.webp",
+      "/images/product-gallery/61ba9f1f769c4051-mo675meco_2_1200x1200.webp",
+      "/images/product-gallery/9934445956367dfb-mo675meco_3_1200x1200.webp",
+      "/images/product-gallery/98908b54d412a10a-mo675meco_18_1200x1200.webp",
+      "/images/product-gallery/90489d6af0b9b746-mo675meco_07.webp"
     ],
     "details": {
       "specs": [
@@ -838,11 +838,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO1500PECO.jpg",
     "images": [
       "/images/meta-products/MO1500PECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/74c/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_1_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/7d3/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_6_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/628/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/148/564_564_140cd750bba9870f18aada2478b24840a/mo1500peco_5_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e62/564_564_140cd750bba9870f18aada2478b24840a/csvpdro500_01.webp"
+      "/images/product-gallery/d7d85e536c28b57a-mo1500peco_1_1200x1200.webp",
+      "/images/product-gallery/66ec2fd4fa2a1428-mo1500peco_6_1200x1200.webp",
+      "/images/product-gallery/58335253b9e4df84-mo1500peco_2_1200x1200.webp",
+      "/images/product-gallery/e6d89002fced81cf-mo1500peco_5_1200x1200.webp",
+      "/images/product-gallery/6610c0fc13a9b6bb-csvpdro500_01.webp"
     ],
     "details": {
       "specs": [
@@ -991,11 +991,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO675MPSECO.jpg",
     "images": [
       "/images/meta-products/MO675MPSECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/528/564_564_140cd750bba9870f18aada2478b24840a/mo675mpseco_2_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/86c/564_564_140cd750bba9870f18aada2478b24840a/mo675mpseco_3_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e6f/564_564_140cd750bba9870f18aada2478b24840a/mo675mpseco_18_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9b5/564_564_140cd750bba9870f18aada2478b24840a/mo675mpseco_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/957/564_564_140cd750bba9870f18aada2478b24840a/mo675mpseco_6_.webp"
+      "/images/product-gallery/977fa9748bc3dd02-mo675mpseco_2_.webp",
+      "/images/product-gallery/e310b0748f6be4ee-mo675mpseco_3_.webp",
+      "/images/product-gallery/e749f0c1972ac7d4-mo675mpseco_18_.webp",
+      "/images/product-gallery/263577e36639662b-mo675mpseco_1_.webp",
+      "/images/product-gallery/26c359567dc60ba3-mo675mpseco_6_.webp"
     ],
     "details": {
       "specs": [
@@ -1115,7 +1115,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "certificate_wqa_gold_seal.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/eb9/certificate_wqa_gold_seal.pdf",
+          "href": "/documents/products/bfcb4d1bd8923a71-certificate_wqa_gold_seal.pdf",
           "size": "230 KB"
         },
         {
@@ -1177,11 +1177,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO675PUREMACECO.jpg",
     "images": [
       "/images/meta-products/MO675PUREMACECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/0df/564_564_140cd750bba9870f18aada2478b24840a/mo675puremaceco_3_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/963/564_564_140cd750bba9870f18aada2478b24840a/mo675puremaceco_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/1bf/564_564_140cd750bba9870f18aada2478b24840a/mo675puremaceco_15_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b0d/564_564_140cd750bba9870f18aada2478b24840a/mo675puremaceco_1_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ca7/564_564_140cd750bba9870f18aada2478b24840a/mo675puremaceco_4_1200x1200.webp"
+      "/images/product-gallery/69aaff4f3da790e2-mo675puremaceco_3_1200x1200.webp",
+      "/images/product-gallery/be0d76efa7a095ca-mo675puremaceco_2_1200x1200.webp",
+      "/images/product-gallery/82361af6569b544e-mo675puremaceco_15_1200x1200.webp",
+      "/images/product-gallery/e82ec55e175e9096-mo675puremaceco_1_1200x1200.webp",
+      "/images/product-gallery/0546743b065479b3-mo675puremaceco_4_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -1313,7 +1313,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "certificate_wqa_gold_seal.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/7d5/certificate_wqa_gold_seal.pdf",
+          "href": "/documents/products/c8f58c2f1fc9db8f-certificate_wqa_gold_seal.pdf",
           "size": "230 KB"
         },
         {
@@ -1376,11 +1376,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO2800PECO.jpg",
     "images": [
       "/images/meta-products/MO2800PECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/231/564_564_140cd750bba9870f18aada2478b24840a/mo2800peco_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/cc8/564_564_140cd750bba9870f18aada2478b24840a/mo2800peco_3_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/0c1/564_564_140cd750bba9870f18aada2478b24840a/mo2800peco_36_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/dea/564_564_140cd750bba9870f18aada2478b24840a/mo2800peco_35_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ddc/564_564_140cd750bba9870f18aada2478b24840a/mo2800peco_1_1200x1200.webp"
+      "/images/product-gallery/7575db9e89e63743-mo2800peco_2_1200x1200.webp",
+      "/images/product-gallery/856ab6f78940abc5-mo2800peco_3_1200x1200.webp",
+      "/images/product-gallery/cbb72be7f71dc1fb-mo2800peco_36_1200x1200.webp",
+      "/images/product-gallery/7f7a2373cb267e60-mo2800peco_35_1200x1200.webp",
+      "/images/product-gallery/5b868cfc2acf12a1-mo2800peco_1_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -1530,10 +1530,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO3400PECO.jpg",
     "images": [
       "/images/meta-products/MO3400PECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/cc5/564_564_140cd750bba9870f18aada2478b24840a/mo3400peco_01_0.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/946/564_564_140cd750bba9870f18aada2478b24840a/mo3400peco_15.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/70b/564_564_140cd750bba9870f18aada2478b24840a/mo3400peco_12.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a97/564_564_140cd750bba9870f18aada2478b24840a/mo3400peco_11.webp"
+      "/images/product-gallery/853183f968f07658-mo3400peco_01_0.webp",
+      "/images/product-gallery/64e3c6d61878f388-mo3400peco_15.webp",
+      "/images/product-gallery/8a1eed02efdc19e9-mo3400peco_12.webp",
+      "/images/product-gallery/a46c32c36b1cc93a-mo3400peco_11.webp"
     ],
     "details": {
       "specs": [
@@ -1641,11 +1641,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO675PSMACECO.jpg",
     "images": [
       "/images/meta-products/MO675PSMACECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f3d/564_564_140cd750bba9870f18aada2478b24840a/mo675psmaceco_3_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c70/564_564_140cd750bba9870f18aada2478b24840a/mo675psmaceco_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/425/564_564_140cd750bba9870f18aada2478b24840a/mo675psmaceco_19_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/8ec/564_564_140cd750bba9870f18aada2478b24840a/mo675psmaceco_1_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/0ee/564_564_140cd750bba9870f18aada2478b24840a/mo675psmaceco_4_1200x1200.webp"
+      "/images/product-gallery/4f2bb0b2fab1cd38-mo675psmaceco_3_1200x1200.webp",
+      "/images/product-gallery/2db4aadeb6fa9967-mo675psmaceco_2_1200x1200.webp",
+      "/images/product-gallery/a1b97e20bac8fc6c-mo675psmaceco_19_1200x1200.webp",
+      "/images/product-gallery/0e46ce41ca0d2637-mo675psmaceco_1_1200x1200.webp",
+      "/images/product-gallery/a8630e699416fdfe-mo675psmaceco_4_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -1829,11 +1829,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO675MPUREBALECO.jpg",
     "images": [
       "/images/meta-products/MO675MPUREBALECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/629/564_564_140cd750bba9870f18aada2478b24840a/mo675mpurebaleco_1_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f61/564_564_140cd750bba9870f18aada2478b24840a/mo675mpurebaleco_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/39d/564_564_140cd750bba9870f18aada2478b24840a/mo675mpurebaleco_3_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d81/564_564_140cd750bba9870f18aada2478b24840a/mo675mpurebaleco_22_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f1e/564_564_140cd750bba9870f18aada2478b24840a/mo675mpurebaleco_23_1200x1200.webp"
+      "/images/product-gallery/cb07eac887d59539-mo675mpurebaleco_1_1200x1200.webp",
+      "/images/product-gallery/c636df697a12a648-mo675mpurebaleco_2_1200x1200.webp",
+      "/images/product-gallery/6950aad6225b21c8-mo675mpurebaleco_3_1200x1200.webp",
+      "/images/product-gallery/28aba3c359d4f34f-mo675mpurebaleco_22_1200x1200.webp",
+      "/images/product-gallery/a77a4790b8fa7a66-mo675mpurebaleco_23_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -2009,11 +2009,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO675MBALPSECO.jpg",
     "images": [
       "/images/meta-products/MO675MBALPSECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/de6/564_564_140cd750bba9870f18aada2478b24840a/mo675mbalpseco_1_2026_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/962/564_564_140cd750bba9870f18aada2478b24840a/mo675mbalpseco_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/5cb/564_564_140cd750bba9870f18aada2478b24840a/mo675mbalpseco_3_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b8e/564_564_140cd750bba9870f18aada2478b24840a/mo675mbalpseco_5_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/025/564_564_140cd750bba9870f18aada2478b24840a/mo675mbalpseco_6_1200x1200.webp"
+      "/images/product-gallery/a84839ff7d1d7b58-mo675mbalpseco_1_2026_1200x1200.webp",
+      "/images/product-gallery/14dee6aa9636c40e-mo675mbalpseco_2_1200x1200.webp",
+      "/images/product-gallery/632bd5d72309c8ec-mo675mbalpseco_3_1200x1200.webp",
+      "/images/product-gallery/1344af8fcd50bb02-mo675mbalpseco_5_1200x1200.webp",
+      "/images/product-gallery/c3b311809b342f39-mo675mbalpseco_6_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -2187,11 +2187,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO3600PECO.jpg",
     "images": [
       "/images/meta-products/MO3600PECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/3a4/564_564_140cd750bba9870f18aada2478b24840a/mo3600peco_21_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c2d/564_564_140cd750bba9870f18aada2478b24840a/mo3600peco_05_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/299/564_564_140cd750bba9870f18aada2478b24840a/kormo3600peco_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c2f/564_564_140cd750bba9870f18aada2478b24840a/mo3600peco_01_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/932/564_564_140cd750bba9870f18aada2478b24840a/mo3600peco_02_1200x1200.webp"
+      "/images/product-gallery/4513c02f586f8599-mo3600peco_21_1200x1200.webp",
+      "/images/product-gallery/77866d9ef9f02c71-mo3600peco_05_1200x1200.webp",
+      "/images/product-gallery/d18fe3c59021e971-kormo3600peco_1200x1200.webp",
+      "/images/product-gallery/a4bc021813888fde-mo3600peco_01_1200x1200.webp",
+      "/images/product-gallery/b19a10988f9c6a6c-mo3600peco_02_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -2301,9 +2301,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/MO3600MPECO.jpg",
     "images": [
       "/images/meta-products/MO3600MPECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b92/564_564_140cd750bba9870f18aada2478b24840a/mo3600mpeco_29_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/be1/564_564_140cd750bba9870f18aada2478b24840a/mo3600mpeco_17_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d6f/564_564_140cd750bba9870f18aada2478b24840a/mo3600mpeco_14_1200x1200.webp"
+      "/images/product-gallery/cdc5b8927f7c5815-mo3600mpeco_29_1200x1200.webp",
+      "/images/product-gallery/c53ee6bb759fefaa-mo3600mpeco_17_1200x1200.webp",
+      "/images/product-gallery/931ba86e2f606d43-mo3600mpeco_14_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -2405,11 +2405,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FMV3ECOSTD.jpg",
     "images": [
       "/images/meta-products/FMV3ECOSTD.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/0f8/564_564_140cd750bba9870f18aada2478b24840a/fmv3ecostd_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/8dd/564_564_140cd750bba9870f18aada2478b24840a/fmv3ecostd_5_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/459/564_564_140cd750bba9870f18aada2478b24840a/fmv3ecostd_4_1200x1200.webp",
-      "https://ecosoft.ua/upload/iblock/321/fmv3ecostd_5_.webp",
-      "https://ecosoft.ua/upload/iblock/913/fmv3ecostd_1_.webp"
+      "/images/product-gallery/4a8e9042ad7d0fa7-fmv3ecostd_2_1200x1200.webp",
+      "/images/product-gallery/857624c5a2f6a15a-fmv3ecostd_5_1200x1200.webp",
+      "/images/product-gallery/c86951214335cfb7-fmv3ecostd_4_1200x1200.webp",
+      "/images/product-gallery/0a3accf0510d4346-fmv3ecostd_5_.webp",
+      "/images/product-gallery/db6580e9e505596e-fmv3ecostd_1_.webp"
     ],
     "details": {
       "documents": [
@@ -2480,8 +2480,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FP1054CTPL.jpg",
     "images": [
       "/images/meta-products/FP1054CTPL.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/1bd/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/28b/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/96b76ac8e32bbdd8-bf1054ct_02.webp",
+      "/images/product-gallery/92efcdedbb322498-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -2538,7 +2538,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/3cf/about-clack.pdf",
+          "href": "/documents/products/f62dc6927ec68492-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -2608,8 +2608,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FP1252CTPL.jpg",
     "images": [
       "/images/meta-products/FP1252CTPL.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/11d/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/6c7/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/03429e5e8c33d18e-bf1054ct_02.webp",
+      "/images/product-gallery/5bef8072cf65144e-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -2666,7 +2666,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/cf5/about-clack.pdf",
+          "href": "/documents/products/20e2959eff4a7f3f-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -2736,8 +2736,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FP1354CTPL.jpg",
     "images": [
       "/images/meta-products/FP1354CTPL.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e2d/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/49b/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/b22f9bd665311c97-bf1054ct_02.webp",
+      "/images/product-gallery/41bc053bf0e21c62-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -2794,7 +2794,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/a7d/about-clack.pdf",
+          "href": "/documents/products/82f3f0ea4d871aed-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -2864,10 +2864,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1054CI.jpg",
     "images": [
       "/images/meta-products/FU1054CI.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a66/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/15f/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c39/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c70/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/c450a562bb657cb9-fk1054cimixa_02.webp",
+      "/images/product-gallery/afa5becc6be3ffa0-fk1054cimixa_03.webp",
+      "/images/product-gallery/b214239fdac5fab1-fk1054cimixa_04.webp",
+      "/images/product-gallery/47346f5cacfd3168-sbtr70ua.webp"
     ],
     "details": {
       "specs": [
@@ -3043,10 +3043,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1054CIMIXP.jpg",
     "images": [
       "/images/meta-products/FK1054CIMIXP.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/60d/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/4ac/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/8e0/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e1d/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/e3d42526a26bcfef-fk1054cimixa_02.webp",
+      "/images/product-gallery/997987babad45731-fk1054cimixa_03.webp",
+      "/images/product-gallery/16d84bc462644fac-fk1054cimixa_04.webp",
+      "/images/product-gallery/c586b8cca3202c4e-sbtr70ua.webp"
     ],
     "details": {
       "specs": [
@@ -3150,7 +3150,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_-ecosoft-fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/413/tsu_-ecosoft-fk.pdf",
+          "href": "/documents/products/cf0721fbf264ca80-tsu_-ecosoft-fk.pdf",
           "size": "288 KB"
         },
         {
@@ -3225,8 +3225,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FP1465CTPL.jpg",
     "images": [
       "/images/meta-products/FP1465CTPL.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/4cb/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/562/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/06f3cd5e13911305-bf1054ct_02.webp",
+      "/images/product-gallery/5fac4045356d449b-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -3283,7 +3283,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/a7b/about-clack.pdf",
+          "href": "/documents/products/629ac276b9460189-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -3353,10 +3353,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1252CI.jpg",
     "images": [
       "/images/meta-products/FU1252CI.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/07c/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ee4/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/7d0/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/be5/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/e2add8ee4f74d8d5-fk1054cimixa_02.webp",
+      "/images/product-gallery/6ffae9cec0d1f2d1-fk1054cimixa_03.webp",
+      "/images/product-gallery/6456f7d236d37a31-fk1054cimixa_04.webp",
+      "/images/product-gallery/8a2554df6357b945-sbtr70ua.webp"
     ],
     "details": {
       "documents": [
@@ -3367,7 +3367,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/62d/about-clack.pdf",
+          "href": "/documents/products/03fb422fbea90464-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -3434,8 +3434,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPC1054CT.jpg",
     "images": [
       "/images/meta-products/FPC1054CT.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a18/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/fbe/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/6f8b81604f9720b2-bf1054ct_02.webp",
+      "/images/product-gallery/8393487b6720bf79-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -3577,8 +3577,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPA1054CT.jpg",
     "images": [
       "/images/meta-products/FPA1054CT.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/3c1/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/43e/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/920ec84fef3aed7d-bf1054ct_02.webp",
+      "/images/product-gallery/c48eb9d375f5a0c9-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -3668,7 +3668,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about_clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/13c/about_clack.pdf",
+          "href": "/documents/products/99fb54da4449770b-about_clack.pdf",
           "size": "317 KB"
         },
         {
@@ -3735,10 +3735,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1054CIMIXA.jpg",
     "images": [
       "/images/meta-products/FK1054CIMIXA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ee4/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/86a/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/3aa/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e63/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/0e0b8ae8b04b4344-fk1054cimixa_02.webp",
+      "/images/product-gallery/6b2312bfd92178a5-fk1054cimixa_03.webp",
+      "/images/product-gallery/af4f313ea78def14-fk1054cimixa_04.webp",
+      "/images/product-gallery/375309553bb0e8e1-sbtr70ua.webp"
     ],
     "details": {
       "specs": [
@@ -3842,7 +3842,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_-ecosoft-fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/adc/tsu_-ecosoft-fk.pdf",
+          "href": "/documents/products/8acc17df1ff96f30-tsu_-ecosoft-fk.pdf",
           "size": "288 KB"
         },
         {
@@ -3917,10 +3917,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1354CI.jpg",
     "images": [
       "/images/meta-products/FU1354CI.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/761/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c23/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c7e/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/31f/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/c508c4987928228c-fk1054cimixa_02.webp",
+      "/images/product-gallery/718061472fdf9a2b-fk1054cimixa_03.webp",
+      "/images/product-gallery/026614538e579708-fk1054cimixa_04.webp",
+      "/images/product-gallery/ccde319c71c4932e-sbtr70ua.webp"
     ],
     "details": {
       "specs": [
@@ -4025,7 +4025,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/90c/about-clack.pdf",
+          "href": "/documents/products/1df49b917079e52a-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -4097,10 +4097,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1252CIMIXP.jpg",
     "images": [
       "/images/meta-products/FK1252CIMIXP.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f53/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/676/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/77a/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/467/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/aba99daf367381ad-fk1054cimixa_02.webp",
+      "/images/product-gallery/6428efe5cd5846cb-fk1054cimixa_03.webp",
+      "/images/product-gallery/7a75c58b81c0397a-fk1054cimixa_04.webp",
+      "/images/product-gallery/b65674c0b2d0e086-sbtr70ua.webp"
     ],
     "details": {
       "specs": [
@@ -4204,7 +4204,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_-ecosoft-fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/801/tsu_-ecosoft-fk.pdf",
+          "href": "/documents/products/cd0fe9ee3575b167-tsu_-ecosoft-fk.pdf",
           "size": "288 KB"
         },
         {
@@ -4279,8 +4279,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FP1665CTPL.jpg",
     "images": [
       "/images/meta-products/FP1665CTPL.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e0f/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d53/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/14681f3d36ba3ae3-bf1054ct_02.webp",
+      "/images/product-gallery/29fbf201d5b68ef9-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -4337,7 +4337,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/063/about-clack.pdf",
+          "href": "/documents/products/470d4082105b467d-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -4409,11 +4409,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1013CABCIMVCR.jpg",
     "images": [
       "/images/meta-products/FU1013CABCIMVCR.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/313/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_5.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/899/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_1.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/4a6/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_3.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/64f/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_4.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/01a/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcimvcr_2.webp"
+      "/images/product-gallery/8b9d62918a003939-fu1013cabcimvcr_5.webp",
+      "/images/product-gallery/8084e5ba607bb9e5-fu1013cabcimvcr_1.webp",
+      "/images/product-gallery/3bdc0fc081705faa-fu1013cabcimvcr_3.webp",
+      "/images/product-gallery/5e20c6d0949f5906-fu1013cabcimvcr_4.webp",
+      "/images/product-gallery/a53c25b205fb8ab6-fu1013cabcimvcr_2.webp"
     ],
     "details": {
       "specs": [
@@ -4584,11 +4584,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1016CABCIMVCR.jpg",
     "images": [
       "/images/meta-products/FU1016CABCIMVCR.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/15f/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_4.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/da0/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_1.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b33/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_5.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/49b/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_10.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f5a/564_564_140cd750bba9870f18aada2478b24840a/fu1016cabcimvcr_2.webp"
+      "/images/product-gallery/88a4a8c2d9fe78e7-fu1016cabcimvcr_4.webp",
+      "/images/product-gallery/0b41e8e647c4e4ea-fu1016cabcimvcr_1.webp",
+      "/images/product-gallery/bdfd24f9c6a5e918-fu1016cabcimvcr_5.webp",
+      "/images/product-gallery/1df92233309fb5c0-fu1016cabcimvcr_10.webp",
+      "/images/product-gallery/d6df298a129bea04-fu1016cabcimvcr_2.webp"
     ],
     "details": {
       "specs": [
@@ -4757,8 +4757,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPA1252CT.jpg",
     "images": [
       "/images/meta-products/FPA1252CT.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f36/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/bc2/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/74021de03bde3abb-bf1054ct_02.webp",
+      "/images/product-gallery/76fd55044985a4cc-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -4843,7 +4843,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/db4/about-clack.pdf",
+          "href": "/documents/products/30fce28533bb2f87-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -4915,10 +4915,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1354CIMIXP.jpg",
     "images": [
       "/images/meta-products/FK1354CIMIXP.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/3df/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/184/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ab1/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9d3/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/8758d972929bda1d-fk1054cimixa_02.webp",
+      "/images/product-gallery/d974b4cbb8beddbe-fk1054cimixa_03.webp",
+      "/images/product-gallery/3f58bbd436208c12-fk1054cimixa_04.webp",
+      "/images/product-gallery/70edb54da9dc289a-sbtr70ua.webp"
     ],
     "details": {
       "specs": [
@@ -5022,7 +5022,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_-ecosoft-fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/15c/tsu_-ecosoft-fk.pdf",
+          "href": "/documents/products/75bdec5a17585652-tsu_-ecosoft-fk.pdf",
           "size": "288 KB"
         },
         {
@@ -5097,10 +5097,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1465CI.jpg",
     "images": [
       "/images/meta-products/FU1465CI.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a79/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/af0/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/494/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f24/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/60568f3ff8ad4158-fk1054cimixa_02.webp",
+      "/images/product-gallery/b2da4ce214e51061-fk1054cimixa_03.webp",
+      "/images/product-gallery/d86dcaad5daec377-fk1054cimixa_04.webp",
+      "/images/product-gallery/a7b7dedde37ed4ba-sbtr70ua.webp"
     ],
     "details": {
       "specs": [
@@ -5205,7 +5205,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/bd8/about-clack.pdf",
+          "href": "/documents/products/e425fde62fa3953d-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -5277,11 +5277,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1024CABCIMVCR.jpg",
     "images": [
       "/images/meta-products/FU1024CABCIMVCR.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/fb5/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_5.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b40/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_1.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/5ec/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_4.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e61/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_6.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c1a/564_564_140cd750bba9870f18aada2478b24840a/fu1024cabcimvcr_2.webp"
+      "/images/product-gallery/620a48dbdeb18d90-fu1024cabcimvcr_5.webp",
+      "/images/product-gallery/d21132a9c210c900-fu1024cabcimvcr_1.webp",
+      "/images/product-gallery/b63a8c48902c74ff-fu1024cabcimvcr_4.webp",
+      "/images/product-gallery/3893a638837248c4-fu1024cabcimvcr_6.webp",
+      "/images/product-gallery/096e200ed40994f7-fu1024cabcimvcr_2.webp"
     ],
     "details": {
       "specs": [
@@ -5452,7 +5452,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1035CABGCI.jpg",
     "images": [
       "/images/meta-products/FU1035CABGCI.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9f7/564_564_140cd750bba9870f18aada2478b24840a/fu1035cabgci_2_1200x1200.webp"
+      "/images/product-gallery/f950407e466fbd02-fu1035cabgci_2_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -5603,11 +5603,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1013CABCEMVAS.jpg",
     "images": [
       "/images/meta-products/FU1013CABCEMVAS.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/44e/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_05_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e20/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c5c/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_07_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/044/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_09_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/7d1/564_564_140cd750bba9870f18aada2478b24840a/fu1013cabcemvas_04_1200x1200.webp"
+      "/images/product-gallery/d88719956b57ad6a-fu1013cabcemvas_05_1200x1200.webp",
+      "/images/product-gallery/b9fa2e49072bb4b4-fu1013cabcemvas_02_1200x1200.webp",
+      "/images/product-gallery/c57e2957806b3879-fu1013cabcemvas_07_1200x1200.webp",
+      "/images/product-gallery/17bed1d264f2f00d-fu1013cabcemvas_09_1200x1200.webp",
+      "/images/product-gallery/6f6f2ca17f670fc9-fu1013cabcemvas_04_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -5787,10 +5787,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1252CIMIXA.jpg",
     "images": [
       "/images/meta-products/FK1252CIMIXA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a93/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/053/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/011/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/122/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/9fd1b3b2865f83b1-fk1054cimixa_02.webp",
+      "/images/product-gallery/defc5e148c92b9f8-fk1054cimixa_03.webp",
+      "/images/product-gallery/2e2c1db82ec718fe-fk1054cimixa_04.webp",
+      "/images/product-gallery/2a4edbd9a7661c1e-sbtr70ua.webp"
     ],
     "details": {
       "specs": [
@@ -5894,7 +5894,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_-ecosoft-fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/9ff/tsu_-ecosoft-fk.pdf",
+          "href": "/documents/products/5dba59efc6e85eea-tsu_-ecosoft-fk.pdf",
           "size": "288 KB"
         },
         {
@@ -5966,8 +5966,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPC1252CT.jpg",
     "images": [
       "/images/meta-products/FPC1252CT.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b21/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/149/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/b58b0d2e7c543caa-bf1054ct_02.webp",
+      "/images/product-gallery/82538414721949a2-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -6044,7 +6044,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/887/about-clack.pdf",
+          "href": "/documents/products/7cfb86941782c7ea-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -6118,7 +6118,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1035CABGCIMIXA.jpg",
     "images": [
       "/images/meta-products/FK1035CABGCIMIXA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/cf9/564_564_140cd750bba9870f18aada2478b24840a/fk1035cabgcimixa_2_1200x1200.webp"
+      "/images/product-gallery/e9ef36e55bff5667-fk1035cabgcimixa_2_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -6273,10 +6273,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1465CIMIXP.jpg",
     "images": [
       "/images/meta-products/FK1465CIMIXP.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/4cf/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/637/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d48/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ea5/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/cca10f1a18071fe7-fk1054cimixa_02.webp",
+      "/images/product-gallery/62a2cac95fae0c76-fk1054cimixa_03.webp",
+      "/images/product-gallery/d33e31f65288e0f4-fk1054cimixa_04.webp",
+      "/images/product-gallery/9e24b3230dd937fd-sbtr70ua.webp"
     ],
     "details": {
       "specs": [
@@ -6380,7 +6380,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_-ecosoft-fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/4fd/tsu_-ecosoft-fk.pdf",
+          "href": "/documents/products/b22f125c39f13efd-tsu_-ecosoft-fk.pdf",
           "size": "288 KB"
         },
         {
@@ -6455,9 +6455,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1018CABCEMV.jpg",
     "images": [
       "/images/meta-products/FU1018CABCEMV.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e2e/564_564_140cd750bba9870f18aada2478b24840a/fu1018cabce-_6_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b5f/564_564_140cd750bba9870f18aada2478b24840a/fu1018cabce-_2_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/585/564_564_140cd750bba9870f18aada2478b24840a/fu1018cabce-_12_.webp"
+      "/images/product-gallery/9e127529b707181b-fu1018cabce-_6_.webp",
+      "/images/product-gallery/0c7680ccc45e39b7-fu1018cabce-_2_.webp",
+      "/images/product-gallery/a9fc3a3c67d30649-fu1018cabce-_12_.webp"
     ],
     "details": {
       "specs": [
@@ -6561,12 +6561,12 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_ecosoft_fu.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/5da/tsu_ecosoft_fu.pdf",
+          "href": "/documents/products/5b71c07fae261c2b-tsu_ecosoft_fu.pdf",
           "size": "288 KB"
         },
         {
           "name": "about_clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/847/about_clack.pdf",
+          "href": "/documents/products/f1053c5e0bd2a536-about_clack.pdf",
           "size": "317 KB"
         },
         {
@@ -6633,8 +6633,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPC1354CT.jpg",
     "images": [
       "/images/meta-products/FPC1354CT.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a6f/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/5a3/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/3b70847441287f38-bf1054ct_02.webp",
+      "/images/product-gallery/6364d8971bad534f-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -6711,7 +6711,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/cb8/about-clack.pdf",
+          "href": "/documents/products/e10fd654484ff7c0-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -6783,10 +6783,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1354CIMIXA.jpg",
     "images": [
       "/images/meta-products/FK1354CIMIXA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/37a/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/670/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9bb/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/be4/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/d82167cea072d80f-fk1054cimixa_02.webp",
+      "/images/product-gallery/194d21de181ac2c2-fk1054cimixa_03.webp",
+      "/images/product-gallery/696a27aec4d198f6-fk1054cimixa_04.webp",
+      "/images/product-gallery/de3108be96c25035-sbtr70ua.webp"
     ],
     "details": {
       "specs": [
@@ -6890,7 +6890,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_-ecosoft-fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/984/tsu_-ecosoft-fk.pdf",
+          "href": "/documents/products/8d58b0c1640c07f5-tsu_-ecosoft-fk.pdf",
           "size": "288 KB"
         },
         {
@@ -6965,10 +6965,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1665CI.jpg",
     "images": [
       "/images/meta-products/FU1665CI.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d80/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/103/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/26a/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/069/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/b5d4beee0a8e68a5-fk1054cimixa_02.webp",
+      "/images/product-gallery/0bcd1cb6f30b32b0-fk1054cimixa_03.webp",
+      "/images/product-gallery/859754bebf155059-fk1054cimixa_04.webp",
+      "/images/product-gallery/b6fed748c77de327-sbtr70ua.webp"
     ],
     "details": {
       "specs": [
@@ -7073,7 +7073,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/8d4/about-clack.pdf",
+          "href": "/documents/products/6ec0476e2e4b5031-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -7147,7 +7147,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1235CABGCIMIXA.jpg",
     "images": [
       "/images/meta-products/FK1235CABGCIMIXA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/171/564_564_140cd750bba9870f18aada2478b24840a/fk1035cabgcimixa_2_1200x1200.webp"
+      "/images/product-gallery/8895dc698cdefbfe-fk1035cabgcimixa_2_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -7302,11 +7302,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1235CABCETA.jpg",
     "images": [
       "/images/meta-products/FU1235CABCETA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/5ce/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_6_-_1_-2.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/eb8/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_54-2.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/295/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_26.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b28/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_10.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/311/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_11.webp"
+      "/images/product-gallery/9015c8c2843c42d8-fk1235cabcemixcor_6_-_1_-2.webp",
+      "/images/product-gallery/fb5483de2291a903-fk1235cabcemixcor_54-2.webp",
+      "/images/product-gallery/ac44947583f22460-fk1235cabcemixcor_26.webp",
+      "/images/product-gallery/50ea2570a01e3931-fk1235cabcemixcor_10.webp",
+      "/images/product-gallery/83f5fd8f7bdce811-fk1235cabcemixcor_11.webp"
     ],
     "details": {
       "specs": [
@@ -7410,7 +7410,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_-ecosoft-fu.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/6ab/tsu_-ecosoft-fu.pdf",
+          "href": "/documents/products/74e98edc9a8c59de-tsu_-ecosoft-fu.pdf",
           "size": "288 KB"
         },
         {
@@ -7420,7 +7420,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/244/about-clack.pdf",
+          "href": "/documents/products/901f21efdd8c250a-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -7495,8 +7495,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPA1354CT.jpg",
     "images": [
       "/images/meta-products/FPA1354CT.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/55a/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f66/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/3b41164b18f2669f-bf1054ct_02.webp",
+      "/images/product-gallery/ffaee4be7cf09639-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -7648,10 +7648,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1054CEMIXA.jpg",
     "images": [
       "/images/meta-products/FK1054CEMIXA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/97f/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/592/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e2e/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_01.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/524/564_564_140cd750bba9870f18aada2478b24840a/sb151736.webp"
+      "/images/product-gallery/2e3eb386329a640f-fk1054cemixa_03.webp",
+      "/images/product-gallery/e620af63f313f4db-fk1054cemixa_04.webp",
+      "/images/product-gallery/9e056401331b0dbd-fk1054cemixa_01.webp",
+      "/images/product-gallery/90be288582589a7c-sb151736.webp"
     ],
     "details": {
       "specs": [
@@ -7769,7 +7769,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "tsu_-ecosoft-fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/21b/tsu_-ecosoft-fk.pdf",
+          "href": "/documents/products/b32443ad66e33ffb-tsu_-ecosoft-fk.pdf",
           "size": "288 KB"
         },
         {
@@ -7836,7 +7836,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1018CABCEMIXC.jpg",
     "images": [
       "/images/meta-products/FK1018CABCEMIXC.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c38/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu1018cabcemv_ua_nsptankhrym_chkoekhu_tsp_yanyyerrya.webp"
+      "/images/product-gallery/84a7c666fc98f80e-ru_nsptankhr_m_chyoekhu_tspyagyeryya_vse_ecosoft_fu1018c.webp"
     ],
     "details": {
       "specs": [
@@ -7924,7 +7924,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_-ecosoft-fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/c0b/tsu_-ecosoft-fk.pdf",
+          "href": "/documents/products/17a286f5b96dadf8-tsu_-ecosoft-fk.pdf",
           "size": "288 KB"
         },
         {
@@ -7934,7 +7934,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/5e2/about-clack.pdf",
+          "href": "/documents/products/2c25cf4853bcf437-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -7944,7 +7944,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "tds_fk1018cabcemixc_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/48a/tds_fk1018cabcemixc_ua.pdf",
+          "href": "/documents/products/53e2f42fa554d571-tds_fk1018cabcemixc_ua.pdf",
           "size": "345 KB"
         },
         {
@@ -8011,11 +8011,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU0835CABCETA.jpg",
     "images": [
       "/images/meta-products/FU0835CABCETA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/669/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_6_-_1_-2.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/0ff/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_54-2.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b5a/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_26.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b2d/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_10.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a2f/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_11.webp"
+      "/images/product-gallery/47b3836e35f53d46-fk1235cabcemixcor_6_-_1_-2.webp",
+      "/images/product-gallery/fbe5298d7f9f46a1-fk1235cabcemixcor_54-2.webp",
+      "/images/product-gallery/99403a5ebb73e700-fk1235cabcemixcor_26.webp",
+      "/images/product-gallery/f563feb1acecd13e-fk1235cabcemixcor_10.webp",
+      "/images/product-gallery/7e7280428e8e192f-fk1235cabcemixcor_11.webp"
     ],
     "details": {
       "specs": [
@@ -8119,7 +8119,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_-ecosoft-fu.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/80e/tsu_-ecosoft-fu.pdf",
+          "href": "/documents/products/d7398a3646a1fc2f-tsu_-ecosoft-fu.pdf",
           "size": "288 KB"
         },
         {
@@ -8129,7 +8129,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/bb5/about-clack.pdf",
+          "href": "/documents/products/8ccd99a6c8219450-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -8204,8 +8204,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPA1465CT.jpg",
     "images": [
       "/images/meta-products/FPA1465CT.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/1f3/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/279/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/8b3d44b72ac83977-bf1054ct_02.webp",
+      "/images/product-gallery/bfb825b76e7631fa-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -8290,7 +8290,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/ff7/about-clack.pdf",
+          "href": "/documents/products/d39e23ad72ffc058-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -8362,11 +8362,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FU1035CABCEMVTA.jpg",
     "images": [
       "/images/meta-products/FU1035CABCEMVTA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/919/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_6_-_1_-2.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/494/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_54-2.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c2a/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_26.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/45c/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_10.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/685/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_11.webp"
+      "/images/product-gallery/ecc649b824cac3f9-fk1235cabcemixcor_6_-_1_-2.webp",
+      "/images/product-gallery/0de1e7c32ca024de-fk1235cabcemixcor_54-2.webp",
+      "/images/product-gallery/212e7598761dbb82-fk1235cabcemixcor_26.webp",
+      "/images/product-gallery/523df5cd10ea9605-fk1235cabcemixcor_10.webp",
+      "/images/product-gallery/3ca184332efe7d38-fk1235cabcemixcor_11.webp"
     ],
     "details": {
       "specs": [
@@ -8470,12 +8470,12 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_-ecosoft-fu.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/3ab/tsu_-ecosoft-fu.pdf",
+          "href": "/documents/products/c4e300004f192767-tsu_-ecosoft-fu.pdf",
           "size": "288 KB"
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/9b3/about-clack.pdf",
+          "href": "/documents/products/13998915f4f23cb9-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -8485,7 +8485,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "tds_fu1035cabcemvta_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/c01/tds_fu1035cabcemvta_ua.pdf",
+          "href": "/documents/products/0a5d8d1edf5ca1aa-tds_fu1035cabcemvta_ua.pdf",
           "size": "365 KB"
         },
         {
@@ -8552,10 +8552,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1465CIMIXA.jpg",
     "images": [
       "/images/meta-products/FK1465CIMIXA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d88/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/fd9/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/48a/564_564_140cd750bba9870f18aada2478b24840a/fk1054cimixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/748/564_564_140cd750bba9870f18aada2478b24840a/sbtr70ua.webp"
+      "/images/product-gallery/b8af6e9f2c1ec091-fk1054cimixa_02.webp",
+      "/images/product-gallery/dd3d90610fe41408-fk1054cimixa_03.webp",
+      "/images/product-gallery/835b230e1a7a74ba-fk1054cimixa_04.webp",
+      "/images/product-gallery/778646c88fa3907f-sbtr70ua.webp"
     ],
     "details": {
       "specs": [
@@ -8659,7 +8659,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_-ecosoft-fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/dac/tsu_-ecosoft-fk.pdf",
+          "href": "/documents/products/0c8ebbfe46974a8c-tsu_-ecosoft-fk.pdf",
           "size": "288 KB"
         },
         {
@@ -8736,10 +8736,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1252CEMIXA.jpg",
     "images": [
       "/images/meta-products/FK1252CEMIXA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/1b3/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/4cd/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9f3/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_01.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/8d0/564_564_140cd750bba9870f18aada2478b24840a/sb151736.webp"
+      "/images/product-gallery/cff1dcb419ef75e4-fk1054cemixa_03.webp",
+      "/images/product-gallery/60869a0b96994d0a-fk1054cemixa_04.webp",
+      "/images/product-gallery/1a0608eb3e9bb8ff-fk1054cemixa_01.webp",
+      "/images/product-gallery/daddbec672c08fc3-sb151736.webp"
     ],
     "details": {
       "specs": [
@@ -8857,7 +8857,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "tsu_-ecosoft-fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/c9f/tsu_-ecosoft-fk.pdf",
+          "href": "/documents/products/9b6b2d1eccdc7a67-tsu_-ecosoft-fk.pdf",
           "size": "288 KB"
         },
         {
@@ -8926,9 +8926,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1035CABCEMIXCOR.jpg",
     "images": [
       "/images/meta-products/FK1035CABCEMIXCOR.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/fd8/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_20.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e45/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_6_-_1_-2.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/081/564_564_140cd750bba9870f18aada2478b24840a/fk1035cabcemixcor_08.webp"
+      "/images/product-gallery/9fd27a0224ef1990-fk1235cabcemixcor_20.webp",
+      "/images/product-gallery/e87d06ee54da724b-fk1235cabcemixcor_6_-_1_-2.webp",
+      "/images/product-gallery/32d98e30be701f0d-fk1035cabcemixcor_08.webp"
     ],
     "details": {
       "specs": [
@@ -9016,12 +9016,12 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_ecosoft_fk-_2_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/1a3/tsu_ecosoft_fk-_2_.pdf",
+          "href": "/documents/products/fa0e32de244246a0-tsu_ecosoft_fk-_2_.pdf",
           "size": "288 KB"
         },
         {
           "name": "about_clack-_1_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/2db/about_clack-_1_.pdf",
+          "href": "/documents/products/7310e8b8b5bad35f-about_clack-_1_.pdf",
           "size": "317 KB"
         },
         {
@@ -9031,7 +9031,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "tds_fk1235cabcemixcor_fk1035cabcemixcor_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/101/tds_fk1235cabcemixcor_fk1035cabcemixcor_ua.pdf",
+          "href": "/documents/products/9a548476fc504d90-tds_fk1235cabcemixcor_fk1035cabcemixcor_ua.pdf",
           "size": "360 KB"
         },
         {
@@ -9098,10 +9098,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1354CEMIXA.jpg",
     "images": [
       "/images/meta-products/FK1354CEMIXA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/793/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/2a7/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/284/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_01.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/647/564_564_140cd750bba9870f18aada2478b24840a/sb151736.webp"
+      "/images/product-gallery/11450e77679afa52-fk1054cemixa_03.webp",
+      "/images/product-gallery/3ae4df75f638ba0d-fk1054cemixa_04.webp",
+      "/images/product-gallery/8535a542731479fe-fk1054cemixa_01.webp",
+      "/images/product-gallery/f1c06f033a0ccaa5-sb151736.webp"
     ],
     "details": {
       "specs": [
@@ -9219,7 +9219,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "tsu_ecosoft_fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/c38/tsu_ecosoft_fk.pdf",
+          "href": "/documents/products/47aee23fc1c6898b-tsu_ecosoft_fk.pdf",
           "size": "288 KB"
         },
         {
@@ -9281,8 +9281,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPC1465CT.jpg",
     "images": [
       "/images/meta-products/FPC1465CT.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/6bf/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/4bb/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/04e7612dd85eb2fd-bf1054ct_02.webp",
+      "/images/product-gallery/33fbe5cc1d461f52-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -9428,10 +9428,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1235CABCEMIXCOR.jpg",
     "images": [
       "/images/meta-products/FK1235CABCEMIXCOR.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/fe1/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyeryya_vse_ecosoft_titanium_gold_250_ua_nsptankh.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e53/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_6_-_1_-2.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a7c/564_564_140cd750bba9870f18aada2478b24840a/fk1235cabcemixcor_20.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/366/564_564_140cd750bba9870f18aada2478b24840a/fk1035cabcemixcor_08.webp"
+      "/images/product-gallery/bfd948c414b8e1a4-ru_nsptankhr_m_chyoekhu_sbyeizyeoyeiyvaryya_y_tspyagyery.webp",
+      "/images/product-gallery/094d0eb356223b1e-fk1235cabcemixcor_6_-_1_-2.webp",
+      "/images/product-gallery/bf626bda11b99bc6-fk1235cabcemixcor_20.webp",
+      "/images/product-gallery/a2466a532195324f-fk1035cabcemixcor_08.webp"
     ],
     "details": {
       "specs": [
@@ -9519,12 +9519,12 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tsu_ecosoft_fk-_2_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/10f/tsu_ecosoft_fk-_2_.pdf",
+          "href": "/documents/products/25ccb5333732283f-tsu_ecosoft_fk-_2_.pdf",
           "size": "288 KB"
         },
         {
           "name": "about_clack-_1_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/c5d/about_clack-_1_.pdf",
+          "href": "/documents/products/f7082bf380206650-about_clack-_1_.pdf",
           "size": "317 KB"
         },
         {
@@ -9534,7 +9534,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "tds_fk1235cabcemixcor_fk1035cabcemixcor_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/7fe/tds_fk1235cabcemixcor_fk1035cabcemixcor_ua.pdf",
+          "href": "/documents/products/4420c53b867fd57c-tds_fk1235cabcemixcor_fk1035cabcemixcor_ua.pdf",
           "size": "360 KB"
         },
         {
@@ -9599,8 +9599,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPA1665CT.jpg",
     "images": [
       "/images/meta-products/FPA1665CT.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/21d/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/33d/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/58d602dbeed3eb76-bf1054ct_02.webp",
+      "/images/product-gallery/32147974e26685c7-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -9747,8 +9747,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPC1665CT.jpg",
     "images": [
       "/images/meta-products/FPC1665CT.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/43f/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_02.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/466/564_564_140cd750bba9870f18aada2478b24840a/bf1054ct_03.webp"
+      "/images/product-gallery/9c4c2c7dc91cb125-bf1054ct_02.webp",
+      "/images/product-gallery/6ce3a7adcc3b719c-bf1054ct_03.webp"
     ],
     "details": {
       "specs": [
@@ -9825,7 +9825,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "about-clack.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/81b/about-clack.pdf",
+          "href": "/documents/products/08ef26db7d9abdc7-about-clack.pdf",
           "size": "317 KB"
         },
         {
@@ -9897,10 +9897,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FK1465CEMIXA.jpg",
     "images": [
       "/images/meta-products/FK1465CEMIXA.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f88/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c84/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d04/564_564_140cd750bba9870f18aada2478b24840a/fk1054cemixa_01.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/509/564_564_140cd750bba9870f18aada2478b24840a/sb151736.webp"
+      "/images/product-gallery/82f9c970cd75d66f-fk1054cemixa_03.webp",
+      "/images/product-gallery/3e4109cf735edb58-fk1054cemixa_04.webp",
+      "/images/product-gallery/4496d931b3e1d320-fk1054cemixa_01.webp",
+      "/images/product-gallery/25179fc3c7813dd4-sb151736.webp"
     ],
     "details": {
       "specs": [
@@ -10018,7 +10018,7 @@ export const PRODUCTS: Product[] = [
         },
         {
           "name": "tsu_ecosoft_fk.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/a1d/tsu_ecosoft_fk.pdf",
+          "href": "/documents/products/61586020bdd371ea-tsu_ecosoft_fk.pdf",
           "size": "288 KB"
         },
         {
@@ -10070,11 +10070,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/PSE200ECO.jpg",
     "images": [
       "/images/meta-products/PSE200ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c44/564_564_140cd750bba9870f18aada2478b24840a/pse200eco_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e93/564_564_140cd750bba9870f18aada2478b24840a/pse200eco_01_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/723/564_564_140cd750bba9870f18aada2478b24840a/pse200eco_03_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d80/564_564_140cd750bba9870f18aada2478b24840a/pse200eco_04_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/2f1/564_564_140cd750bba9870f18aada2478b24840a/pse200eco_05_1200x1200.webp"
+      "/images/product-gallery/784c4dc18a255a14-pse200eco_02_1200x1200.webp",
+      "/images/product-gallery/79022d5b1240e926-pse200eco_01_1200x1200.webp",
+      "/images/product-gallery/9e88fd8a64392fb2-pse200eco_03_1200x1200.webp",
+      "/images/product-gallery/e5ec7db6fb464418-pse200eco_04_1200x1200.webp",
+      "/images/product-gallery/4539efcd4e000322-pse200eco_05_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -10129,10 +10129,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FOSE100ECO.jpg",
     "images": [
       "/images/meta-products/FOSE100ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/996/564_564_140cd750bba9870f18aada2478b24840a/fose100eco_09.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9f8/564_564_140cd750bba9870f18aada2478b24840a/fose100eco_10.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/3f8/564_564_140cd750bba9870f18aada2478b24840a/fose100eco_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e53/564_564_140cd750bba9870f18aada2478b24840a/fose100eco_06.webp"
+      "/images/product-gallery/7bdaeb8feb650197-fose100eco_09.webp",
+      "/images/product-gallery/1df86f7a434e523c-fose100eco_10.webp",
+      "/images/product-gallery/537e7ab93aa5e2a3-fose100eco_03.webp",
+      "/images/product-gallery/4b5afe40edf0ace4-fose100eco_06.webp"
     ],
     "details": {
       "specs": [
@@ -10219,10 +10219,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/PSE2005ECO.jpg",
     "images": [
       "/images/meta-products/PSE2005ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/8da/564_564_140cd750bba9870f18aada2478b24840a/pse2005eco_03.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9a0/564_564_140cd750bba9870f18aada2478b24840a/pse2005eco_04.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/52c/564_564_140cd750bba9870f18aada2478b24840a/pse2005eco_01.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/7e3/564_564_140cd750bba9870f18aada2478b24840a/pse2005eco_02.webp"
+      "/images/product-gallery/37dd61f54ae1eb78-pse2005eco_03.webp",
+      "/images/product-gallery/a30ee9c058911b2c-pse2005eco_04.webp",
+      "/images/product-gallery/f7444a743d5d6a27-pse2005eco_01.webp",
+      "/images/product-gallery/dd2bc509f51a6ae9-pse2005eco_02.webp"
     ],
     "details": {
       "documents": [
@@ -10278,7 +10278,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPV12ECO.jpg",
     "images": [
       "/images/meta-products/FPV12ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f3c/564_564_140cd750bba9870f18aada2478b24840a/korfpv12eco_korfpv34eco.webp"
+      "/images/product-gallery/793708a668432cca-korfpv12eco_korfpv34eco.webp"
     ],
     "details": {
       "specs": [
@@ -10338,7 +10338,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "paspfpveco.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/47e/paspfpveco.pdf",
+          "href": "/documents/products/7c53ea2402347eae-paspfpveco.pdf",
           "size": "448 KB"
         },
         {
@@ -10392,11 +10392,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FOSE200ECO.jpg",
     "images": [
       "/images/meta-products/FOSE200ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f54/564_564_140cd750bba9870f18aada2478b24840a/fose200eco_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/4b8/564_564_140cd750bba9870f18aada2478b24840a/fose200eco_3_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/277/564_564_140cd750bba9870f18aada2478b24840a/fose200eco_6_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/069/564_564_140cd750bba9870f18aada2478b24840a/fose200eco_7_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a30/564_564_140cd750bba9870f18aada2478b24840a/fose200eco_9_1200x1200.webp"
+      "/images/product-gallery/063758fa052ce65e-fose200eco_2_1200x1200.webp",
+      "/images/product-gallery/899be5d682c9f5a4-fose200eco_3_1200x1200.webp",
+      "/images/product-gallery/5efaec2705ec9020-fose200eco_6_1200x1200.webp",
+      "/images/product-gallery/7733171a580e76bd-fose200eco_7_1200x1200.webp",
+      "/images/product-gallery/54586daa90590343-fose200eco_9_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -10486,7 +10486,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPV34ECO.jpg",
     "images": [
       "/images/meta-products/FPV34ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9d1/564_564_140cd750bba9870f18aada2478b24840a/korfpv12eco_korfpv34eco.webp"
+      "/images/product-gallery/f38376ca71eeb502-korfpv12eco_korfpv34eco.webp"
     ],
     "details": {
       "specs": [
@@ -10546,7 +10546,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "paspfpveco.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/13a/paspfpveco.pdf",
+          "href": "/documents/products/4e342b4a26e42144-paspfpveco.pdf",
           "size": "448 KB"
         },
         {
@@ -10601,7 +10601,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPV12PECO.jpg",
     "images": [
       "/images/meta-products/FPV12PECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a8e/564_564_140cd750bba9870f18aada2478b24840a/korfpv12peco_korfpv34peco.webp"
+      "/images/product-gallery/b95b9250a498c199-korfpv12peco_korfpv34peco.webp"
     ],
     "details": {
       "specs": [
@@ -10665,7 +10665,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "paspfpveco.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/1c8/paspfpveco.pdf",
+          "href": "/documents/products/c3a82e4393844ad7-paspfpveco.pdf",
           "size": "448 KB"
         },
         {
@@ -10720,7 +10720,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPV34PECO.jpg",
     "images": [
       "/images/meta-products/FPV34PECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/5b5/564_564_140cd750bba9870f18aada2478b24840a/korfpv12peco_korfpv34peco.webp"
+      "/images/product-gallery/1677cf80cbbfd105-korfpv12peco_korfpv34peco.webp"
     ],
     "details": {
       "specs": [
@@ -10784,7 +10784,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "paspfpveco.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/e6a/paspfpveco.pdf",
+          "href": "/documents/products/70f28c8af920fdca-paspfpveco.pdf",
           "size": "448 KB"
         },
         {
@@ -10839,7 +10839,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPV12HWECO.jpg",
     "images": [
       "/images/meta-products/FPV12HWECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/2f9/564_564_140cd750bba9870f18aada2478b24840a/korfpv12hweco_korfpv34hweco.webp"
+      "/images/product-gallery/0ad31e413ace02b7-korfpv12hweco_korfpv34hweco.webp"
     ],
     "details": {
       "specs": [
@@ -10895,7 +10895,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "paspfpveco.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/055/paspfpveco.pdf",
+          "href": "/documents/products/5c396500cfbdb221-paspfpveco.pdf",
           "size": "448 KB"
         },
         {
@@ -10950,11 +10950,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPV4510ECOGR.jpg",
     "images": [
       "/images/meta-products/FPV4510ECOGR.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/950/564_564_140cd750bba9870f18aada2478b24840a/fpv4510eco.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d08/564_564_140cd750bba9870f18aada2478b24840a/fpv4510eco_1.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/808/564_564_140cd750bba9870f18aada2478b24840a/fpv4510eco_2.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/541/564_564_140cd750bba9870f18aada2478b24840a/fpv4510eco_3-_2_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/29c/564_564_140cd750bba9870f18aada2478b24840a/fpv4510eco_4-_2_.webp"
+      "/images/product-gallery/24aa474586045fc0-fpv4510eco.webp",
+      "/images/product-gallery/382930b3240124f5-fpv4510eco_1.webp",
+      "/images/product-gallery/8fac3622a89af5d8-fpv4510eco_2.webp",
+      "/images/product-gallery/da04c50547101540-fpv4510eco_3-_2_.webp",
+      "/images/product-gallery/9ef4d09c4e802120-fpv4510eco_4-_2_.webp"
     ],
     "details": {
       "specs": [
@@ -11006,7 +11006,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "paspfpveco-_2_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/5b6/paspfpveco-_2_.pdf",
+          "href": "/documents/products/8bbc9e592525f0e4-paspfpveco-_2_.pdf",
           "size": "448 KB"
         },
         {
@@ -11217,11 +11217,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/FPV4520ECOGR.jpg",
     "images": [
       "/images/meta-products/FPV4520ECOGR.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/083/564_564_140cd750bba9870f18aada2478b24840a/fpv4520eco.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/bd8/564_564_140cd750bba9870f18aada2478b24840a/fpv4520eco_1.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/367/564_564_140cd750bba9870f18aada2478b24840a/fpv4520eco_2.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/fd3/564_564_140cd750bba9870f18aada2478b24840a/fpv4520eco_3.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a98/564_564_140cd750bba9870f18aada2478b24840a/fpv4510eco_4-_2_.webp"
+      "/images/product-gallery/3d54c93fbc5d4522-fpv4520eco.webp",
+      "/images/product-gallery/fb5722b968c13247-fpv4520eco_1.webp",
+      "/images/product-gallery/6ef4298c1d437262-fpv4520eco_2.webp",
+      "/images/product-gallery/a3cec4bb9efa1125-fpv4520eco_3.webp",
+      "/images/product-gallery/3f3e0d09be93a095-fpv4510eco_4-_2_.webp"
     ],
     "details": {
       "specs": [
@@ -11273,7 +11273,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "paspfpveco-_2_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/591/paspfpveco-_2_.pdf",
+          "href": "/documents/products/ceffddcc98924b0b-paspfpveco-_2_.pdf",
           "size": "448 KB"
         },
         {
@@ -11380,7 +11380,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "manual_bwt_protector_mini_hws_cr.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/5f6/manual_bwt_protector_mini_hws_cr.pdf",
+          "href": "/documents/products/1d8959ec384eab8f-manual_bwt_protector_mini_hws_cr.pdf",
           "size": "510 KB"
         },
         {
@@ -11435,11 +11435,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/TXHES2.jpg",
     "images": [
       "/images/meta-products/TXHES2.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/82b/564_564_140cd750bba9870f18aada2478b24840a/ericdm_1.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9c4/564_564_140cd750bba9870f18aada2478b24840a/ericdm_2.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/5ba/564_564_140cd750bba9870f18aada2478b24840a/ericdm_11.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9cf/564_564_140cd750bba9870f18aada2478b24840a/ericdm_12.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/282/564_564_140cd750bba9870f18aada2478b24840a/ericdm_26.webp"
+      "/images/product-gallery/411dcb67ecd925e7-ericdm_1.webp",
+      "/images/product-gallery/0f5f7b351c36a0eb-ericdm_2.webp",
+      "/images/product-gallery/1ac954547b3c9541-ericdm_11.webp",
+      "/images/product-gallery/1005e45372581c9e-ericdm_12.webp",
+      "/images/product-gallery/c2e6851944205916-ericdm_26.webp"
     ],
     "details": {
       "specs": [
@@ -11483,7 +11483,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds-eyfnsvym-chkoekhu-ecosoft-1-_txhes2_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/e9f/tds-eyfnsvym-chkoekhu-ecosoft-1-_txhes2_.pdf",
+          "href": "/documents/products/74a94a8bbd23bdfc-tds-eyfnsvym-chkoekhu-ecosoft-1-_txhes2_.pdf",
           "size": "578 KB"
         },
         {
@@ -11590,7 +11590,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "manual_bwt_protector_mini_hws_cr.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/418/manual_bwt_protector_mini_hws_cr.pdf",
+          "href": "/documents/products/f44d80ef78fe6f75-manual_bwt_protector_mini_hws_cr.pdf",
           "size": "510 KB"
         },
         {
@@ -11846,11 +11846,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/AQPDUO.jpg",
     "images": [
       "/images/meta-products/AQPDUO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/76b/564_564_140cd750bba9870f18aada2478b24840a/aqpduo_2_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/982/564_564_140cd750bba9870f18aada2478b24840a/aqpduo_3_1200sh1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/1f6/564_564_140cd750bba9870f18aada2478b24840a/aqpduo_1200sh1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c51/564_564_140cd750bba9870f18aada2478b24840a/aqpduo_3_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/50a/564_564_140cd750bba9870f18aada2478b24840a/aqpduo_5_1200sh1200.webp"
+      "/images/product-gallery/c3f5da992bbd582c-aqpduo_2_1200x1200.webp",
+      "/images/product-gallery/55ee17d6c5ff6fa8-aqpduo_3_1200sh1200.webp",
+      "/images/product-gallery/ac8b7a4394972e07-aqpduo_1200sh1200.webp",
+      "/images/product-gallery/d6fd3ce9104d1df6-aqpduo_3_1200x1200.webp",
+      "/images/product-gallery/60b0584a40808dec-aqpduo_5_1200sh1200.webp"
     ],
     "details": {
       "specs": [
@@ -11981,9 +11981,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/TXHES3.jpg",
     "images": [
       "/images/meta-products/TXHES3.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e81/564_564_140cd750bba9870f18aada2478b24840a/ericdc_1.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/26c/564_564_140cd750bba9870f18aada2478b24840a/ericdc_10.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/0e0/564_564_140cd750bba9870f18aada2478b24840a/ericdc_24.webp"
+      "/images/product-gallery/38c544c22680bedb-ericdc_1.webp",
+      "/images/product-gallery/cf3f025edc704305-ericdc_10.webp",
+      "/images/product-gallery/33d68aa2f357c176-ericdc_24.webp"
     ],
     "details": {
       "specs": [
@@ -12039,7 +12039,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds-eyfnsvym-chkoekhu-ecosoft-1-ar-_txhes3_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/c54/tds-eyfnsvym-chkoekhu-ecosoft-1-ar-_txhes3_.pdf",
+          "href": "/documents/products/5e2352fbb5a81cc0-tds-eyfnsvym-chkoekhu-ecosoft-1-ar-_txhes3_.pdf",
           "size": "437 KB"
         },
         {
@@ -12085,9 +12085,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CPV3ECOSTD.jpg",
     "images": [
       "/images/meta-products/CPV3ECOSTD.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/7af/564_564_140cd750bba9870f18aada2478b24840a/cpv3ecostd_2026_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/973/564_564_140cd750bba9870f18aada2478b24840a/cpv3ecostd_2026_01_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c00/564_564_140cd750bba9870f18aada2478b24840a/cpv3ecostd_04_1200x1200.webp"
+      "/images/product-gallery/56d88f11695f21c7-cpv3ecostd_2026_02_1200x1200.webp",
+      "/images/product-gallery/bfef637c6f2fc27e-cpv3ecostd_2026_01_1200x1200.webp",
+      "/images/product-gallery/905f9ad2acc4e30f-cpv3ecostd_04_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -12131,8 +12131,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV2010ECOPKG.jpg",
     "images": [
       "/images/meta-products/CHV2010ECOPKG.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/725/564_564_140cd750bba9870f18aada2478b24840a/chv2010eco_01_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/187/564_564_140cd750bba9870f18aada2478b24840a/chv2010eco_02_1200x1200.webp"
+      "/images/product-gallery/f407b1c314d1d8e4-chv2010eco_01_1200x1200.webp",
+      "/images/product-gallery/2564b7394b62ea09-chv2010eco_02_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -12202,8 +12202,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/PD2010ECOPKG.jpg",
     "images": [
       "/images/meta-products/PD2010ECOPKG.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ff3/564_564_140cd750bba9870f18aada2478b24840a/pd2010eco_01_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/87a/564_564_140cd750bba9870f18aada2478b24840a/pd2010eco_02_1200x1200.webp"
+      "/images/product-gallery/c6ebcc412be484d4-pd2010eco_01_1200x1200.webp",
+      "/images/product-gallery/12bb3a226dcf3418-pd2010eco_02_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -12304,9 +12304,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHVCB3ECOAGR.jpg",
     "images": [
       "/images/meta-products/CHVCB3ECOAGR.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/6f3/564_564_140cd750bba9870f18aada2478b24840a/chvcb3ecoagr_04_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f3f/564_564_140cd750bba9870f18aada2478b24840a/chvcb3ecoagr_01_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/705/564_564_140cd750bba9870f18aada2478b24840a/chvcb3ecoagr_02_1200x1200.webp"
+      "/images/product-gallery/5430b4f81acf4e7c-chvcb3ecoagr_04_1200x1200.webp",
+      "/images/product-gallery/4404cb9bccef3405-chvcb3ecoagr_01_1200x1200.webp",
+      "/images/product-gallery/c2ea6565bdb9aae3-chvcb3ecoagr_02_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -12353,9 +12353,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV3ECO.jpg",
     "images": [
       "/images/meta-products/CHV3ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/167/564_564_140cd750bba9870f18aada2478b24840a/chv3eco_04_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9f5/564_564_140cd750bba9870f18aada2478b24840a/chv3eco_2026_02_200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/25e/564_564_140cd750bba9870f18aada2478b24840a/chv3eco_2026_01_1200x1200.webp"
+      "/images/product-gallery/769b45d63c85a0f6-chv3eco_04_1200x1200.webp",
+      "/images/product-gallery/6c70f66cdc104cf5-chv3eco_2026_02_200x1200.webp",
+      "/images/product-gallery/1d6399de7fda8841-chv3eco_2026_01_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -12489,9 +12489,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV3ECOAGR.jpg",
     "images": [
       "/images/meta-products/CHV3ECOAGR.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b17/564_564_140cd750bba9870f18aada2478b24840a/chv3ecoagr_04_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b94/564_564_140cd750bba9870f18aada2478b24840a/chv3ecoagr_2026_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/18c/564_564_140cd750bba9870f18aada2478b24840a/chv3ecoagr_2026_01_1200x1200.webp"
+      "/images/product-gallery/1f601153cdf1cd5e-chv3ecoagr_04_1200x1200.webp",
+      "/images/product-gallery/a20eef2c46cea4e1-chv3ecoagr_2026_02_1200x1200.webp",
+      "/images/product-gallery/0dbc5fe0ad2cc86e-chv3ecoagr_2026_01_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -12538,9 +12538,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CMV3ECO.jpg",
     "images": [
       "/images/meta-products/CMV3ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/faa/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_04_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/877/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_2026_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/965/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_2026_01_1200x1200.webp"
+      "/images/product-gallery/3e0c70bc164855a0-cmv3eco_04_1200x1200.webp",
+      "/images/product-gallery/04b19421a4934c86-cmv3eco_2026_02_1200x1200.webp",
+      "/images/product-gallery/11bd32d61c066e7c-cmv3eco_2026_01_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -12630,8 +12630,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CSV181250ECO.jpg",
     "images": [
       "/images/meta-products/CSV181250ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/038/564_564_140cd750bba9870f18aada2478b24840a/csv181250eco_1200sh12000.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/fae/564_564_140cd750bba9870f18aada2478b24840a/csv181250eco_3_1200x1200.webp"
+      "/images/product-gallery/b7c8bf02b054b3fd-csv181250eco_1200sh12000.webp",
+      "/images/product-gallery/c371ece25c8a0813-csv181250eco_3_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -12663,7 +12663,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_membranes-ecosoft.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/089/tds_membranes-ecosoft.pdf",
+          "href": "/documents/products/138f5019ed0708e7-tds_membranes-ecosoft.pdf",
           "size": "291 KB"
         },
         {
@@ -12752,8 +12752,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CSV181275ECO.jpg",
     "images": [
       "/images/meta-products/CSV181275ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/52c/564_564_140cd750bba9870f18aada2478b24840a/csv181275eco_1_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a6a/564_564_140cd750bba9870f18aada2478b24840a/csv181275eco_3_1200x1200.webp"
+      "/images/product-gallery/76a0580fe70552e5-csv181275eco_1_1200x1200.webp",
+      "/images/product-gallery/f2b6a138dae03962-csv181275eco_3_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -12785,7 +12785,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_membranes-ecosoft.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/1a4/tds_membranes-ecosoft.pdf",
+          "href": "/documents/products/4080aeead4583d39-tds_membranes-ecosoft.pdf",
           "size": "291 KB"
         },
         {
@@ -12831,9 +12831,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CRV3ECO.jpg",
     "images": [
       "/images/meta-products/CRV3ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/6b2/564_564_140cd750bba9870f18aada2478b24840a/crv3eco_04_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b72/564_564_140cd750bba9870f18aada2478b24840a/crv3eco_2026_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/408/564_564_140cd750bba9870f18aada2478b24840a/crv3eco_2026_01_1200x1200.webp"
+      "/images/product-gallery/1144926d29454031-crv3eco_04_1200x1200.webp",
+      "/images/product-gallery/e58ef91678e206a2-crv3eco_2026_02_1200x1200.webp",
+      "/images/product-gallery/fd5c6e854d312795-crv3eco_2026_01_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -12880,9 +12880,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV5ECOABS.jpg",
     "images": [
       "/images/meta-products/CHV5ECOABS.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9d7/564_564_140cd750bba9870f18aada2478b24840a/chv5ecoabs_2026_03_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/49a/564_564_140cd750bba9870f18aada2478b24840a/chv5ecoabs_2026_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e81/564_564_140cd750bba9870f18aada2478b24840a/chv5ecoabs_2026_01_1200x1200.webp"
+      "/images/product-gallery/4d9df11428058ad5-chv5ecoabs_2026_03_1200x1200.webp",
+      "/images/product-gallery/b2252d79407d0fa0-chv5ecoabs_2026_02_1200x1200.webp",
+      "/images/product-gallery/5f9f11072979e229-chv5ecoabs_2026_01_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -12932,10 +12932,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CMV6ECO.jpg",
     "images": [
       "/images/meta-products/CMV6ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/96b/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_04_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/302/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_05_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/0ef/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f1e/564_564_140cd750bba9870f18aada2478b24840a/cmv3eco_01_1200x1200.webp"
+      "/images/product-gallery/8aa923d4d44b0e02-cmv3eco_04_1200x1200.webp",
+      "/images/product-gallery/ae6dc57dbafbefab-cmv3eco_05_1200x1200.webp",
+      "/images/product-gallery/80f0a4c9b07b41e5-cmv3eco_02_1200x1200.webp",
+      "/images/product-gallery/75e8ce0e29069c93-cmv3eco_01_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -13069,8 +13069,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CSV1812100ECO.jpg",
     "images": [
       "/images/meta-products/CSV1812100ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e55/564_564_140cd750bba9870f18aada2478b24840a/csv1812100eco_3_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e6a/564_564_140cd750bba9870f18aada2478b24840a/csv1812100eco_1_1200x1200.webp"
+      "/images/product-gallery/2bdd8c51b893acba-csv1812100eco_3_1200x1200.webp",
+      "/images/product-gallery/c422190191a897a7-csv1812100eco_1_1200x1200.webp"
     ],
     "details": {
       "specs": [
@@ -13102,7 +13102,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_membranes-ecosoft.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/11e/tds_membranes-ecosoft.pdf",
+          "href": "/documents/products/0d8bc5be840b3945-tds_membranes-ecosoft.pdf",
           "size": "291 KB"
         },
         {
@@ -13237,9 +13237,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CRV6ECO.jpg",
     "images": [
       "/images/meta-products/CRV6ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f2c/564_564_140cd750bba9870f18aada2478b24840a/crv3eco_04_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/505/564_564_140cd750bba9870f18aada2478b24840a/crv3eco_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/176/564_564_140cd750bba9870f18aada2478b24840a/crv3eco_01_1200x1200.webp"
+      "/images/product-gallery/d8cced980bec5799-crv3eco_04_1200x1200.webp",
+      "/images/product-gallery/ed9396d43b71fa76-crv3eco_02_1200x1200.webp",
+      "/images/product-gallery/3b43051fa1775d85-crv3eco_01_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -13287,8 +13287,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV5PUREMAC.jpg",
     "images": [
       "/images/meta-products/CHV5PUREMAC.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/937/564_564_140cd750bba9870f18aada2478b24840a/pd2010mac_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/025/564_564_140cd750bba9870f18aada2478b24840a/pd2010mac_01_1200x1200.webp"
+      "/images/product-gallery/5e7b94eb66e4eff2-pd2010mac_02_1200x1200.webp",
+      "/images/product-gallery/fed7e4f12bcdfe24-pd2010mac_01_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -13335,9 +13335,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV6ECOABS.jpg",
     "images": [
       "/images/meta-products/CHV6ECOABS.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/372/564_564_140cd750bba9870f18aada2478b24840a/chv6ecoabs_2026_03_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/6a0/564_564_140cd750bba9870f18aada2478b24840a/chv6ecoabs_2026_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/fe0/564_564_140cd750bba9870f18aada2478b24840a/chv6ecoabs_2026_01_1200x1200.webp"
+      "/images/product-gallery/5b32ec202b4d6c8f-chv6ecoabs_2026_03_1200x1200.webp",
+      "/images/product-gallery/8790f4889941d1a5-chv6ecoabs_2026_02_1200x1200.webp",
+      "/images/product-gallery/f05c0072a6f931a0-chv6ecoabs_2026_01_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -13384,8 +13384,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CPV15POST50GPD.jpg",
     "images": [
       "/images/meta-products/CPV15POST50GPD.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/2e7/564_564_140cd750bba9870f18aada2478b24840a/csv_1812_50_01.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d6d/564_564_140cd750bba9870f18aada2478b24840a/postfilter_year.webp"
+      "/images/product-gallery/14edfb36cdeaf8c9-csv_1812_50_01.webp",
+      "/images/product-gallery/37a5be45fde3a3ec-postfilter_year.webp"
     ],
     "details": {
       "documents": [
@@ -13433,9 +13433,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV5PUREBAL.jpg",
     "images": [
       "/images/meta-products/CHV5PUREBAL.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/557/564_564_140cd750bba9870f18aada2478b24840a/chv5purebal_2026_03_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f96/564_564_140cd750bba9870f18aada2478b24840a/chv5purebal_2026_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/754/564_564_140cd750bba9870f18aada2478b24840a/chv5purebal_2026_01_1200x1200.webp"
+      "/images/product-gallery/0777562ee58e033d-chv5purebal_2026_03_1200x1200.webp",
+      "/images/product-gallery/cc880893163844a1-chv5purebal_2026_02_1200x1200.webp",
+      "/images/product-gallery/8614571cd1179e21-chv5purebal_2026_01_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -13527,8 +13527,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV5PUREALC.jpg",
     "images": [
       "/images/meta-products/CHV5PUREALC.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/535/564_564_140cd750bba9870f18aada2478b24840a/pd2010alceco.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/723/564_564_140cd750bba9870f18aada2478b24840a/ru_nsptoyenkh_naukhuyezyem_ecosoft_p_ure_alkafuse_6_pyefyashchyev_chv5purebal_ua_nsptoyenkh_naukhuye-_1_.webp"
+      "/images/product-gallery/331def6d0fcc0fd1-pd2010alceco.webp",
+      "/images/product-gallery/bc5a1d16fa1101ac-ru_nsptoyenkh_naukhuyezyem_ecosoft_p_ure_alkafuse_6_pyef.webp"
     ],
     "details": {
       "documents": [
@@ -13575,8 +13575,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV15POST75GPD.jpg",
     "images": [
       "/images/meta-products/CHV15POST75GPD.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ce8/564_564_140cd750bba9870f18aada2478b24840a/postfilter_year.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/77a/564_564_140cd750bba9870f18aada2478b24840a/ru_membrannyy_element_ecosoft_75gpd_dlya_domashnikh_filtrov_obratnogo_osmosa_ua_membranniy_element_e-_2_.webp"
+      "/images/product-gallery/8b06250df0c54432-postfilter_year.webp",
+      "/images/product-gallery/8399b009898d18cf-ru_membrannyy_element_ecosoft_75gpd_dlya_domashnikh_filt.webp"
     ],
     "details": {
       "documents": [
@@ -13623,9 +13623,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CPV17POSTMIN50GPD.jpg",
     "images": [
       "/images/meta-products/CPV17POSTMIN50GPD.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/3d5/564_564_140cd750bba9870f18aada2478b24840a/mineral_year.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/19e/564_564_140cd750bba9870f18aada2478b24840a/postfilter_year.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/878/564_564_140cd750bba9870f18aada2478b24840a/csv_1812_50_01.webp"
+      "/images/product-gallery/2ca1ef242a1e7b30-mineral_year.webp",
+      "/images/product-gallery/9f405488a005ad40-postfilter_year.webp",
+      "/images/product-gallery/d46b50916540aedf-csv_1812_50_01.webp"
     ],
     "details": {
       "documents": [
@@ -13673,8 +13673,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV6PUREMAC.jpg",
     "images": [
       "/images/meta-products/CHV6PUREMAC.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/57b/564_564_140cd750bba9870f18aada2478b24840a/pd2010mac_02_1200x1200-_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/f28/564_564_140cd750bba9870f18aada2478b24840a/pd2010mac_01_1200x1200-_1_.webp"
+      "/images/product-gallery/8b7e102fe9f3d28a-pd2010mac_02_1200x1200-_1_.webp",
+      "/images/product-gallery/4f468edc45469d02-pd2010mac_01_1200x1200-_1_.webp"
     ],
     "details": {
       "documents": [
@@ -13721,9 +13721,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV17POSTMIN75GPD.jpg",
     "images": [
       "/images/meta-products/CHV17POSTMIN75GPD.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/43d/564_564_140cd750bba9870f18aada2478b24840a/mineral_year.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/0c7/564_564_140cd750bba9870f18aada2478b24840a/postfilter_year.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/097/564_564_140cd750bba9870f18aada2478b24840a/ru_membrannyy_element_ecosoft_75gpd_dlya_domashnikh_filtrov_obratnogo_osmosa_ua_membranniy_element_e-_2_.webp"
+      "/images/product-gallery/644e3d3ae5d45d3b-mineral_year.webp",
+      "/images/product-gallery/e6ca7131f4f4236b-postfilter_year.webp",
+      "/images/product-gallery/d6d798ef40a5e96b-ru_membrannyy_element_ecosoft_75gpd_dlya_domashnikh_filt.webp"
     ],
     "details": {
       "documents": [
@@ -13771,8 +13771,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV6PUREALC.jpg",
     "images": [
       "/images/meta-products/CHV6PUREALC.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/7f2/564_564_140cd750bba9870f18aada2478b24840a/ru_komplekt_kartridzhey_ecosoft_p_ure_alkafuse_12_mesyatsev_chv6purealc_ua_komplekt_kartridzhiv_ecos.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b3c/564_564_140cd750bba9870f18aada2478b24840a/pd2010alceco.webp"
+      "/images/product-gallery/19e6938ca27f68c1-ru_komplekt_kartridzhey_ecosoft_p_ure_alkafuse_12_mesyat.webp",
+      "/images/product-gallery/5b96d477e427768b-pd2010alceco.webp"
     ],
     "details": {
       "documents": [
@@ -13820,9 +13820,9 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV6PUREBAL.jpg",
     "images": [
       "/images/meta-products/CHV6PUREBAL.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/765/564_564_140cd750bba9870f18aada2478b24840a/chv6purebal_2026_04_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/67d/564_564_140cd750bba9870f18aada2478b24840a/chv6purebal_2026_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/191/564_564_140cd750bba9870f18aada2478b24840a/chv6purebal_2026_01_1200x1200.webp"
+      "/images/product-gallery/db2b0201811c21e4-chv6purebal_2026_04_1200x1200.webp",
+      "/images/product-gallery/504b7526012eddc9-chv6purebal_2026_02_1200x1200.webp",
+      "/images/product-gallery/d6b4a5367832ebf9-chv6purebal_2026_01_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -13870,10 +13870,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV11PUREMAC.jpg",
     "images": [
       "/images/meta-products/CHV11PUREMAC.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/3a7/564_564_140cd750bba9870f18aada2478b24840a/chv5puremac_03_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/26f/564_564_140cd750bba9870f18aada2478b24840a/chv6puremac_03_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/eba/564_564_140cd750bba9870f18aada2478b24840a/chv5puremac_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/12a/564_564_140cd750bba9870f18aada2478b24840a/chv6puremac_1200x1200.webp"
+      "/images/product-gallery/545b5ba62e7f1d83-chv5puremac_03_1200x1200.webp",
+      "/images/product-gallery/0678656eec2c09df-chv6puremac_03_1200x1200.webp",
+      "/images/product-gallery/1be6821a2e7d1be8-chv5puremac_1200x1200.webp",
+      "/images/product-gallery/0ded2b71b09f762b-chv6puremac_1200x1200.webp"
     ],
     "details": {
       "documents": [
@@ -13963,10 +13963,10 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV11PUREBAL.jpg",
     "images": [
       "/images/meta-products/CHV11PUREBAL.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/1aa/564_564_140cd750bba9870f18aada2478b24840a/chv6purebal_03_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ae7/564_564_140cd750bba9870f18aada2478b24840a/chv5purebal_03_1200x1200-_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c03/564_564_140cd750bba9870f18aada2478b24840a/chv6purebal_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b43/564_564_140cd750bba9870f18aada2478b24840a/chv5purebal_1200x1200-_1_.webp"
+      "/images/product-gallery/9c93b044a03d32cf-chv6purebal_03_1200x1200.webp",
+      "/images/product-gallery/b72f492f57a154a8-chv5purebal_03_1200x1200-_1_.webp",
+      "/images/product-gallery/24b7f83c6121584d-chv6purebal_1200x1200.webp",
+      "/images/product-gallery/c2ef79313106408c-chv5purebal_1200x1200-_1_.webp"
     ],
     "details": {
       "documents": [
@@ -14012,8 +14012,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CPV25101ECO.jpg",
     "images": [
       "/images/meta-products/CPV25101ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/5f2/564_564_140cd750bba9870f18aada2478b24840a/pp_1-_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ef8/564_564_140cd750bba9870f18aada2478b24840a/pp-_1_.webp"
+      "/images/product-gallery/4c82d27a77aea22b-pp_1-_1_.webp",
+      "/images/product-gallery/21f5735b4cf6ad52-pp-_1_.webp"
     ],
     "details": {
       "documents": [
@@ -14060,8 +14060,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CPV25105ECO.jpg",
     "images": [
       "/images/meta-products/CPV25105ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d5f/564_564_140cd750bba9870f18aada2478b24840a/pp-_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/777/564_564_140cd750bba9870f18aada2478b24840a/pp_1-_1_.webp"
+      "/images/product-gallery/84ffcc884fe49f45-pp-_1_.webp",
+      "/images/product-gallery/2e3ac87a76f9cbe7-pp_1-_1_.webp"
     ],
     "details": {
       "documents": [
@@ -14108,8 +14108,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CPV251010ECO.jpg",
     "images": [
       "/images/meta-products/CPV251010ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/318/564_564_140cd750bba9870f18aada2478b24840a/pp-_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/5de/564_564_140cd750bba9870f18aada2478b24840a/pp_1-_1_.webp"
+      "/images/product-gallery/f31b336c18e25bfb-pp-_1_.webp",
+      "/images/product-gallery/0c6a31f0e60d064d-pp_1-_1_.webp"
     ],
     "details": {
       "specs": [
@@ -14194,8 +14194,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CPV251020ECO.jpg",
     "images": [
       "/images/meta-products/CPV251020ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/7a5/564_564_140cd750bba9870f18aada2478b24840a/pp-_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/372/564_564_140cd750bba9870f18aada2478b24840a/pp_1-_1_.webp"
+      "/images/product-gallery/c2fce53efa1ce24a-pp-_1_.webp",
+      "/images/product-gallery/26becb7cf58c9418-pp_1-_1_.webp"
     ],
     "details": {
       "documents": [
@@ -14245,7 +14245,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CPV25105BECO.jpg",
     "images": [
       "/images/meta-products/CPV25105BECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/cd4/564_564_140cd750bba9870f18aada2478b24840a/cpv25105beco_2-_1_.webp"
+      "/images/product-gallery/96cb8894a8ab8c5c-cpv25105beco_2-_1_.webp"
     ],
     "details": {
       "documents": [
@@ -14291,7 +14291,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CPV2510205ECO.jpg",
     "images": [
       "/images/meta-products/CPV2510205ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/74c/564_564_140cd750bba9870f18aada2478b24840a/cpv2510205eco_1-_1_.webp"
+      "/images/product-gallery/1880394b679f78c5-cpv2510205eco_1-_1_.webp"
     ],
     "details": {
       "specs": [
@@ -14827,7 +14827,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHV2510ECO.jpg",
     "images": [
       "/images/meta-products/CHV2510ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/299/564_564_140cd750bba9870f18aada2478b24840a/chv2510eco_1-_1_.webp"
+      "/images/product-gallery/120b28cacef68852-chv2510eco_1-_1_.webp"
     ],
     "details": {
       "specs": [
@@ -14897,7 +14897,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CHVCB2510ECO.jpg",
     "images": [
       "/images/meta-products/CHVCB2510ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/673/564_564_140cd750bba9870f18aada2478b24840a/chvcb2510eco_1-_1_.webp"
+      "/images/product-gallery/aa6edc470a94c84f-chvcb2510eco_1-_1_.webp"
     ],
     "details": {
       "specs": [
@@ -14977,7 +14977,7 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/CMV2510ECO.jpg",
     "images": [
       "/images/meta-products/CMV2510ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e05/564_564_140cd750bba9870f18aada2478b24840a/cmv2510eco_1-_1_.webp"
+      "/images/product-gallery/0bcdf051a8cb5adc-cmv2510eco_1-_1_.webp"
     ],
     "details": {
       "specs": [
@@ -16554,7 +16554,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_filter_ag_clack_media_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/a83/tds_filter_ag_clack_media_ua.pdf",
+          "href": "/documents/products/2d148ecf0983eae6-tds_filter_ag_clack_media_ua.pdf",
           "size": "594 KB"
         },
         {
@@ -16601,8 +16601,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/94241.jpg",
     "images": [
       "/images/meta-products/94241.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/11f/564_564_140cd750bba9870f18aada2478b24840a/tabs.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/43a/564_564_140cd750bba9870f18aada2478b24840a/facebook_sanitabs_1000.webp"
+      "/images/product-gallery/9b41cf7e257d833a-tabs.webp",
+      "/images/product-gallery/7777d8a2f1fa1e6f-facebook_sanitabs_1000.webp"
     ],
     "details": {
       "documents": [
@@ -16720,8 +16720,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ECOLITES25.jpg",
     "images": [
       "/images/meta-products/ECOLITES25.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/577/564_564_140cd750bba9870f18aada2478b24840a/bagecolites_b.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c65/564_564_140cd750bba9870f18aada2478b24840a/ecolite_sac_.webp"
+      "/images/product-gallery/e073a65869accc8d-bagecolites_b.webp",
+      "/images/product-gallery/3d39cbfea38c346f-ecolite_sac_.webp"
     ],
     "details": {
       "specs": [
@@ -16813,12 +16813,12 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_ecolitesoft_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/d9f/tds_ecolitesoft_ua.pdf",
+          "href": "/documents/products/53a6a1e16f429fd4-tds_ecolitesoft_ua.pdf",
           "size": "508 KB"
         },
         {
           "name": "eyenoauashchkya-yensfschkh_ksrssbpkrrk-fpsoy-yefolite-_1_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/1fb/eyenoauashchkya-yensfschkh_ksrssbpkrrk-fpsoy-yefolite-_1_.pdf",
+          "href": "/documents/products/a5022e8f0933789e-eyenoauashchkya-yensfschkh_ksrssbpkrrk-fpsoy-yefolite-_1.pdf",
           "size": "275 KB"
         },
         {
@@ -16915,7 +16915,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_filter_ag_plus_clack_media_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/e48/tds_filter_ag_plus_clack_media_ua.pdf",
+          "href": "/documents/products/c0bdd021c5779432-tds_filter_ag_plus_clack_media_ua.pdf",
           "size": "529 KB"
         },
         {
@@ -16973,8 +16973,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ECOLITEUS25.jpg",
     "images": [
       "/images/meta-products/ECOLITEUS25.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c23/564_564_140cd750bba9870f18aada2478b24840a/bagecoliteus_b.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/753/564_564_140cd750bba9870f18aada2478b24840a/ecolite_sac_ups_.webp"
+      "/images/product-gallery/9083504cfa2e693d-bagecoliteus_b.webp",
+      "/images/product-gallery/d288364997e99c20-ecolite_sac_ups_.webp"
     ],
     "details": {
       "specs": [
@@ -17066,12 +17066,12 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_ecoliteultrasoft_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/700/tds_ecoliteultrasoft_ua.pdf",
+          "href": "/documents/products/75d6a80edd24f123-tds_ecoliteultrasoft_ua.pdf",
           "size": "489 KB"
         },
         {
           "name": "eyenoauashchkya-yensfschkh_ksrssbpkrrk-fpsoy-yefolite-_1_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/f2e/eyenoauashchkya-yensfschkh_ksrssbpkrrk-fpsoy-yefolite-_1_.pdf",
+          "href": "/documents/products/129872cd44c1df47-eyenoauashchkya-yensfschkh_ksrssbpkrrk-fpsoy-yefolite-_1.pdf",
           "size": "275 KB"
         },
         {
@@ -17116,8 +17116,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ECOMIXP12.jpg",
     "images": [
       "/images/meta-products/ECOMIXP12.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/374/564_564_140cd750bba9870f18aada2478b24840a/ecomixp25_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/bef/564_564_140cd750bba9870f18aada2478b24840a/ecomixp25_4.webp"
+      "/images/product-gallery/9d53e7a8e6ae30e8-ecomixp25_02_1200x1200.webp",
+      "/images/product-gallery/d19e790048382af1-ecomixp25_4.webp"
     ],
     "details": {
       "specs": [
@@ -17193,7 +17193,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_ecomixp.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/bc6/tds_ecomixp.pdf",
+          "href": "/documents/products/6e5db2b56bddb519-tds_ecomixp.pdf",
           "size": "215 KB"
         },
         {
@@ -17271,7 +17271,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_ion_exchange_resin_dowex_hcr_ss.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/489/tds_ion_exchange_resin_dowex_hcr_ss.pdf",
+          "href": "/documents/products/2cf1f576704c1c5c-tds_ion_exchange_resin_dowex_hcr_ss.pdf",
           "size": "429 KB"
         },
         {
@@ -17321,8 +17321,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ECOMIXA12.jpg",
     "images": [
       "/images/meta-products/ECOMIXA12.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/1d8/564_564_140cd750bba9870f18aada2478b24840a/ecomixa25_02_1200x1200-_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/4f7/564_564_140cd750bba9870f18aada2478b24840a/ecomixa25_4.webp"
+      "/images/product-gallery/85f3eb21f8627385-ecomixa25_02_1200x1200-_1_.webp",
+      "/images/product-gallery/4e5fafb0050d42f7-ecomixa25_4.webp"
     ],
     "details": {
       "specs": [
@@ -17402,17 +17402,17 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_filtruyushchaya-smes_ecomix_a.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/278/tds_filtruyushchaya-smes_ecomix_a.pdf",
+          "href": "/documents/products/ae43c5967d8ee4cf-tds_filtruyushchaya-smes_ecomix_a.pdf",
           "size": "398 KB"
         },
         {
           "name": "tuv_en.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/ada/tuv_en.pdf",
+          "href": "/documents/products/a3d274e0a4ac44c1-tuv_en.pdf",
           "size": "290 KB"
         },
         {
           "name": "certificate_wqa_gold_seal.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/5fa/certificate_wqa_gold_seal.pdf",
+          "href": "/documents/products/157e8abfaf573c10-certificate_wqa_gold_seal.pdf",
           "size": "230 KB"
         },
         {
@@ -17462,8 +17462,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ECOMIXC12.jpg",
     "images": [
       "/images/meta-products/ECOMIXC12.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/881/564_564_140cd750bba9870f18aada2478b24840a/ecomixc25_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b78/564_564_140cd750bba9870f18aada2478b24840a/ecomixc25_4.webp"
+      "/images/product-gallery/efd337d2a48925e2-ecomixc25_02_1200x1200.webp",
+      "/images/product-gallery/2cc040377857f6ab-ecomixc25_4.webp"
     ],
     "details": {
       "specs": [
@@ -17543,17 +17543,17 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "certificate_wqa_gold_seal.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/84e/certificate_wqa_gold_seal.pdf",
+          "href": "/documents/products/d9281c876b63ae3f-certificate_wqa_gold_seal.pdf",
           "size": "230 KB"
         },
         {
           "name": "tds_filtruyushchaya_smes_ecomix_c.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/4fc/tds_filtruyushchaya_smes_ecomix_c.pdf",
+          "href": "/documents/products/d0d6103a44ac24a3-tds_filtruyushchaya_smes_ecomix_c.pdf",
           "size": "410 KB"
         },
         {
           "name": "tuv_en.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/115/tuv_en.pdf",
+          "href": "/documents/products/aa32ba3faef93acc-tuv_en.pdf",
           "size": "290 KB"
         },
         {
@@ -17603,8 +17603,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ECOLITED25.jpg",
     "images": [
       "/images/meta-products/ECOLITED25.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d7e/564_564_140cd750bba9870f18aada2478b24840a/bagecolited_b.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a03/564_564_140cd750bba9870f18aada2478b24840a/ecolite_mbd_.webp"
+      "/images/product-gallery/5eeed4f6c68804f2-bagecolited_b.webp",
+      "/images/product-gallery/9721d754faf0f9e9-ecolite_mbd_.webp"
     ],
     "details": {
       "specs": [
@@ -17692,12 +17692,12 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_ecolitedemin_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/33c/tds_ecolitedemin_ua.pdf",
+          "href": "/documents/products/e12f093268cf66e7-tds_ecolitedemin_ua.pdf",
           "size": "474 KB"
         },
         {
           "name": "eyenoauashchkya-yensfschkh_ksrssbpkrrk-fpsoy-yefolite-_1_.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/bce/eyenoauashchkya-yensfschkh_ksrssbpkrrk-fpsoy-yefolite-_1_.pdf",
+          "href": "/documents/products/9850ad2c9a331238-eyenoauashchkya-yensfschkh_ksrssbpkrrk-fpsoy-yefolite-_1.pdf",
           "size": "275 KB"
         },
         {
@@ -17742,8 +17742,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ECOMIXP25.jpg",
     "images": [
       "/images/meta-products/ECOMIXP25.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/dcf/564_564_140cd750bba9870f18aada2478b24840a/ecomixp25_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b8c/564_564_140cd750bba9870f18aada2478b24840a/ecomixp25_4.webp"
+      "/images/product-gallery/3dffb248bacb0e26-ecomixp25_02_1200x1200.webp",
+      "/images/product-gallery/caa2f0a639799a9f-ecomixp25_4.webp"
     ],
     "details": {
       "specs": [
@@ -17819,7 +17819,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_ecomixp.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/61e/tds_ecomixp.pdf",
+          "href": "/documents/products/bff2151039f5d770-tds_ecomixp.pdf",
           "size": "215 KB"
         },
         {
@@ -17869,8 +17869,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ECOMIXA25.jpg",
     "images": [
       "/images/meta-products/ECOMIXA25.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/0d1/564_564_140cd750bba9870f18aada2478b24840a/ecomixa25_02_1200x1200-_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a1b/564_564_140cd750bba9870f18aada2478b24840a/ecomixa25_4.webp"
+      "/images/product-gallery/35fa79f7ae7937ad-ecomixa25_02_1200x1200-_1_.webp",
+      "/images/product-gallery/0639dcf64cdf5699-ecomixa25_4.webp"
     ],
     "details": {
       "specs": [
@@ -17950,17 +17950,17 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_filtruyushchaya-smes_ecomix_a.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/245/tds_filtruyushchaya-smes_ecomix_a.pdf",
+          "href": "/documents/products/cd97a310a3512a3e-tds_filtruyushchaya-smes_ecomix_a.pdf",
           "size": "398 KB"
         },
         {
           "name": "tuv_en.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/6c5/tuv_en.pdf",
+          "href": "/documents/products/af42f7701dc420c1-tuv_en.pdf",
           "size": "290 KB"
         },
         {
           "name": "certificate_wqa_gold_seal.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/891/certificate_wqa_gold_seal.pdf",
+          "href": "/documents/products/53141b408f968771-certificate_wqa_gold_seal.pdf",
           "size": "230 KB"
         },
         {
@@ -18010,8 +18010,8 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ECOMIXC25.jpg",
     "images": [
       "/images/meta-products/ECOMIXC25.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/8b7/564_564_140cd750bba9870f18aada2478b24840a/ecomixc25_02_1200x1200.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/920/564_564_140cd750bba9870f18aada2478b24840a/ecomixc25_4.webp"
+      "/images/product-gallery/d7fcc8d340937079-ecomixc25_02_1200x1200.webp",
+      "/images/product-gallery/95b0144ee4c287d8-ecomixc25_4.webp"
     ],
     "details": {
       "specs": [
@@ -18091,17 +18091,17 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "certificate_wqa_gold_seal.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/452/certificate_wqa_gold_seal.pdf",
+          "href": "/documents/products/7a65b7ff334dc38f-certificate_wqa_gold_seal.pdf",
           "size": "230 KB"
         },
         {
           "name": "tds_filtruyushchaya_smes_ecomix_c.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/410/tds_filtruyushchaya_smes_ecomix_c.pdf",
+          "href": "/documents/products/1aaea4f012400615-tds_filtruyushchaya_smes_ecomix_c.pdf",
           "size": "410 KB"
         },
         {
           "name": "tuv_en.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/169/tuv_en.pdf",
+          "href": "/documents/products/a4a00750fa3a3edd-tuv_en.pdf",
           "size": "290 KB"
         },
         {
@@ -18207,7 +18207,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_calgon_carbon_centaur_12x40_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/479/tds_calgon_carbon_centaur_12x40_ua.pdf",
+          "href": "/documents/products/3267ea4d0a4a51c6-tds_calgon_carbon_centaur_12x40_ua.pdf",
           "size": "513 KB"
         },
         {
@@ -18292,7 +18292,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "tds_calgon_carbon_filtrasorb_300_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/9b4/tds_calgon_carbon_filtrasorb_300_ua.pdf",
+          "href": "/documents/products/b6b112cfed801598-tds_calgon_carbon_filtrasorb_300_ua.pdf",
           "size": "463 KB"
         },
         {
@@ -18377,7 +18377,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "amberlite-mb20-h-oh.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/404/amberlite-mb20-h-oh.pdf",
+          "href": "/documents/products/a1d4a22214c90ef0-amberlite-mb20-h-oh.pdf",
           "size": "252 KB"
         },
         {
@@ -18433,11 +18433,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ROBUST1000STD.jpg",
     "images": [
       "/images/meta-products/ROBUST1000STD.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b54/564_564_140cd750bba9870f18aada2478b24840a/robust1000std-_4_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/4bb/564_564_140cd750bba9870f18aada2478b24840a/robust1000std-_5_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/a90/564_564_140cd750bba9870f18aada2478b24840a/robust1000std-_2_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/0ab/564_564_140cd750bba9870f18aada2478b24840a/robust1000std-_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b3b/564_564_140cd750bba9870f18aada2478b24840a/robust1000std-_3_.webp"
+      "/images/product-gallery/fbf8e039172dbba1-robust1000std-_4_.webp",
+      "/images/product-gallery/0865e24c63e6220e-robust1000std-_5_.webp",
+      "/images/product-gallery/9a8d82dc5d4eb46e-robust1000std-_2_.webp",
+      "/images/product-gallery/e8a89c7f1a221af0-robust1000std-_1_.webp",
+      "/images/product-gallery/31c0f6965256023c-robust1000std-_3_.webp"
     ],
     "details": {
       "specs": [
@@ -18580,11 +18580,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ROBUST1500ECO.jpg",
     "images": [
       "/images/meta-products/ROBUST1500ECO.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/442/564_564_140cd750bba9870f18aada2478b24840a/robust1500-_4_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/66e/564_564_140cd750bba9870f18aada2478b24840a/robust1500-_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/c76/564_564_140cd750bba9870f18aada2478b24840a/robust1500-_5_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d55/564_564_140cd750bba9870f18aada2478b24840a/robust1500-_6_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b10/564_564_140cd750bba9870f18aada2478b24840a/robust1500-_2_.webp"
+      "/images/product-gallery/9fa3861adbedfb56-robust1500-_4_.webp",
+      "/images/product-gallery/e934fbe828937f9e-robust1500-_1_.webp",
+      "/images/product-gallery/8103e2a11d19922d-robust1500-_5_.webp",
+      "/images/product-gallery/f73c02d237693358-robust1500-_6_.webp",
+      "/images/product-gallery/9e70bf1230e8ab39-robust1500-_2_.webp"
     ],
     "details": {
       "specs": [
@@ -18734,11 +18734,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ROBUSTCOFFEE.jpg",
     "images": [
       "/images/meta-products/ROBUSTCOFFEE.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/def/564_564_140cd750bba9870f18aada2478b24840a/robustcoffee_4.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/e39/564_564_140cd750bba9870f18aada2478b24840a/robustcoffee_6.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b92/564_564_140cd750bba9870f18aada2478b24840a/robustcoffee_10.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ca7/564_564_140cd750bba9870f18aada2478b24840a/robustcoffee_32.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/b3f/564_564_140cd750bba9870f18aada2478b24840a/robustcoffee_33.webp"
+      "/images/product-gallery/ec0ff1660c02b3a7-robustcoffee_4.webp",
+      "/images/product-gallery/e0bdc384b55ce32f-robustcoffee_6.webp",
+      "/images/product-gallery/2935c3ec36930d5b-robustcoffee_10.webp",
+      "/images/product-gallery/4251780c7a485d30-robustcoffee_32.webp",
+      "/images/product-gallery/239042fd13cccd26-robustcoffee_33.webp"
     ],
     "details": {
       "specs": [
@@ -18822,7 +18822,7 @@ export const PRODUCTS: Product[] = [
       "documents": [
         {
           "name": "brobustcoffee_ua.pdf",
-          "href": "https://ecosoft.ua/upload/iblock/713/brobustcoffee_ua.pdf",
+          "href": "/documents/products/46e455816068f113-brobustcoffee_ua.pdf",
           "size": "404 KB"
         },
         {
@@ -18878,11 +18878,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ROBUST3000MAX.jpg",
     "images": [
       "/images/meta-products/ROBUST3000MAX.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/14f/564_564_140cd750bba9870f18aada2478b24840a/robust3000max_06.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/2aa/564_564_140cd750bba9870f18aada2478b24840a/robust3000max_07.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/395/564_564_140cd750bba9870f18aada2478b24840a/grg-1.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/d0d/564_564_140cd750bba9870f18aada2478b24840a/img_0283-_2_-2.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/9d7/564_564_140cd750bba9870f18aada2478b24840a/robust3000max_02.webp"
+      "/images/product-gallery/78fe00d455f56f42-robust3000max_06.webp",
+      "/images/product-gallery/43ed459e2841483f-robust3000max_07.webp",
+      "/images/product-gallery/40d0281d255be139-grg-1.webp",
+      "/images/product-gallery/b8bad442ec7c45e9-img_0283-_2_-2.webp",
+      "/images/product-gallery/cc0ecadb9f22293c-robust3000max_02.webp"
     ],
     "details": {
       "specs": [
@@ -19009,11 +19009,11 @@ export const PRODUCTS: Product[] = [
     "image": "/images/meta-products/ROBUST4000.jpg",
     "images": [
       "/images/meta-products/ROBUST4000.jpg",
-      "https://ecosoft.ua/upload/resize_cache/iblock/46c/564_564_140cd750bba9870f18aada2478b24840a/robust4000-_5_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/7ba/564_564_140cd750bba9870f18aada2478b24840a/robust4000-_6_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/296/564_564_140cd750bba9870f18aada2478b24840a/robust4000-_4_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ae9/564_564_140cd750bba9870f18aada2478b24840a/robust4000-_1_.webp",
-      "https://ecosoft.ua/upload/resize_cache/iblock/ae8/564_564_140cd750bba9870f18aada2478b24840a/robust4000-_7_.webp"
+      "/images/product-gallery/15ff5820583dc056-robust4000-_5_.webp",
+      "/images/product-gallery/31f00e11dbfe4623-robust4000-_6_.webp",
+      "/images/product-gallery/62a165fa00d4e061-robust4000-_4_.webp",
+      "/images/product-gallery/61c759e7a55700c1-robust4000-_1_.webp",
+      "/images/product-gallery/18d024689f64fafe-robust4000-_7_.webp"
     ],
     "details": {
       "specs": [

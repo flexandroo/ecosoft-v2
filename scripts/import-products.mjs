@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SRC = path.join(__dirname, "source");
 const OUT = path.join(__dirname, "..", "src", "lib", "products.ts");
+const ASSET_MANIFEST_PATH = path.join(SRC, "product-assets.manifest.json");
 
 const products = JSON.parse(
   fs.readFileSync(path.join(SRC, "products.data.json"), "utf8"),
@@ -15,6 +16,13 @@ const products = JSON.parse(
 const details = JSON.parse(
   fs.readFileSync(path.join(SRC, "product-details.data.json"), "utf8"),
 );
+const assetManifest = fs.existsSync(ASSET_MANIFEST_PATH)
+  ? JSON.parse(fs.readFileSync(ASSET_MANIFEST_PATH, "utf8"))
+  : {};
+
+function mirroredAssetUrl(url) {
+  return assetManifest[String(url)] || String(url);
+}
 
 const BROKEN_DOCUMENT_URLS = new Set([
   "https://ecosoft.ua/upload/iblock/86b/manual_ecosoft_water_filter.pdf",
@@ -363,7 +371,8 @@ for (const p of products) {
         )
         .map((doc) => {
           const { name, size } = parseDocSize(doc.title);
-          return size ? { name, href: doc.url, size } : { name, href: doc.url };
+          const href = mirroredAssetUrl(doc.url);
+          return size ? { name, href, size } : { name, href };
         })
     : [];
 
@@ -379,7 +388,7 @@ for (const p of products) {
               !BROKEN_IMAGE_URLS.has(String(url)),
           ),
         ),
-      ].slice(0, 5)
+      ].slice(0, 5).map(mirroredAssetUrl)
     : [];
   const images = [image, ...secondaryImages];
 
