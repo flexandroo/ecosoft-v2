@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
           "form-action 'self'",
           "frame-ancestors 'self'",
           "object-src 'none'",
-          "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://www.clarity.ms https://static.cloudflareinsights.com",
+          "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://*.clarity.ms https://static.cloudflareinsights.com",
           "style-src 'self' 'unsafe-inline'",
           "img-src 'self' data: blob: https:",
           "font-src 'self' data:",
