@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
           "img-src 'self' data: blob: https:",
           "font-src 'self' data:",
           "media-src 'self'",
-          "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net https://www.facebook.com https://www.clarity.ms https://*.clarity.ms https://cloudflareinsights.com",
+          "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net https://www.facebook.com https://www.clarity.ms https://*.clarity.ms https://cloudflareinsights.com https://*.on.aws https://*.run.app",
           "frame-src https://www.googletagmanager.com",
           "upgrade-insecure-requests",
         ].join("; "),
