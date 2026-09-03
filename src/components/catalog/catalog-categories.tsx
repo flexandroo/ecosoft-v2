@@ -38,7 +38,7 @@ export function CatalogCategories() {
                     aria-hidden
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-contain object-right p-5 pb-16 pl-[38%] transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(90deg,oklch(0.98_0.008_220)_0%,oklch(0.97_0.014_222/0.96)_38%,oklch(0.96_0.018_222/0.24)_74%,transparent_100%),linear-gradient(0deg,oklch(0.98_0.008_220/0.98)_0%,transparent_62%)] transition-opacity duration-300 group-hover:opacity-90" />
                   <div className="relative z-10 p-5 md:p-6">

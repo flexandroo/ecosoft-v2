@@ -52,7 +52,7 @@ export function PageHeader({
           compact
             ? "pb-4 pt-24 md:pb-5 md:pt-28"
             : hasImage
-              ? "flex min-h-[21rem] flex-col justify-end pb-12 pt-28 md:min-h-[27rem] md:pb-16 md:pt-32"
+              ? "flex min-h-[17rem] flex-col justify-end pb-8 pt-24 md:min-h-[21rem] md:pb-10 md:pt-24"
               : "pb-10 pt-28 md:pb-12 md:pt-32"
         }`}
       >

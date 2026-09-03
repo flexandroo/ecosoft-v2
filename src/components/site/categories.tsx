@@ -105,7 +105,7 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
             aria-hidden
             fill
             sizes={featured ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 768px) 33vw, 100vw"}
-            className="object-contain object-right p-4 pb-16 pl-[38%] transition-transform duration-700 ease-out group-hover:scale-[1.04] md:p-5 md:pb-20 md:pl-[42%]"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
           <span
             aria-hidden

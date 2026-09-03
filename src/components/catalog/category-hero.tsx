@@ -40,7 +40,7 @@ export function CategoryHero({
   categoryKey: CategoryKey;
   title: string;
   products: Product[];
-  /** Optional representative product from the verified Ecosoft catalogue. */
+  /** Category scene generated from a verified Ecosoft product reference. */
   image?: string;
 }) {
   const count = products.length;
@@ -51,10 +51,27 @@ export function CategoryHero({
 
   return (
     <section className="relative isolate overflow-hidden border-b border-primary/10 bg-[oklch(0.96_0.018_222)] text-foreground">
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(75%_160%_at_88%_40%,oklch(0.87_0.065_222/0.72),transparent_64%)]"
-      />
+      {image ? (
+        <>
+          <Image
+            src={image}
+            alt=""
+            fill
+            preload
+            sizes="100vw"
+            className="-z-20 object-cover object-[62%_center] md:object-center"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,oklch(0.985_0.006_220/0.98)_0%,oklch(0.98_0.01_220/0.94)_38%,oklch(0.97_0.014_222/0.52)_62%,transparent_88%)]"
+          />
+        </>
+      ) : (
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-[radial-gradient(75%_160%_at_88%_40%,oklch(0.87_0.065_222/0.72),transparent_64%)]"
+        />
+      )}
 
       <div className="mx-auto flex max-w-[1600px] items-end justify-between gap-5 px-4 pb-6 pt-20 md:min-h-52 md:px-8 md:pb-8 md:pt-24">
         <div className="max-w-2xl">
@@ -85,14 +102,7 @@ export function CategoryHero({
           </p>
         </div>
 
-        {image ? (
-          <div
-            aria-hidden
-            className="relative hidden h-36 w-60 shrink-0 overflow-hidden rounded-3xl border border-white/80 bg-white/90 shadow-lg shadow-primary/10 md:block lg:h-40 lg:w-72"
-          >
-            <Image src={image} alt="" fill sizes="288px" className="object-contain p-3" />
-          </div>
-        ) : montage.length > 0 ? (
+        {!image && montage.length > 0 ? (
           <div aria-hidden className="hidden shrink-0 items-center lg:flex">
             {montage.map((src, i) => (
               <span

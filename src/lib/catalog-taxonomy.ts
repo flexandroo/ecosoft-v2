@@ -1,14 +1,14 @@
 import type { CategoryKey } from "@/lib/products";
 
 export const CATEGORY_IMAGES: Record<CategoryKey, string> = {
-  "reverse-osmosis": "/images/meta-products/MO550MECOSTD.jpg",
-  "flow-filters": "/images/meta-products/FMV3ECOSTD.jpg",
-  "filtration-systems": "/images/meta-products/FU1054CI.jpg",
-  "mainline-filters": "/images/meta-products/FPV12ECO.jpg",
-  "ro-cartridges": "/images/meta-products/CPV3ECOSTD.jpg",
-  "mainline-cartridges": "/images/meta-products/CPV25101ECO.jpg",
-  "filter-media": "/images/meta-products/KECOSIL.jpg",
-  horeca: "/images/meta-products/ROBUSTCOFFEE.jpg",
+  "reverse-osmosis": "/images/category-scenes-v3/reverse-osmosis.png",
+  "flow-filters": "/images/category-scenes-v3/flow-filters.png",
+  "filtration-systems": "/images/category-scenes-v3/filtration-systems.png",
+  "mainline-filters": "/images/category-scenes-v3/mainline-filters.png",
+  "ro-cartridges": "/images/category-scenes-v3/ro-cartridges.png",
+  "mainline-cartridges": "/images/category-scenes-v3/mainline-cartridges.png",
+  "filter-media": "/images/category-scenes-v3/filter-media.png",
+  horeca: "/images/category-scenes-v3/horeca.png",
 };
 
 export type CatalogGroup = {
