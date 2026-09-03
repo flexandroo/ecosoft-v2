@@ -31,6 +31,7 @@ export const CATEGORY_FACETS: Record<CategoryKey, FacetDef[]> = {
     { key: "format", label: "Формат" },
     { key: "series", label: "Серія" },
     { key: "media", label: "Завантаження" },
+    { key: "problem", label: "Проблема води" },
     { key: "level", label: "Рівень" },
   ],
   "mainline-filters": [
@@ -39,6 +40,7 @@ export const CATEGORY_FACETS: Record<CategoryKey, FacetDef[]> = {
     { key: "connection", label: "Підключення" },
     { key: "body", label: "Корпус" },
     { key: "purpose", label: "Призначення" },
+    { key: "problem", label: "Проблема води" },
   ],
   "ro-cartridges": [
     { key: "type", label: "Тип" },
@@ -53,6 +55,7 @@ export const CATEGORY_FACETS: Record<CategoryKey, FacetDef[]> = {
     { key: "task", label: "Завдання" },
     { key: "micron", label: "Рейтинг фільтрації" },
     { key: "qty", label: "Кількість у комплекті" },
+    { key: "problem", label: "Проблема води" },
   ],
   "filter-media": [
     { key: "materialType", label: "Тип матеріалу" },
@@ -80,18 +83,29 @@ export type AvailableFacet = { def: FacetDef; options: FacetOption[] };
 export function getAvailableFacets(
   products: Product[],
   defs: FacetDef[],
+  selected: SelectedFacets = {},
 ): AvailableFacet[] {
   const result: AvailableFacet[] = [];
   for (const def of defs) {
+    const allValues = new Set<string>();
+    for (const product of products) {
+      for (const value of product.filters?.[def.key] ?? []) allValues.add(value);
+    }
+    if (allValues.size < 2) continue;
+
+    // Ecosoft-style faceting: an option count reflects every active filter
+    // except the current group. Values already chosen in this group remain OR'ed.
+    const otherSelections = Object.fromEntries(
+      Object.entries(selected).filter(([key, values]) => key !== def.key && values.length > 0),
+    );
     const counts = new Map<string, number>();
-    for (const p of products) {
-      const vals = p.filters?.[def.key];
+    for (const p of products.filter((product) => matchesFacets(product, otherSelections))) {
+      const vals = p.filters?.[def.key] ?? [];
       if (!vals) continue;
       for (const v of vals) counts.set(v, (counts.get(v) ?? 0) + 1);
     }
-    if (counts.size < 2) continue;
-    const options = [...counts.entries()]
-      .map(([value, count]) => ({ value, count }))
+    const options = [...allValues]
+      .map((value) => ({ value, count: counts.get(value) ?? 0 }))
       .sort((a, b) => a.value.localeCompare(b.value, "uk", { numeric: true }));
     result.push({ def, options });
   }

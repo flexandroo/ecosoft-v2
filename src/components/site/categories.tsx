@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Droplet, Waves, Package, Filter, Layers } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { CATEGORY_IMAGES } from "@/lib/catalog-taxonomy";
 
 type Category = {
   href: string;
@@ -20,19 +22,21 @@ const CATEGORIES: Category[] = [
     icon: Droplet,
     span: "md:col-span-2 md:row-span-2",
     featured: true,
-    image: "/images/hero-poster.webp",
+    image: CATEGORY_IMAGES["reverse-osmosis"],
   },
   {
     href: "/catalog/mainline-filters",
     title: "Магістральні фільтри",
     desc: "Очищення води на вході в будинок.",
     icon: Filter,
+    image: CATEGORY_IMAGES["mainline-filters"],
   },
   {
     href: "/catalog/flow-filters",
     title: "Проточні фільтри",
     desc: "Компактні фільтри під мийку.",
     icon: Waves,
+    image: CATEGORY_IMAGES["flow-filters"],
   },
   {
     href: "/catalog/filtration-systems",
@@ -40,12 +44,14 @@ const CATEGORIES: Category[] = [
     desc: "Помʼякшення, знезалізнення та механічне очищення.",
     icon: Package,
     span: "md:col-span-2",
+    image: CATEGORY_IMAGES["filtration-systems"],
   },
   {
     href: "/catalog/ro-cartridges",
     title: "Картриджі",
     desc: "Змінні елементи для обслуговування систем.",
     icon: Layers,
+    image: CATEGORY_IMAGES["ro-cartridges"],
   },
 ];
 
@@ -84,7 +90,7 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
         "group relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border p-6 transition-all duration-200",
         "hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/15 active:translate-y-0 active:scale-[0.99]",
         image
-          ? "border-primary/40 text-primary-foreground"
+          ? "border-white/10 bg-[oklch(0.18_0.04_220)] text-white"
           : featured
             ? "border-primary bg-primary text-primary-foreground"
             : "border-border bg-card hover:border-primary/40",
@@ -93,14 +99,17 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
     >
       {image && (
         <>
-          <span
+          <Image
+            src={image}
+            alt=""
             aria-hidden
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${image})` }}
+            fill
+            sizes={featured ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 768px) 33vw, 100vw"}
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
           <span
             aria-hidden
-            className="absolute inset-0 bg-[oklch(0.20_0.10_252)]/55"
+            className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.12_0.04_232/0.16)_0%,oklch(0.12_0.04_232/0.46)_50%,oklch(0.10_0.04_232/0.92)_100%)] transition-opacity duration-300 group-hover:opacity-90"
           />
         </>
       )}

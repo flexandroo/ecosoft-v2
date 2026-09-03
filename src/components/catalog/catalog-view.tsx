@@ -106,8 +106,8 @@ export function CatalogView({
   // Available facets are driven by config + the products in scope; facets with
   // fewer than 2 distinct values are dropped automatically.
   const availableFacets = useMemo(
-    () => getAvailableFacets(products, facetsForCategory(lockedCategory)),
-    [products, lockedCategory],
+    () => getAvailableFacets(products, facetsForCategory(lockedCategory), selected),
+    [products, lockedCategory, selected],
   );
 
   const filtered = useMemo(() => {
@@ -153,12 +153,22 @@ export function CatalogView({
     });
   };
 
+  const removeFacet = (key: string, value: string) => {
+    setSelected((prev) => {
+      const next = (prev[key] ?? []).filter((item) => item !== value);
+      const updated = { ...prev, [key]: next };
+      if (next.length === 0) delete updated[key];
+      return updated;
+    });
+  };
+
   const resetAll = () => {
     setSelected({});
     setQuery("");
     setInStockOnly(false);
     setPriceMin("");
     setPriceMax("");
+    setSort("default");
   };
 
   const closeMobileFilters = () => {
@@ -177,6 +187,12 @@ export function CatalogView({
 
   const minPriceOfAll = Math.min(...products.map((p) => p.price));
   const maxPriceOfAll = Math.max(...products.map((p) => p.price));
+  const facetLabels = new Map(
+    facetsForCategory(lockedCategory).map((facet) => [facet.key, facet.label]),
+  );
+  const activeSelections = Object.entries(selected).flatMap(([key, values]) =>
+    values.map((value) => ({ key, value, label: facetLabels.get(key) ?? key })),
+  );
 
   return (
     <section className="mx-auto max-w-[1600px] px-4 py-10 md:px-8 md:py-14">
@@ -265,6 +281,52 @@ export function CatalogView({
               </label>
             </div>
           </div>
+
+          {hasActiveFilters && (
+            <div className="mb-5 flex flex-wrap items-center gap-2" aria-label="Активні фільтри">
+              {activeSelections.map((item) => (
+                <button
+                  key={`${item.key}-${item.value}`}
+                  type="button"
+                  onClick={() => removeFacet(item.key, item.value)}
+                  aria-label={`Прибрати фільтр ${item.label}: ${item.value}`}
+                  className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 text-xs font-semibold text-foreground transition-colors hover:border-primary/40 hover:bg-primary/10"
+                >
+                  <span className="text-muted-foreground">{item.label}:</span> {item.value}
+                  <X className="size-3.5 text-primary" aria-hidden />
+                </button>
+              ))}
+              {inStockOnly && (
+                <button
+                  type="button"
+                  onClick={() => setInStockOnly(false)}
+                  className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 text-xs font-semibold text-foreground transition-colors hover:border-primary/40 hover:bg-primary/10"
+                >
+                  В наявності <X className="size-3.5 text-primary" aria-hidden />
+                </button>
+              )}
+              {(priceMin || priceMax) && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPriceMin("");
+                    setPriceMax("");
+                  }}
+                  className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 text-xs font-semibold text-foreground transition-colors hover:border-primary/40 hover:bg-primary/10"
+                >
+                  Ціна: {priceMin || "0"}–{priceMax || "∞"} ₴
+                  <X className="size-3.5 text-primary" aria-hidden />
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={resetAll}
+                className="min-h-9 px-2 text-xs font-semibold text-primary hover:underline"
+              >
+                Скинути всі
+              </button>
+            </div>
+          )}
 
           {!showResults ? (
             <div className="rounded-2xl border border-dashed border-border bg-card p-12 text-center">
@@ -425,15 +487,20 @@ function FiltersPanel({
         <FilterGroup key={def.key} title={def.label}>
           {options.map((opt) => {
             const checked = (selected[def.key] ?? []).includes(opt.value);
+            const unavailable = opt.count === 0 && !checked;
             return (
               <label
                 key={opt.value}
-                className="flex cursor-pointer items-center justify-between rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-muted"
+                className={[
+                  "flex items-center justify-between rounded-md px-2 py-1.5 text-sm transition-colors",
+                  unavailable ? "cursor-not-allowed opacity-45" : "cursor-pointer hover:bg-muted",
+                ].join(" ")}
               >
                 <span className="flex items-center gap-2">
                   <input
                     type="checkbox"
                     checked={checked}
+                    disabled={unavailable}
                     onChange={() => toggleFacet(def.key, opt.value)}
                     className="size-4 rounded border-border text-primary focus:ring-2 focus:ring-ring/30"
                   />
@@ -496,10 +563,13 @@ function FilterGroup({
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      <h3 className="mb-2 text-sm font-semibold text-foreground">{title}</h3>
+    <details open className="group border-b border-border/70 pb-5 last:border-b-0">
+      <summary className="mb-2 flex cursor-pointer list-none items-center justify-between gap-3 rounded-md py-1 text-sm font-semibold text-foreground outline-none transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring/30 [&::-webkit-details-marker]:hidden">
+        {title}
+        <ChevronDown className="size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180" aria-hidden />
+      </summary>
       <div>{children}</div>
-    </div>
+    </details>
   );
 }
 

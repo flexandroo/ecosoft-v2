@@ -5,6 +5,7 @@ import { Footer } from "@/components/site/footer";
 import { CatalogView } from "@/components/catalog/catalog-view";
 import { CategoryHero } from "@/components/catalog/category-hero";
 import { CategoryPills } from "@/components/catalog/category-pills";
+import { categoryImage } from "@/lib/catalog-taxonomy";
 import {
   CATEGORIES,
   findCategory,
@@ -16,22 +17,6 @@ type Params = { category: string };
 
 export function generateStaticParams(): Params[] {
   return CATEGORIES.map((c) => ({ category: c.key }));
-}
-
-// Generated category banners — keep in sync with files in /public/images/categories.
-const CATEGORY_IMAGES: Record<string, string> = {
-  "reverse-osmosis": "/images/categories/reverse-osmosis.webp",
-  "flow-filters": "/images/categories/flow-filters.webp",
-  "filtration-systems": "/images/categories/filtration-systems.webp",
-  "mainline-filters": "/images/categories/mainline-filters.webp",
-  "ro-cartridges": "/images/categories/ro-cartridges.webp",
-  "mainline-cartridges": "/images/categories/mainline-cartridges.webp",
-  "filter-media": "/images/categories/filter-media.webp",
-  horeca: "/images/categories/horeca.webp",
-};
-
-function categoryImage(key: string): string | undefined {
-  return CATEGORY_IMAGES[key];
 }
 
 export async function generateMetadata({
@@ -50,7 +35,7 @@ export async function generateMetadata({
       url: `/catalog/${category}`,
       title: cat.title,
       description: `${cat.title} — каталог Ecosoft. Доставка по Україні, гарантія, монтаж під ключ.`,
-      images: [{ url: categoryImage(category) ?? "/opengraph-image" }],
+      images: [{ url: categoryImage(category as CategoryKey) }],
     },
   };
 }
@@ -73,7 +58,7 @@ export default async function CategoryCatalogPage({
           categoryKey={category as CategoryKey}
           title={cat.title}
           products={products}
-          image={categoryImage(category)}
+          image={categoryImage(category as CategoryKey)}
         />
         <div className="mx-auto max-w-[1600px] px-4 pt-6 md:px-8">
           <CategoryPills />
