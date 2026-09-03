@@ -36,7 +36,7 @@ import { PHONE_CONTACTS } from "@/lib/contact-details";
 import { ProductCard } from "@/components/catalog/product-card";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 import { ViewItemTracker } from "./view-item-tracker";
-import { DescriptionAccordion } from "./description-accordion";
+import { ProductDescription } from "./product-description";
 import { getProductImagePath } from "@/lib/product-identity";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
@@ -74,6 +74,7 @@ export function ProductDetail({ product }: { product: Product }) {
   const CategoryIcon = ICON_BY_CATEGORY[product.category];
   const related = relatedProducts(product, 4);
   const comparison = buildComparison(product);
+  const detailedDescription = d.longDescription?.trim() || product.description;
   // Use a model-specific warranty if the data has one; otherwise stay neutral
   // (no hardcoded "3 роки" / "5 років" that could contradict other pages).
   const warranty = d.specs?.find((s) => /гаран/i.test(s.label))?.value;
@@ -445,11 +446,9 @@ export function ProductDetail({ product }: { product: Product }) {
         )}
 
         {/* LONG DESCRIPTION */}
-        {d.longDescription && (
+        {detailedDescription && (
           <Section title="Детальний опис" eyebrow="Про продукт">
-            <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <DescriptionAccordion text={d.longDescription} />
-            </div>
+            <ProductDescription text={detailedDescription} />
           </Section>
         )}
 
@@ -458,16 +457,16 @@ export function ProductDetail({ product }: { product: Product }) {
           <Section title="Документи" eyebrow="Завантаження">
             <ul className="grid gap-2 sm:grid-cols-2">
               {d.documents.map((doc) => (
-                <li key={doc.name}>
+                <li key={doc.name} className="min-w-0">
                   <a
                     href={doc.href}
-                    className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:bg-muted"
+                    className="flex min-w-0 items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:bg-muted"
                   >
-                    <span className="grid size-9 place-items-center rounded-lg bg-primary/10 text-primary">
+                    <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
                       <FileText className="size-4" />
                     </span>
-                    <span className="flex-1">
-                      <span className="block text-sm font-medium text-foreground">
+                    <span className="min-w-0 flex-1">
+                      <span className="block break-words text-sm font-medium text-foreground">
                         {doc.name}
                       </span>
                       {doc.size && (
@@ -476,7 +475,7 @@ export function ProductDetail({ product }: { product: Product }) {
                         </span>
                       )}
                     </span>
-                    <Download className="size-4 text-muted-foreground" />
+                    <Download className="size-4 shrink-0 text-muted-foreground" />
                   </a>
                 </li>
               ))}
