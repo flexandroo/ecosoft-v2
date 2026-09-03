@@ -98,6 +98,8 @@ export default function DeliveryPage() {
         <PageHeader
           title="Доставка і оплата"
           subtitle="Доставляємо обладнання для очищення води по Україні та допомагаємо організувати монтаж системи після покупки."
+          image="/images/page-headers/customer-service.png"
+          imageAlt="Підготовка системи очищення води до доставки"
           crumbs={[
             { href: "/", label: "Головна" },
             { label: "Доставка і оплата" },

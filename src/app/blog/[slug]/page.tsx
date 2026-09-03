@@ -65,6 +65,8 @@ export default async function BlogPostPage({
         />
         <PageHeader
           title={post.title}
+          image="/images/page-headers/blog.png"
+          imageAlt="Перевірка якості води та фільтрувальні матеріали"
           crumbs={[
             { href: "/", label: "Головна" },
             { href: "/blog", label: "Блог" },

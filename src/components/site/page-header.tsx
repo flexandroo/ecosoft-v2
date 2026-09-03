@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
@@ -7,35 +8,73 @@ export function PageHeader({
   title,
   subtitle,
   crumbs,
+  image,
+  imageAlt = "",
 }: {
   title?: string;
   subtitle?: string;
   crumbs: Crumb[];
+  image?: string;
+  imageAlt?: string;
 }) {
   const compact = !title;
+  const hasImage = Boolean(image && title);
+
   return (
-    <section className="border-b border-border bg-card">
+    <section
+      className={`relative isolate overflow-hidden border-b border-border ${
+        hasImage ? "bg-slate-900" : "bg-card"
+      }`}
+    >
+      {hasImage && image && (
+        <>
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill
+            preload
+            sizes="100vw"
+            className="-z-20 object-cover object-center"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(7,24,43,0.94)_0%,rgba(7,24,43,0.82)_38%,rgba(7,24,43,0.35)_68%,rgba(7,24,43,0.18)_100%)]"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(7,24,43,0.28),transparent_55%)]"
+          />
+        </>
+      )}
+
       <div
-        className={`mx-auto max-w-[1600px] px-4 md:px-8 ${
+        className={`relative mx-auto max-w-[1600px] px-4 md:px-8 ${
           compact
             ? "pb-4 pt-24 md:pb-5 md:pt-28"
-            : "pb-10 pt-28 md:pb-12 md:pt-32"
+            : hasImage
+              ? "flex min-h-[21rem] flex-col justify-end pb-12 pt-28 md:min-h-[27rem] md:pb-16 md:pt-32"
+              : "pb-10 pt-28 md:pb-12 md:pt-32"
         }`}
       >
         <nav
           aria-label="Хлібні крихти"
-          className={`flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground ${
+          className={`flex flex-wrap items-center gap-1.5 text-xs ${
+            hasImage ? "text-white/75" : "text-muted-foreground"
+          } ${
             title ? "mb-4" : ""
           }`}
         >
           {crumbs.map((c, i) => (
             <span key={i} className="inline-flex items-center gap-1.5">
               {c.href ? (
-                <Link href={c.href} className="hover:text-foreground">
+                <Link
+                  href={c.href}
+                  className={hasImage ? "transition-colors hover:text-white" : "hover:text-foreground"}
+                >
                   {c.label}
                 </Link>
               ) : (
-                <span className="text-foreground">{c.label}</span>
+                <span className={hasImage ? "text-white" : "text-foreground"}>{c.label}</span>
               )}
               {i < crumbs.length - 1 && <ChevronRight className="size-3" aria-hidden />}
             </span>
@@ -43,13 +82,21 @@ export function PageHeader({
         </nav>
 
         {title && (
-          <h1 className="font-[family-name:var(--font-manrope)] text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+          <h1
+            className={`max-w-4xl font-[family-name:var(--font-manrope)] text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl ${
+              hasImage ? "text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.18)]" : ""
+            }`}
+          >
             {title}
           </h1>
         )}
 
         {subtitle && (
-          <p className="mt-3 max-w-2xl text-base text-muted-foreground md:text-lg">
+          <p
+            className={`mt-3 max-w-2xl text-base md:text-lg ${
+              hasImage ? "text-white/85" : "text-muted-foreground"
+            }`}
+          >
             {subtitle}
           </p>
         )}
