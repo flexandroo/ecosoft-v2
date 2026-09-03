@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
         value: [
           "default-src 'self'",
           "base-uri 'self'",
-          "form-action 'self'",
+          "form-action 'self' https://www.facebook.com",
           "frame-ancestors 'self'",
           "object-src 'none'",
           "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://*.clarity.ms https://static.cloudflareinsights.com",
@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
           "font-src 'self' data:",
           "media-src 'self'",
           "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net https://www.facebook.com https://www.clarity.ms https://*.clarity.ms https://cloudflareinsights.com https://*.on.aws https://*.run.app",
-          "frame-src https://www.googletagmanager.com",
+          "frame-src https://www.googletagmanager.com https://www.facebook.com",
           "upgrade-insecure-requests",
         ].join("; "),
       },
