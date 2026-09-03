@@ -27,7 +27,7 @@ export default function BlogPage() {
         <PageHeader
           title="Блог про очищення води"
           subtitle="Поради з вибору фільтрів, догляду за системами та покращення якості води вдома чи в бізнесі."
-          image="/images/page-headers/blog.png"
+          image="/images/page-headers/blog-water-quality-v2.png"
           imageAlt="Перевірка якості води та фільтрувальні матеріали"
           crumbs={[
             { href: "/", label: "Головна" },

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import type { CategoryKey, Product } from "@/lib/products";
@@ -39,7 +40,7 @@ export function CategoryHero({
   categoryKey: CategoryKey;
   title: string;
   products: Product[];
-  /** Optional generated category background (full-bleed cover). */
+  /** Optional representative product from the verified Ecosoft catalogue. */
   image?: string;
 }) {
   const count = products.length;
@@ -49,60 +50,49 @@ export function CategoryHero({
     .slice(0, 3);
 
   return (
-    <section className="relative isolate overflow-hidden bg-[oklch(0.18_0.04_220)] text-white">
-      {image ? (
-        <>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={image}
-            alt=""
-            aria-hidden
-            className="absolute inset-0 -z-20 size-full object-cover"
-          />
-          {/* left-weighted overlay keeps the copy legible over any image */}
-          <div
-            aria-hidden
-            className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,oklch(0.15_0.04_220/0.92)_0%,oklch(0.16_0.04_220/0.7)_42%,oklch(0.18_0.04_220/0.4)_100%)]"
-          />
-        </>
-      ) : (
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 bg-[radial-gradient(120%_140%_at_85%_0%,oklch(0.30_0.10_232/0.55),transparent_60%)]"
-        />
-      )}
+    <section className="relative isolate overflow-hidden border-b border-primary/10 bg-[oklch(0.96_0.018_222)] text-foreground">
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[radial-gradient(75%_160%_at_88%_40%,oklch(0.87_0.065_222/0.72),transparent_64%)]"
+      />
 
-      <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-4 pb-8 pt-24 md:flex-row md:items-center md:justify-between md:px-8 md:pb-12 md:pt-28">
+      <div className="mx-auto flex max-w-[1600px] items-end justify-between gap-5 px-4 pb-6 pt-20 md:min-h-52 md:px-8 md:pb-8 md:pt-24">
         <div className="max-w-2xl">
           <nav
             aria-label="Хлібні крихти"
-            className="flex flex-wrap items-center gap-1.5 text-xs text-white/70"
+            className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground"
           >
-            <Link href="/" className="transition-colors hover:text-white">
+            <Link href="/" className="transition-colors hover:text-primary">
               Головна
             </Link>
             <ChevronRight className="size-3" aria-hidden />
-            <Link href="/catalog" className="transition-colors hover:text-white">
+            <Link href="/catalog" className="transition-colors hover:text-primary">
               Каталог
             </Link>
             <ChevronRight className="size-3" aria-hidden />
-            <span className="text-white">{title}</span>
+            <span className="text-foreground">{title}</span>
           </nav>
 
           <h1 className="mt-3 font-[family-name:var(--font-manrope)] text-2xl font-bold tracking-tight md:text-4xl">
             {title}
           </h1>
-          <p className="mt-2 max-w-xl text-sm text-white/80 md:text-base">
+          <p className="mt-2 max-w-xl text-sm text-muted-foreground md:text-base">
             {SUBTITLES[categoryKey]}
           </p>
-          <p className="mt-3 text-xs text-white/60 md:text-sm">
-            <span className="tabular font-semibold text-white">{count}</span>{" "}
+          <p className="mt-3 text-xs text-muted-foreground md:text-sm">
+            <span className="tabular font-semibold text-foreground">{count}</span>{" "}
             {pluralize(count, ["товар", "товари", "товарів"])} у категорії
           </p>
         </div>
 
-        {/* product montage — shown only as a fallback when no generated image */}
-        {!image && montage.length > 0 && (
+        {image ? (
+          <div
+            aria-hidden
+            className="relative hidden h-36 w-60 shrink-0 overflow-hidden rounded-3xl border border-white/80 bg-white/90 shadow-lg shadow-primary/10 md:block lg:h-40 lg:w-72"
+          >
+            <Image src={image} alt="" fill sizes="288px" className="object-contain p-3" />
+          </div>
+        ) : montage.length > 0 ? (
           <div aria-hidden className="hidden shrink-0 items-center lg:flex">
             {montage.map((src, i) => (
               <span
@@ -124,7 +114,7 @@ export function CategoryHero({
               </span>
             ))}
           </div>
-        )}
+        ) : null}
       </div>
     </section>
   );

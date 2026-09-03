@@ -90,7 +90,7 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
         "group relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border p-6 transition-all duration-200",
         "hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/15 active:translate-y-0 active:scale-[0.99]",
         image
-          ? "border-white/10 bg-[oklch(0.18_0.04_220)] text-white"
+          ? "border-primary/10 bg-[oklch(0.965_0.018_222)] text-foreground"
           : featured
             ? "border-primary bg-primary text-primary-foreground"
             : "border-border bg-card hover:border-primary/40",
@@ -105,11 +105,11 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
             aria-hidden
             fill
             sizes={featured ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 768px) 33vw, 100vw"}
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+            className="object-contain object-right p-4 pb-16 pl-[38%] transition-transform duration-700 ease-out group-hover:scale-[1.04] md:p-5 md:pb-20 md:pl-[42%]"
           />
           <span
             aria-hidden
-            className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.12_0.04_232/0.16)_0%,oklch(0.12_0.04_232/0.46)_50%,oklch(0.10_0.04_232/0.92)_100%)] transition-opacity duration-300 group-hover:opacity-90"
+            className="absolute inset-0 bg-[linear-gradient(90deg,oklch(0.98_0.008_220)_0%,oklch(0.97_0.014_222/0.96)_38%,oklch(0.96_0.018_222/0.28)_74%,transparent_100%),linear-gradient(0deg,oklch(0.98_0.008_220/0.98)_0%,transparent_62%)] transition-opacity duration-300 group-hover:opacity-90"
           />
         </>
       )}
@@ -118,7 +118,7 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
           className={[
             "inline-flex size-11 items-center justify-center rounded-xl backdrop-blur-md",
             image
-              ? "bg-white/20 text-white ring-1 ring-white/20"
+              ? "bg-white/80 text-primary ring-1 ring-primary/10"
               : featured
                 ? "bg-white/15 text-white"
                 : "bg-primary/10 text-primary",
@@ -129,7 +129,7 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
         <ArrowUpRight
           className={[
             "size-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5",
-            image || featured ? "text-white/85" : "text-muted-foreground group-hover:text-primary",
+            image ? "text-primary" : featured ? "text-white/85" : "text-muted-foreground group-hover:text-primary",
           ].join(" ")}
         />
       </div>
@@ -138,7 +138,7 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
           className={[
             "font-[family-name:var(--font-manrope)] font-bold leading-tight tracking-tight",
             featured ? "text-3xl md:text-4xl" : "text-xl md:text-2xl",
-            image ? "drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]" : "",
+            image ? "text-foreground" : "",
           ].join(" ")}
         >
           {title}
@@ -146,8 +146,7 @@ function CategoryCard({ href, title, desc, icon: Icon, span, featured, image }: 
         <p
           className={[
             "mt-2 max-w-md text-sm leading-relaxed",
-            image || featured ? "text-white/90" : "text-muted-foreground",
-            image ? "drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]" : "",
+            featured && !image ? "text-white/90" : "text-muted-foreground",
           ].join(" ")}
         >
           {desc}

@@ -21,8 +21,8 @@ export default function CatalogPage() {
         <PageHeader
           title="Каталог"
           subtitle="Усі товари Ecosoft в одному каталозі — оберіть категорію або скористайтеся пошуком і фільтрами."
-          image="/images/page-headers/catalog.png"
-          imageAlt="Системи очищення води для дому та бізнесу"
+          image="/images/page-headers/catalog-water-v2.png"
+          imageAlt="Чиста вода з мʼякими світловими відблисками"
           crumbs={[
             { href: "/", label: "Головна" },
             { label: "Каталог" },

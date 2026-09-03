@@ -135,8 +135,8 @@ export default function AboutPage() {
         <PageHeader
           title="Підбираємо надійні системи очищення води для дому та бізнесу"
           subtitle="Допомагаємо обрати правильну систему очищення води, виконуємо монтаж і супроводжуємо її сервісно. Працюємо з обладнанням українського виробника Ecosoft, який розвиває напрямок водопідготовки з 1991 року."
-          image="/images/page-headers/customer-service.png"
-          imageAlt="Підготовка системи очищення води до встановлення"
+          image="/images/page-headers/service-water-test-v2.png"
+          imageAlt="Фахівець перевіряє якість води"
           crumbs={[
             { href: "/", label: "Головна" },
             { label: "Про нас" },

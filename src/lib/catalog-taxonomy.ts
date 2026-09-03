@@ -1,14 +1,14 @@
 import type { CategoryKey } from "@/lib/products";
 
 export const CATEGORY_IMAGES: Record<CategoryKey, string> = {
-  "reverse-osmosis": "/images/categories/reverse-osmosis.webp",
-  "flow-filters": "/images/categories/flow-filters.webp",
-  "filtration-systems": "/images/categories/filtration-systems.webp",
-  "mainline-filters": "/images/categories/mainline-filters.webp",
-  "ro-cartridges": "/images/categories/ro-cartridges.webp",
-  "mainline-cartridges": "/images/categories/mainline-cartridges.webp",
-  "filter-media": "/images/categories/filter-media.webp",
-  horeca: "/images/categories/horeca.webp",
+  "reverse-osmosis": "/images/meta-products/MO550MECOSTD.jpg",
+  "flow-filters": "/images/meta-products/FMV3ECOSTD.jpg",
+  "filtration-systems": "/images/meta-products/FU1054CI.jpg",
+  "mainline-filters": "/images/meta-products/FPV12ECO.jpg",
+  "ro-cartridges": "/images/meta-products/CPV3ECOSTD.jpg",
+  "mainline-cartridges": "/images/meta-products/CPV25101ECO.jpg",
+  "filter-media": "/images/meta-products/KECOSIL.jpg",
+  horeca: "/images/meta-products/ROBUSTCOFFEE.jpg",
 };
 
 export type CatalogGroup = {

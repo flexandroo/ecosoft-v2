@@ -30,7 +30,7 @@ export function CatalogCategories() {
                 <Link
                   key={key}
                   href={`/catalog/${key}`}
-                  className="group relative flex aspect-[16/10] min-h-52 flex-col justify-end overflow-hidden rounded-2xl border border-border bg-[oklch(0.18_0.04_220)] text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 active:translate-y-0"
+                  className="group relative flex aspect-[16/10] min-h-52 flex-col justify-end overflow-hidden rounded-2xl border border-primary/10 bg-[oklch(0.965_0.018_222)] text-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 active:translate-y-0"
                 >
                   <Image
                     src={CATEGORY_IMAGES[key]}
@@ -38,20 +38,20 @@ export function CatalogCategories() {
                     aria-hidden
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    className="object-contain object-right p-5 pb-16 pl-[38%] transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(to_top,oklch(0.10_0.04_220/0.94),oklch(0.12_0.04_220/0.32)_58%,transparent)] transition-opacity duration-300 group-hover:opacity-90" />
+                  <div className="absolute inset-0 bg-[linear-gradient(90deg,oklch(0.98_0.008_220)_0%,oklch(0.97_0.014_222/0.96)_38%,oklch(0.96_0.018_222/0.24)_74%,transparent_100%),linear-gradient(0deg,oklch(0.98_0.008_220/0.98)_0%,transparent_62%)] transition-opacity duration-300 group-hover:opacity-90" />
                   <div className="relative z-10 p-5 md:p-6">
                     <div className="flex items-end justify-between gap-3">
                       <div>
-                        <h3 className="font-[family-name:var(--font-manrope)] text-xl font-bold leading-tight tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] md:text-2xl">
+                        <h3 className="font-[family-name:var(--font-manrope)] text-xl font-bold leading-tight tracking-tight md:text-2xl">
                           {category.title}
                         </h3>
-                        <p className="mt-1.5 text-sm text-white/80 tabular">
+                        <p className="mt-1.5 text-sm text-muted-foreground tabular">
                           {count} {pluralize(count, ["товар", "товари", "товарів"])}
                         </p>
                       </div>
-                      <span className="grid size-10 shrink-0 place-items-center rounded-full bg-white/15 backdrop-blur-md ring-1 ring-white/15 transition-colors group-hover:bg-white/25">
+                      <span className="grid size-10 shrink-0 place-items-center rounded-full bg-white/80 text-primary ring-1 ring-primary/10 transition-colors group-hover:bg-white">
                         <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                       </span>
                     </div>

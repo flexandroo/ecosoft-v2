@@ -21,8 +21,8 @@ export default function SolutionsPage() {
         <PageHeader
           title="Рішення для очищення води"
           subtitle="Оберіть сценарій — покажемо відповідні системи Ecosoft і допоможемо з підбором."
-          image="/images/page-headers/solutions.png"
-          imageAlt="Чиста вода з крана у сучасному будинку"
+          image="/images/page-headers/solutions-water-v2.png"
+          imageAlt="Склянка чистої води у світлому сучасному будинку"
           crumbs={[
             { href: "/", label: "Головна" },
             { label: "Рішення" },

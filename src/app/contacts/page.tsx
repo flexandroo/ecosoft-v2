@@ -73,7 +73,7 @@ export default function ContactsPage() {
         <PageHeader
           title="Контакти"
           subtitle="Зателефонуйте, напишіть або залиште звернення — допоможемо підібрати систему очищення води під ваш обʼєкт."
-          image="/images/page-headers/contacts.png"
+          image="/images/page-headers/contacts-consultation-v2.png"
           imageAlt="Консультація з підбору системи очищення води"
           crumbs={[
             { href: "/", label: "Головна" },

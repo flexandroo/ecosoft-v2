@@ -57,8 +57,8 @@ export default function ReturnsPage() {
         <PageHeader
           title="Повернення та обмін"
           subtitle="Умови повернення, обміну та дій у гарантійних випадках."
-          image="/images/page-headers/customer-service.png"
-          imageAlt="Підготовка системи очищення води до встановлення"
+          image="/images/page-headers/service-water-test-v2.png"
+          imageAlt="Фахівець перевіряє якість води"
           crumbs={[
             { href: "/", label: "Головна" },
             { label: "Повернення та обмін" },

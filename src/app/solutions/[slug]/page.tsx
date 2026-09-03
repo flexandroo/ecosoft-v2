@@ -61,8 +61,8 @@ export default async function SolutionPage({
         <PageHeader
           title={s.title}
           subtitle={s.intro}
-          image="/images/page-headers/solutions.png"
-          imageAlt="Чиста вода з крана у сучасному будинку"
+          image="/images/page-headers/solutions-water-v2.png"
+          imageAlt="Склянка чистої води у світлому сучасному будинку"
           crumbs={[
             { href: "/", label: "Головна" },
             { href: "/solutions", label: "Рішення" },
