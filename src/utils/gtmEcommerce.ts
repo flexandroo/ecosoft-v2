@@ -1,8 +1,9 @@
-// GA4 ecommerce events pushed to window.dataLayer (GTM/GA4 datalayer pattern).
-// Every push first clears the previous ecommerce object, then dispatches the
-// event. All functions are client-only and safe to call during SSR (no-op).
+// Ecommerce events are sent both to GA4/GTM and directly to Meta Pixel.
+// Every dataLayer push first clears the previous ecommerce object. All
+// functions are client-only and safe to call during SSR (no-op).
 import { findCategory } from "@/lib/products";
 import { getProductItemId } from "@/lib/product-identity";
+import { trackMetaEvent } from "@/utils/metaPixel";
 
 type DataLayerObject = Record<string, unknown>;
 
@@ -80,12 +81,64 @@ export function mapProductToGA4Item(
   };
 }
 
-/** Low-level push: clears ecommerce, then dispatches the event (client only). */
-function pushEcommerce(event: string, ecommerce: DataLayerObject): void {
+const META_EVENT_BY_GA4: Record<string, string> = {
+  view_item: "ViewContent",
+  add_to_cart: "AddToCart",
+  begin_checkout: "InitiateCheckout",
+  generate_lead: "Lead",
+  purchase: "Purchase",
+};
+
+function pushMetaEcommerce(
+  event: string,
+  ecommerce: DataLayerObject,
+  eventId?: string,
+): void {
+  const metaEvent = META_EVENT_BY_GA4[event];
+  if (!metaEvent) return;
+
+  const items = Array.isArray(ecommerce.items)
+    ? (ecommerce.items as GA4Item[])
+    : [];
+  const params: DataLayerObject = {
+    currency: ecommerce.currency ?? CURRENCY,
+    value: ecommerce.value ?? 0,
+  };
+
+  if (items.length > 0) {
+    params.content_type = "product";
+    params.content_ids = items.map((item) => item.item_id);
+    params.contents = items.map((item) => ({
+      id: item.item_id,
+      quantity: item.quantity,
+      item_price: item.price,
+    }));
+    params.num_items = items.reduce((sum, item) => sum + item.quantity, 0);
+  }
+
+  if (event === "generate_lead") {
+    params.lead_id = ecommerce.lead_id;
+    params.lead_type = ecommerce.lead_type;
+  }
+
+  if (event === "purchase") {
+    params.transaction_id = ecommerce.transaction_id;
+  }
+
+  trackMetaEvent(metaEvent, params, eventId);
+}
+
+/** Push to GA4/GTM and directly to Meta Pixel (client only). */
+function pushEcommerce(
+  event: string,
+  ecommerce: DataLayerObject,
+  eventId?: string,
+): void {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ ecommerce: null });
   window.dataLayer.push({ event, ecommerce });
+  pushMetaEcommerce(event, ecommerce, eventId);
 }
 
 export function pushViewItem(product: GA4ItemInput): void {
@@ -118,13 +171,17 @@ export function pushBeginCheckout(
 
 export function pushGenerateLead(lead: GA4LeadInput): void {
   const items = lead.items ?? [];
-  pushEcommerce("generate_lead", {
-    lead_id: lead.leadId,
-    lead_type: lead.leadType,
-    currency: CURRENCY,
-    value: round2(lead.total || 0),
-    items: items.map((item) => mapProductToGA4Item(item, item.quantity)),
-  });
+  pushEcommerce(
+    "generate_lead",
+    {
+      lead_id: lead.leadId,
+      lead_type: lead.leadType,
+      currency: CURRENCY,
+      value: round2(lead.total || 0),
+      items: items.map((item) => mapProductToGA4Item(item, item.quantity)),
+    },
+    lead.leadId,
+  );
 }
 
 // Guards against duplicate purchase pushes for the same transaction_id, both
@@ -162,12 +219,16 @@ export function pushPurchase(order: GA4OrderInput): void {
   if (!order.transactionId) return;
   if (alreadyPurchased(order.transactionId)) return;
   markPurchased(order.transactionId);
-  pushEcommerce("purchase", {
-    transaction_id: order.transactionId,
-    currency: CURRENCY,
-    value: round2(order.total),
-    shipping: round2(order.shipping || 0),
-    tax: round2(order.tax || 0),
-    items: order.items.map((it) => mapProductToGA4Item(it, it.quantity)),
-  });
+  pushEcommerce(
+    "purchase",
+    {
+      transaction_id: order.transactionId,
+      currency: CURRENCY,
+      value: round2(order.total),
+      shipping: round2(order.shipping || 0),
+      tax: round2(order.tax || 0),
+      items: order.items.map((it) => mapProductToGA4Item(it, it.quantity)),
+    },
+    order.transactionId,
+  );
 }

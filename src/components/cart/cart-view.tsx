@@ -16,7 +16,11 @@ import { useCart, type CartLine } from "./cart-context";
 import { formatUah } from "@/lib/format";
 import { isValidUkrainianPhone } from "@/lib/validation";
 import { PHONE_CONTACTS } from "@/lib/contact-details";
-import { pushBeginCheckout, pushGenerateLead } from "@/utils/gtmEcommerce";
+import {
+  pushBeginCheckout,
+  pushGenerateLead,
+  pushPurchase,
+} from "@/utils/gtmEcommerce";
 import { createLeadIdentity, getMarketingAttribution } from "@/utils/marketing-attribution";
 
 const FREE_SHIPPING_THRESHOLD = 5000;
@@ -99,10 +103,17 @@ export function CartView() {
         throw new Error("order_failed");
       }
 
-      // The form submission is a lead; Purchase is sent only after CRM completion.
+      const transactionId = data.orderId ?? identity.externalId;
       pushGenerateLead({
-        leadId: data.orderId ?? identity.externalId,
+        leadId: transactionId,
         leadType: "order",
+        total: orderTotal,
+        items,
+      });
+      // There is no online payment: for Meta, Purchase means the customer has
+      // successfully placed an order that the manager will confirm and invoice.
+      pushPurchase({
+        transactionId,
         total: orderTotal,
         items,
       });
