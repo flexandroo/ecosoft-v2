@@ -30,20 +30,14 @@ type Contact = {
 };
 
 const CONTACTS: Contact[] = [
-  {
+  ...PHONE_CONTACTS.map((phone, index) => ({
     icon: Phone,
-    label: "Телефон 1",
-    value: PHONE_CONTACTS[0].display,
-    href: PHONE_CONTACTS[0].href,
+    label:
+      PHONE_CONTACTS.length === 1 ? "Телефон" : `Телефон ${index + 1}`,
+    value: phone.display,
+    href: phone.href,
     hint: "Дзвінки за тарифами вашого оператора",
-  },
-  {
-    icon: Phone,
-    label: "Телефон 2",
-    value: PHONE_CONTACTS[1].display,
-    href: PHONE_CONTACTS[1].href,
-    hint: "Дзвінки за тарифами вашого оператора",
-  },
+  })),
   {
     icon: Mail,
     label: "Email",
