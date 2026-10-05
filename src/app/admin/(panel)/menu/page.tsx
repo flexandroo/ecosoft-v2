@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { requireStaff } from "@/lib/admin/auth";
-import { BLOG_POSTS } from "@/lib/blog";
 import { DEFAULT_CATEGORIES } from "@/lib/categories-shared";
 import { mergeMenus } from "@/lib/menus-shared";
+import { postStatus } from "@/lib/posts-shared";
 import { SOLUTIONS } from "@/lib/solutions";
 import { createSessionClient } from "@/lib/supabase/server";
 import { PageTitle } from "../ui";
@@ -25,9 +25,10 @@ const PAGES = [
 export default async function MenuPage() {
   await requireStaff();
   const supabase = await createSessionClient();
-  const [{ data: menuRows }, { data: categoryRows }] = await Promise.all([
+  const [{ data: menuRows }, { data: categoryRows }, { data: postRows }] = await Promise.all([
     supabase.from("site_menus").select("key, items"),
     supabase.from("categories").select("key, title, short_title, is_hidden").order("sort"),
+    supabase.from("posts").select("slug, title, is_published, published_at").order("published_at", { ascending: false }),
   ]);
   const menus = mergeMenus(Object.fromEntries((menuRows ?? []).map((row) => [row.key, row.items])));
   const categories = categoryRows?.length
@@ -41,11 +42,18 @@ export default async function MenuPage() {
       links: categories.map((c) => ({
         href: `/catalog/${c.key}`,
         label: c.title,
-        note: c.is_hidden ? "прихована на сайті" : undefined,
+        note: c.is_hidden ? "Категорія прихована на сайті" : undefined,
       })),
     },
     { title: "Рішення", links: SOLUTIONS.map((s) => ({ href: `/solutions/${s.slug}`, label: s.title })) },
-    { title: "Блог", links: BLOG_POSTS.map((p) => ({ href: `/blog/${p.slug}`, label: p.title })) },
+    {
+      title: "Блог і кейси",
+      links: (postRows ?? []).map((p) => ({
+        href: `/blog/${p.slug}`,
+        label: p.title,
+        note: postStatus(p).label === "Опубліковано" ? undefined : "Запис ще не опублікований",
+      })),
+    },
   ];
 
   return (

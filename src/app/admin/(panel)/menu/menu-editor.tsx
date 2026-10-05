@@ -209,7 +209,7 @@ function LinkRow({
   if (link.href && !isValidMenuHref(link.href)) warning = "Посилання має починатися з «/» (сторінка сайту) або з https://";
   else if (link.href.startsWith("/") && !known && !/^\/catalog\/[^/]+\/[^/]+/.test(link.href.split(/[?#]/)[0])) {
     warning = "Такої сторінки немає в списку — перевірте адресу";
-  } else if (known?.note) warning = `Категорія ${known.note}`;
+  } else if (known?.note) warning = known.note;
 
   return (
     <div className="space-y-2">

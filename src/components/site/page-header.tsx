@@ -34,6 +34,8 @@ export function PageHeader({
             fill
             preload
             sizes="100vw"
+            // Admin uploads live in Supabase storage and are already compressed on upload.
+            unoptimized={/^https?:\/\//.test(image)}
             className="-z-20 object-cover object-center"
           />
           <div

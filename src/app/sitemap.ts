@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
-import { BLOG_POSTS } from "@/lib/blog";
 import { CATEGORIES } from "@/lib/products";
 import { getProducts } from "@/lib/catalog";
+import { getPosts } from "@/lib/posts";
 import { SOLUTIONS } from "@/lib/solutions";
 import { getProductImagePath } from "@/lib/product-identity";
 
@@ -33,8 +33,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     images: [`${SITE_URL}${getProductImagePath(product)}`],
   }));
 
-  const blogPages: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+  const blogPages: MetadataRoute.Sitemap = (await getPosts()).map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: post.updatedAt,
     changeFrequency: "monthly",
     priority: 0.6,
   }));

@@ -13,6 +13,7 @@ const FOLDERS = [
   { id: "library", label: "Загальні" },
   { id: "products", label: "Товари" },
   { id: "banners", label: "Банери" },
+  { id: "blog", label: "Блог" },
 ] as const;
 
 const PAGE_SIZE = 60;
