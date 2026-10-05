@@ -10,6 +10,10 @@ import { META_PIXEL_ID } from "@/utils/metaPixel";
 
 const GTM_ID = "GTM-NGD37LTG";
 
+// Dev/preview builds set NEXT_PUBLIC_DISABLE_TRACKING=1 so test traffic never
+// reaches Meta Pixel / GTM. Production never sets it: tracking stays on by default.
+const TRACKING_ENABLED = process.env.NEXT_PUBLIC_DISABLE_TRACKING !== "1";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin", "cyrillic"],
@@ -59,6 +63,7 @@ export default function RootLayout({
       className={`${inter.variable} ${manrope.variable} h-full antialiased`}
     >
       <head>
+        {TRACKING_ENABLED && (<>
         {/* Meta Pixel: direct base integration, independent from GTM timing. */}
         <Script id="meta-pixel-base" strategy="beforeInteractive">
           {`(function(w,d,s,u,id){
@@ -96,8 +101,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','${GTM_ID}');`}
         </Script>
         {/* End Google Tag Manager */}
+        </>)}
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        {TRACKING_ENABLED && (<>
         <Suspense fallback={null}>
           <MetaPageViewTracker />
         </Suspense>
@@ -121,6 +128,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        </>)}
         <JsonLd
           data={{
             "@context": "https://schema.org",
