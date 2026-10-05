@@ -186,7 +186,7 @@ function MediaDetails({
                 {used.map((u) => (
                   <li key={u.href}>
                     <Link href={u.href} className="text-primary hover:underline">
-                      {{ product: "Товар", banner: "Банер", category: "Категорія", post: "Блог" }[u.kind]}: {u.title}
+                      {{ product: "Товар", banner: "Банер", category: "Категорія", post: "Блог", page: "Сторінка" }[u.kind]}: {u.title}
                     </Link>
                   </li>
                 ))}

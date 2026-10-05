@@ -22,6 +22,8 @@ import { SETTINGS_TAG } from "@/lib/settings";
 import { mediaUsage } from "@/lib/admin/media";
 import { normalizePhone, type HoursRow, type PhoneSetting } from "@/lib/settings-shared";
 import { POSTS_TAG } from "@/lib/posts";
+import { PAGES_TAG } from "@/lib/pages";
+import { PAGE_META, isPageKey, validatePage } from "@/lib/pages-shared";
 import { slugify } from "@/lib/posts-shared";
 
 export type FormState = { error?: string; ok?: string } | null;
@@ -813,4 +815,46 @@ export async function deletePost(id: string): Promise<void> {
   await supabase.from("audit_log").insert({ actor: staff.userId, entity: "post", entity_id: id, action: "delete", diff: {} });
   postsChanged();
   redirect("/admin/blog");
+}
+
+// ---------------------------------------------------------------------------
+// Information pages
+// ---------------------------------------------------------------------------
+
+export async function savePage(_prev: FormState, fd: FormData): Promise<FormState> {
+  const staff = await requireStaff();
+  const key = str(fd, "key", 20);
+  if (!isPageKey(key)) return { error: "Невідома сторінка." };
+  let input: unknown;
+  try {
+    input = JSON.parse(str(fd, "payload", 200000));
+  } catch {
+    return { error: "Некоректні дані форми." };
+  }
+  const result = validatePage(key, input);
+  if ("error" in result) return { error: result.error };
+
+  const supabase = await createSessionClient();
+  const { error } = await supabase
+    .from("site_pages")
+    .upsert({ key, content: result.page, updated_by: staff.userId }, { onConflict: "key" });
+  if (error) return { error: `Не вдалося зберегти: ${error.message}` };
+  await supabase.from("audit_log").insert({ actor: staff.userId, entity: "page", entity_id: key, action: "update", diff: result.page });
+  updateTag(PAGES_TAG);
+  revalidatePath("/admin/pages");
+  revalidatePath(`/admin/pages/${key}`);
+  return { ok: `Збережено. Сторінка «${PAGE_META[key].label}» оновиться на сайті протягом хвилини.` };
+}
+
+/** Drops the stored copy so the page shows its built-in content again. */
+export async function resetPage(key: string): Promise<void> {
+  const staff = await requireStaff();
+  if (!isPageKey(key)) throw new Error("Невідома сторінка.");
+  const supabase = await createSessionClient();
+  const { error } = await supabase.from("site_pages").delete().eq("key", key);
+  if (error) throw new Error(error.message);
+  await supabase.from("audit_log").insert({ actor: staff.userId, entity: "page", entity_id: key, action: "reset", diff: {} });
+  updateTag(PAGES_TAG);
+  revalidatePath("/admin/pages");
+  revalidatePath(`/admin/pages/${key}`);
 }
