@@ -39,6 +39,8 @@ export type HomeSlide = {
   imageDesktop: string;
   imageMobile: string;
   theme: "dark" | "light";
+  /** Purpose-made banner from the admin (wide art with room for text on the left). */
+  bannerArt?: boolean;
 };
 
 export type HomeCategory = {
@@ -78,6 +80,7 @@ function fromBanner(b: Banner): HomeSlide {
     imageDesktop: b.imageDesktop ?? "",
     imageMobile: b.imageMobile || b.imageDesktop || "",
     theme: b.theme,
+    bannerArt: true,
   };
 }
 

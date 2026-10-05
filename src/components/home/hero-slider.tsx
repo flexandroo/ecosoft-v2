@@ -51,13 +51,15 @@ export function HeroSlider({
       onBlurCapture={() => setPaused(false)}
       className={cn(
         "relative isolate overflow-hidden rounded-2xl bg-muted",
-        size === "wide" ? "h-[480px] md:h-[520px]" : "h-[480px] md:h-full md:min-h-[420px]",
+        size === "wide" ? "h-[500px] md:h-[520px]" : "h-[500px] md:h-full md:min-h-[420px]",
         className,
       )}
     >
       {slides.map((slide, i) => {
         const active = i === index;
         const dark = slide.theme === "dark";
+        // A separate phone image is drawn for the portrait frame: show it whole, anchored to the bottom.
+        const mobileArt = Boolean(slide.imageMobile && slide.imageMobile !== slide.imageDesktop);
         return (
           <div
             key={slide.id}
@@ -78,9 +80,17 @@ export function HeroSlider({
                 fetchPriority={i === 0 ? "high" : "auto"}
                 loading={i === 0 ? "eager" : "lazy"}
                 className={cn(
-                  "absolute object-cover object-[72%_center]",
+                  "absolute object-cover",
+                  // Admin banners are wide art with the product right of centre: when the panel is
+                  // narrower than the art, crop mostly from the right so the product clears the text.
+                  slide.bannerArt ? "md:object-[30%_center]" : "md:object-[72%_center]",
                   // Light banners have no scrim: on phones the photo sits under the text instead of behind it.
-                  dark ? "inset-0 size-full" : "inset-x-0 bottom-0 h-[44%] w-full md:inset-0 md:h-full",
+                  dark
+                    ? "inset-0 size-full object-[72%_center]"
+                    : mobileArt
+                      ? // Full width at its own proportions; the empty top of the art fades into the panel under the text.
+                        "inset-x-0 bottom-0 h-auto w-full [mask-image:linear-gradient(to_bottom,transparent,#000_22%)] md:inset-0 md:size-full md:[mask-image:none]"
+                      : "inset-x-0 bottom-0 h-[44%] w-full object-[72%_center] md:inset-0 md:h-full",
                 )}
               />
             </picture>
@@ -90,6 +100,7 @@ export function HeroSlider({
               className={cn(
                 "relative flex h-full max-w-xl flex-col justify-start p-6 pt-7 md:justify-center md:p-10 lg:p-12",
                 !dark && "md:max-w-[46%]",
+                slide.bannerArt && "md:pr-4 lg:pr-4",
                 dark ? "text-white" : "text-foreground",
               )}
             >
@@ -98,11 +109,24 @@ export function HeroSlider({
                   {slide.eyebrow}
                 </p>
               )}
-              <h2 className="mt-3 font-[family-name:var(--font-manrope)] text-[28px] leading-[1.08] font-extrabold tracking-tight md:text-[40px] lg:text-[44px]">
+              <h2
+                className={cn(
+                  "mt-3 font-[family-name:var(--font-manrope)] text-[28px] leading-[1.08] font-extrabold tracking-tight",
+                  size === "wide" ? "md:text-[40px] lg:text-[44px]" : "md:text-[30px] 2xl:text-[38px]",
+                )}
+              >
                 {slide.title}
               </h2>
               {slide.subtitle && (
-                <p className={cn("mt-3 max-w-md text-[15px] leading-relaxed md:text-base", dark ? "text-white/85" : "text-muted-foreground")}>
+                <p
+                  className={cn(
+                    "mt-3 max-w-md text-[15px] leading-relaxed",
+                    size === "wide" ? "md:text-base" : "2xl:text-base",
+                    dark ? "text-white/85" : "text-muted-foreground",
+                    // Phone art leaves room for a heading and button only.
+                    mobileArt && !dark && "hidden md:block",
+                  )}
+                >
                   {slide.subtitle}
                 </p>
               )}
@@ -120,8 +144,8 @@ export function HeroSlider({
       })}
 
       {count > 1 && (
-        <div className="absolute right-4 bottom-4 left-6 z-20 flex items-center justify-between md:left-10 lg:left-12">
-          <div className="flex gap-1.5">
+        <div className="absolute right-4 bottom-4 z-20 flex items-center gap-2">
+          <div className="flex h-11 items-center rounded-full bg-white/90 px-1.5 shadow-sm ring-1 ring-black/5">
             {slides.map((s, i) => (
               <button
                 key={s.id}
@@ -129,7 +153,7 @@ export function HeroSlider({
                 aria-label={`Показати слайд ${i + 1}`}
                 aria-current={i === index}
                 onClick={() => go(i)}
-                className="grid h-11 w-8 place-items-center"
+                className="grid h-11 min-w-6 place-items-center px-1"
               >
                 <span className={cn("h-1.5 rounded-full transition-all", i === index ? "w-7 bg-primary" : "w-3 bg-foreground/25")} />
               </button>
