@@ -20,6 +20,7 @@ import {
   FileText,
   Download,
   ArrowRight,
+  Truck,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -32,8 +33,11 @@ import { relatedFrom } from "@/lib/catalog";
 import { formatUah } from "@/lib/format";
 import type { PhoneContact } from "@/lib/settings-shared";
 import { ProductCard } from "@/components/catalog/product-card";
-import { ProductImage } from "@/components/catalog/product-image";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
+import { keySpecLabels, keySpecValue, keySpecs, productBrand } from "@/lib/catalog-facets";
+import { BuyBox, CopySku } from "./buy-box";
+import { ProductGallery } from "./product-gallery";
+import { ProductTabs, type ProductTab } from "./product-tabs";
 import { ViewItemTracker } from "./view-item-tracker";
 import { ProductDescription } from "./product-description";
 import { getProductDisplayImage } from "@/lib/product-identity";
@@ -92,8 +96,167 @@ export function ProductDetail({
     localImage,
     ...(product.images ?? []).filter((image) => image && image !== localImage),
   ].filter(Boolean);
-  const mainImage = gallery[0];
-  const thumbs = gallery.slice(0, 4);
+  const brand = productBrand(product);
+  const topSpecs = keySpecs(product, 4);
+  const sideSpecs = keySpecs(product, 6);
+
+  const description = (
+    <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-14">
+      <div className="min-w-0 space-y-10">
+        {detailedDescription && <ProductDescription text={detailedDescription} />}
+
+        {d.audience && d.audience.length > 0 && (
+          <SubSection title="Кому підходить">
+            <div className="flex flex-wrap gap-2">
+              {d.audience.map((a) => (
+                <span key={a} className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground">
+                  <Check className="size-3.5 text-primary" />
+                  {a}
+                </span>
+              ))}
+            </div>
+          </SubSection>
+        )}
+
+        {d.highlights && d.highlights.length > 0 && (
+          <SubSection title="Головні переваги">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {d.highlights.map((h) => {
+                const Icon = HIGHLIGHT_ICONS[h.icon];
+                return (
+                  <div key={h.title} className="flex gap-4 rounded-2xl border border-border bg-card p-5">
+                    <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <Icon className="size-5" />
+                    </span>
+                    <div>
+                      <h4 className="font-[family-name:var(--font-manrope)] font-bold tracking-tight">{h.title}</h4>
+                      <p className="mt-1 text-sm text-muted-foreground">{h.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </SubSection>
+        )}
+
+        {d.removes && d.removes.length > 0 && (
+          <SubSection title="Що очищує">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {d.removes.map((r) => (
+                <div key={r.name} className="rounded-xl border border-border bg-card px-4 py-3">
+                  <div className="text-sm font-medium text-foreground">{r.name}</div>
+                  {r.pct && <div className="mt-1 text-xs font-bold text-primary tabular">до {r.pct}</div>}
+                </div>
+              ))}
+            </div>
+          </SubSection>
+        )}
+
+        {d.bundle && d.bundle.length > 0 && (
+          <SubSection title="Комплектація">
+            <ul className="grid gap-2.5 sm:grid-cols-2">
+              {d.bundle.map((item) => (
+                <li key={item} className="flex items-start gap-2 rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground">
+                  <Package className="mt-0.5 size-4 shrink-0 text-primary" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </SubSection>
+        )}
+
+        {(d.maintenance || d.installation) && (
+          <div className="grid gap-6 md:grid-cols-2">
+            {d.maintenance && (
+              <InfoPanel
+                icon={Sparkles}
+                title="Обслуговування"
+                rows={[
+                  { label: "Заміна картриджів", value: d.maintenance.period },
+                  ...(d.maintenance.cost ? [{ label: "Вартість", value: d.maintenance.cost }] : []),
+                ]}
+                text={d.maintenance.description}
+              />
+            )}
+            {d.installation && (
+              <InfoPanel
+                icon={Wrench}
+                title="Монтаж"
+                rows={[
+                  { label: "Час встановлення", value: d.installation.time },
+                  { label: "Складність", value: COMPLEXITY_LABEL[d.installation.complexity] },
+                ]}
+                text={d.installation.description}
+              />
+            )}
+          </div>
+        )}
+      </div>
+
+      {sideSpecs.length > 0 && (
+        <aside className="h-fit rounded-2xl border border-border bg-card p-5 lg:sticky lg:top-44">
+          <h3 className="font-[family-name:var(--font-manrope)] text-lg font-bold tracking-tight">Ключові характеристики</h3>
+          <dl className="mt-3 divide-y divide-border text-sm">
+            {sideSpecs.map((s) => (
+              <div key={s.label} className="flex items-baseline justify-between gap-3 py-2.5">
+                <dt className="text-muted-foreground">{s.label}</dt>
+                <dd className="text-right font-semibold text-foreground">{s.value}</dd>
+              </div>
+            ))}
+          </dl>
+          {d.specs && d.specs.length > 0 && (
+            <a href="#specs" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+              Усі характеристики <ArrowRight className="size-3.5" />
+            </a>
+          )}
+        </aside>
+      )}
+    </div>
+  );
+
+  const tabs: ProductTab[] = [{ id: "description", label: "Опис", content: description }];
+  if (d.specs && d.specs.length > 0) {
+    tabs.push({
+      id: "specs",
+      label: `Характеристики (${d.specs.length})`,
+      content: (
+        <div className="max-w-4xl overflow-hidden rounded-2xl border border-border bg-card">
+          <dl className="divide-y divide-border">
+            {d.specs.map((s) => (
+              <div key={s.label} className="grid grid-cols-1 gap-1 px-5 py-3.5 sm:grid-cols-[1fr_1.3fr] sm:gap-6">
+                <dt className="text-sm text-muted-foreground">{s.label}</dt>
+                <dd className="text-sm font-medium text-foreground tabular">{s.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      ),
+    });
+  }
+  if (d.documents && d.documents.length > 0) {
+    tabs.push({
+      id: "documents",
+      label: `Документи (${d.documents.length})`,
+      content: (
+        <ul className="grid max-w-4xl gap-2 sm:grid-cols-2">
+          {d.documents.map((doc) => (
+            <li key={doc.name} className="min-w-0">
+              <a href={doc.href} className="flex min-w-0 items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:bg-muted">
+                <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <FileText className="size-4" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-sm font-medium break-words text-foreground">{doc.name}</span>
+                  {doc.size && <span className="block text-xs text-muted-foreground">{doc.size}</span>}
+                </span>
+                <Download className="size-4 shrink-0 text-muted-foreground" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      ),
+    });
+  }
 
   return (
     <article className="pb-20 md:pb-0">
@@ -108,327 +271,113 @@ export function ProductDetail({
           price: product.price,
         }}
       />
-      {/* HERO */}
+      {/* HERO: gallery | name, code, key specs, price, buy */}
       <section className="border-b border-border bg-card">
-        <div className="mx-auto max-w-[1600px] px-4 pt-6 pb-12 md:px-8 md:pt-8 md:pb-16">
-          <div className="grid gap-8 md:gap-12 lg:grid-cols-[1.1fr_1fr]">
-            <div className="space-y-4">
-              <div className="relative grid aspect-square w-full place-items-center overflow-hidden rounded-3xl bg-white">
-                {mainImage ? (
-                  <ProductImage
-                    src={mainImage}
-                    alt={product.name}
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    preload
-                    quality={85}
-                    className="object-contain p-6"
-                  />
-                ) : (
-                  <CategoryIcon className="size-32 text-primary/30" aria-hidden />
-                )}
-                <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-                  {product.oldPrice && (
-                    <Badge variant="accent">Знижка</Badge>
-                  )}
-                  {product.inStock ? (
-                    <Badge variant="success">В наявності</Badge>
-                  ) : (
-                    <Badge variant="muted">Під замовлення</Badge>
-                  )}
-                </div>
-              </div>
-              {thumbs.length > 1 && (
-                <div className="grid grid-cols-4 gap-2">
-                  {thumbs.map((src, i) => (
-                    <div key={src + i} className="relative aspect-square w-full overflow-hidden rounded-xl border border-border bg-white">
-                      <ProductImage
-                        src={src}
-                        alt={`${product.name} — фото ${i + 1}`}
-                        sizes="(min-width: 1024px) 14vw, 25vw"
-                        className="object-contain p-2"
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+        <div className="mx-auto max-w-[1600px] px-4 pt-6 pb-10 md:px-8 md:pt-8 md:pb-14">
+          <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-12">
+            <ProductGallery
+              images={gallery}
+              alt={product.name}
+              fallback={<CategoryIcon className="size-32 text-primary/30" aria-hidden />}
+              badges={product.oldPrice ? <Badge variant="accent">Знижка</Badge> : undefined}
+            />
 
-            <div className="lg:sticky lg:top-32 lg:h-fit">
+            <div className="min-w-0">
               <p className="text-sm font-medium text-muted-foreground">
                 {categoryTitle}
+                {brand && <span className="text-muted-foreground/70"> · {brand}</span>}
               </p>
-              <h1 className="mt-2 font-[family-name:var(--font-manrope)] text-3xl font-bold tracking-tight md:text-4xl">
+              <h1 className="mt-2 font-[family-name:var(--font-manrope)] text-2xl leading-tight font-bold tracking-tight md:text-[34px]">
                 {product.name}
               </h1>
-              <p className="mt-3 text-base text-muted-foreground">
-                {product.description}
-              </p>
+              {product.sku && (
+                <p className="mt-3 flex items-center gap-1.5 text-sm text-muted-foreground">
+                  Артикул <span className="font-semibold text-foreground tabular">{product.sku}</span>
+                  <CopySku sku={product.sku} />
+                </p>
+              )}
 
-              {product.features && product.features.length > 0 && (
-                <ul className="mt-5 space-y-2">
-                  {product.features.slice(0, 4).map((f) => (
-                    <li
-                      key={f}
-                      className="flex items-start gap-2 text-sm text-foreground"
-                    >
-                      <Check className="mt-0.5 size-4 shrink-0 text-primary" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
+              {topSpecs.length > 0 && (
+                <div className="mt-5 border-t border-border pt-4">
+                  <dl className="grid gap-x-8 gap-y-2.5 text-sm sm:grid-cols-2">
+                    {topSpecs.map((s) => (
+                      <div key={s.label} className="flex items-baseline justify-between gap-3 border-b border-dashed border-border pb-2">
+                        <dt className="text-muted-foreground">{s.label}</dt>
+                        <dd className="text-right font-semibold text-foreground">{s.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  {d.specs && d.specs.length > 0 && (
+                    <a href="#specs" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+                      Усі характеристики <ArrowRight className="size-3.5" />
+                    </a>
+                  )}
+                </div>
               )}
 
               <div className="mt-6 rounded-2xl border border-border bg-background p-5">
-                <div className="flex items-baseline gap-3 tabular">
-                  <span className="font-[family-name:var(--font-manrope)] text-3xl font-bold text-foreground md:text-4xl">
-                    {formatUah(product.price)}
-                  </span>
-                  {product.oldPrice && (
-                    <span className="text-base text-muted-foreground line-through">
-                      {formatUah(product.oldPrice)}
-                    </span>
-                  )}
-                </div>
-                {d.installation && (
-                  <p className="mt-1.5 text-xs text-muted-foreground">
-                    Безкоштовний монтаж по Україні
-                  </p>
-                )}
-
-                <div className="mt-4 flex flex-col gap-2.5">
-                  <AddToCartButton
-                    product={product}
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
+                <div className="flex flex-wrap items-end justify-between gap-3">
+                  <span
+                    className={`inline-flex items-center gap-2 text-sm font-medium ${product.inStock ? "text-emerald-700" : "text-muted-foreground"}`}
                   >
-                    Купити зараз
-                    <ArrowRight className="size-4" />
-                  </AddToCartButton>
-                  <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                    <span aria-hidden className={`size-2 rounded-full ${product.inStock ? "bg-emerald-500" : "bg-muted-foreground/50"}`} />
+                    {product.inStock ? "В наявності" : "Під замовлення"}
+                  </span>
+                  <span className="text-right tabular">
+                    {product.oldPrice && (
+                      <span className="block text-sm text-muted-foreground line-through">{formatUah(product.oldPrice)}</span>
+                    )}
+                    <span className="font-[family-name:var(--font-manrope)] text-3xl font-bold text-foreground md:text-4xl">
+                      {formatUah(product.price)}
+                    </span>
+                  </span>
+                </div>
+
+                <div className="mt-4">
+                  <BuyBox product={product} />
+                </div>
+
+                {phones.length > 0 && (
+                  <p className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+                    Потрібна порада?
                     {phones.map((phone) => (
-                      <a
-                        key={phone.raw}
-                        href={phone.href}
-                        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card px-3 text-xs font-semibold text-foreground transition-colors hover:bg-muted"
-                      >
-                        <Phone className="size-4 shrink-0" /> {phone.display}
+                      <a key={phone.raw} href={phone.href} className="inline-flex items-center gap-1 font-semibold text-foreground hover:text-primary">
+                        <Phone className="size-3.5" /> {phone.display}
                       </a>
                     ))}
-                  </div>
-                </div>
-
-                <ul className="mt-4 space-y-1.5 text-xs text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <ShieldCheck className="mt-0.5 size-3.5 shrink-0 text-primary" />
-                    {warranty
-                      ? `Гарантія ${warranty}`
-                      : "Гарантія залежить від моделі — уточнимо під час консультації"}
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Wrench className="size-3.5 text-primary" />
-                    Монтаж і сервіс під ключ
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Award className="size-3.5 text-primary" />
-                    Сертифіковано NSF · ДСанПіН
-                  </li>
-                </ul>
+                  </p>
+                )}
+                <p className="mt-3 text-center text-xs text-muted-foreground">
+                  Ціну, наявність і комплектність менеджер підтвердить перед оплатою.
+                </p>
               </div>
+
+              <ul className="mt-5 grid gap-3 sm:grid-cols-3">
+                <Perk icon={Truck} title="Доставка" text="по Україні 1–3 дні" />
+                <Perk icon={ShieldCheck} title="Гарантія" text={warranty ? warranty : "від виробника"} />
+                <Perk icon={Wrench} title="Монтаж і сервіс" text="під ключ" />
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-[1600px] space-y-14 px-4 py-14 md:px-8 md:space-y-20 md:py-20">
-        {/* AUDIENCE */}
-        {d.audience && d.audience.length > 0 && (
-          <Section title="Кому підходить" eyebrow="Аудиторія">
-            <div className="flex flex-wrap gap-2">
-              {d.audience.map((a) => (
-                <span
-                  key={a}
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground"
-                >
-                  <Check className="size-3.5 text-primary" />
-                  {a}
-                </span>
-              ))}
-            </div>
-          </Section>
-        )}
-
-        {/* HIGHLIGHTS */}
-        {d.highlights && d.highlights.length > 0 && (
-          <Section title="Головні переваги" eyebrow="Чому цей вибір">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {d.highlights.map((h) => {
-                const Icon = HIGHLIGHT_ICONS[h.icon];
-                return (
-                  <div
-                    key={h.title}
-                    className="rounded-2xl border border-border bg-card p-5"
-                  >
-                    <span className="inline-flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <Icon className="size-5" />
-                    </span>
-                    <h3 className="mt-4 font-[family-name:var(--font-manrope)] text-lg font-bold tracking-tight">
-                      {h.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{h.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </Section>
-        )}
-
-        {/* SPECS */}
-        {d.specs && d.specs.length > 0 && (
-          <Section title="Основні характеристики" eyebrow="Технічно">
-            <div className="overflow-hidden rounded-2xl border border-border bg-card">
-              <dl className="divide-y divide-border">
-                {d.specs.map((s) => (
-                  <div
-                    key={s.label}
-                    className="grid grid-cols-1 gap-1 px-5 py-4 sm:grid-cols-[1fr_2fr] sm:gap-4"
-                  >
-                    <dt className="text-sm text-muted-foreground">{s.label}</dt>
-                    <dd className="text-sm font-medium text-foreground tabular">{s.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </Section>
-        )}
-
-        {/* REMOVES */}
-        {d.removes && d.removes.length > 0 && (
-          <Section title="Що очищує" eyebrow="Ефективність">
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-              {d.removes.map((r) => (
-                <div
-                  key={r.name}
-                  className="rounded-xl border border-border bg-card px-4 py-3"
-                >
-                  <div className="text-sm font-medium text-foreground">{r.name}</div>
-                  {r.pct && (
-                    <div className="mt-1 text-xs font-bold tabular text-primary">
-                      до {r.pct}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </Section>
-        )}
-
-        {/* BUNDLE + MAINTENANCE + INSTALLATION */}
-        <div className="grid gap-8 lg:grid-cols-3">
-          {d.bundle && d.bundle.length > 0 && (
-            <Section
-              title="Комплектація"
-              eyebrow="У коробці"
-              className="lg:col-span-3"
-            >
-              <ul className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
-                {d.bundle.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2 rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground"
-                  >
-                    <Package className="mt-0.5 size-4 shrink-0 text-primary" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </Section>
-          )}
-        </div>
-
-        {(d.maintenance || d.installation) && (
-          <div className="grid gap-6 md:grid-cols-2">
-            {d.maintenance && (
-              <div className="rounded-2xl border border-border bg-card p-6">
-                <div className="flex items-center gap-3">
-                  <span className="grid size-10 place-items-center rounded-lg bg-primary/10 text-primary">
-                    <Sparkles className="size-5" />
-                  </span>
-                  <h3 className="font-[family-name:var(--font-manrope)] text-xl font-bold">
-                    Обслуговування
-                  </h3>
-                </div>
-                <dl className="mt-5 grid grid-cols-2 gap-4 border-y border-border py-4">
-                  <div>
-                    <dt className="text-xs text-muted-foreground">Заміна картриджів</dt>
-                    <dd className="mt-1 text-sm font-semibold tabular">
-                      {d.maintenance.period}
-                    </dd>
-                  </div>
-                  {d.maintenance.cost && (
-                    <div>
-                      <dt className="text-xs text-muted-foreground">Вартість</dt>
-                      <dd className="mt-1 text-sm font-semibold tabular">
-                        {d.maintenance.cost}
-                      </dd>
-                    </div>
-                  )}
-                </dl>
-                <p className="mt-4 text-sm text-muted-foreground">
-                  {d.maintenance.description}
-                </p>
-              </div>
-            )}
-
-            {d.installation && (
-              <div className="rounded-2xl border border-border bg-card p-6">
-                <div className="flex items-center gap-3">
-                  <span className="grid size-10 place-items-center rounded-lg bg-primary/10 text-primary">
-                    <Wrench className="size-5" />
-                  </span>
-                  <h3 className="font-[family-name:var(--font-manrope)] text-xl font-bold">
-                    Монтаж
-                  </h3>
-                </div>
-                <dl className="mt-5 grid grid-cols-2 gap-4 border-y border-border py-4">
-                  <div>
-                    <dt className="text-xs text-muted-foreground">Час встановлення</dt>
-                    <dd className="mt-1 text-sm font-semibold tabular">
-                      {d.installation.time}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs text-muted-foreground">Складність</dt>
-                    <dd className="mt-1 text-sm font-semibold">
-                      {COMPLEXITY_LABEL[d.installation.complexity]}
-                    </dd>
-                  </div>
-                </dl>
-                <p className="mt-4 text-sm text-muted-foreground">
-                  {d.installation.description}
-                </p>
-              </div>
-            )}
-          </div>
-        )}
+      <div className="mx-auto max-w-[1600px] space-y-14 px-4 pb-14 md:space-y-20 md:px-8 md:pb-20">
+        <ProductTabs tabs={tabs} />
 
         {/* COMPARISON */}
         {comparison && (
-          <Section
-            title="Порівняння з іншими моделями"
-            eyebrow="Як обрати"
-          >
+          <Section title="Порівняння з іншими моделями" eyebrow="Як обрати">
             <div className="overflow-x-auto rounded-2xl border border-border bg-card">
               <table className="w-full min-w-[640px] text-sm">
                 <thead>
                   <tr className="border-b border-border bg-muted/40 text-left">
                     <th className="px-5 py-3 font-medium text-muted-foreground"></th>
                     {comparison.columns.map((c) => (
-                      <th
-                        key={c.slug}
-                        className={`px-5 py-3 font-semibold ${c.slug === product.slug ? "text-primary" : "text-foreground"}`}
-                      >
+                      <th key={c.slug} className={`px-5 py-3 font-semibold ${c.slug === product.slug ? "text-primary" : "text-foreground"}`}>
                         {c.name}
                         {c.slug === product.slug && (
-                          <span className="ml-2 inline-block rounded-full bg-primary px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+                          <span className="ml-2 inline-block rounded-full bg-primary px-2 py-0.5 text-[10px] font-bold tracking-wider text-primary-foreground uppercase">
                             Цей товар
                           </span>
                         )}
@@ -456,47 +405,9 @@ export function ProductDetail({
           </Section>
         )}
 
-        {/* LONG DESCRIPTION */}
-        {detailedDescription && (
-          <Section title="Детальний опис" eyebrow="Про продукт">
-            <ProductDescription text={detailedDescription} />
-          </Section>
-        )}
-
-        {/* DOCUMENTS */}
-        {d.documents && d.documents.length > 0 && (
-          <Section title="Документи" eyebrow="Завантаження">
-            <ul className="grid gap-2 sm:grid-cols-2">
-              {d.documents.map((doc) => (
-                <li key={doc.name} className="min-w-0">
-                  <a
-                    href={doc.href}
-                    className="flex min-w-0 items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:bg-muted"
-                  >
-                    <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
-                      <FileText className="size-4" />
-                    </span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block break-words text-sm font-medium text-foreground">
-                        {doc.name}
-                      </span>
-                      {doc.size && (
-                        <span className="block text-xs text-muted-foreground">
-                          {doc.size}
-                        </span>
-                      )}
-                    </span>
-                    <Download className="size-4 shrink-0 text-muted-foreground" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </Section>
-        )}
-
         {/* RELATED */}
         {related.length > 0 && (
-          <Section title="Схожі моделі" eyebrow="З цієї категорії">
+          <Section title="Схожі товари" eyebrow="З цієї категорії">
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {related.map((p) => (
                 <ProductCard key={p.slug} product={p} />
@@ -577,55 +488,57 @@ function Badge({
   );
 }
 
-// Comparison fields per category (read from the product `filters` facets).
-const COMPARE_FIELDS: Partial<Record<CategoryKey, { label: string; key: string }[]>> = {
-  "reverse-osmosis": [
-    { label: "Лінійка", key: "line" },
-    { label: "Тип системи", key: "systemType" },
-    { label: "Мінералізація", key: "mineralization" },
-    { label: "Помпа", key: "pump" },
-    { label: "Рівень", key: "level" },
-  ],
-  "filtration-systems": [
-    { label: "Формат", key: "format" },
-    { label: "Завдання", key: "task" },
-    { label: "Завантаження", key: "media" },
-    { label: "Рівень", key: "level" },
-  ],
-  "mainline-filters": [
-    { label: "Тип", key: "type" },
-    { label: "Підключення", key: "connection" },
-    { label: "Температура", key: "temperature" },
-    { label: "Призначення", key: "purpose" },
-  ],
-  "ro-cartridges": [
-    { label: "Тип", key: "type" },
-    { label: "Сумісність", key: "compatibility" },
-    { label: "Термін заміни", key: "period" },
-    { label: "Мембрана (GPD)", key: "gpd" },
-  ],
-  "mainline-cartridges": [
-    { label: "Типорозмір", key: "size" },
-    { label: "Матеріал", key: "material" },
-    { label: "Завдання", key: "task" },
-    { label: "Рейтинг фільтрації", key: "micron" },
-  ],
-  "filter-media": [
-    { label: "Тип матеріалу", key: "materialType" },
-    { label: "Призначення", key: "purpose" },
-    { label: "Обʼєм / вага", key: "volume" },
-    { label: "Бренд", key: "brand" },
-  ],
-  horeca: [
-    { label: "Продуктивність", key: "capacity" },
-    { label: "Для кави", key: "forCoffee" },
-    { label: "Лінійка", key: "line" },
-  ],
-};
+function SubSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section>
+      <h3 className="mb-4 font-[family-name:var(--font-manrope)] text-xl font-bold tracking-tight">{title}</h3>
+      {children}
+    </section>
+  );
+}
 
-function facetValue(p: Product, key: string): string {
-  const v = p.filters?.[key];
-  return v && v.length ? v.join(", ") : "";
+function InfoPanel({
+  icon: Icon,
+  title,
+  rows,
+  text,
+}: {
+  icon: LucideIcon;
+  title: string;
+  rows: { label: string; value: string }[];
+  text: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-border bg-card p-6">
+      <div className="flex items-center gap-3">
+        <span className="grid size-10 place-items-center rounded-lg bg-primary/10 text-primary">
+          <Icon className="size-5" />
+        </span>
+        <h3 className="font-[family-name:var(--font-manrope)] text-xl font-bold">{title}</h3>
+      </div>
+      <dl className="mt-5 grid grid-cols-2 gap-4 border-y border-border py-4">
+        {rows.map((r) => (
+          <div key={r.label}>
+            <dt className="text-xs text-muted-foreground">{r.label}</dt>
+            <dd className="mt-1 text-sm font-semibold tabular">{r.value}</dd>
+          </div>
+        ))}
+      </dl>
+      <p className="mt-4 text-sm text-muted-foreground">{text}</p>
+    </div>
+  );
+}
+
+function Perk({ icon: Icon, title, text }: { icon: LucideIcon; title: string; text: string }) {
+  return (
+    <li className="flex items-start gap-3 rounded-xl border border-border bg-background px-3.5 py-3">
+      <Icon className="mt-0.5 size-5 shrink-0 text-primary" />
+      <span>
+        <span className="block text-sm font-semibold text-foreground">{title}</span>
+        <span className="block text-xs text-muted-foreground">{text}</span>
+      </span>
+    </li>
+  );
 }
 
 function buildComparison(product: Product, allProducts: Product[]): {
@@ -640,35 +553,19 @@ function buildComparison(product: Product, allProducts: Product[]): {
       (product.subcategory ? p.subcategory === product.subcategory : true),
   );
   if (siblings.length === 0) {
-    siblings = allProducts.filter(
-      (p) => p.category === product.category && p.slug !== product.slug,
-    );
+    siblings = allProducts.filter((p) => p.category === product.category && p.slug !== product.slug);
   }
-  siblings = siblings
-    .sort((a, b) => Math.abs(a.price - product.price) - Math.abs(b.price - product.price))
-    .slice(0, 2);
-
+  siblings = siblings.sort((a, b) => Math.abs(a.price - product.price) - Math.abs(b.price - product.price)).slice(0, 2);
   if (siblings.length === 0) return null;
 
   const cols = [product, ...siblings];
-  const fields = COMPARE_FIELDS[product.category] ?? [];
-
-  const rows: { label: string; values: string[] }[] = [
-    { label: "Ціна", values: cols.map((p) => formatUah(p.price)) },
-  ];
-  for (const f of fields) {
-    const values = cols.map((p) => facetValue(p, f.key));
+  const rows: { label: string; values: string[] }[] = [{ label: "Ціна", values: cols.map((p) => formatUah(p.price)) }];
+  for (const label of keySpecLabels(product.category)) {
+    const values = cols.map((p) => keySpecValue(p, label));
     // Only keep rows where at least one product actually has a value.
-    if (values.some((v) => v)) {
-      rows.push({ label: f.label, values: values.map((v) => v || "—") });
-    }
+    if (values.some((v) => v)) rows.push({ label, values: values.map((v) => v || "—") });
   }
-
   // Hide the table unless it carries something beyond price (price + ≥2 attrs).
   if (rows.length < 3) return null;
-
-  return {
-    columns: cols.map((p) => ({ slug: p.slug, name: p.name })),
-    rows,
-  };
+  return { columns: cols.map((p) => ({ slug: p.slug, name: p.name })), rows };
 }

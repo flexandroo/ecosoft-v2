@@ -9,10 +9,13 @@ import { getProductDisplayImage } from "@/lib/product-identity";
 
 export function AddToCartButton({
   product,
+  quantity = 1,
   className,
   children,
 }: {
   product: Product;
+  /** Units to add (the product page has a quantity stepper; cards add one). */
+  quantity?: number;
   className?: string;
   children: React.ReactNode;
 }) {
@@ -34,9 +37,9 @@ export function AddToCartButton({
           image: getProductDisplayImage(product),
           category: product.category,
           subcategory: product.subcategory,
-        });
-        // GA4: add_to_cart (quantity 1 — cards/detail add a single unit)
-        pushAddToCart(product, 1);
+        }, quantity);
+        // GA4 / Meta: add_to_cart with the quantity actually added
+        pushAddToCart(product, quantity);
         setAdded(true);
         if (timer.current) clearTimeout(timer.current);
         timer.current = setTimeout(() => setAdded(false), 1400);

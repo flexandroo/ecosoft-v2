@@ -349,3 +349,115 @@ export function subcategoryQuery(sub: Subcategory): string {
   for (const [key, values] of Object.entries(sub.filter)) for (const v of values) params.append(key, v);
   return `?${params.toString()}`;
 }
+
+// --- Key characteristics (product cards, product page, comparison) -----------
+
+export type KeySpec = { label: string; value: string };
+
+type KeySpecDef = { label: string; value: (p: Product) => string | undefined };
+
+/** A facet's values as text ("Так"/"Ні" style facets are handled by their own defs). */
+const facetText = (key: string) => (p: Product) => facetValues(p, key, p.category).join(", ") || undefined;
+const specText = (re: RegExp, suffix = "") => (p: Product) => {
+  const v = spec(p, re)?.trim();
+  return v ? `${v}${suffix}` : undefined;
+};
+const yesNo = (key: string) => (p: Product) => (f(p, key)[0] === "Є" ? "Так" : f(p, key)[0] === "Немає" ? "Ні" : undefined);
+
+const KEY_SPECS: Record<CategoryKey, KeySpecDef[]> = {
+  "reverse-osmosis": [
+    { label: "Ступенів очищення", value: (p) => spec(p, /ступен/i)?.replace(/\D/g, "") || undefined },
+    { label: "Мінералізація", value: yesNo("mineralization") },
+    { label: "Помпа", value: yesNo("pump") },
+    { label: "Накопичувальний бак", value: (p) => spec(p, /^Накопичувальний бак$/) ?? (has(p, "systemType", "З баком") ? "Є" : "Без бака") },
+    { label: "Лінійка", value: facetText("line") },
+    { label: "Монтаж", value: specText(/^Монтаж$/) },
+  ],
+  "flow-filters": [
+    { label: "Ступенів очищення", value: (p) => f(p, "stages")[0] },
+    { label: "Лінійка", value: (p) => f(p, "line")[0] },
+    { label: "Монтаж", value: (p) => f(p, "installation")[0] },
+  ],
+  "filtration-systems": [
+    { label: "Тип фільтра", value: facetText("type") },
+    { label: "Тип корпусу", value: facetText("body") },
+    { label: "Типорозмір", value: facetText("size") },
+    { label: "Клапан", value: facetText("valve") },
+    { label: "Продуктивність, м³/год", value: specText(/^Продуктивність робоча(\s*\/\s*максимальна)?, м3\/год$/) },
+    { label: "Фільтруючий матеріал", value: facetText("media") },
+  ],
+  "mainline-filters": [
+    { label: "Тип", value: facetText("type") },
+    { label: "Підключення", value: facetText("connection") },
+    { label: "Температура води", value: facetText("temperature") },
+    { label: "Типорозмір", value: facetText("size") },
+    { label: "Бренд", value: facetText("brand") },
+  ],
+  "ro-cartridges": [
+    { label: "Тип", value: facetText("type") },
+    { label: "Сумісність", value: facetText("compat") },
+    { label: "Частота заміни", value: facetText("period") },
+    { label: "Картриджів у комплекті", value: facetText("elements") },
+    { label: "Продуктивність мембрани", value: facetText("gpd") },
+  ],
+  "mainline-cartridges": [
+    { label: "Типорозмір", value: facetText("size") },
+    { label: "Тип", value: facetText("type") },
+    { label: "Рейтинг фільтрації", value: facetText("micron") },
+    { label: "У комплекті", value: facetText("qty") },
+  ],
+  "filter-media": [
+    { label: "Тип", value: facetText("type") },
+    { label: "Обʼєм / вага", value: facetText("volume") },
+    { label: "Призначення", value: facetText("purpose") },
+    { label: "Марка", value: facetText("brand") },
+  ],
+  horeca: [
+    { label: "Продуктивність", value: facetText("capacity") },
+    { label: "Лінійка", value: (p) => f(p, "line")[0] },
+    { label: "Призначення", value: (p) => (has(p, "forCoffee", "Так") ? "Кавомашини" : "Кафе, ресторани, готелі") },
+  ],
+};
+
+/** Up to `limit` known characteristics of a product, in the category's order of importance. */
+export function keySpecs(product: Product, limit = 6): KeySpec[] {
+  const out: KeySpec[] = [];
+  for (const def of KEY_SPECS[product.category]) {
+    const value = def.value(product);
+    if (value) out.push({ label: def.label, value });
+    if (out.length === limit) break;
+  }
+  return out;
+}
+
+/** Labels compared across products of a category. */
+export function keySpecLabels(category: CategoryKey): string[] {
+  return KEY_SPECS[category].map((d) => d.label);
+}
+
+/** Value of one key characteristic by label ("" when unknown). */
+export function keySpecValue(product: Product, label: string): string {
+  return KEY_SPECS[product.category].find((d) => d.label === label)?.value(product) ?? "";
+}
+
+const MEDIA_BRANDS: Record<string, string> = {
+  ECOMIX: "Ecosoft",
+  Ecolite: "Ecosoft",
+  Sanitabs: "BWT",
+  Dowex: "Dowex",
+  Amberlite: "Amberlite",
+  Centaur: "Calgon Carbon",
+  Filtrasorb: "Calgon Carbon",
+  "Filter-Ag": "Clack",
+};
+
+/** Manufacturer shown above the product name (omitted when the data doesn't say). */
+export function productBrand(product: Product): string | undefined {
+  if (/\bBWT\b/.test(product.name)) return "BWT";
+  if (product.category === "filter-media") {
+    const brand = f(product, "brand")[0];
+    if (brand) return MEDIA_BRANDS[brand];
+    return /Ecosoft/i.test(product.name) ? "Ecosoft" : undefined;
+  }
+  return "Ecosoft";
+}
