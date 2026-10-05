@@ -15,7 +15,8 @@ import {
 import { useCart, type CartLine } from "./cart-context";
 import { formatUah } from "@/lib/format";
 import { isValidUkrainianPhone } from "@/lib/validation";
-import { PHONE_CONTACTS } from "@/lib/contact-details";
+import { useSiteSettings } from "@/components/site/settings-context";
+import { toPhoneContacts } from "@/lib/settings-shared";
 import {
   pushBeginCheckout,
   pushGenerateLead,
@@ -38,6 +39,7 @@ function toGA4Items(lines: CartLine[]) {
 }
 
 export function CartView() {
+  const PHONE_CONTACTS = toPhoneContacts(useSiteSettings().phones);
   const { lines, total, count, hydrated, setQty, remove, clear } = useCart();
   const [placed, setPlaced] = useState(false);
   const [orderId, setOrderId] = useState<string | null>(null);

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { PHONE_CONTACTS } from "@/lib/contact-details";
+import { getSiteSettings } from "@/lib/settings";
+import { SOCIAL_LABELS, toPhoneContacts, type SiteSettings } from "@/lib/settings-shared";
 
 const COLS = [
   {
@@ -31,7 +32,10 @@ const COLS = [
   },
 ];
 
-export function Footer() {
+export async function Footer() {
+  const settings = await getSiteSettings();
+  const PHONE_CONTACTS = toPhoneContacts(settings.phones);
+  const socials = (Object.keys(SOCIAL_LABELS) as (keyof SiteSettings["socials"])[]).filter((key) => settings.socials[key]);
   return (
     <footer className="border-t border-border bg-card">
       <div className="mx-auto max-w-[1600px] px-4 py-14 md:px-8 md:py-16">
@@ -55,6 +59,22 @@ export function Footer() {
                 </a>
               ))}
             </div>
+            {socials.length > 0 && (
+              <ul className="mt-4 flex flex-wrap gap-2" aria-label="Соцмережі">
+                {socials.map((key) => (
+                  <li key={key}>
+                    <a
+                      href={settings.socials[key]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-9 items-center rounded-lg border border-border px-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                    >
+                      {SOCIAL_LABELS[key]}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
 
           {COLS.map((col) => (

@@ -27,12 +27,28 @@ export async function sendTelegramMessage(html: string): Promise<void> {
   if (!TOKEN || !CHAT_ID) {
     throw new Error("Telegram is not configured (TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID)");
   }
+  await sendTo(CHAT_ID, html);
+}
 
+/**
+ * Best-effort copy of a notification to the extra chats configured in
+ * /admin/settings (the main chat from the environment is always used first).
+ */
+export async function sendTelegramCopies(chatIds: string[], html: string): Promise<void> {
+  if (!TOKEN) return;
+  const targets = [...new Set(chatIds)].filter((id) => id !== CHAT_ID);
+  const results = await Promise.allSettled(targets.map((id) => sendTo(id, html)));
+  results.forEach((r, i) => {
+    if (r.status === "rejected") console.error(`[telegram] copy to ${targets[i]} failed:`, r.reason);
+  });
+}
+
+async function sendTo(chatId: string, html: string): Promise<void> {
   const res = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      chat_id: CHAT_ID,
+      chat_id: chatId,
       text: html,
       parse_mode: "HTML",
       disable_web_page_preview: true,

@@ -31,7 +31,7 @@ import {
 } from "@/lib/products";
 import { relatedFrom } from "@/lib/catalog";
 import { formatUah } from "@/lib/format";
-import { PHONE_CONTACTS } from "@/lib/contact-details";
+import type { PhoneContact } from "@/lib/settings-shared";
 import { ProductCard } from "@/components/catalog/product-card";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 import { ViewItemTracker } from "./view-item-tracker";
@@ -70,9 +70,11 @@ const COMPLEXITY_LABEL = {
 export function ProductDetail({
   product,
   allProducts,
+  phones,
 }: {
   product: Product;
   allProducts: Product[];
+  phones: PhoneContact[];
 }) {
   const cat = findCategory(product.category)!;
   const d: ProductDetails = product.details ?? {};
@@ -198,7 +200,7 @@ export function ProductDetail({
                     <ArrowRight className="size-4" />
                   </AddToCartButton>
                   <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                    {PHONE_CONTACTS.map((phone) => (
+                    {phones.map((phone) => (
                       <a
                         key={phone.raw}
                         href={phone.href}

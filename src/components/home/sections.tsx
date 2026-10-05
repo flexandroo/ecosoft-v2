@@ -12,15 +12,14 @@ import {
   Wrench,
 } from "lucide-react";
 import { ProductCard } from "@/components/catalog/product-card";
-import { PRIMARY_PHONE } from "@/lib/contact-details";
+import { getSiteSettings } from "@/lib/settings";
+import { mapsUrl, toPhoneContacts } from "@/lib/settings-shared";
 import type { HomeCategory, HomeSlide } from "@/lib/home";
 import type { Product } from "@/lib/products";
 import { cn } from "@/lib/utils";
 import { InlineCallbackForm } from "./inline-callback-form";
 import { RailScroller } from "./rail-scroller";
 
-export const STORE_ADDRESS = "Софіївська Борщагівка, вул. Київська, 3";
-const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Софіївська Борщагівка, вул. Київська, 3");
 
 export function Container({ className, children }: { className?: string; children: React.ReactNode }) {
   return <div className={cn("mx-auto w-full max-w-[1600px] px-4 md:px-8", className)}>{children}</div>;
@@ -168,19 +167,23 @@ export function BenefitsRow({ className, tone = "card" }: { className?: string; 
   );
 }
 
-export function StoreContactCard({ className }: { className?: string }) {
+export async function StoreContactCard({ className }: { className?: string }) {
+  const settings = await getSiteSettings();
+  const phones = toPhoneContacts(settings.phones);
   return (
     <div className={cn("rounded-2xl border border-border bg-card p-5 md:p-6", className)}>
       <p className="text-xs font-bold tracking-[0.14em] text-primary uppercase">Магазин і склад</p>
-      <p className="mt-2 font-[family-name:var(--font-manrope)] text-xl leading-tight font-extrabold md:text-2xl">{STORE_ADDRESS}</p>
+      <p className="mt-2 font-[family-name:var(--font-manrope)] text-xl leading-tight font-extrabold md:text-2xl">{settings.address.short}</p>
       <dl className="mt-5 space-y-3 text-[15px]">
         <div className="flex items-center gap-3">
           <dt className="sr-only">Телефон</dt>
           <Phone className="size-4 text-primary" aria-hidden />
-          <dd>
-            <a href={PRIMARY_PHONE.href} className="font-semibold tabular hover:text-primary">
-              {PRIMARY_PHONE.display}
-            </a>
+          <dd className="flex flex-wrap gap-x-3">
+            {phones.map((phone) => (
+              <a key={phone.raw} href={phone.href} className="font-semibold tabular hover:text-primary">
+                {phone.display}
+              </a>
+            ))}
           </dd>
         </div>
         <div className="flex items-center gap-3">
@@ -195,7 +198,7 @@ export function StoreContactCard({ className }: { className?: string }) {
         </div>
       </dl>
       <a
-        href={MAPS_URL}
+        href={mapsUrl(settings.address.full)}
         target="_blank"
         rel="noreferrer"
         className="mt-5 inline-flex h-11 items-center gap-2 rounded-xl border border-border px-4 text-sm font-semibold hover:bg-muted"

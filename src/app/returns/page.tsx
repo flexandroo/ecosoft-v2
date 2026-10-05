@@ -5,7 +5,8 @@ import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
 import { SectionHeading, InfoCard, CtaNote } from "@/components/site/content";
-import { PHONE_CONTACTS } from "@/lib/contact-details";
+import { getSiteSettings } from "@/lib/settings";
+import { toPhoneContacts } from "@/lib/settings-shared";
 
 export const metadata: Metadata = {
   title: "Повернення та обмін",
@@ -34,8 +35,7 @@ const cases: Block[] = [
   },
 ];
 
-const procedure = [
-  `Зв'яжіться з менеджером за телефонами ${PHONE_CONTACTS.map((phone) => phone.display).join(" або ")} чи поштою info@ecosoft.ua.`,
+const procedureTail = [
   "Надайте номер замовлення та коротко опишіть причину повернення.",
   "Узгодьте з менеджером спосіб повернення (Нова пошта, кур'єр або самовивіз).",
   "Передайте товар у комплектації, отриманій від нас, разом з документами.",
@@ -49,7 +49,12 @@ const notReturnable = [
   "Товари, виготовлені або сконфігуровані під індивідуальний об'єкт.",
 ];
 
-export default function ReturnsPage() {
+export default async function ReturnsPage() {
+  const settings = await getSiteSettings();
+  const procedure = [
+    `Зв'яжіться з менеджером за телефонами ${toPhoneContacts(settings.phones).map((phone) => phone.display).join(" або ")} чи поштою ${settings.email}.`,
+    ...procedureTail,
+  ];
   return (
     <>
       <Header />

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
-import { PHONE_CONTACTS } from "@/lib/contact-details";
+import { getSiteSettings } from "@/lib/settings";
+import { toPhoneContacts } from "@/lib/settings-shared";
 
 export const metadata: Metadata = {
   title: "Політика конфіденційності",
@@ -33,7 +34,8 @@ const sections = [
   },
 ];
 
-export default function PrivacyPage() {
+export default async function PrivacyPage() {
+  const PHONE_CONTACTS = toPhoneContacts((await getSiteSettings()).phones);
   return (
     <>
       <Header />

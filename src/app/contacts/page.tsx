@@ -6,7 +6,8 @@ import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
 import { SectionHeading } from "@/components/site/content";
 import { ContactForm } from "@/components/site/contact-form";
-import { PHONE_CONTACTS } from "@/lib/contact-details";
+import { getSiteSettings } from "@/lib/settings";
+import { formatClosedDays, formatOpenHours, mapsUrl, toPhoneContacts } from "@/lib/settings-shared";
 
 export const metadata: Metadata = {
   title: "Контакти",
@@ -14,12 +15,6 @@ export const metadata: Metadata = {
   description:
     "Звʼяжіться з Ecosoft: телефон, email, адреса та графік роботи. Залиште звернення — підберемо рішення під вашу воду.",
 };
-
-const ADDRESS =
-  "08131, Київська обл., Бучанський р-н, с. Софіївська Борщагівка, вул. Київська, 3";
-const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  ADDRESS,
-)}`;
 
 type Contact = {
   icon: LucideIcon;
@@ -29,37 +24,27 @@ type Contact = {
   hint?: string;
 };
 
-const CONTACTS: Contact[] = [
-  ...PHONE_CONTACTS.map((phone, index) => ({
-    icon: Phone,
-    label:
-      PHONE_CONTACTS.length === 1 ? "Телефон" : `Телефон ${index + 1}`,
-    value: phone.display,
-    href: phone.href,
-    hint: "Дзвінки за тарифами вашого оператора",
-  })),
-  {
-    icon: Mail,
-    label: "Email",
-    value: "info@ecosoft.ua",
-    href: "mailto:info@ecosoft.ua",
-  },
-  {
-    icon: MapPin,
-    label: "Адреса",
-    value: ADDRESS,
-    href: MAPS_URL,
-    hint: "Відкрити на карті",
-  },
-  {
-    icon: Clock,
-    label: "Графік роботи",
-    value: "Пн–Пт: 09:00–18:00 · Сб: 10:00–15:00",
-    hint: "Нд — вихідний",
-  },
-];
-
-export default function ContactsPage() {
+export default async function ContactsPage() {
+  const settings = await getSiteSettings();
+  const phones = toPhoneContacts(settings.phones);
+  const MAPS_URL = mapsUrl(settings.address.full);
+  const CONTACTS: Contact[] = [
+    ...phones.map((phone, index) => ({
+      icon: Phone,
+      label: phone.label || (phones.length === 1 ? "Телефон" : `Телефон ${index + 1}`),
+      value: phone.display,
+      href: phone.href,
+      hint: "Дзвінки за тарифами вашого оператора",
+    })),
+    { icon: Mail, label: "Email", value: settings.email, href: `mailto:${settings.email}` },
+    { icon: MapPin, label: "Адреса", value: settings.address.full, href: MAPS_URL, hint: "Відкрити на карті" },
+    {
+      icon: Clock,
+      label: "Графік роботи",
+      value: formatOpenHours(settings.hours),
+      hint: formatClosedDays(settings.hours) || undefined,
+    },
+  ];
   return (
     <>
       <Header />

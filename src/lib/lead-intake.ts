@@ -3,7 +3,8 @@ import { after } from "next/server";
 import { crmConfigured, sendCrmIntake, type CrmIntake } from "@/lib/crm";
 import { dispatchConversion, type ConversionLead } from "@/lib/conversions";
 import { createServiceClient } from "@/lib/supabase/server";
-import { sendTelegramMessage, telegramConfigured } from "@/lib/telegram";
+import { getNotificationSettings } from "@/lib/settings";
+import { sendTelegramCopies, sendTelegramMessage, telegramConfigured } from "@/lib/telegram";
 
 export type LeadDelivery = {
   ok: boolean;
@@ -114,10 +115,10 @@ export async function deliverLead(intake: CrmIntake, telegramText: string, label
     return { ok: true, reference, crmSynced: crmResult.ok };
   }
 
+  const adminRef = saved ? `\n\n🗂 Заявка №${saved.lead.number} в адмінці` : "";
   let telegramSent = false;
   try {
     if (telegramConfigured()) {
-      const adminRef = saved ? `\n\n🗂 Заявка №${saved.lead.number} в адмінці` : "";
       await sendTelegramMessage(telegramText + adminRef);
       telegramSent = true;
     } else {
@@ -126,6 +127,12 @@ export async function deliverLead(intake: CrmIntake, telegramText: string, label
   } catch (error) {
     console.error(`[${label}] failed to notify Telegram:`, error);
   }
+
+  // Copies to extra chats configured in /admin/settings (best effort, after the response).
+  after(async () => {
+    const { telegramExtraChatIds } = await getNotificationSettings();
+    if (telegramExtraChatIds.length) await sendTelegramCopies(telegramExtraChatIds, telegramText + adminRef);
+  });
 
   if (saved) {
     const lead = saved.lead;

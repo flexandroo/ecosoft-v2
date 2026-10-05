@@ -5,7 +5,9 @@ import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/seo/json-ld";
 import { MetaPageViewTracker } from "@/components/analytics/meta-page-view-tracker";
-import { PHONE_CONTACTS } from "@/lib/contact-details";
+import { SiteSettingsProvider } from "@/components/site/settings-context";
+import { getSiteSettings } from "@/lib/settings";
+import { normalizePhone } from "@/lib/settings-shared";
 import { META_PIXEL_ID } from "@/utils/metaPixel";
 
 const GTM_ID = "GTM-NGD37LTG";
@@ -52,11 +54,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const settings = await getSiteSettings();
   return (
     <html
       lang="uk"
@@ -138,14 +141,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 "@id": "https://sofiivkawater.com/#store",
                 name: "Sofiivka Water — партнерський магазин Ecosoft",
                 url: "https://sofiivkawater.com/",
-                telephone: PHONE_CONTACTS.map((phone) => phone.raw),
-                email: "info@ecosoft.ua",
+                telephone: settings.phones.map((phone) => normalizePhone(phone.number)),
+                email: settings.email,
                 address: {
                   "@type": "PostalAddress",
-                  streetAddress: "вул. Київська, 3",
-                  addressLocality: "Софіївська Борщагівка",
-                  addressRegion: "Київська область",
-                  postalCode: "08131",
+                  streetAddress: settings.address.street,
+                  addressLocality: settings.address.locality,
+                  addressRegion: settings.address.region,
+                  postalCode: settings.address.postalCode,
                   addressCountry: "UA",
                 },
               },
@@ -164,7 +167,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             ],
           }}
         />
-        {children}
+        <SiteSettingsProvider value={settings}>{children}</SiteSettingsProvider>
       </body>
     </html>
   );

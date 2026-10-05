@@ -16,7 +16,8 @@ import {
 } from "lucide-react";
 import { useCart } from "@/components/cart/cart-context";
 import { CallbackButton } from "@/components/site/callback-button";
-import { PRIMARY_PHONE } from "@/lib/contact-details";
+import { useSiteSettings } from "@/components/site/settings-context";
+import { toPhoneContacts } from "@/lib/settings-shared";
 import { CATALOG_GROUPS } from "@/lib/catalog-taxonomy";
 import { CATEGORIES } from "@/lib/products";
 import { cn } from "@/lib/utils";
@@ -57,6 +58,8 @@ function SearchForm({ className }: { className?: string }) {
 }
 
 export function Header() {
+  const settings = useSiteSettings();
+  const PRIMARY_PHONE = toPhoneContacts(settings.phones)[0];
   const { count, hydrated } = useCart();
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -103,7 +106,7 @@ export function Header() {
       <div className="hidden bg-foreground text-[13px] text-white/80 md:block">
         <div className="mx-auto flex h-9 max-w-[1600px] items-center gap-6 px-4 md:px-8">
           <span className="inline-flex items-center gap-1.5">
-            <MapPin className="size-3.5 text-accent" aria-hidden /> Софіївська Борщагівка, вул. Київська, 3
+            <MapPin className="size-3.5 text-accent" aria-hidden /> {settings.address.short}
           </span>
           <span className="inline-flex items-center gap-1.5">
             <Truck className="size-3.5 text-accent" aria-hidden /> Доставка по Україні 1–3 дні

@@ -12,7 +12,8 @@ import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
 import { SectionHeading, InfoCard, CtaNote } from "@/components/site/content";
-import { PHONE_CONTACTS } from "@/lib/contact-details";
+import { getSiteSettings } from "@/lib/settings";
+import { formatOpenHours, toPhoneContacts } from "@/lib/settings-shared";
 
 export const metadata: Metadata = {
   title: "Доставка і оплата",
@@ -42,7 +43,8 @@ const delivery: Block[] = [
   {
     icon: Building2,
     title: "Самовивіз",
-    text: "Київська обл., с. Софіївська Борщагівка, вул. Київська, 3. Пн–Пт: 09:00–18:00, Сб: 10:00–15:00. Перед самовивозом дочекайтеся підтвердження менеджера.",
+    // Filled from the admin settings (address + working hours) at render time.
+    text: "",
   },
 ];
 
@@ -75,22 +77,28 @@ const importantNotes = [
   "Доставка за межі України розраховується індивідуально.",
 ];
 
-const requisites: { legal: string; rows: { label: string; value: string }[] }[] = [
-  {
-    legal: "ФОП Куцевич Павло Олександрович",
-    rows: [
-      { label: "IBAN", value: "UA713052990000026009010108736" },
-      { label: "Банк", value: "АТ КБ «ПРИВАТБАНК»" },
-      { label: "Код ЄДРПОУ", value: "3270315535" },
-      {
-        label: "Телефони",
-        value: PHONE_CONTACTS.map((phone) => phone.display).join(" · "),
-      },
-    ],
-  },
-];
-
-export default function DeliveryPage() {
+export default async function DeliveryPage() {
+  const settings = await getSiteSettings();
+  const deliveryBlocks = delivery.map((b) =>
+    b.title === "Самовивіз"
+      ? {
+          ...b,
+          text: `${settings.address.full}. ${formatOpenHours(settings.hours)}. Перед самовивозом дочекайтеся підтвердження менеджера.`,
+        }
+      : b,
+  );
+  const { legal } = settings;
+  const requisites: { legal: string; rows: { label: string; value: string }[] }[] = [
+    {
+      legal: legal.name,
+      rows: [
+        { label: "IBAN", value: legal.iban },
+        { label: "Банк", value: legal.bank },
+        { label: "Код ЄДРПОУ", value: legal.edrpou },
+        { label: "Телефони", value: toPhoneContacts(settings.phones).map((phone) => phone.display).join(" · ") },
+      ].filter((row) => row.value),
+    },
+  ];
   return (
     <>
       <Header />
@@ -110,7 +118,7 @@ export default function DeliveryPage() {
           <section>
             <SectionHeading eyebrow="Логістика" title="Способи доставки" />
             <div className="grid gap-4 sm:grid-cols-2">
-              {delivery.map((b) => (
+              {deliveryBlocks.map((b) => (
                 <InfoCard key={b.title} icon={b.icon} title={b.title}>
                   {b.text}
                 </InfoCard>
