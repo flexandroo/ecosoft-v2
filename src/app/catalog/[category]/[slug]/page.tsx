@@ -6,16 +6,13 @@ import { PageHeader } from "@/components/site/page-header";
 import { ProductDetail } from "@/components/product/product-detail";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getProductImagePath } from "@/lib/product-identity";
-import {
-  findProduct,
-  findCategory,
-  PRODUCTS,
-} from "@/lib/products";
+import { getProduct, getProducts } from "@/lib/catalog";
+import { findCategory } from "@/lib/products";
 
 type Params = { category: string; slug: string };
 
-export function generateStaticParams(): Params[] {
-  return PRODUCTS.map((p) => ({ category: p.category, slug: p.slug }));
+export async function generateStaticParams(): Promise<Params[]> {
+  return (await getProducts()).map((p) => ({ category: p.category, slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -24,7 +21,7 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { category, slug } = await params;
-  const product = findProduct(category, slug);
+  const product = await getProduct(category, slug);
   if (!product) return {};
   const metaDescription = `${product.name}${product.sku ? ` (${product.sku})` : ""} — ціна ${product.price.toLocaleString("uk-UA")} грн. Опис, характеристики, доставка по Україні та консультація з підбору.`;
   return {
@@ -47,8 +44,9 @@ export default async function ProductPage({
   params: Promise<Params>;
 }) {
   const { category, slug } = await params;
-  const product = findProduct(category, slug);
+  const product = await getProduct(category, slug);
   if (!product) notFound();
+  const allProducts = await getProducts();
   const cat = findCategory(category)!;
   const url = `https://sofiivkawater.com/catalog/${category}/${slug}`;
   const image = `https://sofiivkawater.com${getProductImagePath(product)}`;
@@ -98,7 +96,7 @@ export default async function ProductPage({
             { label: product.name },
           ]}
         />
-        <ProductDetail product={product} />
+        <ProductDetail product={product} allProducts={allProducts} />
       </main>
       <Footer />
     </>

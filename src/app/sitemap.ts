@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
 import { BLOG_POSTS } from "@/lib/blog";
-import { CATEGORIES, PRODUCTS } from "@/lib/products";
+import { CATEGORIES } from "@/lib/products";
+import { getProducts } from "@/lib/catalog";
 import { SOLUTIONS } from "@/lib/solutions";
 import { getProductImagePath } from "@/lib/product-identity";
 
 const SITE_URL = "https://sofiivkawater.com";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: SITE_URL, changeFrequency: "weekly", priority: 1 },
     { url: `${SITE_URL}/catalog`, changeFrequency: "daily", priority: 0.9 },
@@ -25,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const productPages: MetadataRoute.Sitemap = PRODUCTS.map((product) => ({
+  const productPages: MetadataRoute.Sitemap = (await getProducts()).map((product) => ({
     url: `${SITE_URL}/catalog/${product.category}/${product.slug}`,
     changeFrequency: "weekly",
     priority: 0.7,

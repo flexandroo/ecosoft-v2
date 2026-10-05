@@ -15,7 +15,7 @@ import { formatUah } from "@/lib/format";
 import type { CategoryKey, Product } from "@/lib/products";
 import { getProductBadges } from "@/lib/catalog-filters";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
-import { getProductImagePath } from "@/lib/product-identity";
+import { getProductDisplayImage } from "@/lib/product-identity";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
   "reverse-osmosis": Droplet,
@@ -30,7 +30,7 @@ const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
 
 export function ProductCard({ product }: { product: Product }) {
   const Icon = ICON_BY_CATEGORY[product.category];
-  const image = getProductImagePath(product);
+  const image = getProductDisplayImage(product);
   const badges = getProductBadges(product);
 
   const spec = [

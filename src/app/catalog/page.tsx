@@ -4,7 +4,7 @@ import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
 import { CatalogView } from "@/components/catalog/catalog-view";
 import { CategoryPills } from "@/components/catalog/category-pills";
-import { PRODUCTS } from "@/lib/products";
+import { getProducts } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "Каталог",
@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     "Повний каталог систем очищення води Ecosoft: зворотний осмос, фільтраційні системи, магістральні фільтри, картриджі, матеріали та рішення для бізнесу.",
 };
 
-export default function CatalogPage() {
+export default async function CatalogPage() {
+  const products = await getProducts();
   return (
     <>
       <Header />
@@ -31,7 +32,7 @@ export default function CatalogPage() {
         <div className="mx-auto max-w-[1600px] px-4 pt-6 md:px-8">
           <CategoryPills />
         </div>
-        <CatalogView products={PRODUCTS} />
+        <CatalogView products={products} />
       </main>
       <Footer />
     </>

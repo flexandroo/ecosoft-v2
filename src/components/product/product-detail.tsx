@@ -24,20 +24,19 @@ import {
 import type { LucideIcon } from "lucide-react";
 import {
   findCategory,
-  relatedProducts,
   type CategoryKey,
   type HighlightIcon,
   type Product,
   type ProductDetails,
-  PRODUCTS,
 } from "@/lib/products";
+import { relatedFrom } from "@/lib/catalog";
 import { formatUah } from "@/lib/format";
 import { PHONE_CONTACTS } from "@/lib/contact-details";
 import { ProductCard } from "@/components/catalog/product-card";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 import { ViewItemTracker } from "./view-item-tracker";
 import { ProductDescription } from "./product-description";
-import { getProductImagePath } from "@/lib/product-identity";
+import { getProductDisplayImage } from "@/lib/product-identity";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
   "reverse-osmosis": Droplet,
@@ -68,20 +67,26 @@ const COMPLEXITY_LABEL = {
   pro: "Лише фахівець",
 } as const;
 
-export function ProductDetail({ product }: { product: Product }) {
+export function ProductDetail({
+  product,
+  allProducts,
+}: {
+  product: Product;
+  allProducts: Product[];
+}) {
   const cat = findCategory(product.category)!;
   const d: ProductDetails = product.details ?? {};
   const CategoryIcon = ICON_BY_CATEGORY[product.category];
-  const related = relatedProducts(product, 4);
-  const comparison = buildComparison(product);
+  const related = relatedFrom(allProducts, product, 4);
+  const comparison = buildComparison(product, allProducts);
   const detailedDescription = d.longDescription?.trim() || product.description;
   // Use a model-specific warranty if the data has one; otherwise stay neutral
   // (no hardcoded "3 роки" / "5 років" that could contradict other pages).
   const warranty = d.specs?.find((s) => /гаран/i.test(s.label))?.value;
-  const localImage = getProductImagePath(product);
+  const localImage = getProductDisplayImage(product);
   const gallery = [
     localImage,
-    ...(product.images ?? []).filter((image) => image && image !== product.image),
+    ...(product.images ?? []).filter((image) => image && image !== localImage),
   ].filter(Boolean);
   const mainImage = gallery[0];
   const thumbs = gallery.slice(0, 4);
@@ -617,19 +622,19 @@ function facetValue(p: Product, key: string): string {
   return v && v.length ? v.join(", ") : "";
 }
 
-function buildComparison(product: Product): {
+function buildComparison(product: Product, allProducts: Product[]): {
   columns: { slug: string; name: string }[];
   rows: { label: string; values: string[] }[];
 } | null {
   // Compare within the same subcategory first, then fall back to the category.
-  let siblings = PRODUCTS.filter(
+  let siblings = allProducts.filter(
     (p) =>
       p.category === product.category &&
       p.slug !== product.slug &&
       (product.subcategory ? p.subcategory === product.subcategory : true),
   );
   if (siblings.length === 0) {
-    siblings = PRODUCTS.filter(
+    siblings = allProducts.filter(
       (p) => p.category === product.category && p.slug !== product.slug,
     );
   }

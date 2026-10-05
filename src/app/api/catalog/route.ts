@@ -1,10 +1,11 @@
-import { CATEGORIES, PRODUCTS } from "@/lib/products";
+import { getProducts } from "@/lib/catalog";
+import { CATEGORIES } from "@/lib/products";
 
 const STORE_ORIGIN = "https://sofiivkawater.com";
 const categoryNames = new Map(CATEGORIES.map((category) => [category.key, category.title]));
 
 export async function GET() {
-  const products = PRODUCTS.map((product) => ({
+  const products = (await getProducts()).map((product) => ({
     id: product.sku || product.slug,
     sku: product.sku || "",
     slug: product.slug,

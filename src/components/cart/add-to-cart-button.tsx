@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 import { useCart } from "./cart-context";
 import { pushAddToCart } from "@/utils/gtmEcommerce";
 import type { Product } from "@/lib/products";
-import { getProductImagePath } from "@/lib/product-identity";
+import { getProductDisplayImage } from "@/lib/product-identity";
 
 export function AddToCartButton({
   product,
@@ -31,7 +31,7 @@ export function AddToCartButton({
           sku: product.sku,
           name: product.name,
           price: product.price,
-          image: getProductImagePath(product),
+          image: getProductDisplayImage(product),
           category: product.category,
           subcategory: product.subcategory,
         });

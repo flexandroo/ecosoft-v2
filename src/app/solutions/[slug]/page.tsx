@@ -7,7 +7,7 @@ import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
 import { ProductCard } from "@/components/catalog/product-card";
 import { SOLUTIONS, findSolution } from "@/lib/solutions";
-import { PRODUCTS } from "@/lib/products";
+import { getProducts } from "@/lib/catalog";
 import { matchesQuery } from "@/lib/catalog-filters";
 
 type Params = { slug: string };
@@ -46,7 +46,7 @@ export default async function SolutionPage({
   const s = findSolution(slug);
   if (!s) notFound();
 
-  const recommended = PRODUCTS.filter(
+  const recommended = (await getProducts()).filter(
     (p) =>
       p.category === s.recommend.category &&
       (s.recommend.query ? matchesQuery(p, s.recommend.query) : true),

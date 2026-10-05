@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import type { CategoryKey, Product } from "@/lib/products";
-import { getProductImagePath } from "@/lib/product-identity";
+import { getProductDisplayImage } from "@/lib/product-identity";
 
 const SUBTITLES: Record<CategoryKey, string> = {
   "reverse-osmosis":
@@ -45,7 +45,7 @@ export function CategoryHero({
 }) {
   const count = products.length;
   const montage = products
-    .map((p) => getProductImagePath(p))
+    .map((p) => getProductDisplayImage(p))
     .filter((src): src is string => Boolean(src))
     .slice(0, 3);
 

@@ -28,8 +28,35 @@ const nextConfig: NextConfig = {
       { key: "X-Frame-Options", value: "SAMEORIGIN" },
     ];
 
+    // The admin shares the root layout (and its ad tags) with the storefront.
+    // This stricter policy overrides the one above for /admin, so the browser
+    // refuses to load Meta Pixel / GTM / Clarity there: staff activity and
+    // customer data never reach the ad or analytics platforms.
+    const adminHeaders = [
+      {
+        key: "Content-Security-Policy",
+        value: [
+          "default-src 'self'",
+          "base-uri 'self'",
+          "form-action 'self'",
+          "frame-ancestors 'none'",
+          "object-src 'none'",
+          "script-src 'self' 'unsafe-inline'",
+          "style-src 'self' 'unsafe-inline'",
+          "img-src 'self' data: blob: https://*.supabase.co",
+          "font-src 'self' data:",
+          "connect-src 'self' https://*.supabase.co",
+          "frame-src 'none'",
+        ].join("; "),
+      },
+      { key: "X-Robots-Tag", value: "noindex, nofollow" },
+      { key: "Cache-Control", value: "no-store" },
+    ];
+
     return [
       { source: "/:path*", headers: securityHeaders },
+      { source: "/admin", headers: adminHeaders },
+      { source: "/admin/:path*", headers: adminHeaders },
       {
         source: "/images/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" }],

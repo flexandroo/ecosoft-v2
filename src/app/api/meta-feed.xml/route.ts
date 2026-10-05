@@ -1,10 +1,10 @@
 import { createMetaProductFeed } from "@/lib/meta-feed";
-import { PRODUCTS } from "@/lib/products";
+import { getProducts } from "@/lib/catalog";
 
 export const dynamic = "force-dynamic";
 
-export function GET(): Response {
-  return new Response(createMetaProductFeed(PRODUCTS), {
+export async function GET(): Promise<Response> {
+  return new Response(createMetaProductFeed(await getProducts()), {
     headers: {
       "Cache-Control": "no-store, max-age=0",
       "Content-Disposition": 'inline; filename="meta-feed.xml"',

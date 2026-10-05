@@ -19,3 +19,12 @@ export function getProductImagePath(product: ProductIdentityInput): string {
     ? `/images/meta-products/${itemId.replace(/[^a-zA-Z0-9._-]/g, "_")}.jpg`
     : "";
 }
+
+/**
+ * Main image shown on the storefront. Uses the product's own image (which the
+ * admin can replace) and falls back to the SKU-based file. The Meta catalogue
+ * feed keeps using the SKU-based files and is not affected by this.
+ */
+export function getProductDisplayImage(product: ProductIdentityInput & { image?: string | null }): string {
+  return product.image || getProductImagePath(product);
+}

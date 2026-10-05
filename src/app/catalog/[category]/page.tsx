@@ -9,9 +9,9 @@ import { categoryImage } from "@/lib/catalog-taxonomy";
 import {
   CATEGORIES,
   findCategory,
-  productsByCategory,
   type CategoryKey,
 } from "@/lib/products";
+import { getProductsByCategory } from "@/lib/catalog";
 
 type Params = { category: string };
 
@@ -48,7 +48,7 @@ export default async function CategoryCatalogPage({
   const { category } = await params;
   const cat = findCategory(category);
   if (!cat) notFound();
-  const products = productsByCategory(category as CategoryKey);
+  const products = await getProductsByCategory(category as CategoryKey);
 
   return (
     <>
