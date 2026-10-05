@@ -19,7 +19,6 @@ import {
   MessageSquareText,
   Settings,
   ShoppingCart,
-  SlidersHorizontal,
   User,
   Users,
   X,
@@ -60,7 +59,6 @@ const SECTIONS: { title: string; items: NavItem[] }[] = [
     title: "Дані",
     items: [
       { href: "/admin/categories", label: "Категорії", icon: ListTree },
-      { href: "/admin/attributes", label: "Характеристики", icon: SlidersHorizontal },
       { href: "/admin/media", label: "Медіатека", icon: Images },
     ],
   },
