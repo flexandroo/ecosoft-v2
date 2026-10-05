@@ -64,7 +64,7 @@ export function ProductForm({ product }: { product: EditableProduct }) {
         <Card>
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
             <h2 className="font-semibold">Фото</h2>
-            <ImageUploadButton folder={`products/${product.slug}`} onUploaded={(url) => setImages((l) => [...l, url])} />
+            <ImageUploadButton multiple folder={`products/${product.slug}`} onUploaded={(url) => setImages((l) => (l.includes(url) ? l : [...l, url]))} />
           </div>
           {images.length ? (
             <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
