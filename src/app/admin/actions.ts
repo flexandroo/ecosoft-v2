@@ -13,7 +13,7 @@ import { BANNERS_TAG } from "@/lib/banners";
 import { CATALOG_TAG } from "@/lib/catalog";
 import { crmConfigured } from "@/lib/crm";
 import { dispatchConversion, type ConversionLead } from "@/lib/conversions";
-import { createSessionClient } from "@/lib/supabase/server";
+import { createServiceClient, createSessionClient } from "@/lib/supabase/server";
 
 export type FormState = { error?: string; ok?: string } | null;
 
@@ -282,4 +282,76 @@ export async function deleteBanner(fd: FormData) {
   updateTag(BANNERS_TAG);
   revalidatePath("/admin/banners");
   redirect("/admin/banners");
+}
+
+// ---------------------------------------------------------------------------
+// Staff (admins only)
+// ---------------------------------------------------------------------------
+
+async function requireAdmin() {
+  const staff = await requireStaff();
+  if (staff.role !== "admin") throw new Error("Лише адміністратор може керувати працівниками.");
+  return staff;
+}
+
+export async function addStaff(_prev: FormState, fd: FormData): Promise<FormState> {
+  try {
+    await requireAdmin();
+  } catch (error) {
+    return { error: (error as Error).message };
+  }
+  const email = str(fd, "email", 254).toLowerCase();
+  const name = str(fd, "name", 100);
+  const password = str(fd, "password", 200);
+  const role = str(fd, "role", 20) === "admin" ? "admin" : "manager";
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return { error: "Некоректний email." };
+  if (password.length < 10) return { error: "Пароль має містити щонайменше 10 символів." };
+
+  const service = createServiceClient();
+  if (!service) return { error: "На сервері не задано SUPABASE_SECRET_KEY." };
+
+  let userId: string | undefined;
+  const created = await service.auth.admin.createUser({ email, password, email_confirm: true });
+  if (created.data.user) {
+    userId = created.data.user.id;
+  } else if (/already|registered|exists/i.test(created.error?.message ?? "")) {
+    // Existing account (e.g. re-adding a former employee): look it up and grant access again.
+    for (let page = 1; page <= 20 && !userId; page++) {
+      const { data } = await service.auth.admin.listUsers({ page, perPage: 200 });
+      userId = data.users.find((u) => u.email?.toLowerCase() === email)?.id;
+      if (data.users.length < 200) break;
+    }
+  }
+  if (!userId) return { error: `Не вдалося створити акаунт: ${created.error?.message ?? "невідома помилка"}` };
+
+  const supabase = await createSessionClient();
+  const { error } = await supabase
+    .from("admin_users")
+    .upsert({ user_id: userId, email, name: name || email, role }, { onConflict: "user_id" });
+  if (error) return { error: error.message };
+  revalidatePath("/admin/staff");
+  return { ok: `Додано ${email}. Передайте працівнику пароль особисто.` };
+}
+
+export async function updateStaffRole(fd: FormData) {
+  const me = await requireAdmin();
+  const userId = str(fd, "user_id", 64);
+  const role = str(fd, "role", 20) === "admin" ? "admin" : "manager";
+  if (userId === me.userId && role !== "admin") throw new Error("Не можна зняти права адміністратора з себе.");
+  const supabase = await createSessionClient();
+  const { error } = await supabase.from("admin_users").update({ role }).eq("user_id", userId);
+  if (error) throw new Error(error.message);
+  revalidatePath("/admin/staff");
+}
+
+export async function removeStaff(fd: FormData) {
+  const me = await requireAdmin();
+  const userId = str(fd, "user_id", 64);
+  if (userId === me.userId) throw new Error("Не можна видалити себе.");
+  const supabase = await createSessionClient();
+  const { error } = await supabase.from("admin_users").delete().eq("user_id", userId);
+  if (error) throw new Error(error.message);
+  // Without an admin_users row every admin page and RLS policy denies access,
+  // even if the person still has a valid session.
+  revalidatePath("/admin/staff");
 }

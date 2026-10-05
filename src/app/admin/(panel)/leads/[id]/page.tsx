@@ -44,8 +44,11 @@ export default async function LeadPage({ params }: { params: Promise<{ id: strin
   return (
     <>
       <div className="mb-2 text-sm">
-        <Link href="/admin/leads" className="text-muted-foreground hover:text-foreground">
-          ← Заявки
+        <Link
+          href={lead.kind === "order" ? "/admin/orders" : "/admin/leads"}
+          className="text-muted-foreground hover:text-foreground"
+        >
+          ← {lead.kind === "order" ? "Замовлення" : "Заявки"}
         </Link>
       </div>
       <PageTitle

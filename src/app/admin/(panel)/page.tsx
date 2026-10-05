@@ -21,8 +21,9 @@ export default async function AdminDashboard() {
 
   const countLeads = () => supabase.from("leads").select("id", { count: "exact", head: true });
 
-  const [newCount, todayCount, weekCount, completed, latest] = await Promise.all([
-    countLeads().eq("status", "new"),
+  const [newOrders, newRequests, todayCount, weekCount, completed, latest] = await Promise.all([
+    countLeads().eq("status", "new").eq("kind", "order"),
+    countLeads().eq("status", "new").in("kind", ["callback", "contact"]),
     countLeads().gte("created_at", today),
     countLeads().gte("created_at", week),
     supabase.from("leads").select("total").eq("status", "completed").gte("completed_at", month),
@@ -35,9 +36,9 @@ export default async function AdminDashboard() {
 
   const revenue = (completed.data ?? []).reduce((sum, row) => sum + Number(row.total || 0), 0);
   const stats = [
-    { label: "Нові, не опрацьовані", value: newCount.count ?? 0, href: "/admin/leads?status=new" },
-    { label: "Заявок сьогодні", value: todayCount.count ?? 0 },
-    { label: "Заявок за 7 днів", value: weekCount.count ?? 0 },
+    { label: "Нові замовлення", value: newOrders.count ?? 0, href: "/admin/orders?status=new" },
+    { label: "Нові заявки", value: newRequests.count ?? 0, href: "/admin/leads?status=new" },
+    { label: "Звернень сьогодні / 7 днів", value: `${todayCount.count ?? 0} / ${weekCount.count ?? 0}` },
     { label: "Продажі за 30 днів", value: formatUah(revenue) },
   ];
 
@@ -64,9 +65,9 @@ export default async function AdminDashboard() {
 
       <Card className="mt-6 p-0 sm:p-0">
         <div className="flex items-center justify-between px-4 py-3 sm:px-5">
-          <h2 className="font-semibold">Останні заявки</h2>
-          <Link href="/admin/leads" className="text-sm text-primary hover:underline">
-            Усі заявки
+          <h2 className="font-semibold">Останні звернення</h2>
+          <Link href="/admin/orders" className="text-sm text-primary hover:underline">
+            Усі замовлення
           </Link>
         </div>
         <ul className="divide-y border-t">
