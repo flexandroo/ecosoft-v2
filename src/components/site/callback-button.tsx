@@ -3,13 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Phone, X, Check } from "lucide-react";
-import { isValidUkrainianPhone } from "@/lib/validation";
-import { pushGenerateLead } from "@/utils/gtmEcommerce";
-import {
-  captureMarketingAttribution,
-  createLeadIdentity,
-  getMarketingAttribution,
-} from "@/utils/marketing-attribution";
+import { captureMarketingAttribution } from "@/utils/marketing-attribution";
+import { useCallbackRequest } from "./use-callback-request";
 
 /**
  * "Безкоштовний дзвінок" — a callback request. Renders a trigger button that
@@ -65,16 +60,20 @@ function CallbackModal({
   source?: string;
   onClose: () => void;
 }) {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [company, setCompany] = useState(""); // honeypot
-  const [submitting, setSubmitting] = useState(false);
-  const [sent, setSent] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const {
+    name,
+    setName,
+    phone,
+    setPhone,
+    company,
+    setCompany,
+    submitting,
+    sent,
+    error,
+    phoneValid,
+    submit: handleSubmit,
+  } = useCallbackRequest(source);
   const phoneRef = useRef<HTMLInputElement>(null);
-  const leadIdentity = useRef<ReturnType<typeof createLeadIdentity> | null>(null);
-
-  const phoneValid = isValidUkrainianPhone(phone);
 
   useEffect(() => {
     phoneRef.current?.focus();
@@ -90,38 +89,6 @@ function CallbackModal({
       document.body.style.overflow = prev;
     };
   }, [onClose]);
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (submitting || !phoneValid) return;
-    setSubmitting(true);
-    setError(null);
-    leadIdentity.current ??= createLeadIdentity("CALL");
-    const identity = leadIdentity.current;
-    try {
-      const res = await fetch("/api/callback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          externalId: identity.externalId,
-          eventId: identity.eventId,
-          attribution: getMarketingAttribution(),
-          name: name.trim(),
-          phone: phone.trim(),
-          company,
-          source: source ?? "site",
-        }),
-      });
-      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; leadId?: string };
-      if (!res.ok || !data.ok) throw new Error("failed");
-      pushGenerateLead({ leadId: data.leadId ?? identity.externalId, leadType: "callback" });
-      setSent(true);
-    } catch {
-      setError("Не вдалося надіслати. Спробуйте ще раз або зателефонуйте нам.");
-    } finally {
-      setSubmitting(false);
-    }
-  }
 
   return (
     <div
