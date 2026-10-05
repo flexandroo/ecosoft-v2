@@ -23,6 +23,7 @@ import { useStoreCategories } from "@/components/site/categories-context";
 import { useHeaderMenu } from "@/components/site/menus-context";
 import { MenuLink } from "@/components/site/menu-link";
 import { CATEGORY_GROUPS } from "@/lib/categories-shared";
+import { SUBCATEGORIES, subcategoryQuery } from "@/lib/catalog-facets";
 import { cn } from "@/lib/utils";
 
 function SearchForm({ className }: { className?: string }) {
@@ -155,21 +156,36 @@ export function Header() {
               Каталог
             </button>
             {catalogOpen && (
-              <div className="absolute top-[calc(100%+10px)] left-0 grid w-[720px] grid-cols-2 gap-x-8 gap-y-5 rounded-2xl border border-border bg-card p-6 shadow-2xl shadow-foreground/10">
+              <div className="absolute top-[calc(100%+10px)] left-0 grid max-h-[calc(100vh-140px)] w-[min(1000px,calc(100vw-12rem))] grid-cols-4 gap-x-6 gap-y-5 overflow-y-auto rounded-2xl border border-border bg-card p-6 shadow-2xl shadow-foreground/10">
                 {CATEGORY_GROUPS.filter((group) => categories.some((c) => c.group === group.key)).map((group) => (
                   <div key={group.key}>
                     <p className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">{group.title}</p>
-                    <ul className="mt-2 space-y-0.5">
+                    <ul className="mt-2 space-y-3">
                       {categories.filter((c) => c.group === group.key).map((c) => (
                         <li key={c.key}>
                           <Link
                             href={`/catalog/${c.key}`}
                             onClick={() => setCatalogOpen(false)}
-                            className="flex items-center justify-between rounded-lg px-2 py-2 text-[15px] font-medium hover:bg-muted"
+                            className="flex items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-[15px] font-semibold leading-snug hover:bg-muted"
                           >
                             {c.title}
-                            <ChevronRight className="size-4 text-muted-foreground" />
+                            <ChevronRight className="size-4 shrink-0 text-muted-foreground" />
                           </Link>
+                          {SUBCATEGORIES[c.key].length > 0 && (
+                            <ul className="mt-0.5">
+                              {SUBCATEGORIES[c.key].map((sub) => (
+                                <li key={sub.key}>
+                                  {/* Full page load: the catalogue reads its preset filter from the URL on mount. */}
+                                  <a
+                                    href={`/catalog/${c.key}${subcategoryQuery(sub)}`}
+                                    className="block rounded-md px-2 py-1 text-[13.5px] leading-snug text-muted-foreground hover:bg-muted hover:text-foreground"
+                                  >
+                                    {sub.label}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </li>
                       ))}
                     </ul>

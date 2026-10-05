@@ -2,6 +2,16 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async redirects() {
+    // SCALEX consumables moved from "Магістральні фільтри" to "Картриджі магістральні" (as on ecosoft.ua).
+    return ["kartridzh-dlya-filtra-ot-nakipi-ecosoft-scalex", "napolnitel-dlya-filtrov-ot-nakipi-ecosoft-scalex-200-ml"].map(
+      (slug) => ({
+        source: `/catalog/mainline-filters/${slug}`,
+        destination: `/catalog/mainline-cartridges/${slug}`,
+        permanent: true,
+      }),
+    );
+  },
   async headers() {
     const securityHeaders = [
       {

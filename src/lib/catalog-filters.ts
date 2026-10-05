@@ -1,77 +1,11 @@
-// Config-driven catalog faceted filters. Each facet reads values from
-// `product.filters[key]`. The UI computes available options dynamically and
-// hides any facet with fewer than 2 distinct values.
+// Catalog faceted filtering. Facet definitions and how each product's values
+// are derived live in catalog-facets.ts (modelled on ecosoft.ua); this module
+// computes the available options and matches products. Facets with fewer than
+// 2 distinct values are hidden.
 import { findCategory, type CategoryKey, type Product } from "@/lib/products";
+import { allFacetValues, facetValues, facetsForCategory, type FacetDef } from "@/lib/catalog-facets";
 
-export type FacetDef = { key: string; label: string };
-
-/** Universal facets for the all-catalog page (kept intentionally small). */
-export const UNIVERSAL_FACETS: FacetDef[] = [
-  { key: "purpose", label: "Призначення" },
-  { key: "problem", label: "Проблема води" },
-  { key: "installation", label: "Тип встановлення" },
-  { key: "level", label: "Рівень" },
-];
-
-/** Per-category facets, ordered most → least important. */
-export const CATEGORY_FACETS: Record<CategoryKey, FacetDef[]> = {
-  "reverse-osmosis": [
-    { key: "line", label: "Лінійка" },
-    { key: "systemType", label: "Тип системи" },
-    { key: "level", label: "Рівень" },
-    { key: "mineralization", label: "Мінералізація" },
-    { key: "pump", label: "Помпа" },
-  ],
-  "flow-filters": [
-    { key: "type", label: "Тип" },
-    { key: "stages", label: "Ступенів" },
-  ],
-  "filtration-systems": [
-    { key: "task", label: "Завдання" },
-    { key: "format", label: "Формат" },
-    { key: "series", label: "Серія" },
-    { key: "media", label: "Завантаження" },
-    { key: "problem", label: "Проблема води" },
-    { key: "level", label: "Рівень" },
-  ],
-  "mainline-filters": [
-    { key: "type", label: "Тип" },
-    { key: "temperature", label: "Температура" },
-    { key: "connection", label: "Підключення" },
-    { key: "body", label: "Корпус" },
-    { key: "purpose", label: "Призначення" },
-    { key: "problem", label: "Проблема води" },
-  ],
-  "ro-cartridges": [
-    { key: "type", label: "Тип" },
-    { key: "compatibility", label: "Сумісність" },
-    { key: "period", label: "Термін заміни" },
-    { key: "gpd", label: "Мембрана (GPD)" },
-    { key: "elements", label: "Кількість картриджів" },
-  ],
-  "mainline-cartridges": [
-    { key: "size", label: "Типорозмір" },
-    { key: "material", label: "Матеріал" },
-    { key: "task", label: "Завдання" },
-    { key: "micron", label: "Рейтинг фільтрації" },
-    { key: "qty", label: "Кількість у комплекті" },
-    { key: "problem", label: "Проблема води" },
-  ],
-  "filter-media": [
-    { key: "materialType", label: "Тип матеріалу" },
-    { key: "purpose", label: "Призначення" },
-    { key: "brand", label: "Бренд / серія" },
-    { key: "volume", label: "Обʼєм / вага" },
-  ],
-  horeca: [
-    { key: "capacity", label: "Продуктивність" },
-    { key: "forCoffee", label: "Для кави" },
-  ],
-};
-
-export function facetsForCategory(category?: CategoryKey): FacetDef[] {
-  return category ? CATEGORY_FACETS[category] ?? UNIVERSAL_FACETS : UNIVERSAL_FACETS;
-}
+export { facetsForCategory, type FacetDef };
 
 export type FacetOption = { value: string; count: number };
 export type AvailableFacet = { def: FacetDef; options: FacetOption[] };
@@ -84,12 +18,13 @@ export function getAvailableFacets(
   products: Product[],
   defs: FacetDef[],
   selected: SelectedFacets = {},
+  scope?: CategoryKey,
 ): AvailableFacet[] {
   const result: AvailableFacet[] = [];
   for (const def of defs) {
     const allValues = new Set<string>();
     for (const product of products) {
-      for (const value of product.filters?.[def.key] ?? []) allValues.add(value);
+      for (const value of facetValues(product, def.key, scope)) allValues.add(value);
     }
     if (allValues.size < 2) continue;
 
@@ -99,14 +34,16 @@ export function getAvailableFacets(
       Object.entries(selected).filter(([key, values]) => key !== def.key && values.length > 0),
     );
     const counts = new Map<string, number>();
-    for (const p of products.filter((product) => matchesFacets(product, otherSelections))) {
-      const vals = p.filters?.[def.key] ?? [];
-      if (!vals) continue;
-      for (const v of vals) counts.set(v, (counts.get(v) ?? 0) + 1);
+    for (const p of products.filter((product) => matchesFacets(product, otherSelections, scope))) {
+      for (const v of facetValues(p, def.key, scope)) counts.set(v, (counts.get(v) ?? 0) + 1);
     }
+    const rank = (value: string) => {
+      const i = def.order?.indexOf(value) ?? -1;
+      return i === -1 ? Number.MAX_SAFE_INTEGER : i;
+    };
     const options = [...allValues]
       .map((value) => ({ value, count: counts.get(value) ?? 0 }))
-      .sort((a, b) => a.value.localeCompare(b.value, "uk", { numeric: true }));
+      .sort((a, b) => rank(a.value) - rank(b.value) || a.value.localeCompare(b.value, "uk", { numeric: true }));
     result.push({ def, options });
   }
   return result;
@@ -115,11 +52,11 @@ export function getAvailableFacets(
 export type SelectedFacets = Record<string, string[]>;
 
 /** A product matches when, for every active facet, it has at least one selected value. */
-export function matchesFacets(product: Product, selected: SelectedFacets): boolean {
+export function matchesFacets(product: Product, selected: SelectedFacets, scope?: CategoryKey): boolean {
   for (const key in selected) {
     const values = selected[key];
     if (!values || values.length === 0) continue;
-    const pv = product.filters?.[key] ?? [];
+    const pv = facetValues(product, key, scope);
     if (!values.some((v) => pv.includes(v))) return false;
   }
   return true;
@@ -151,6 +88,7 @@ export function productSearchText(p: Product): string {
   if (p.filters) {
     for (const key in p.filters) parts.push(...p.filters[key]);
   }
+  parts.push(...allFacetValues(p));
   return normText(parts.filter(Boolean).join(" "));
 }
 

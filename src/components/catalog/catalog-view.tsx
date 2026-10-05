@@ -11,7 +11,9 @@ import {
   type AvailableFacet,
   type SelectedFacets,
 } from "@/lib/catalog-filters";
+import { SUBCATEGORIES, type Subcategory } from "@/lib/catalog-facets";
 import { formatUah } from "@/lib/format";
+import { cn } from "@/lib/utils";
 import { ProductCard } from "./product-card";
 
 type SortKey = "default" | "price-asc" | "price-desc" | "name";
@@ -48,12 +50,20 @@ export function CatalogView({
   const filterDialogRef = useRef<HTMLDivElement>(null);
   const filterCloseRef = useRef<HTMLButtonElement>(null);
 
-  // Pre-fill the search from the URL after hydration (shareable ?q= links).
+  // Pre-fill the search and filters from the URL after hydration (shareable
+  // links such as ?q=… or ?line=PURE, used by the subcategory links).
   useEffect(() => {
-    const q = new URLSearchParams(window.location.search).get("q");
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("q");
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (q) setQuery(q);
-  }, []);
+    const fromUrl: SelectedFacets = {};
+    for (const facet of facetsForCategory(lockedCategory)) {
+      const values = params.getAll(facet.key).filter(Boolean);
+      if (values.length) fromUrl[facet.key] = values;
+    }
+    if (Object.keys(fromUrl).length) setSelected(fromUrl);
+  }, [lockedCategory]);
 
   useEffect(() => {
     if (new URLSearchParams(window.location.search).get("focus") === "search") {
@@ -94,25 +104,29 @@ export function CatalogView({
     };
   }, [mobileFiltersOpen]);
 
-  // Keep ?q= in the URL in sync (write-only, no re-render / no dynamic rendering).
+  // Keep ?q= and the facet selection in the URL in sync (write-only, no re-render / no dynamic rendering).
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (query.trim()) params.set("q", query);
     else params.delete("q");
+    for (const facet of facetsForCategory(lockedCategory)) {
+      params.delete(facet.key);
+      for (const value of selected[facet.key] ?? []) params.append(facet.key, value);
+    }
     const qs = params.toString();
     window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
-  }, [query]);
+  }, [query, selected, lockedCategory]);
 
   // Available facets are driven by config + the products in scope; facets with
   // fewer than 2 distinct values are dropped automatically.
   const availableFacets = useMemo(
-    () => getAvailableFacets(products, facetsForCategory(lockedCategory), selected),
+    () => getAvailableFacets(products, facetsForCategory(lockedCategory), selected, lockedCategory),
     [products, lockedCategory, selected],
   );
 
   const filtered = useMemo(() => {
     let list = products.filter(
-      (p) => matchesQuery(p, query) && matchesFacets(p, selected),
+      (p) => matchesQuery(p, query) && matchesFacets(p, selected, lockedCategory),
     );
 
     if (inStockOnly) list = list.filter((p) => p.inStock);
@@ -131,7 +145,7 @@ export function CatalogView({
       default:
         return list;
     }
-  }, [products, query, selected, inStockOnly, priceMin, priceMax, sort]);
+  }, [products, query, selected, inStockOnly, priceMin, priceMax, sort, lockedCategory]);
 
   const showResults = !searchMode || query.trim().length > 0;
   const visibleProducts = showResults ? filtered.slice(0, visibleCount) : [];
@@ -216,6 +230,15 @@ export function CatalogView({
         </aside>
 
         <div>
+          {lockedCategory && (
+            <SubcategoryChips
+              subcategories={SUBCATEGORIES[lockedCategory]}
+              products={products}
+              scope={lockedCategory}
+              selected={selected}
+              onPick={(sub) => setSelected(sub && !isActiveSub(sub, selected) ? sub.filter : {})}
+            />
+          )}
           <div className="relative mb-4">
             <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             <input
@@ -570,6 +593,75 @@ function FilterGroup({
       </summary>
       <div>{children}</div>
     </details>
+  );
+}
+
+function isActiveSub(sub: Subcategory, selected: SelectedFacets): boolean {
+  const keys = Object.keys(sub.filter);
+  if (keys.length !== Object.keys(selected).length) return false;
+  return keys.every((key) => {
+    const a = [...(selected[key] ?? [])].sort();
+    const b = [...sub.filter[key]].sort();
+    return a.length === b.length && a.every((v, i) => v === b[i]);
+  });
+}
+
+/** Ecosoft-style subcategory shortcuts: each one is a preset filter selection. */
+function SubcategoryChips({
+  subcategories,
+  products,
+  scope,
+  selected,
+  onPick,
+}: {
+  subcategories: Subcategory[];
+  products: Product[];
+  scope: CategoryKey;
+  selected: SelectedFacets;
+  onPick: (sub: Subcategory | null) => void;
+}) {
+  const withProducts = subcategories.filter((sub) => products.some((p) => matchesFacets(p, sub.filter, scope)));
+  if (withProducts.length < 2) return null;
+  const anyActive = withProducts.some((sub) => isActiveSub(sub, selected));
+  const chip = "inline-flex h-9 shrink-0 items-center whitespace-nowrap rounded-full border px-3.5 text-sm font-medium transition-colors";
+  return (
+    <nav aria-label="Підкатегорії" className="-mx-4 mb-4 overflow-x-auto px-4 lg:mx-0 lg:px-0">
+      <ul className="flex gap-2 pb-1 lg:flex-wrap">
+        <li>
+          <button
+            type="button"
+            onClick={() => onPick(null)}
+            aria-pressed={!anyActive && Object.keys(selected).length === 0}
+            className={cn(
+              chip,
+              !anyActive && Object.keys(selected).length === 0
+                ? "border-primary bg-primary text-primary-foreground"
+                : "border-border bg-card text-foreground hover:bg-muted",
+            )}
+          >
+            Усі
+          </button>
+        </li>
+        {withProducts.map((sub) => {
+          const active = isActiveSub(sub, selected);
+          return (
+            <li key={sub.key}>
+              <button
+                type="button"
+                onClick={() => onPick(sub)}
+                aria-pressed={active}
+                className={cn(
+                  chip,
+                  active ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card text-foreground hover:bg-muted",
+                )}
+              >
+                {sub.label}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 }
 
