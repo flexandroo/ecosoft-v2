@@ -14,6 +14,8 @@ import { CATALOG_TAG } from "@/lib/catalog";
 import { CATEGORIES_TAG } from "@/lib/categories";
 import { COLLECTIONS_TAG } from "@/lib/collections";
 import { crmConfigured } from "@/lib/crm";
+import { MENUS_TAG } from "@/lib/menus";
+import { validateMenus } from "@/lib/menus-shared";
 import { dispatchConversion, type ConversionLead } from "@/lib/conversions";
 import { createServiceClient, createSessionClient } from "@/lib/supabase/server";
 import { SETTINGS_TAG } from "@/lib/settings";
@@ -429,6 +431,41 @@ export async function saveSettings(_prev: FormState, fd: FormData): Promise<Form
 
   updateTag(SETTINGS_TAG);
   revalidatePath("/admin/settings");
+  return { ok: "Збережено. На сайті оновиться протягом хвилини." };
+}
+
+// ---------------------------------------------------------------------------
+// Site menus
+// ---------------------------------------------------------------------------
+
+export async function saveMenus(_prev: FormState, fd: FormData): Promise<FormState> {
+  const staff = await requireStaff();
+  let input: unknown;
+  try {
+    input = JSON.parse(str(fd, "payload", 40000));
+  } catch {
+    return { error: "Некоректні дані форми." };
+  }
+  const result = validateMenus(input);
+  if ("error" in result) return { error: result.error };
+
+  const rows = [
+    { key: "header", items: result.menus.header, updated_by: staff.userId },
+    { key: "footer", items: result.menus.footer, updated_by: staff.userId },
+  ];
+  const supabase = await createSessionClient();
+  const { error } = await supabase.from("site_menus").upsert(rows, { onConflict: "key" });
+  if (error) return { error: `Не вдалося зберегти: ${error.message}` };
+  await supabase.from("audit_log").insert({
+    actor: staff.userId,
+    entity: "menus",
+    entity_id: "site",
+    action: "update",
+    diff: result.menus,
+  });
+
+  updateTag(MENUS_TAG);
+  revalidatePath("/admin/menu");
   return { ok: "Збережено. На сайті оновиться протягом хвилини." };
 }
 

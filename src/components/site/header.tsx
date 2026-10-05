@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import {
   ChevronRight,
@@ -19,17 +20,10 @@ import { CallbackButton } from "@/components/site/callback-button";
 import { useSiteSettings } from "@/components/site/settings-context";
 import { toPhoneContacts } from "@/lib/settings-shared";
 import { useStoreCategories } from "@/components/site/categories-context";
+import { useHeaderMenu } from "@/components/site/menus-context";
+import { MenuLink } from "@/components/site/menu-link";
 import { CATEGORY_GROUPS } from "@/lib/categories-shared";
 import { cn } from "@/lib/utils";
-
-const PAGES = [
-  { href: "/solutions", label: "Рішення" },
-  { href: "/delivery", label: "Доставка і оплата" },
-  { href: "/returns", label: "Повернення та обмін" },
-  { href: "/blog", label: "Блог" },
-  { href: "/about", label: "Про нас" },
-  { href: "/contacts", label: "Контакти" },
-];
 
 function SearchForm({ className }: { className?: string }) {
   return (
@@ -59,6 +53,9 @@ export function Header() {
   const settings = useSiteSettings();
   const PRIMARY_PHONE = toPhoneContacts(settings.phones)[0];
   const categories = useStoreCategories();
+  const menu = useHeaderMenu();
+  const desktopPages = menu.filter((p) => p.desktop);
+  const mobilePages = menu.filter((p) => p.mobile);
   const { count, hydrated } = useCart();
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -113,13 +110,15 @@ export function Header() {
           <span className="hidden items-center gap-1.5 lg:inline-flex">
             <ShieldCheck className="size-3.5 text-accent" aria-hidden /> Офіційний партнер Ecosoft
           </span>
-          <nav className="ml-auto hidden items-center gap-5 lg:flex" aria-label="Інформація">
-            {PAGES.slice(1).map((p) => (
-              <Link key={p.href} href={p.href} className="transition-colors hover:text-white">
-                {p.label}
-              </Link>
-            ))}
-          </nav>
+          {desktopPages.length > 0 && (
+            <nav className="ml-auto hidden items-center gap-5 lg:flex" aria-label="Інформація">
+              {desktopPages.map((p, i) => (
+                <MenuLink key={i} href={p.href} className="transition-colors hover:text-white">
+                  {p.label}
+                </MenuLink>
+              ))}
+            </nav>
+          )}
         </div>
       </div>
 
@@ -221,8 +220,9 @@ export function Header() {
         </div>
       </div>
 
-      {/* Phone drawer */}
-      {drawerOpen && (
+      {/* Phone drawer, portalled to <body>: the header's backdrop-blur would
+          otherwise clip a fixed-position child to the header's own height. */}
+      {drawerOpen && createPortal(
         <div className="fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="Меню">
           <button aria-label="Закрити меню" className="absolute inset-0 bg-foreground/50" onClick={() => setDrawerOpen(false)} />
           <div className="absolute inset-y-0 left-0 flex w-[min(86vw,360px)] flex-col overflow-y-auto bg-background shadow-xl">
@@ -247,20 +247,24 @@ export function Header() {
                 </li>
               ))}
             </ul>
-            <p className="px-4 pt-4 pb-1 text-xs font-semibold tracking-wide text-muted-foreground uppercase">Покупцям</p>
-            <ul className="px-2 pb-4">
-              {PAGES.map((p) => (
-                <li key={p.href}>
-                  <Link
-                    href={p.href}
-                    onClick={() => setDrawerOpen(false)}
-                    className="flex min-h-11 items-center rounded-lg px-2 text-[15px] hover:bg-muted"
-                  >
-                    {p.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {mobilePages.length > 0 && (
+              <>
+                <p className="px-4 pt-4 pb-1 text-xs font-semibold tracking-wide text-muted-foreground uppercase">Покупцям</p>
+                <ul className="px-2 pb-4">
+                  {mobilePages.map((p, i) => (
+                    <li key={i}>
+                      <MenuLink
+                        href={p.href}
+                        onClick={() => setDrawerOpen(false)}
+                        className="flex min-h-11 items-center rounded-lg px-2 text-[15px] hover:bg-muted"
+                      >
+                        {p.label}
+                      </MenuLink>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
             <div className="mt-auto space-y-2 border-t border-border p-4">
               <a
                 href={PRIMARY_PHONE.href}
@@ -276,7 +280,8 @@ export function Header() {
               </CallbackButton>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </header>
   );
