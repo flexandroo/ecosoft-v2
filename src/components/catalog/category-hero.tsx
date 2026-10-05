@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import type { Product } from "@/lib/products";
 import { getProductDisplayImage } from "@/lib/product-identity";
+import { ProductImage } from "./product-image";
 
 function pluralize(n: number, [one, few, many]: [string, string, string]) {
   const mod10 = n % 10;
@@ -88,20 +89,14 @@ export function CategoryHero({
             {montage.map((src, i) => (
               <span
                 key={src + i}
-                className="grid size-24 place-items-center overflow-hidden rounded-2xl bg-white shadow-xl shadow-black/30 ring-1 ring-white/15"
+                className="relative grid size-24 place-items-center overflow-hidden rounded-2xl bg-white shadow-xl shadow-black/30 ring-1 ring-white/15"
                 style={{
                   marginLeft: i === 0 ? 0 : -22,
                   rotate: `${(i - 1) * 5}deg`,
                   zIndex: montage.length - i,
                 }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={src}
-                  alt=""
-                  loading="lazy"
-                  className="size-full object-contain p-2.5"
-                />
+                <ProductImage src={src} alt="" sizes="96px" className="object-contain p-2.5" />
               </span>
             ))}
           </div>

@@ -56,6 +56,13 @@ function formatPrice(value: number): string {
   return `${value.toFixed(2)} UAH`;
 }
 
+/**
+ * Bump when the photos in /images/meta-products are replaced under the same
+ * file names, so Meta re-downloads them instead of keeping its cached copy.
+ * v2: full-size 1200×1200 originals (October 2026).
+ */
+const META_IMAGE_VERSION = "2";
+
 function metaImageFilename(itemId: string): string {
   return `${itemId.replace(/[^a-zA-Z0-9._-]/g, "_")}.jpg`;
 }
@@ -74,7 +81,7 @@ function productXml(product: Product, siteUrl: string): string {
   }
 
   const mainImage = absoluteUrl(
-    `/images/meta-products/${metaImageFilename(itemId)}`,
+    `/images/meta-products/${metaImageFilename(itemId)}?v=${META_IMAGE_VERSION}`,
     siteUrl,
   );
 

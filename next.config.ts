@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  images: {
+    // 85 is used for the large photo on the product page.
+    qualities: [75, 85],
+  },
   async redirects() {
     // SCALEX consumables moved from "Магістральні фільтри" to "Картриджі магістральні" (as on ecosoft.ua).
     return ["kartridzh-dlya-filtra-ot-nakipi-ecosoft-scalex", "napolnitel-dlya-filtrov-ot-nakipi-ecosoft-scalex-200-ml"].map(

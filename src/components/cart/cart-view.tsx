@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { ProductImage } from "@/components/catalog/product-image";
 import {
   Minus,
   Plus,
@@ -232,16 +233,10 @@ export function CartView() {
               >
                 <Link
                   href={`/catalog/${l.category}/${l.slug}`}
-                  className="grid size-20 shrink-0 place-items-center overflow-hidden rounded-xl bg-white sm:size-24"
+                  className="relative grid size-20 shrink-0 place-items-center overflow-hidden rounded-xl bg-white sm:size-24"
                 >
                   {l.image ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={l.image}
-                      alt={l.name}
-                      loading="lazy"
-                      className="size-full object-contain p-1.5"
-                    />
+                    <ProductImage src={l.image} alt={l.name} sizes="96px" className="object-contain p-1.5" />
                   ) : (
                     <ShoppingCart className="size-7 text-muted-foreground" />
                   )}

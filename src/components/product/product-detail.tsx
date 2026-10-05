@@ -32,6 +32,7 @@ import { relatedFrom } from "@/lib/catalog";
 import { formatUah } from "@/lib/format";
 import type { PhoneContact } from "@/lib/settings-shared";
 import { ProductCard } from "@/components/catalog/product-card";
+import { ProductImage } from "@/components/catalog/product-image";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 import { ViewItemTracker } from "./view-item-tracker";
 import { ProductDescription } from "./product-description";
@@ -114,11 +115,13 @@ export function ProductDetail({
             <div className="space-y-4">
               <div className="relative grid aspect-square w-full place-items-center overflow-hidden rounded-3xl bg-white">
                 {mainImage ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
+                  <ProductImage
                     src={mainImage}
                     alt={product.name}
-                    className="size-full object-contain p-6"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    preload
+                    quality={85}
+                    className="object-contain p-6"
                   />
                 ) : (
                   <CategoryIcon className="size-32 text-primary/30" aria-hidden />
@@ -137,14 +140,14 @@ export function ProductDetail({
               {thumbs.length > 1 && (
                 <div className="grid grid-cols-4 gap-2">
                   {thumbs.map((src, i) => (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      key={src + i}
-                      src={src}
-                      alt={`${product.name} — фото ${i + 1}`}
-                      loading="lazy"
-                      className="aspect-square w-full rounded-xl border border-border bg-white object-contain p-2"
-                    />
+                    <div key={src + i} className="relative aspect-square w-full overflow-hidden rounded-xl border border-border bg-white">
+                      <ProductImage
+                        src={src}
+                        alt={`${product.name} — фото ${i + 1}`}
+                        sizes="(min-width: 1024px) 14vw, 25vw"
+                        className="object-contain p-2"
+                      />
+                    </div>
                   ))}
                 </div>
               )}

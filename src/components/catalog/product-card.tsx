@@ -16,6 +16,7 @@ import type { CategoryKey, Product } from "@/lib/products";
 import { getProductBadges } from "@/lib/catalog-filters";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 import { getProductDisplayImage } from "@/lib/product-identity";
+import { ProductImage } from "./product-image";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
   "reverse-osmosis": Droplet,
@@ -52,12 +53,11 @@ export function ProductCard({ product }: { product: Product }) {
         className="relative grid aspect-square place-items-center overflow-hidden bg-white"
       >
         {image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <ProductImage
             src={image}
             alt={product.name}
-            loading="lazy"
-            className="size-full object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+            sizes="(min-width: 1536px) 300px, (min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+            className="object-contain p-3 transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
           <Icon
