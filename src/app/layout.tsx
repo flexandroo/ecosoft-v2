@@ -6,6 +6,8 @@ import "./globals.css";
 import { JsonLd } from "@/components/seo/json-ld";
 import { MetaPageViewTracker } from "@/components/analytics/meta-page-view-tracker";
 import { SiteSettingsProvider } from "@/components/site/settings-context";
+import { StoreCategoriesProvider } from "@/components/site/categories-context";
+import { getStoreCategories } from "@/lib/categories";
 import { getSiteSettings } from "@/lib/settings";
 import { normalizePhone } from "@/lib/settings-shared";
 import { META_PIXEL_ID } from "@/utils/metaPixel";
@@ -59,7 +61,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const settings = await getSiteSettings();
+  const [settings, categories] = await Promise.all([getSiteSettings(), getStoreCategories()]);
   return (
     <html
       lang="uk"
@@ -167,7 +169,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             ],
           }}
         />
-        <SiteSettingsProvider value={settings}>{children}</SiteSettingsProvider>
+        <SiteSettingsProvider value={settings}>
+          <StoreCategoriesProvider value={categories}>{children}</StoreCategoriesProvider>
+        </SiteSettingsProvider>
       </body>
     </html>
   );

@@ -18,8 +18,8 @@ import { useCart } from "@/components/cart/cart-context";
 import { CallbackButton } from "@/components/site/callback-button";
 import { useSiteSettings } from "@/components/site/settings-context";
 import { toPhoneContacts } from "@/lib/settings-shared";
-import { CATALOG_GROUPS } from "@/lib/catalog-taxonomy";
-import { CATEGORIES } from "@/lib/products";
+import { useStoreCategories } from "@/components/site/categories-context";
+import { CATEGORY_GROUPS } from "@/lib/categories-shared";
 import { cn } from "@/lib/utils";
 
 const PAGES = [
@@ -30,8 +30,6 @@ const PAGES = [
   { href: "/about", label: "Про нас" },
   { href: "/contacts", label: "Контакти" },
 ];
-
-const categoryTitle = new Map(CATEGORIES.map((c) => [c.key, c.title]));
 
 function SearchForm({ className }: { className?: string }) {
   return (
@@ -60,6 +58,7 @@ function SearchForm({ className }: { className?: string }) {
 export function Header() {
   const settings = useSiteSettings();
   const PRIMARY_PHONE = toPhoneContacts(settings.phones)[0];
+  const categories = useStoreCategories();
   const { count, hydrated } = useCart();
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -158,18 +157,18 @@ export function Header() {
             </button>
             {catalogOpen && (
               <div className="absolute top-[calc(100%+10px)] left-0 grid w-[720px] grid-cols-2 gap-x-8 gap-y-5 rounded-2xl border border-border bg-card p-6 shadow-2xl shadow-foreground/10">
-                {CATALOG_GROUPS.map((group) => (
+                {CATEGORY_GROUPS.filter((group) => categories.some((c) => c.group === group.key)).map((group) => (
                   <div key={group.key}>
                     <p className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">{group.title}</p>
                     <ul className="mt-2 space-y-0.5">
-                      {group.categories.map((key) => (
-                        <li key={key}>
+                      {categories.filter((c) => c.group === group.key).map((c) => (
+                        <li key={c.key}>
                           <Link
-                            href={`/catalog/${key}`}
+                            href={`/catalog/${c.key}`}
                             onClick={() => setCatalogOpen(false)}
                             className="flex items-center justify-between rounded-lg px-2 py-2 text-[15px] font-medium hover:bg-muted"
                           >
-                            {categoryTitle.get(key)}
+                            {c.title}
                             <ChevronRight className="size-4 text-muted-foreground" />
                           </Link>
                         </li>
@@ -235,7 +234,7 @@ export function Header() {
             </div>
             <p className="px-4 pt-4 pb-1 text-xs font-semibold tracking-wide text-muted-foreground uppercase">Каталог</p>
             <ul className="px-2">
-              {CATEGORIES.map((c) => (
+              {categories.map((c) => (
                 <li key={c.key}>
                   <Link
                     href={`/catalog/${c.key}`}

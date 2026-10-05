@@ -9,7 +9,7 @@ import { getProductImagePath } from "@/lib/product-identity";
 import { getProduct, getProducts } from "@/lib/catalog";
 import { getSiteSettings } from "@/lib/settings";
 import { toPhoneContacts } from "@/lib/settings-shared";
-import { findCategory } from "@/lib/products";
+import { getStoreCategory } from "@/lib/categories";
 
 type Params = { category: string; slug: string };
 
@@ -49,7 +49,7 @@ export default async function ProductPage({
   const product = await getProduct(category, slug);
   if (!product) notFound();
   const [allProducts, settings] = await Promise.all([getProducts(), getSiteSettings()]);
-  const cat = findCategory(category)!;
+  const cat = (await getStoreCategory(category))!;
   const url = `https://sofiivkawater.com/catalog/${category}/${slug}`;
   const image = `https://sofiivkawater.com${getProductImagePath(product)}`;
 
@@ -98,7 +98,12 @@ export default async function ProductPage({
             { label: product.name },
           ]}
         />
-        <ProductDetail product={product} allProducts={allProducts} phones={toPhoneContacts(settings.phones)} />
+        <ProductDetail
+          product={product}
+          allProducts={allProducts}
+          phones={toPhoneContacts(settings.phones)}
+          categoryTitle={cat.title}
+        />
       </main>
       <Footer />
     </>

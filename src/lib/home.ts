@@ -2,7 +2,8 @@ import "server-only";
 import { getBanners, type Banner } from "@/lib/banners";
 import { getProducts, type StoreProduct } from "@/lib/catalog";
 import { categoryImage } from "@/lib/catalog-taxonomy";
-import { CATEGORIES, type CategoryKey } from "@/lib/products";
+import { getStoreCategories } from "@/lib/categories";
+import type { CategoryKey } from "@/lib/products";
 
 /** Bestsellers shown until managers mark products as "Хіт" in the admin. */
 const FALLBACK_HIT_SKUS = [
@@ -79,19 +80,22 @@ function fromBanner(b: Banner): HomeSlide {
 const uah = (n: number) => `${Math.round(n).toLocaleString("uk-UA")} ₴`;
 
 export async function getHomeData(): Promise<HomeData> {
-  const [products, banners] = await Promise.all([getProducts(), getBanners()]);
+  const [products, banners, storeCategories] = await Promise.all([getProducts(), getBanners(), getStoreCategories()]);
 
-  const categories: HomeCategory[] = CATEGORIES.map((c) => {
-    const list = products.filter((p) => p.category === c.key);
-    return {
-      key: c.key,
-      title: c.title,
-      short: c.short,
-      count: list.length,
-      minPrice: list.length ? Math.min(...list.map((p) => p.price)) : 0,
-      image: categoryImage(c.key),
-    };
-  }).filter((c) => c.count > 0);
+  const categories: HomeCategory[] = storeCategories
+    .filter((c) => !c.hidden)
+    .map((c) => {
+      const list = products.filter((p) => p.category === c.key);
+      return {
+        key: c.key,
+        title: c.title,
+        short: c.short,
+        count: list.length,
+        minPrice: list.length ? Math.min(...list.map((p) => p.price)) : 0,
+        image: c.image,
+      };
+    })
+    .filter((c) => c.count > 0);
   const minPrice = (key: CategoryKey) => categories.find((c) => c.key === key)?.minPrice ?? 0;
 
   const bySku = new Map(products.map((p) => [p.sku, p]));

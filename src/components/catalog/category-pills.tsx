@@ -2,17 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { CATEGORIES } from "@/lib/products";
+import { useStoreCategories } from "@/components/site/categories-context";
 
 export function CategoryPills() {
   const pathname = usePathname();
+  const categories = useStoreCategories();
   const active = pathname.startsWith("/catalog/")
     ? pathname.split("/")[2]
     : null;
 
   const items: { href: string; label: string; key: string | null }[] = [
     { href: "/catalog", label: "Усі", key: null },
-    ...CATEGORIES.map((c) => ({
+    ...categories.map((c) => ({
       href: `/catalog/${c.key}`,
       label: c.short,
       key: c.key,

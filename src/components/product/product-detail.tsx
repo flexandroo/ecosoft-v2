@@ -23,7 +23,6 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import {
-  findCategory,
   type CategoryKey,
   type HighlightIcon,
   type Product,
@@ -71,12 +70,14 @@ export function ProductDetail({
   product,
   allProducts,
   phones,
+  categoryTitle,
 }: {
   product: Product;
   allProducts: Product[];
   phones: PhoneContact[];
+  /** Storefront (admin-managed) category name. */
+  categoryTitle: string;
 }) {
-  const cat = findCategory(product.category)!;
   const d: ProductDetails = product.details ?? {};
   const CategoryIcon = ICON_BY_CATEGORY[product.category];
   const related = relatedFrom(allProducts, product, 4);
@@ -151,7 +152,7 @@ export function ProductDetail({
 
             <div className="lg:sticky lg:top-32 lg:h-fit">
               <p className="text-sm font-medium text-muted-foreground">
-                {cat.title}
+                {categoryTitle}
               </p>
               <h1 className="mt-2 font-[family-name:var(--font-manrope)] text-3xl font-bold tracking-tight md:text-4xl">
                 {product.name}

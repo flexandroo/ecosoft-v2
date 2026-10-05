@@ -5,12 +5,8 @@ import { Footer } from "@/components/site/footer";
 import { CatalogView } from "@/components/catalog/catalog-view";
 import { CategoryHero } from "@/components/catalog/category-hero";
 import { CategoryPills } from "@/components/catalog/category-pills";
-import { categoryImage } from "@/lib/catalog-taxonomy";
-import {
-  CATEGORIES,
-  findCategory,
-  type CategoryKey,
-} from "@/lib/products";
+import { CATEGORIES, type CategoryKey } from "@/lib/products";
+import { getStoreCategory } from "@/lib/categories";
 import { getProductsByCategory } from "@/lib/catalog";
 
 type Params = { category: string };
@@ -25,17 +21,20 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { category } = await params;
-  const cat = findCategory(category);
+  const cat = await getStoreCategory(category);
   if (!cat) return {};
+  const title = cat.seoTitle || cat.title;
+  const description =
+    cat.metaDescription || `${cat.title} — каталог Ecosoft. Доставка по Україні, гарантія, монтаж під ключ.`;
   return {
-    title: cat.title,
-    description: `${cat.title} — каталог Ecosoft. Доставка по Україні, гарантія, монтаж під ключ.`,
+    title,
+    description,
     alternates: { canonical: `/catalog/${category}` },
     openGraph: {
       url: `/catalog/${category}`,
-      title: cat.title,
-      description: `${cat.title} — каталог Ecosoft. Доставка по Україні, гарантія, монтаж під ключ.`,
-      images: [{ url: categoryImage(category as CategoryKey) }],
+      title,
+      description,
+      images: [{ url: cat.image }],
     },
   };
 }
@@ -46,7 +45,7 @@ export default async function CategoryCatalogPage({
   params: Promise<Params>;
 }) {
   const { category } = await params;
-  const cat = findCategory(category);
+  const cat = await getStoreCategory(category);
   if (!cat) notFound();
   const products = await getProductsByCategory(category as CategoryKey);
 
@@ -55,15 +54,22 @@ export default async function CategoryCatalogPage({
       <Header />
       <main id="main-content" className="flex-1">
         <CategoryHero
-          categoryKey={category as CategoryKey}
           title={cat.title}
+          subtitle={cat.subtitle}
           products={products}
-          image={categoryImage(category as CategoryKey)}
+          image={cat.image}
         />
         <div className="mx-auto max-w-[1600px] px-4 pt-6 md:px-8">
           <CategoryPills />
         </div>
         <CatalogView products={products} lockedCategory={category as CategoryKey} />
+        {cat.seoText && (
+          <section className="mx-auto max-w-[1600px] px-4 pb-16 md:px-8">
+            <div className="max-w-3xl border-t border-border pt-8 text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground">
+              {cat.seoText}
+            </div>
+          </section>
+        )}
       </main>
       <Footer />
     </>

@@ -1,27 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import type { CategoryKey, Product } from "@/lib/products";
+import type { Product } from "@/lib/products";
 import { getProductDisplayImage } from "@/lib/product-identity";
-
-const SUBTITLES: Record<CategoryKey, string> = {
-  "reverse-osmosis":
-    "Чиста питна вода для дому та офісу — багатоступенева очистка зі збалансованим мінеральним складом.",
-  "flow-filters":
-    "Компактні проточні фільтри під мийку для щоденного приготування та пиття.",
-  "filtration-systems":
-    "Помʼякшення, знезалізнення та механічне очищення води для квартири й будинку.",
-  "mainline-filters":
-    "Захист сантехніки, котла й техніки — очищення води на вході в будинок.",
-  "ro-cartridges":
-    "Оригінальні змінні картриджі та мембрани для систем зворотного осмосу.",
-  "mainline-cartridges":
-    "Змінні картриджі для магістральних фільтрів холодної та гарячої води.",
-  "filter-media":
-    "Засипки, таблетована сіль, іонообмінні смоли та вугілля для фільтрів.",
-  horeca:
-    "Підготовка води для кавʼярень, ресторанів і готелів — стабільна якість напоїв.",
-};
 
 function pluralize(n: number, [one, few, many]: [string, string, string]) {
   const mod10 = n % 10;
@@ -32,13 +13,13 @@ function pluralize(n: number, [one, few, many]: [string, string, string]) {
 }
 
 export function CategoryHero({
-  categoryKey,
   title,
+  subtitle,
   products,
   image,
 }: {
-  categoryKey: CategoryKey;
   title: string;
+  subtitle: string;
   products: Product[];
   /** Category scene generated from a verified Ecosoft product reference. */
   image?: string;
@@ -94,7 +75,7 @@ export function CategoryHero({
             {title}
           </h1>
           <p className="mt-2 max-w-xl text-sm text-muted-foreground md:text-base">
-            {SUBTITLES[categoryKey]}
+            {subtitle}
           </p>
           <p className="mt-3 text-xs text-muted-foreground md:text-sm">
             <span className="tabular font-semibold text-foreground">{count}</span>{" "}
