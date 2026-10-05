@@ -1,6 +1,5 @@
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
-import { WaterProblems } from "@/components/site/water-problems";
 import { HeroSlider } from "@/components/home/hero-slider";
 import {
   BenefitsRow,
@@ -56,11 +55,7 @@ export default async function Home() {
           <ProductRail label="Картриджі на заміну" products={data.cartridges} />
         </Container>
 
-        <div className="mt-8">
-          <WaterProblems />
-        </div>
-
-        <Container className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+        <Container className="mt-12 grid gap-4 md:mt-16 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
           <CallbackPanel source="home" />
           <StoreContactCard />
         </Container>

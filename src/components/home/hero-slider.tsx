@@ -51,7 +51,7 @@ export function HeroSlider({
       onBlurCapture={() => setPaused(false)}
       className={cn(
         "relative isolate overflow-hidden rounded-2xl bg-muted",
-        size === "wide" ? "h-[440px] md:h-[520px]" : "h-[420px] md:h-full md:min-h-[420px]",
+        size === "wide" ? "h-[480px] md:h-[520px]" : "h-[480px] md:h-full md:min-h-[420px]",
         className,
       )}
     >
@@ -77,20 +77,19 @@ export function HeroSlider({
                 alt=""
                 fetchPriority={i === 0 ? "high" : "auto"}
                 loading={i === 0 ? "eager" : "lazy"}
-                className="absolute inset-0 size-full object-cover object-[72%_center]"
+                className={cn(
+                  "absolute object-cover object-[72%_center]",
+                  // Light banners have no scrim: on phones the photo sits under the text instead of behind it.
+                  dark ? "inset-0 size-full" : "inset-x-0 bottom-0 h-[44%] w-full md:inset-0 md:h-full",
+                )}
               />
             </picture>
+            {/* Dark banners keep a scrim so white text stays readable; light banners show the photo as is. */}
+            {dark && <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/45 to-transparent" />}
             <div
               className={cn(
-                "absolute inset-0",
-                dark
-                  ? "bg-gradient-to-r from-foreground/85 via-foreground/45 to-transparent"
-                  : "bg-gradient-to-b from-white/90 via-white/70 to-white/10 md:bg-gradient-to-r md:from-white/95 md:via-white/75 md:to-transparent",
-              )}
-            />
-            <div
-              className={cn(
-                "relative flex h-full max-w-xl flex-col justify-start p-6 pt-8 md:justify-center md:p-10 lg:p-12",
+                "relative flex h-full max-w-xl flex-col justify-start p-6 pt-7 md:justify-center md:p-10 lg:p-12",
+                !dark && "md:max-w-[46%]",
                 dark ? "text-white" : "text-foreground",
               )}
             >
