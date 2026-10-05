@@ -89,7 +89,7 @@ export function AdminSidebar({
   return (
     <>
       {/* Phone top bar */}
-      <div className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#141414] px-4 py-3 text-white lg:hidden">
+      <div className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-foreground px-4 py-3 text-white lg:hidden">
         <Link href="/admin" className="font-heading text-base font-bold">
           Адмінка <span className="font-normal text-white/50">Sofiivka Water</span>
         </Link>
@@ -107,7 +107,7 @@ export function AdminSidebar({
 
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-50 flex w-[248px] flex-col bg-[#141414] text-white/80 transition-transform lg:sticky lg:top-0 lg:z-auto lg:h-screen lg:translate-x-0",
+          "fixed inset-y-0 left-0 z-50 flex w-[248px] flex-col bg-foreground text-white/80 transition-transform lg:sticky lg:top-0 lg:z-auto lg:h-screen lg:translate-x-0",
           open ? "translate-x-0" : "-translate-x-full",
         )}
       >
@@ -145,14 +145,14 @@ export function AdminSidebar({
                         onClick={() => setOpen(false)}
                         className={cn(
                           "relative flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                          active ? "bg-[#facc15]/12 text-white" : "hover:bg-white/5 hover:text-white",
+                          active ? "bg-primary/25 text-white" : "hover:bg-white/5 hover:text-white",
                         )}
                       >
-                        {active && <span className="absolute top-1.5 bottom-1.5 -left-3 w-[3px] rounded-r bg-[#facc15]" />}
-                        <Icon className={cn("size-[18px] shrink-0", active ? "text-[#facc15]" : "text-white/60")} />
+                        {active && <span className="absolute top-1.5 bottom-1.5 -left-3 w-[3px] rounded-r bg-accent" />}
+                        <Icon className={cn("size-[18px] shrink-0", active ? "text-accent" : "text-white/60")} />
                         <span className="truncate">{item.label}</span>
                         {count > 0 && (
-                          <span className="ml-auto rounded-full bg-[#facc15] px-1.5 py-0.5 text-[11px] leading-none font-bold text-black">
+                          <span className="ml-auto rounded-full bg-primary px-1.5 py-0.5 text-[11px] leading-none font-bold text-primary-foreground">
                             {count}
                           </span>
                         )}
@@ -167,7 +167,7 @@ export function AdminSidebar({
 
         <div className="border-t border-white/10 px-4 py-4">
           <div className="flex items-center gap-3">
-            <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sm font-bold text-[#facc15]">
+            <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sm font-bold text-accent">
               {staff.name.trim().charAt(0).toUpperCase() || "?"}
             </span>
             <div className="min-w-0">
