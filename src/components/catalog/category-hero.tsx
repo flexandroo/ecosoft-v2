@@ -73,7 +73,7 @@ export function CategoryHero({
         />
       )}
 
-      <div className="mx-auto flex max-w-[1600px] items-end justify-between gap-5 px-4 pb-6 pt-20 md:min-h-52 md:px-8 md:pb-8 md:pt-24">
+      <div className="mx-auto flex max-w-[1600px] items-end justify-between gap-5 px-4 pb-6 pt-6 md:min-h-40 md:px-8 md:pb-8 md:pt-8">
         <div className="max-w-2xl">
           <nav
             aria-label="Хлібні крихти"

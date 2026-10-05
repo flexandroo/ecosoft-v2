@@ -47,7 +47,7 @@ export const STORE_ADDRESS = "Софіївська Борщагівка, вул.
 const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Софіївська Борщагівка, вул. Київська, 3");
 
 export function Container({ className, children }: { className?: string; children: React.ReactNode }) {
-  return <div className={cn("mx-auto w-full max-w-[1440px] px-4 md:px-6", className)}>{children}</div>;
+  return <div className={cn("mx-auto w-full max-w-[1600px] px-4 md:px-8", className)}>{children}</div>;
 }
 
 export function SectionHeading({

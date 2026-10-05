@@ -2,343 +2,280 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Phone, ShoppingCart, Search, Menu, X, ChevronDown } from "lucide-react";
+import {
+  ChevronRight,
+  LayoutGrid,
+  MapPin,
+  Menu,
+  Phone,
+  Search,
+  ShieldCheck,
+  ShoppingCart,
+  Truck,
+  X,
+} from "lucide-react";
 import { useCart } from "@/components/cart/cart-context";
 import { CallbackButton } from "@/components/site/callback-button";
-import { PHONE_CONTACTS } from "@/lib/contact-details";
+import { PRIMARY_PHONE } from "@/lib/contact-details";
+import { CATALOG_GROUPS } from "@/lib/catalog-taxonomy";
+import { CATEGORIES } from "@/lib/products";
+import { cn } from "@/lib/utils";
 
-const PRIMARY_NAV = [
-  { href: "/", label: "Головна" },
-  { href: "/catalog", label: "Каталог" },
+const PAGES = [
   { href: "/solutions", label: "Рішення" },
-  { href: "/blog", label: "Блог" },
-];
-
-const CUSTOMER_NAV = [
   { href: "/delivery", label: "Доставка і оплата" },
   { href: "/returns", label: "Повернення та обмін" },
+  { href: "/blog", label: "Блог" },
   { href: "/about", label: "Про нас" },
+  { href: "/contacts", label: "Контакти" },
 ];
 
+const categoryTitle = new Map(CATEGORIES.map((c) => [c.key, c.title]));
+
+function SearchForm({ className }: { className?: string }) {
+  return (
+    <form action="/search" role="search" className={cn("flex h-11 overflow-hidden rounded-xl border border-border bg-card", className)}>
+      <label htmlFor="store-search" className="sr-only">
+        Пошук товарів
+      </label>
+      <input
+        id="store-search"
+        name="q"
+        type="search"
+        placeholder="Фільтр, картридж, артикул…"
+        className="min-w-0 flex-1 bg-transparent px-4 text-[15px] outline-none placeholder:text-muted-foreground"
+      />
+      <button
+        type="submit"
+        className="inline-flex items-center gap-2 bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+      >
+        <Search className="size-4" aria-hidden />
+        <span className="hidden sm:inline">Знайти</span>
+      </button>
+    </form>
+  );
+}
+
 export function Header() {
-  const pathname = usePathname();
   const { count, hydrated } = useCart();
-  const hasDarkHero = pathname === "/";
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [customerOpen, setCustomerOpen] = useState(false);
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const [catalogOpen, setCatalogOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const catalogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!hasDarkHero) return;
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [hasDarkHero]);
-
-  useEffect(() => {
-    if (!mobileOpen) return;
-    const previousOverflow = document.body.style.overflow;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== "Escape") return;
-      setMobileOpen(false);
-      window.requestAnimationFrame(() => menuButtonRef.current?.focus());
+    if (!catalogOpen) return;
+    const onDown = (e: MouseEvent) => {
+      if (!catalogRef.current?.contains(e.target as Node)) setCatalogOpen(false);
     };
-    document.body.style.overflow = "hidden";
-    document.addEventListener("keydown", onKeyDown);
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setCatalogOpen(false);
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
     };
-  }, [mobileOpen]);
+  }, [catalogOpen]);
 
-  const onHero = hasDarkHero && !scrolled && !mobileOpen;
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setDrawerOpen(false);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [drawerOpen]);
+
+  const cartCount = hydrated ? count : 0;
 
   return (
-    <header
-      className={[
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-        onHero
-          ? "bg-transparent text-white"
-          : "bg-background/95 text-foreground border-b border-border backdrop-blur-md",
-      ].join(" ")}
-    >
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-[60] focus:rounded-lg focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-4 focus:z-[60] focus:rounded-lg focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow-lg"
       >
         Перейти до вмісту
       </a>
-      <div className="mx-auto flex h-16 max-w-[1600px] items-center gap-6 px-4 md:px-8">
-        <Link
-          href="/"
-          aria-label="Ecosoft — головна"
-          className={[
-            "font-[family-name:var(--font-manrope)] text-2xl font-extrabold lowercase tracking-tight transition-colors",
-            onHero ? "text-white" : "text-primary",
-          ].join(" ")}
-        >
-          ecosoft
-        </Link>
 
-        <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex">
-          {PRIMARY_NAV.map((item) => {
-            const isActive =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={isActive ? "page" : undefined}
-                className={[
-                  "relative rounded-md px-3 py-2 text-sm transition-colors",
-                  isActive ? "font-semibold" : "font-medium",
-                  onHero
-                    ? isActive
-                      ? "text-white"
-                      : "text-white/85 hover:text-white"
-                    : isActive
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground",
-                  isActive
-                    ? "after:absolute after:inset-x-3 after:-bottom-px after:h-0.5 after:rounded-full after:bg-current after:content-['']"
-                    : "",
-                ].join(" ")}
-              >
-                {item.label}
+      {/* Utility bar */}
+      <div className="hidden bg-foreground text-[13px] text-white/80 md:block">
+        <div className="mx-auto flex h-9 max-w-[1600px] items-center gap-6 px-4 md:px-8">
+          <span className="inline-flex items-center gap-1.5">
+            <MapPin className="size-3.5 text-accent" aria-hidden /> Софіївська Борщагівка, вул. Київська, 3
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <Truck className="size-3.5 text-accent" aria-hidden /> Доставка по Україні 1–3 дні
+          </span>
+          <span className="hidden items-center gap-1.5 lg:inline-flex">
+            <ShieldCheck className="size-3.5 text-accent" aria-hidden /> Офіційний партнер Ecosoft
+          </span>
+          <nav className="ml-auto hidden items-center gap-5 lg:flex" aria-label="Інформація">
+            {PAGES.slice(1).map((p) => (
+              <Link key={p.href} href={p.href} className="transition-colors hover:text-white">
+                {p.label}
               </Link>
-            );
-          })}
-
-          <div
-            className="relative"
-            onMouseEnter={() => setCustomerOpen(true)}
-            onMouseLeave={() => setCustomerOpen(false)}
-          >
-            <button
-              onClick={() => setCustomerOpen((v) => !v)}
-              aria-expanded={customerOpen}
-              aria-haspopup="menu"
-              className={[
-                "inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                onHero
-                  ? "text-white/85 hover:text-white"
-                  : "text-muted-foreground hover:text-foreground",
-              ].join(" ")}
-            >
-              Для клієнта
-              <ChevronDown
-                className={`size-3.5 transition-transform ${customerOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-            <div
-              role="menu"
-              className={[
-                "absolute left-1/2 top-full w-60 -translate-x-1/2 pt-2 transition-all duration-200",
-                customerOpen
-                  ? "visible opacity-100"
-                  : "invisible opacity-0 -translate-y-1",
-              ].join(" ")}
-            >
-              <div className="rounded-xl border border-border bg-card p-2 shadow-xl shadow-black/5">
-                {CUSTOMER_NAV.map((item) => (
-                  <Link
-                    key={item.href}
-                    role="menuitem"
-                    href={item.href}
-                    className="block rounded-lg px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <Link
-            href="/contacts"
-            aria-current={pathname.startsWith("/contacts") ? "page" : undefined}
-            className={[
-              "relative rounded-md px-3 py-2 text-sm transition-colors",
-              pathname.startsWith("/contacts") ? "font-semibold" : "font-medium",
-              onHero
-                ? pathname.startsWith("/contacts")
-                  ? "text-white"
-                  : "text-white/85 hover:text-white"
-                : pathname.startsWith("/contacts")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              pathname.startsWith("/contacts")
-                ? "after:absolute after:inset-x-3 after:-bottom-px after:h-0.5 after:rounded-full after:bg-current after:content-['']"
-                : "",
-            ].join(" ")}
-          >
-            Контакти
-          </Link>
-        </nav>
-
-        <div className="ml-auto flex items-center gap-1">
-          <div
-            className={[
-              "hidden items-center gap-2 rounded-md px-3 py-1 text-xs font-semibold leading-5 xl:flex",
-              onHero ? "text-white" : "text-foreground",
-            ].join(" ")}
-          >
-            <Phone className="size-4 shrink-0" aria-hidden />
-            <div className="flex flex-col">
-              {PHONE_CONTACTS.map((phone) => (
-                <a
-                  key={phone.raw}
-                  href={phone.href}
-                  className={onHero ? "hover:text-white/80" : "hover:text-primary"}
-                >
-                  {phone.display}
-                </a>
-              ))}
-            </div>
-          </div>
-          <CallbackButton
-            source="header"
-            className={[
-              "hidden items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-all duration-200 active:scale-[0.98] xl:inline-flex",
-              onHero
-                ? "border border-white/30 bg-white/10 text-white backdrop-blur-md hover:bg-white/20"
-                : "bg-primary text-primary-foreground hover:bg-primary/90",
-            ].join(" ")}
-          >
-            <Phone className="size-4" aria-hidden />
-            Безкоштовний дзвінок
-          </CallbackButton>
-          <IconButton onHero={onHero} label="Пошук" href="/search?focus=search">
-            <Search className="size-4" />
-          </IconButton>
-          <IconButton
-            onHero={onHero}
-            label="Кошик"
-            href="/cart"
-            badge={hydrated ? count : 0}
-          >
-            <ShoppingCart className="size-4" />
-          </IconButton>
-          <button
-            ref={menuButtonRef}
-            aria-label={mobileOpen ? "Закрити меню" : "Меню"}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-navigation"
-            onClick={() => setMobileOpen((v) => !v)}
-            className={[
-              "grid size-11 place-items-center rounded-md transition-colors lg:hidden",
-              onHero
-                ? "text-white hover:bg-white/10"
-                : "text-foreground hover:bg-muted",
-            ].join(" ")}
-          >
-            {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+            ))}
+          </nav>
         </div>
       </div>
 
-      {mobileOpen && (
-        <div id="mobile-navigation" className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-border bg-background text-foreground lg:hidden">
-          <nav className="mx-auto flex max-w-[1600px] flex-col gap-1 px-4 py-4 md:px-8">
-            {PRIMARY_NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="rounded-md px-3 py-3 text-base font-medium transition-colors hover:bg-muted"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div className="mt-1 rounded-md bg-muted/40 px-1 py-1">
-              <div className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Для клієнта
+      {/* Main bar */}
+      <div className="border-b border-border">
+        <div className="mx-auto flex h-16 max-w-[1600px] items-center gap-3 px-4 md:h-[72px] md:gap-5 md:px-8">
+          <button
+            type="button"
+            aria-label="Відкрити меню"
+            onClick={() => setDrawerOpen(true)}
+            className="grid size-11 place-items-center rounded-xl text-foreground hover:bg-muted lg:hidden"
+          >
+            <Menu className="size-6" />
+          </button>
+
+          <Link href="/" aria-label="Ecosoft — головна" className="shrink-0 leading-none">
+            <span className="block font-[family-name:var(--font-manrope)] text-[26px] font-extrabold tracking-tight text-primary lowercase">
+              ecosoft
+            </span>
+            <span className="hidden text-[10.5px] font-semibold tracking-wide text-muted-foreground uppercase md:block">
+              офіційний партнер
+            </span>
+          </Link>
+
+          <div ref={catalogRef} className="relative hidden lg:block">
+            <button
+              type="button"
+              aria-expanded={catalogOpen}
+              aria-haspopup="true"
+              onClick={() => setCatalogOpen((v) => !v)}
+              className="inline-flex h-11 items-center gap-2 rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              {catalogOpen ? <X className="size-4" /> : <LayoutGrid className="size-4" />}
+              Каталог
+            </button>
+            {catalogOpen && (
+              <div className="absolute top-[calc(100%+10px)] left-0 grid w-[720px] grid-cols-2 gap-x-8 gap-y-5 rounded-2xl border border-border bg-card p-6 shadow-2xl shadow-foreground/10">
+                {CATALOG_GROUPS.map((group) => (
+                  <div key={group.key}>
+                    <p className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">{group.title}</p>
+                    <ul className="mt-2 space-y-0.5">
+                      {group.categories.map((key) => (
+                        <li key={key}>
+                          <Link
+                            href={`/catalog/${key}`}
+                            onClick={() => setCatalogOpen(false)}
+                            className="flex items-center justify-between rounded-lg px-2 py-2 text-[15px] font-medium hover:bg-muted"
+                          >
+                            {categoryTitle.get(key)}
+                            <ChevronRight className="size-4 text-muted-foreground" />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
-              {CUSTOMER_NAV.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-                >
-                  {item.label}
-                </Link>
-              ))}
+            )}
+          </div>
+
+          <SearchForm className="hidden flex-1 md:flex" />
+
+          <div className="ml-auto flex items-center gap-1 md:ml-0 md:gap-3">
+            <div className="hidden text-right xl:block">
+              <a href={PRIMARY_PHONE.href} className="block text-[15px] font-bold tabular hover:text-primary">
+                {PRIMARY_PHONE.display}
+              </a>
+              <CallbackButton
+                source="header"
+                className="text-xs font-medium text-primary underline-offset-2 hover:underline"
+              >
+                Передзвоніть мені
+              </CallbackButton>
             </div>
+            <a
+              href={PRIMARY_PHONE.href}
+              aria-label={`Зателефонувати ${PRIMARY_PHONE.display}`}
+              className="grid size-11 place-items-center rounded-xl text-foreground hover:bg-muted xl:hidden"
+            >
+              <Phone className="size-5" />
+            </a>
             <Link
-              href="/contacts"
-              onClick={() => setMobileOpen(false)}
-              className="rounded-md px-3 py-3 text-base font-medium transition-colors hover:bg-muted"
+              href="/cart"
+              aria-label={`Кошик${cartCount ? `, товарів: ${cartCount}` : ""}`}
+              className="relative inline-flex h-11 items-center gap-2 rounded-xl px-3 text-sm font-semibold text-foreground hover:bg-muted"
             >
-              Контакти
+              <ShoppingCart className="size-5" />
+              <span className="hidden md:inline">Кошик</span>
+              {cartCount > 0 && (
+                <span className="absolute top-0.5 left-6 grid h-5 min-w-5 place-items-center rounded-full bg-primary px-1 text-[11px] font-bold text-primary-foreground tabular ring-2 ring-background">
+                  {cartCount}
+                </span>
+              )}
             </Link>
-            <div className="mt-2 grid gap-2 sm:grid-cols-2">
-              {PHONE_CONTACTS.map((phone) => (
-                <a
-                  key={phone.raw}
-                  href={phone.href}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-primary px-3 py-2.5 text-sm font-semibold text-primary-foreground"
-                >
-                  <Phone className="size-4 shrink-0" /> {phone.display}
-                </a>
-              ))}
+          </div>
+        </div>
+        <div className="px-4 pb-3 md:hidden">
+          <SearchForm />
+        </div>
+      </div>
+
+      {/* Phone drawer */}
+      {drawerOpen && (
+        <div className="fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="Меню">
+          <button aria-label="Закрити меню" className="absolute inset-0 bg-foreground/50" onClick={() => setDrawerOpen(false)} />
+          <div className="absolute inset-y-0 left-0 flex w-[min(86vw,360px)] flex-col overflow-y-auto bg-background shadow-xl">
+            <div className="flex items-center justify-between border-b border-border px-4 py-3">
+              <span className="font-[family-name:var(--font-manrope)] text-xl font-extrabold text-primary lowercase">ecosoft</span>
+              <button aria-label="Закрити" onClick={() => setDrawerOpen(false)} className="grid size-11 place-items-center rounded-xl hover:bg-muted">
+                <X className="size-5" />
+              </button>
             </div>
-            <CallbackButton
-              source="header-mobile"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
-            >
-              <Phone className="size-4" /> Безкоштовний дзвінок
-            </CallbackButton>
-          </nav>
+            <p className="px-4 pt-4 pb-1 text-xs font-semibold tracking-wide text-muted-foreground uppercase">Каталог</p>
+            <ul className="px-2">
+              {CATEGORIES.map((c) => (
+                <li key={c.key}>
+                  <Link
+                    href={`/catalog/${c.key}`}
+                    onClick={() => setDrawerOpen(false)}
+                    className="flex min-h-11 items-center justify-between rounded-lg px-2 text-[15px] font-medium hover:bg-muted"
+                  >
+                    {c.title}
+                    <ChevronRight className="size-4 text-muted-foreground" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="px-4 pt-4 pb-1 text-xs font-semibold tracking-wide text-muted-foreground uppercase">Покупцям</p>
+            <ul className="px-2 pb-4">
+              {PAGES.map((p) => (
+                <li key={p.href}>
+                  <Link
+                    href={p.href}
+                    onClick={() => setDrawerOpen(false)}
+                    className="flex min-h-11 items-center rounded-lg px-2 text-[15px] hover:bg-muted"
+                  >
+                    {p.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-auto space-y-2 border-t border-border p-4">
+              <a
+                href={PRIMARY_PHONE.href}
+                className="flex h-12 items-center justify-center gap-2 rounded-xl border border-border text-[15px] font-bold tabular"
+              >
+                <Phone className="size-4" /> {PRIMARY_PHONE.display}
+              </a>
+              <CallbackButton
+                source="mobile-menu"
+                className="flex h-12 w-full items-center justify-center rounded-xl bg-primary text-[15px] font-semibold text-primary-foreground"
+              >
+                Передзвоніть мені
+              </CallbackButton>
+            </div>
+          </div>
         </div>
       )}
     </header>
   );
 }
-
-function IconButton({
-  children,
-  label,
-  href,
-  onHero,
-  badge,
-}: {
-  children: React.ReactNode;
-  label: string;
-  href?: string;
-  onHero: boolean;
-  badge?: number;
-}) {
-  const className = [
-    "relative grid size-11 place-items-center rounded-md transition-colors",
-    onHero
-      ? "text-white hover:bg-white/10"
-      : "text-muted-foreground hover:bg-muted hover:text-foreground",
-  ].join(" ");
-  const badgeEl =
-    badge && badge > 0 ? (
-      <span className="tabular absolute -right-0.5 -top-0.5 grid h-4 min-w-4 place-items-center rounded-full bg-primary px-1 text-[10px] font-bold leading-none text-primary-foreground ring-2 ring-background">
-        {badge > 99 ? "99+" : badge}
-      </span>
-    ) : null;
-  if (href) {
-    return (
-      <Link href={href} aria-label={label} className={className}>
-        {children}
-        {badgeEl}
-      </Link>
-    );
-  }
-  return (
-    <button aria-label={label} className={className}>
-      {children}
-      {badgeEl}
-    </button>
-  );
-}
-

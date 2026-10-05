@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <main id="main-content" className="flex flex-1 items-center bg-muted/30 px-4 pb-20 pt-32 md:px-8">
+      <main id="main-content" className="flex flex-1 items-center bg-muted/30 px-4 pb-20 pt-16 md:px-8">
         <div className="mx-auto w-full max-w-2xl rounded-3xl border border-border bg-card p-8 text-center shadow-sm md:p-12">
           <p className="font-[family-name:var(--font-manrope)] text-6xl font-extrabold tracking-tight text-primary tabular">
             404

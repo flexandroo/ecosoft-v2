@@ -147,7 +147,7 @@ export function ProductDetail({
               )}
             </div>
 
-            <div className="lg:sticky lg:top-24 lg:h-fit">
+            <div className="lg:sticky lg:top-32 lg:h-fit">
               <p className="text-sm font-medium text-muted-foreground">
                 {cat.title}
               </p>

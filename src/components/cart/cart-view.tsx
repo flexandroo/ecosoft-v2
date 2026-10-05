@@ -291,7 +291,7 @@ export function CartView() {
         </div>
 
         {/* Summary */}
-        <aside className="lg:sticky lg:top-24 lg:h-fit">
+        <aside className="lg:sticky lg:top-32 lg:h-fit">
           <div className="rounded-2xl border border-border bg-card p-5">
             <h2 className="font-[family-name:var(--font-manrope)] text-lg font-bold tracking-tight">
               Разом

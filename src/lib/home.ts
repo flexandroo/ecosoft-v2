@@ -16,6 +16,21 @@ const FALLBACK_HIT_SKUS = [
   "FK1054CIMIXP",
 ];
 
+/**
+ * Shown in "Акційні пропозиції" until managers mark products as "Акція" in the
+ * admin (regular prices for now; promo prices are set later via "Стара ціна").
+ */
+const FALLBACK_PROMO_SKUS = [
+  "MO675MECO",
+  "MO550MPECOSTD",
+  "FU1054CI",
+  "FOSE200ECO",
+  "FPV12ECO",
+  "CHV3ECO",
+  "CPV4POST",
+  "ROBUST1000STD",
+];
+
 export type HomeSlide = {
   id: string;
   eyebrow: string;
@@ -85,7 +100,10 @@ export async function getHomeData(): Promise<HomeData> {
     ? marked
     : FALLBACK_HIT_SKUS.map((sku) => bySku.get(sku)).filter((p): p is StoreProduct => Boolean(p));
 
-  const promo = products.filter((p) => (p.isPromo || p.oldPrice) && p.inStock);
+  const markedPromo = products.filter((p) => (p.isPromo || p.oldPrice) && p.inStock);
+  const promo = markedPromo.length
+    ? markedPromo
+    : FALLBACK_PROMO_SKUS.map((sku) => bySku.get(sku)).filter((p): p is StoreProduct => Boolean(p && p.inStock));
   const cartridges = products
     .filter((p) => p.category === "ro-cartridges" && p.inStock)
     .slice(0, 10);

@@ -50,10 +50,10 @@ export function PageHeader({
       <div
         className={`relative mx-auto max-w-[1600px] px-4 md:px-8 ${
           compact
-            ? "pb-4 pt-24 md:pb-5 md:pt-28"
+            ? "pb-4 pt-6 md:pb-5 md:pt-8"
             : hasImage
-              ? "flex min-h-[17rem] flex-col justify-end pb-8 pt-24 md:min-h-[21rem] md:pb-10 md:pt-24"
-              : "pb-10 pt-28 md:pb-12 md:pt-32"
+              ? "flex min-h-[13rem] flex-col justify-end pb-8 pt-8 md:min-h-[17rem] md:pb-10 md:pt-8"
+              : "pb-10 pt-10 md:pb-12 md:pt-14"
         }`}
       >
         <nav
