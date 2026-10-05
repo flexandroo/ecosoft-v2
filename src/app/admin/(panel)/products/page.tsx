@@ -10,8 +10,7 @@ export const metadata: Metadata = { title: "Товари" };
 
 const VIEWS = [
   { id: "", label: "Усі" },
-  { id: "hit", label: "Хіти" },
-  { id: "promo", label: "Акції" },
+  { id: "sale", label: "Зі знижкою" },
   { id: "out", label: "Немає в наявності" },
   { id: "hidden", label: "Приховані" },
 ] as const;
@@ -29,12 +28,11 @@ export default async function ProductsPage({
   const supabase = await createSessionClient();
   let query = supabase
     .from("products")
-    .select("id, slug, sku, category, name, price, old_price, in_stock, image, is_hidden, is_hit, is_promo")
+    .select("id, slug, sku, category, name, price, old_price, in_stock, image, is_hidden")
     .order("sort")
     .limit(500);
   if (category) query = query.eq("category", category);
-  if (view === "hit") query = query.eq("is_hit", true);
-  if (view === "promo") query = query.eq("is_promo", true);
+  if (view === "sale") query = query.not("old_price", "is", null);
   if (view === "out") query = query.eq("in_stock", false);
   if (view === "hidden") query = query.eq("is_hidden", true);
   if (q) {
@@ -92,14 +90,12 @@ export default async function ProductsPage({
       {error && <p className="mb-4 text-sm text-rose-700">Помилка завантаження: {error.message}</p>}
 
       <Card className="overflow-x-auto p-0 sm:p-0">
-        <table className="w-full min-w-[860px] text-sm">
+        <table className="w-full min-w-[700px] text-sm">
           <thead className="border-b text-left text-xs text-muted-foreground">
             <tr>
               <th className="px-4 py-2.5 font-medium">Товар</th>
               <th className="px-4 py-2.5 font-medium">Ціна</th>
               <th className="px-3 py-2.5 text-center font-medium">В наявності</th>
-              <th className="px-3 py-2.5 text-center font-medium">Хіт</th>
-              <th className="px-3 py-2.5 text-center font-medium">Акція</th>
               <th className="px-3 py-2.5 text-center font-medium">Приховано</th>
             </tr>
           </thead>
@@ -132,19 +128,13 @@ export default async function ProductsPage({
                   <ProductFlagToggle id={p.id} field="in_stock" value={p.in_stock} />
                 </td>
                 <td className="px-3 py-2 text-center">
-                  <ProductFlagToggle id={p.id} field="is_hit" value={p.is_hit} />
-                </td>
-                <td className="px-3 py-2 text-center">
-                  <ProductFlagToggle id={p.id} field="is_promo" value={p.is_promo} />
-                </td>
-                <td className="px-3 py-2 text-center">
                   <ProductFlagToggle id={p.id} field="is_hidden" value={p.is_hidden} />
                 </td>
               </tr>
             ))}
             {!products?.length && (
               <tr>
-                <td colSpan={6} className="px-4 py-10 text-center text-muted-foreground">
+                <td colSpan={4} className="px-4 py-10 text-center text-muted-foreground">
                   Нічого не знайдено.
                 </td>
               </tr>

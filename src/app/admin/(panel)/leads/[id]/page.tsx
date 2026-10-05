@@ -61,7 +61,7 @@ export default async function LeadPage({ params }: { params: Promise<{ id: strin
         actions={<StatusBadge status={lead.status} />}
       />
 
-      <div className="grid gap-5 xl:grid-cols-[1fr_380px]">
+      <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_380px]">
         <div className="space-y-5">
           <Card>
             <h2 className="mb-3 font-semibold">Клієнт</h2>

@@ -6,6 +6,7 @@ import { saveProduct, type FormState } from "../../../actions";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { ImageUploadButton } from "../../image-upload";
 import { Card, Checkbox, Field, inputClass, textareaClass } from "../../ui";
+import { ProductCollections, type ProductCollectionOption } from "./product-collections";
 
 type EditableProduct = {
   id: string;
@@ -20,12 +21,16 @@ type EditableProduct = {
   description: string;
   images: string[];
   is_hidden: boolean;
-  is_hit: boolean;
-  is_promo: boolean;
   sort: number;
 };
 
-export function ProductForm({ product }: { product: EditableProduct }) {
+export function ProductForm({
+  product,
+  collections,
+}: {
+  product: EditableProduct;
+  collections: ProductCollectionOption[];
+}) {
   const [state, action] = useActionState<FormState, FormData>(saveProduct, null);
   const [images, setImages] = useState(product.images);
 
@@ -39,7 +44,7 @@ export function ProductForm({ product }: { product: EditableProduct }) {
     });
 
   return (
-    <form action={action} className="grid gap-5 xl:grid-cols-[1fr_340px]">
+    <form action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
       <input type="hidden" name="id" value={product.id} />
       <input type="hidden" name="images" value={images.join("\n")} />
 
@@ -102,8 +107,6 @@ export function ProductForm({ product }: { product: EditableProduct }) {
           <h2 className="font-semibold">Показ на сайті</h2>
           <div className="flex flex-col gap-2">
             <Checkbox name="in_stock" label="В наявності" defaultChecked={product.in_stock} />
-            <Checkbox name="is_hit" label="Хіт продажів (на головній)" defaultChecked={product.is_hit} />
-            <Checkbox name="is_promo" label="Акційна пропозиція" defaultChecked={product.is_promo} />
             <Checkbox name="is_hidden" label="Приховати з сайту" defaultChecked={product.is_hidden} />
           </div>
           <Field label="Кнопка на картці">
@@ -116,6 +119,8 @@ export function ProductForm({ product }: { product: EditableProduct }) {
             <input name="sort" defaultValue={product.sort} inputMode="numeric" className={inputClass} />
           </Field>
         </Card>
+
+        <ProductCollections productId={product.id} options={collections} />
 
         <Card className="space-y-2 text-sm">
           <h2 className="font-semibold">Ідентифікатори</h2>

@@ -13,7 +13,7 @@ export function CategoryForm({ category }: { category: StoreCategory }) {
   const [metaLength, setMetaLength] = useState(category.metaDescription.length);
 
   return (
-    <form action={action} className="grid gap-5 xl:grid-cols-[1fr_340px]">
+    <form action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
       <input type="hidden" name="key" value={category.key} />
       <input type="hidden" name="image" value={image} />
 

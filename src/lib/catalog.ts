@@ -15,10 +15,8 @@ export const CATALOG_TAG = "catalog";
 /** Safety net: even without an explicit revalidation the data refreshes this often. */
 const CATALOG_REVALIDATE_SECONDS = 300;
 
-export type StoreProduct = Product & {
-  isHit?: boolean;
-  isPromo?: boolean;
-};
+/** A storefront product (same shape as the bundled catalogue). */
+export type StoreProduct = Product;
 
 type ProductRow = {
   slug: string;
@@ -34,8 +32,6 @@ type ProductRow = {
   images: string[] | null;
   details: ProductDetails | null;
   attributes: Partial<Product> | null;
-  is_hit: boolean;
-  is_promo: boolean;
 };
 
 const CATEGORY_KEYS = new Set<string>(CATEGORIES.map((c) => c.key));
@@ -59,15 +55,13 @@ function rowToProduct(row: ProductRow): StoreProduct | null {
     image: row.image ?? undefined,
     images: images.length ? images : undefined,
     details,
-    isHit: row.is_hit,
-    isPromo: row.is_promo,
   };
 }
 
 async function fetchProductsFromDb(): Promise<StoreProduct[]> {
   const url =
     `${SUPABASE_URL}/rest/v1/products` +
-    "?select=slug,sku,category,name,price,old_price,in_stock,cta_type,description,image,images,details,attributes,is_hit,is_promo" +
+    "?select=slug,sku,category,name,price,old_price,in_stock,cta_type,description,image,images,details,attributes" +
     "&is_hidden=eq.false&order=sort.asc,name.asc";
   const response = await fetch(url, {
     headers: { apikey: SUPABASE_PUBLISHABLE_KEY, Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}` },

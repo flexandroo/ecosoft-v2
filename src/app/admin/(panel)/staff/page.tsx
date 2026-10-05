@@ -16,7 +16,7 @@ export default async function StaffPage() {
   return (
     <>
       <PageTitle title="Працівники" subtitle="Хто має доступ до адмінки" />
-      <div className="grid gap-5 xl:grid-cols-[1fr_360px]">
+      <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_360px]">
         <Card className="overflow-x-auto p-0 sm:p-0">
           <table className="w-full min-w-[600px] text-sm">
             <thead className="border-b text-left text-xs text-muted-foreground">

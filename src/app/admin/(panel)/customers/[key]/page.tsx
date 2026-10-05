@@ -34,7 +34,7 @@ export default async function CustomerPage({ params }: { params: Promise<{ key: 
       </div>
       <PageTitle title={latest.customer_name || "Без імені"} subtitle={`Клієнт з ${formatDateTime(leads[leads.length - 1].created_at)}`} />
 
-      <div className="grid gap-5 xl:grid-cols-[1fr_320px]">
+      <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_320px]">
         <Card className="overflow-x-auto p-0 sm:p-0">
           <h2 className="px-4 pt-4 pb-2 font-semibold sm:px-5">Звернення ({leads.length})</h2>
           <ul className="divide-y border-t">

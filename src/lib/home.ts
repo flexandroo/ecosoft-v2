@@ -3,9 +3,10 @@ import { getBanners, type Banner } from "@/lib/banners";
 import { getProducts, type StoreProduct } from "@/lib/catalog";
 import { categoryImage } from "@/lib/catalog-taxonomy";
 import { getStoreCategories } from "@/lib/categories";
+import { getCollections } from "@/lib/collections";
 import type { CategoryKey } from "@/lib/products";
 
-/** Bestsellers shown until managers mark products as "Хіт" in the admin. */
+/** Rails used when the collections from the admin are unavailable. */
 const FALLBACK_HIT_SKUS = [
   "MO550MECOSTD",
   "MO650MECOSTD",
@@ -17,10 +18,6 @@ const FALLBACK_HIT_SKUS = [
   "FK1054CIMIXP",
 ];
 
-/**
- * Shown in "Акційні пропозиції" until managers mark products as "Акція" in the
- * admin (regular prices for now; promo prices are set later via "Стара ціна").
- */
 const FALLBACK_PROMO_SKUS = [
   "MO675MECO",
   "MO550MPECOSTD",
@@ -56,11 +53,18 @@ export type HomeCategory = {
 export type HomeData = {
   slides: HomeSlide[];
   sideTiles: HomeSlide[];
-  hits: StoreProduct[];
-  promo: StoreProduct[];
-  cartridges: StoreProduct[];
+  /** Product rails in display order ("Підбірки" shown on the homepage). */
+  rails: HomeRail[];
   categories: HomeCategory[];
-  featured: StoreProduct | undefined;
+};
+
+export type HomeRail = {
+  id: string;
+  title: string;
+  eyebrow: string;
+  href: string;
+  hrefLabel: string;
+  products: StoreProduct[];
 };
 
 function fromBanner(b: Banner): HomeSlide {
@@ -80,7 +84,12 @@ function fromBanner(b: Banner): HomeSlide {
 const uah = (n: number) => `${Math.round(n).toLocaleString("uk-UA")} ₴`;
 
 export async function getHomeData(): Promise<HomeData> {
-  const [products, banners, storeCategories] = await Promise.all([getProducts(), getBanners(), getStoreCategories()]);
+  const [products, banners, storeCategories, collections] = await Promise.all([
+    getProducts(),
+    getBanners(),
+    getStoreCategories(),
+    getCollections(),
+  ]);
 
   const categories: HomeCategory[] = storeCategories
     .filter((c) => !c.hidden)
@@ -99,18 +108,47 @@ export async function getHomeData(): Promise<HomeData> {
   const minPrice = (key: CategoryKey) => categories.find((c) => c.key === key)?.minPrice ?? 0;
 
   const bySku = new Map(products.map((p) => [p.sku, p]));
-  const marked = products.filter((p) => p.isHit && p.inStock);
-  const hits = marked.length
-    ? marked
-    : FALLBACK_HIT_SKUS.map((sku) => bySku.get(sku)).filter((p): p is StoreProduct => Boolean(p));
+  const bySlug = new Map(products.map((p) => [p.slug, p]));
+  const inStock = (list: (StoreProduct | undefined)[]) => list.filter((p): p is StoreProduct => Boolean(p && p.inStock));
 
-  const markedPromo = products.filter((p) => (p.isPromo || p.oldPrice) && p.inStock);
-  const promo = markedPromo.length
-    ? markedPromo
-    : FALLBACK_PROMO_SKUS.map((sku) => bySku.get(sku)).filter((p): p is StoreProduct => Boolean(p && p.inStock));
-  const cartridges = products
-    .filter((p) => p.category === "ro-cartridges" && p.inStock)
-    .slice(0, 10);
+  const rails: HomeRail[] = collections?.length
+    ? collections
+        .filter((c) => c.showOnHome)
+        .map((c) => ({
+          id: c.slug,
+          title: c.title,
+          eyebrow: c.eyebrow,
+          href: c.linkHref,
+          hrefLabel: c.linkLabel,
+          products: inStock(c.productSlugs.map((slug) => bySlug.get(slug))),
+        }))
+        .filter((rail) => rail.products.length > 0)
+    : [
+        {
+          id: "hits",
+          title: "Хіти продажів",
+          eyebrow: "",
+          href: "/catalog",
+          hrefLabel: "Весь каталог",
+          products: inStock(FALLBACK_HIT_SKUS.map((sku) => bySku.get(sku))),
+        },
+        {
+          id: "promo",
+          title: "Акційні пропозиції",
+          eyebrow: "",
+          href: "/catalog",
+          hrefLabel: "Весь каталог",
+          products: inStock(FALLBACK_PROMO_SKUS.map((sku) => bySku.get(sku))),
+        },
+        {
+          id: "cartridges",
+          title: "Картриджі на заміну",
+          eyebrow: "Обслуговування",
+          href: "/catalog/ro-cartridges",
+          hrefLabel: "Усі картриджі",
+          products: products.filter((p) => p.category === "ro-cartridges" && p.inStock).slice(0, 10),
+        },
+      ];
 
   const heroBanners = banners.filter((b) => b.placement === "hero" && b.imageDesktop);
   const sideBanners = banners.filter((b) => b.placement === "side" && b.imageDesktop);
@@ -183,10 +221,7 @@ export async function getHomeData(): Promise<HomeData> {
   return {
     slides,
     sideTiles,
-    hits,
-    promo,
-    cartridges,
+    rails,
     categories,
-    featured: hits[0],
   };
 }

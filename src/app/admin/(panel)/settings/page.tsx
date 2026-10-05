@@ -29,7 +29,7 @@ export default async function SettingsPage() {
   return (
     <>
       <PageTitle title="Налаштування" subtitle="Контакти, графік, реквізити і сповіщення — показуються на всьому сайті" />
-      <div className="grid gap-5 xl:grid-cols-[1fr_340px]">
+      <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
         <SettingsForm
           initial={{ ...settings, telegramExtraChatIds: notifications.telegramExtraChatIds ?? [] }}
           canEdit={staff.role === "admin"}

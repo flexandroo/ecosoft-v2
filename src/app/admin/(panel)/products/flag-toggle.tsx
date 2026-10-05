@@ -3,7 +3,7 @@
 import { useOptimistic, useTransition } from "react";
 import { setProductFlag } from "../../actions";
 
-type Flag = "in_stock" | "is_hidden" | "is_hit" | "is_promo";
+type Flag = "in_stock" | "is_hidden";
 
 export function ProductFlagToggle({ id, field, value }: { id: string; field: Flag; value: boolean }) {
   const [pending, startTransition] = useTransition();

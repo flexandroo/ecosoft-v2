@@ -38,22 +38,17 @@ export default async function Home() {
           <BenefitsRow className="mt-4" />
         </Container>
 
-        <Container className="mt-12 md:mt-16">
-          <SectionHeading title="Хіти продажів" href="/catalog" hrefLabel="Весь каталог" />
-          <ProductRail label="Хіти продажів" products={data.hits} />
-        </Container>
-
-        {data.promo.length > 0 && (
-          <Container className="mt-12 md:mt-16">
-            <SectionHeading title="Акційні пропозиції" href="/catalog" hrefLabel="Весь каталог" />
-            <ProductRail label="Акційні пропозиції" products={data.promo} />
+        {data.rails.map((rail) => (
+          <Container key={rail.id} className="mt-12 md:mt-16">
+            <SectionHeading
+              eyebrow={rail.eyebrow || undefined}
+              title={rail.title}
+              href={rail.href || undefined}
+              hrefLabel={rail.hrefLabel || undefined}
+            />
+            <ProductRail label={rail.title} products={rail.products} />
           </Container>
-        )}
-
-        <Container className="mt-12 md:mt-16">
-          <SectionHeading eyebrow="Обслуговування" title="Картриджі на заміну" href="/catalog/ro-cartridges" hrefLabel="Усі картриджі" />
-          <ProductRail label="Картриджі на заміну" products={data.cartridges} />
-        </Container>
+        ))}
 
         <Container className="mt-12 grid gap-4 md:mt-16 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
           <CallbackPanel source="home" />

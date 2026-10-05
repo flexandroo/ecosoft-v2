@@ -46,7 +46,7 @@ export function BannerForm({ banner }: { banner: EditableBanner }) {
 
   return (
     <>
-      <form action={action} className="grid gap-5 xl:grid-cols-[1fr_340px]">
+      <form action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
         <input type="hidden" name="id" value={banner.id} />
         <input type="hidden" name="image_desktop" value={desktop} />
         <input type="hidden" name="image_mobile" value={mobile} />
