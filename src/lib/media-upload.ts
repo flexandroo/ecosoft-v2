@@ -69,7 +69,11 @@ export async function uploadMedia(file: File, folder: string, alt = ""): Promise
 
   const prepared = await prepareImage(file);
   const safeFolder = folder.replace(/[^a-z0-9/_-]/gi, "").replace(/^\/+|\/+$/g, "") || "library";
-  const path = `${safeFolder}/${Date.now()}-${crypto.randomUUID().slice(0, 8)}-${slugifyName(file.name)}.${prepared.ext}`;
+  // Ad blockers hide images whose URL looks like an ad ("/banners/", "-banner-"…), so banner art is
+  // stored under "home/" and the word is dropped from file names.
+  const storageDir = safeFolder.replace(/^banners(?=\/|$)/, "home");
+  const name = slugifyName(file.name).replace(/banners?/g, "art");
+  const path = `${storageDir}/${Date.now()}-${crypto.randomUUID().slice(0, 8)}-${name}.${prepared.ext}`;
 
   const supabase = getBrowserClient();
   const { error: uploadError } = await supabase.storage
