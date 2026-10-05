@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Phone } from "lucide-react";
 import { formatUah } from "@/lib/format";
-import { LEAD_STATUSES, kindLabel, labelOf } from "@/lib/admin/constants";
+import { LEAD_STATUSES, PAYMENT_METHODS, PAYMENT_STATUSES, kindLabel, labelOf } from "@/lib/admin/constants";
 import { createSessionClient } from "@/lib/supabase/server";
 import { Card, PageTitle, StatusBadge, formatDateTime } from "../../ui";
 import { LeadCommentForm, LeadManageForm } from "./forms";
@@ -112,7 +112,7 @@ export default async function LeadPage({ params }: { params: Promise<{ id: strin
                     <td colSpan={2} className="pt-3 font-semibold">
                       Разом
                     </td>
-                    <td className="pt-3 text-right font-semibold">{formatUah(Number(lead.total))}</td>
+                    <td className="pt-3 text-right font-semibold whitespace-nowrap">{formatUah(Number(lead.total))}</td>
                   </tr>
                 </tfoot>
               </table>
@@ -227,6 +227,8 @@ function EventText({
       {entries.map(([field, change]) => {
         let to = String(change?.to ?? "—");
         if (field === "status") to = labelOf(LEAD_STATUSES, to);
+        if (field === "payment_method") to = labelOf(PAYMENT_METHODS, to);
+        if (field === "payment_status") to = labelOf(PAYMENT_STATUSES, to);
         if (field === "assigned_to") to = staffName.get(to) ?? "—";
         if (field === "manager_note") to = to.length > 80 ? `${to.slice(0, 80)}…` : to;
         return (

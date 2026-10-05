@@ -47,8 +47,11 @@ export function Card({ className, children }: { className?: string; children: Re
   return <section className={cn("rounded-xl border bg-card p-4 shadow-xs sm:p-5", className)}>{children}</section>;
 }
 
-export const inputClass =
-  "h-9 w-full rounded-lg border bg-background px-3 text-sm outline-none focus:ring-2 focus:ring-ring/40 disabled:opacity-60";
+/** Input styling without a width, for inline filter bars. */
+export const inputBaseClass =
+  "h-9 rounded-lg border bg-background px-3 text-sm outline-none focus:ring-2 focus:ring-ring/40 disabled:opacity-60";
+
+export const inputClass = `${inputBaseClass} w-full`;
 
 export const textareaClass =
   "w-full rounded-lg border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring/40";

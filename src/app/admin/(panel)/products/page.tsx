@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CATEGORIES } from "@/lib/products";
 import { formatUah } from "@/lib/format";
 import { createSessionClient } from "@/lib/supabase/server";
-import { Card, PageTitle, inputClass } from "../ui";
+import { Card, PageTitle, inputBaseClass } from "../ui";
 import { ProductFlagToggle } from "./flag-toggle";
 
 export const metadata: Metadata = { title: "Товари" };
@@ -30,7 +30,6 @@ export default async function ProductsPage({
   let query = supabase
     .from("products")
     .select("id, slug, sku, category, name, price, old_price, in_stock, image, is_hidden, is_hit, is_promo")
-    .order("category")
     .order("sort")
     .limit(500);
   if (category) query = query.eq("category", category);
@@ -76,7 +75,7 @@ export default async function ProductsPage({
 
       <form className="mb-4 flex flex-wrap gap-2" action="/admin/products">
         {view && <input type="hidden" name="view" value={view} />}
-        <select name="category" defaultValue={category} className={`${inputClass} w-auto`}>
+        <select name="category" defaultValue={category} className={inputBaseClass}>
           <option value="">Усі категорії</option>
           {CATEGORIES.map((c) => (
             <option key={c.key} value={c.key}>
@@ -84,7 +83,7 @@ export default async function ProductsPage({
             </option>
           ))}
         </select>
-        <input name="q" defaultValue={q} placeholder="Назва або артикул" className={`${inputClass} w-64 max-w-full`} />
+        <input name="q" defaultValue={q} placeholder="Назва або артикул" className={`${inputBaseClass} w-64 max-w-full`} />
         <button type="submit" className="h-9 rounded-lg border bg-background px-3 text-sm font-medium hover:bg-muted">
           Знайти
         </button>

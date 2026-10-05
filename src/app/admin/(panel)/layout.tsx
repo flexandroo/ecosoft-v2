@@ -7,7 +7,8 @@ import { signOut } from "../actions";
 import { AdminNavLink } from "./nav-link";
 
 export const metadata: Metadata = {
-  title: { default: "Адмінка", template: "%s · Адмінка Sofiivka Water" },
+  // `absolute` keeps the storefront's "· Магазин Ecosoft" template out of admin tabs.
+  title: { absolute: "Адмінка Sofiivka Water", template: "%s · Адмінка Sofiivka Water" },
   robots: { index: false, follow: false },
 };
 

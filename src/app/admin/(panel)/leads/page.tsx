@@ -3,7 +3,7 @@ import Link from "next/link";
 import { formatUah } from "@/lib/format";
 import { LEAD_KINDS, LEAD_STATUSES, isLeadKind, isLeadStatus, kindLabel } from "@/lib/admin/constants";
 import { createSessionClient } from "@/lib/supabase/server";
-import { Card, PageTitle, StatusBadge, formatDateTime, inputClass } from "../ui";
+import { Card, PageTitle, StatusBadge, formatDateTime, inputBaseClass } from "../ui";
 
 export const metadata: Metadata = { title: "Заявки" };
 
@@ -65,7 +65,7 @@ export default async function LeadsPage({
 
       <form className="mb-4 flex flex-wrap gap-2" action="/admin/leads">
         {status && <input type="hidden" name="status" value={status} />}
-        <select name="kind" defaultValue={kind} className={`${inputClass} w-auto`}>
+        <select name="kind" defaultValue={kind} className={inputBaseClass}>
           <option value="">Усі типи</option>
           {LEAD_KINDS.map((k) => (
             <option key={k.id} value={k.id}>
@@ -77,7 +77,7 @@ export default async function LeadsPage({
           name="q"
           defaultValue={q}
           placeholder="Імʼя, телефон або №"
-          className={`${inputClass} w-64 max-w-full`}
+          className={`${inputBaseClass} w-64 max-w-full`}
         />
         <button type="submit" className="h-9 rounded-lg border bg-background px-3 text-sm font-medium hover:bg-muted">
           Знайти
