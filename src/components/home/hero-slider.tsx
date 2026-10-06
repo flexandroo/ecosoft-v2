@@ -86,7 +86,7 @@ export function HeroSlider({
                   slide.bannerArt ? "md:object-[30%_center]" : "md:object-[72%_center]",
                   // Light banners have no scrim: on phones the photo sits under the text instead of behind it.
                   dark
-                    ? "inset-0 size-full object-[72%_center]"
+                    ? cn("inset-0 size-full", mobileArt ? "object-bottom" : "object-[72%_center]")
                     : mobileArt
                       ? // Full width at its own proportions; the empty top of the art fades into the panel under the text.
                         "inset-x-0 bottom-0 h-auto w-full [mask-image:linear-gradient(to_bottom,transparent,#000_22%)] md:inset-0 md:size-full md:[mask-image:none]"
@@ -95,11 +95,17 @@ export function HeroSlider({
               />
             </picture>
             {/* Dark banners keep a scrim so white text stays readable; light banners show the photo as is. */}
-            {dark && <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/45 to-transparent" />}
+            {dark &&
+              (slide.bannerArt ? (
+                // Purpose-made dark art already leaves room for the text: a light scrim is enough.
+                <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-transparent md:bg-gradient-to-r md:from-black/45 md:via-black/10" />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/45 to-transparent" />
+              ))}
             <div
               className={cn(
                 "relative flex h-full max-w-xl flex-col justify-start p-6 pt-7 md:justify-center md:p-10 lg:p-12",
-                !dark && "md:max-w-[46%]",
+                (!dark || slide.bannerArt) && "md:max-w-[46%]",
                 slide.bannerArt && "md:pr-4 lg:pr-4",
                 dark ? "text-white" : "text-foreground",
               )}
@@ -124,7 +130,7 @@ export function HeroSlider({
                     size === "wide" ? "md:text-base" : "2xl:text-base",
                     dark ? "text-white/85" : "text-muted-foreground",
                     // Phone art leaves room for a heading and button only.
-                    mobileArt && !dark && "hidden md:block",
+                    mobileArt && "hidden md:block",
                   )}
                 >
                   {slide.subtitle}
