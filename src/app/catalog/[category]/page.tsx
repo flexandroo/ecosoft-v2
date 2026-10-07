@@ -7,7 +7,7 @@ import { CategoryHero } from "@/components/catalog/category-hero";
 import { CategoryPills } from "@/components/catalog/category-pills";
 import { CATEGORIES, type CategoryKey } from "@/lib/products";
 import { getStoreCategory } from "@/lib/categories";
-import { getProductsByCategory } from "@/lib/catalog";
+import { getProductsByCategory, toListingProduct } from "@/lib/catalog";
 
 type Params = { category: string };
 
@@ -62,7 +62,7 @@ export default async function CategoryCatalogPage({
         <div className="mx-auto max-w-[1600px] px-4 pt-6 md:px-8">
           <CategoryPills />
         </div>
-        <CatalogView products={products} lockedCategory={category as CategoryKey} />
+        <CatalogView products={products.map(toListingProduct)} lockedCategory={category as CategoryKey} />
         {cat.seoText && (
           <section className="mx-auto max-w-[1600px] px-4 pb-16 md:px-8">
             <div className="max-w-3xl border-t border-border pt-8 text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground">

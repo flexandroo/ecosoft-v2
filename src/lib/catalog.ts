@@ -115,6 +115,19 @@ export async function getListedProducts(): Promise<StoreProduct[]> {
   return hidden.size ? products.filter((p) => !hidden.has(p.category)) : products;
 }
 
+/**
+ * The part of a product that catalogue listings need on the client: cards,
+ * facets, badges and search. Drops descriptions, documents and other PDP-only
+ * details, which made /catalog and /search ship ~0.8 MB of RSC payload.
+ */
+export function toListingProduct(p: StoreProduct): StoreProduct {
+  return {
+    ...p,
+    description: "",
+    details: p.details?.specs ? { specs: p.details.specs } : undefined,
+  };
+}
+
 export async function getProductsByCategory(key: CategoryKey): Promise<StoreProduct[]> {
   return (await getProducts()).filter((p) => p.category === key);
 }

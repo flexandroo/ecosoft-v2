@@ -4,7 +4,7 @@ import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
 import { CatalogView } from "@/components/catalog/catalog-view";
 import { CategoryPills } from "@/components/catalog/category-pills";
-import { getListedProducts } from "@/lib/catalog";
+import { getListedProducts, toListingProduct } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "Каталог",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function CatalogPage() {
-  const products = await getListedProducts();
+  const products = (await getListedProducts()).map(toListingProduct);
   return (
     <>
       <Header />
