@@ -4,6 +4,8 @@ import {
   type Product,
 } from "@/lib/products";
 import { getProductItemId } from "@/lib/product-identity";
+import { productBrand } from "@/lib/catalog-facets";
+import { productShareImageUrl } from "@/lib/product-share-image";
 
 export const SITE_URL = "https://sofiivkawater.com";
 
@@ -80,10 +82,12 @@ function productXml(product: Product, siteUrl: string): string {
     throw new Error(`Meta feed: product "${product.slug}" has no item ID.`);
   }
 
-  const mainImage = absoluteUrl(
-    `/images/meta-products/${metaImageFilename(itemId)}?v=${META_IMAGE_VERSION}`,
-    siteUrl,
-  );
+  // Prepared SKU photos carry a cache-busting version; products added in the
+  // admin have no prepared photo and use their own uploaded image.
+  const shareImage = productShareImageUrl(product, siteUrl);
+  const mainImage = shareImage.includes("/images/meta-products/")
+    ? absoluteUrl(`/images/meta-products/${metaImageFilename(itemId)}?v=${META_IMAGE_VERSION}`, siteUrl)
+    : shareImage;
 
   const fields = [
     `<g:id>${xmlText(itemId)}</g:id>`,
@@ -97,7 +101,7 @@ function productXml(product: Product, siteUrl: string): string {
       : "",
     `<g:availability>${product.inStock ? "in stock" : "out of stock"}</g:availability>`,
     "<g:condition>new</g:condition>",
-    "<g:brand>Ecosoft</g:brand>",
+    `<g:brand>${xmlText(productBrand(product) ?? "Ecosoft")}</g:brand>`,
     `<g:product_type>${xmlText(categoryTitles.get(product.category) ?? product.category)}</g:product_type>`,
   ].filter(Boolean);
 

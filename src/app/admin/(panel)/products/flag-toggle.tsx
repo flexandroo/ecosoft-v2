@@ -11,7 +11,7 @@ export function ProductFlagToggle({ id, field, value }: { id: string; field: Fla
   return (
     <input
       type="checkbox"
-      aria-label={field}
+      aria-label={field === "in_stock" ? "В наявності" : "Приховати з сайту"}
       checked={checked}
       disabled={pending}
       className="size-4 cursor-pointer accent-primary disabled:cursor-wait"
@@ -20,7 +20,8 @@ export function ProductFlagToggle({ id, field, value }: { id: string; field: Fla
         startTransition(async () => {
           setChecked(next);
           try {
-            await setProductFlag(id, field, next);
+            const result = await setProductFlag(id, field, next);
+            if (!result.ok) alert(result.error ?? "Не вдалося зберегти зміну.");
           } catch {
             alert("Не вдалося зберегти зміну. Оновіть сторінку і спробуйте ще раз.");
           }

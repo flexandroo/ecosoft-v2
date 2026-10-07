@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ExternalLink } from "lucide-react";
+import { Copy, ExternalLink } from "lucide-react";
 import { findCategory } from "@/lib/products";
 import { createSessionClient } from "@/lib/supabase/server";
+import { getStaff } from "@/lib/admin/auth";
+import { deleteProduct } from "../../../actions";
+import { ConfirmSubmitButton } from "../../form-status";
 import { PageTitle, formatDateTime } from "../../ui";
 import { ProductForm } from "./product-form";
 
 export const metadata: Metadata = { title: "Товар" };
 
-export default async function ProductEditPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function ProductEditPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ created?: string }>;
+}) {
+  const [{ id }, { created }, staff] = await Promise.all([params, searchParams, getStaff()]);
   if (!/^[0-9a-f-]{36}$/i.test(id)) notFound();
   const supabase = await createSessionClient();
   const [{ data: product }, { data: collections }, { data: memberships }] = await Promise.all([
@@ -34,16 +43,29 @@ export default async function ProductEditPage({ params }: { params: Promise<{ id
         title={product.name}
         subtitle={`${category?.title ?? product.category} · оновлено ${formatDateTime(product.updated_at)}`}
         actions={
-          <a
-            href={publicUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex h-9 items-center gap-1.5 rounded-lg border bg-background px-3 text-sm font-medium hover:bg-muted"
-          >
-            <ExternalLink className="size-4" /> На сайті
-          </a>
+          <>
+            <Link
+              href={`/admin/products/new?from=${product.id}`}
+              className="inline-flex h-9 items-center gap-1.5 rounded-lg border bg-background px-3 text-sm font-medium hover:bg-muted"
+            >
+              <Copy className="size-4" /> Дублювати
+            </Link>
+            <a
+              href={publicUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-9 items-center gap-1.5 rounded-lg border bg-background px-3 text-sm font-medium hover:bg-muted"
+            >
+              <ExternalLink className="size-4" /> На сайті
+            </a>
+          </>
         }
       />
+      {created && (
+        <p className="mb-4 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-900">
+          Товар створено й приховано. Додайте фото, перевірте дані та зніміть «Приховати з сайту».
+        </p>
+      )}
       <ProductForm
         product={{
           id: product.id,
@@ -68,6 +90,21 @@ export default async function ProductEditPage({ params }: { params: Promise<{ id
           included: memberOf.has(c.id),
         }))}
       />
+      {staff?.role === "admin" && (
+        <form action={deleteProduct} className="mt-10 border-t pt-5">
+          <input type="hidden" name="id" value={product.id} />
+          <p className="mb-2 text-sm text-muted-foreground">
+            Щоб тимчасово прибрати товар із сайту, використовуйте «Приховати з сайту». Видалення остаточне: зникне
+            сторінка товару, а реклама з цим артикулом перестане працювати.
+          </p>
+          <ConfirmSubmitButton
+            confirmText={`Видалити «${product.name}» назавжди? Це не можна скасувати.`}
+            className="text-sm font-medium text-rose-700 hover:underline disabled:opacity-50"
+          >
+            Видалити товар назавжди
+          </ConfirmSubmitButton>
+        </form>
+      )}
     </>
   );
 }

@@ -3,7 +3,7 @@ import { getListedProducts } from "@/lib/catalog";
 import { getStoreCategories } from "@/lib/categories";
 import { getPosts } from "@/lib/posts";
 import { SOLUTIONS } from "@/lib/solutions";
-import { getProductImagePath } from "@/lib/product-identity";
+import { productShareImageUrl } from "@/lib/product-share-image";
 
 const SITE_URL = "https://sofiivkawater.com";
 
@@ -32,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${SITE_URL}/catalog/${product.category}/${product.slug}`,
     changeFrequency: "weekly",
     priority: 0.7,
-    images: [`${SITE_URL}${getProductImagePath(product)}`],
+    images: [productShareImageUrl(product, SITE_URL)],
   }));
 
   const blogPages: MetadataRoute.Sitemap = (await getPosts()).map((post) => ({

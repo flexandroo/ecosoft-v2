@@ -5,7 +5,7 @@ import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
 import { ProductDetail } from "@/components/product/product-detail";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getProductImagePath } from "@/lib/product-identity";
+import { productShareImage, productShareImageUrl } from "@/lib/product-share-image";
 import { getProduct, getProducts } from "@/lib/catalog";
 import { getSiteSettings } from "@/lib/settings";
 import { toPhoneContacts } from "@/lib/settings-shared";
@@ -36,7 +36,7 @@ export async function generateMetadata({
       url: `/catalog/${category}/${slug}`,
       title: product.name,
       description: metaDescription,
-      images: [{ url: getProductImagePath(product), alt: product.name }],
+      images: [{ url: productShareImage(product), alt: product.name }],
     },
   };
 }
@@ -53,7 +53,7 @@ export default async function ProductPage({
   const cat = (await getStoreCategory(category))!;
   const brand = productBrand(product);
   const url = `https://sofiivkawater.com/catalog/${category}/${slug}`;
-  const image = `https://sofiivkawater.com${getProductImagePath(product)}`;
+  const image = productShareImageUrl(product, "https://sofiivkawater.com");
 
   return (
     <>

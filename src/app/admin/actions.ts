@@ -11,6 +11,7 @@ import {
 } from "@/lib/admin/constants";
 import { BANNERS_TAG } from "@/lib/banners";
 import { CATALOG_TAG } from "@/lib/catalog";
+import { CATEGORIES } from "@/lib/products";
 import { CATEGORIES_TAG } from "@/lib/categories";
 import { COLLECTIONS_TAG } from "@/lib/collections";
 import { crmConfigured } from "@/lib/crm";
@@ -200,6 +201,9 @@ export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormS
     is_hidden: fd.get("is_hidden") === "on",
     sort: Math.trunc(Number(str(fd, "sort", 12)) || 0),
   };
+  if (!changes.is_hidden && images.length === 0) {
+    return { error: "Додайте хоча б одне фото, перш ніж показувати товар на сайті." };
+  }
 
   const { data: before } = await supabase.from("products").select("*").eq("id", id).single();
   if (!before) return { error: "Товар не знайдено." };
@@ -227,11 +231,21 @@ export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormS
   return { ok: "Збережено. На сайті оновиться протягом хвилини." };
 }
 
-export async function setProductFlag(id: string, field: "in_stock" | "is_hidden", value: boolean) {
+export async function setProductFlag(
+  id: string,
+  field: "in_stock" | "is_hidden",
+  value: boolean,
+): Promise<{ ok: boolean; error?: string }> {
   const staff = await requireStaff();
   const supabase = await createSessionClient();
+  if (field === "is_hidden" && !value) {
+    const { data } = await supabase.from("products").select("image, images").eq("id", id).maybeSingle();
+    if (!data?.image && !(data?.images as string[] | null)?.length) {
+      return { ok: false, error: "Додайте хоча б одне фото, перш ніж показувати товар на сайті." };
+    }
+  }
   const { error } = await supabase.from("products").update({ [field]: value }).eq("id", id);
-  if (error) throw new Error(error.message);
+  if (error) return { ok: false, error: `Не вдалося зберегти: ${error.message}` };
   await supabase.from("audit_log").insert({
     actor: staff.userId,
     entity: "product",
@@ -242,6 +256,81 @@ export async function setProductFlag(id: string, field: "in_stock" | "is_hidden"
   updateTag(CATALOG_TAG);
   revalidatePath("/admin/products");
   revalidatePath(`/admin/products/${id}`);
+  return { ok: true };
+}
+
+const PRODUCT_SKU_RE = /^[A-Za-z0-9][A-Za-z0-9._\/-]{1,39}$/;
+const PRODUCT_SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+
+/**
+ * Create a product, optionally as a copy of an existing one (description,
+ * photos, characteristics and filter data are copied). New products start
+ * hidden so they appear on the site only once photos and details are ready.
+ */
+export async function createProduct(_prev: FormState, fd: FormData): Promise<FormState> {
+  const staff = await requireStaff();
+  const supabase = await createSessionClient();
+
+  const name = str(fd, "name", 300);
+  const category = str(fd, "category", 64);
+  const sku = str(fd, "sku", 40);
+  const slug = (str(fd, "slug", 100).toLowerCase() || slugify(name, 90)).replace(/-+$/, "");
+  const price = optionalNumber(fd, "price");
+  const fromId = str(fd, "from", 64);
+
+  if (!name) return { error: "Вкажіть назву." };
+  if (!CATEGORIES.some((c) => c.key === category)) return { error: "Оберіть категорію." };
+  if (!PRODUCT_SKU_RE.test(sku)) return { error: "Артикул: 2–40 символів — латиниця, цифри, крапка, дефіс, «/»." };
+  if (!PRODUCT_SLUG_RE.test(slug)) return { error: "Адреса сторінки: лише латинські літери, цифри й дефіси." };
+  if (price === null || Number.isNaN(price) || price <= 0) return { error: "Вкажіть ціну більшу за 0." };
+
+  let base: Record<string, unknown> = {};
+  if (fromId) {
+    const { data: source } = await supabase
+      .from("products")
+      .select("cta_type, description, image, images, details, attributes, in_stock, sort")
+      .eq("id", fromId)
+      .maybeSingle();
+    if (!source) return { error: "Товар для копіювання не знайдено." };
+    base = source;
+  }
+
+  const { data, error } = await supabase
+    .from("products")
+    .insert({ ...base, name, category, sku, slug, price, old_price: null, is_hidden: true, is_hit: false, is_promo: false })
+    .select("id")
+    .single();
+  if (error?.code === "23505") {
+    return { error: /sku/.test(error.message) ? "Такий артикул уже є в каталозі." : "Така адреса сторінки вже зайнята." };
+  }
+  if (error || !data) return { error: `Не вдалося створити товар: ${error?.message ?? "невідома помилка"}` };
+
+  await supabase.from("audit_log").insert({
+    actor: staff.userId,
+    entity: "product",
+    entity_id: data.id,
+    action: fromId ? "duplicate" : "create",
+    diff: { name, category, sku, slug, price, from: fromId || null },
+  });
+  updateTag(CATALOG_TAG);
+  revalidatePath("/admin/products");
+  redirect(`/admin/products/${data.id}?created=1`);
+}
+
+/** Permanently delete a product (admins only). Hiding is the reversible option. */
+export async function deleteProduct(fd: FormData) {
+  const me = await requireAdmin();
+  const id = str(fd, "id", 64);
+  const supabase = await createSessionClient();
+  const { data: product } = await supabase.from("products").select("name, sku, slug, category").eq("id", id).maybeSingle();
+  if (!product) throw new Error("Товар не знайдено.");
+  const { error } = await supabase.from("products").delete().eq("id", id);
+  if (error) throw new Error(error.message);
+  await supabase.from("audit_log").insert({ actor: me.userId, entity: "product", entity_id: id, action: "delete", diff: product });
+  updateTag(CATALOG_TAG);
+  updateTag(COLLECTIONS_TAG);
+  revalidatePath("/admin/products");
+  redirect("/admin/products");
 }
 
 // ---------------------------------------------------------------------------

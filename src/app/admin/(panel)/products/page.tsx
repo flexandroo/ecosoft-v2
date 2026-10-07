@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Plus } from "lucide-react";
 import { CATEGORIES } from "@/lib/products";
 import { formatUah } from "@/lib/format";
 import { createSessionClient } from "@/lib/supabase/server";
@@ -53,7 +54,18 @@ export default async function ProductsPage({
 
   return (
     <>
-      <PageTitle title="Товари" subtitle={`${products?.length ?? 0} позицій`} />
+      <PageTitle
+        title="Товари"
+        subtitle={`${products?.length ?? 0} позицій`}
+        actions={
+          <Link
+            href="/admin/products/new"
+            className="inline-flex h-9 items-center gap-1.5 rounded-lg bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+          >
+            <Plus className="size-4" /> Новий товар
+          </Link>
+        }
+      />
 
       <div className="mb-3 flex flex-wrap gap-1.5">
         {VIEWS.map((v) => (
