@@ -18,11 +18,14 @@ export const getStaff = cache(async (): Promise<Staff | null> => {
   const { data: userData } = await supabase.auth.getUser();
   const user = userData.user;
   if (!user) return null;
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("admin_users")
     .select("user_id, email, name, role")
     .eq("user_id", user.id)
     .maybeSingle();
+  // A failed lookup is not "no access": denying would sign the person out
+  // (see proxy.ts). Let the admin error page offer a retry instead.
+  if (error) throw new Error(`Не вдалося перевірити доступ: ${error.message}`);
   if (!data) return null;
   return { userId: data.user_id, email: data.email, name: data.name || data.email, role: data.role };
 });
