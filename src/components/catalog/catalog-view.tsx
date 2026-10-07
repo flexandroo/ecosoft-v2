@@ -199,8 +199,8 @@ export function CatalogView({
     priceMax !== "";
   const activeBadge = selectedCount + (inStockOnly ? 1 : 0) + (priceMin || priceMax ? 1 : 0);
 
-  const minPriceOfAll = Math.min(...products.map((p) => p.price));
-  const maxPriceOfAll = Math.max(...products.map((p) => p.price));
+  const minPriceOfAll = products.length ? Math.min(...products.map((p) => p.price)) : 0;
+  const maxPriceOfAll = products.length ? Math.max(...products.map((p) => p.price)) : 0;
   const facetLabels = new Map(
     facetsForCategory(lockedCategory).map((facet) => [facet.key, facet.label]),
   );
@@ -210,7 +210,7 @@ export function CatalogView({
 
   return (
     <section className="mx-auto max-w-[1600px] px-4 py-10 md:px-8 md:py-14">
-      <div className="grid gap-8 lg:grid-cols-[260px_1fr]">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_minmax(0,1fr)]">
         <aside className="hidden lg:block">
           <FiltersPanel
             facets={availableFacets}
@@ -229,7 +229,8 @@ export function CatalogView({
           />
         </aside>
 
-        <div>
+        {/* min-w-0: the subcategory chips row must scroll, not widen the column. */}
+        <div className="min-w-0">
           {lockedCategory && (
             <SubcategoryChips
               subcategories={SUBCATEGORIES[lockedCategory]}
