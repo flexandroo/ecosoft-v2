@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { HalloweenBannerDecor } from "@/components/site/halloween";
 
 type Crumb = { href?: string; label: string };
 
@@ -46,6 +47,7 @@ export function PageHeader({
             aria-hidden="true"
             className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(7,24,43,0.28),transparent_55%)]"
           />
+          <HalloweenBannerDecor />
         </>
       )}
 

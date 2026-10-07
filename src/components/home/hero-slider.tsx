@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import type { HomeSlide } from "@/lib/home";
 import { cn } from "@/lib/utils";
+import { HalloweenBannerDecor } from "@/components/site/halloween";
 
 const INTERVAL_MS = 6000;
 
@@ -148,6 +149,9 @@ export function HeroSlider({
           </div>
         );
       })}
+
+      {/* Over the slides, under the controls; only the cobweb and bats so admin banner art stays untouched. */}
+      <HalloweenBannerDecor tone="light" minimal className="z-[15]" />
 
       {count > 1 && (
         <div className="absolute right-4 bottom-4 z-20 flex items-center gap-2">

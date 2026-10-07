@@ -23,6 +23,7 @@ import { useStoreCategories } from "@/components/site/categories-context";
 import { useHeaderMenu } from "@/components/site/menus-context";
 import { useDialog } from "@/components/site/use-dialog";
 import { MenuLink } from "@/components/site/menu-link";
+import { HalloweenBar, Pumpkin } from "@/components/site/halloween";
 import { CATEGORY_GROUPS } from "@/lib/categories-shared";
 import { SUBCATEGORIES, subcategoryQuery } from "@/lib/catalog-facets";
 import { cn } from "@/lib/utils";
@@ -90,6 +91,7 @@ export function Header() {
       >
         Перейти до вмісту
       </a>
+      <HalloweenBar />
 
       {/* Utility bar */}
       <div className="hidden bg-foreground text-[13px] text-white/80 md:block">
@@ -130,6 +132,7 @@ export function Header() {
           <Link href="/" aria-label="Ecosoft — головна" className="shrink-0 leading-none">
             <span className="block font-[family-name:var(--font-manrope)] text-[26px] font-extrabold tracking-tight text-primary lowercase">
               ecosoft
+              <Pumpkin face={false} className="ml-1 hidden size-5 -translate-y-0.5 align-middle halloween:inline-block" />
             </span>
             <span className="hidden text-[10.5px] font-semibold tracking-wide text-muted-foreground uppercase md:block">
               офіційний партнер

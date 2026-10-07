@@ -4,6 +4,7 @@ import { ChevronRight } from "lucide-react";
 import type { Product } from "@/lib/products";
 import { getProductDisplayImage } from "@/lib/product-identity";
 import { ProductImage } from "./product-image";
+import { HalloweenBannerDecor } from "@/components/site/halloween";
 
 function pluralize(n: number, [one, few, many]: [string, string, string]) {
   const mod10 = n % 10;
@@ -54,6 +55,7 @@ export function CategoryHero({
           className="absolute inset-0 -z-10 bg-[radial-gradient(75%_160%_at_88%_40%,oklch(0.87_0.065_222/0.72),transparent_64%)]"
         />
       )}
+      <HalloweenBannerDecor tone="light" />
 
       <div className="mx-auto flex max-w-[1600px] items-end justify-between gap-5 px-4 pb-5 pt-5 md:min-h-32 md:px-8 md:pb-6 md:pt-6">
         <div className="max-w-2xl">

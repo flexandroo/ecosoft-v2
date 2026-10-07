@@ -3,6 +3,8 @@
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
+/* Seasonal decor, switched on by src/lib/season.ts */
+@custom-variant halloween (&:where([data-season="halloween"], [data-season="halloween"] *));
 
 @theme inline {
   --color-background: var(--background);
@@ -173,4 +175,26 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ── Halloween (src/lib/season.ts) ── */
+.halloween-bat {
+  opacity: 0;
+  animation: halloween-bat-fly 7s ease-in-out 1 both;
+}
+.halloween-wing {
+  transform-origin: center 40%;
+  animation: halloween-wing-flap 0.32s ease-in-out 22 alternate;
+}
+@keyframes halloween-bat-fly {
+  0% { transform: translate(-3rem, 0); opacity: 0; }
+  8% { opacity: 1; }
+  30% { transform: translate(28vw, -14px); }
+  55% { transform: translate(55vw, 12px); }
+  80% { transform: translate(82vw, -10px); opacity: 1; }
+  100% { transform: translate(108vw, -24px); opacity: 0; }
+}
+@keyframes halloween-wing-flap {
+  from { transform: scaleY(1); }
+  to { transform: scaleY(0.5); }
 }
