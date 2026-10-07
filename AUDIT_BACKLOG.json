@@ -118,7 +118,7 @@
     "effort": "L",
     "regressionRisk": "medium",
     "status": "partial",
-    "statusNote": "b6ba0f4 — display normalised + audit:specs report; data cleanup and admin attribute editor pending"
+    "statusNote": "b6ba0f4 display + audit:specs; f304d36 admin editor for characteristics/documents/long description. Remaining: clean the 44 duplicate groups in data, typed attribute registry"
   },
   {
     "id": "ECO-008",
@@ -188,8 +188,8 @@
     "solution": "Validate price>0 (or request CTA) and old_price>price; optimistic concurrency via updated_at; add create/duplicate/soft-archive in Phase 3.",
     "effort": "S",
     "regressionRisk": "low",
-    "status": "partial",
-    "statusNote": "32f9d97 — validation + concurrency; product create/archive pending"
+    "status": "done",
+    "statusNote": "32f9d97 validation/concurrency; c3e72b1 create, duplicate, admin-only delete"
   },
   {
     "id": "ECO-010",
@@ -222,8 +222,8 @@
     "solution": "Restrict product DELETE to admin or use soft delete; with check (actor = auth.uid()) or trigger-based audit; log staff changes.",
     "effort": "S",
     "regressionRisk": "low",
-    "status": "partial",
-    "statusNote": "f14551c staff audit in code; RLS in migration 20261007100000 (not applied)"
+    "status": "done",
+    "statusNote": "f14551c + migration catalog_integrity (applied on dev)"
   },
   {
     "id": "ECO-014",
@@ -340,8 +340,8 @@
     "solution": "Confirm dialog; distinct message and self-role guard in addStaff; useUnsavedChanges hook.",
     "effort": "S",
     "regressionRisk": "low",
-    "status": "partial",
-    "statusNote": "f14551c — confirm + own-role guard; unsaved-changes guard pending"
+    "status": "done",
+    "statusNote": "f14551c confirm/own-role; 4c3301e unsaved-changes guard"
   },
   {
     "id": "ECO-021",
@@ -386,8 +386,8 @@
     "solution": "One-off update images = [image]; derive image from images[0].",
     "effort": "XS",
     "regressionRisk": "low",
-    "status": "pending-user",
-    "statusNote": "migration 20261007100000 written, needs applying"
+    "status": "done",
+    "statusNote": "catalog_integrity applied on dev (prod pending with ECO-002)"
   },
   {
     "id": "ECO-024",
@@ -403,8 +403,8 @@
     "solution": "Migration with FK + CHECKs + sku not null; reorder via a transactional RPC.",
     "effort": "S",
     "regressionRisk": "low",
-    "status": "pending-user",
-    "statusNote": "migration 20261007100000 written (reorder RPC not done)"
+    "status": "partial",
+    "statusNote": "catalog_integrity applied on dev; reorder RPC not done"
   },
   {
     "id": "ECO-025",
@@ -436,7 +436,8 @@
     "solution": "supabase gen types + Database generic; split actions by domain; shared validators.",
     "effort": "M",
     "regressionRisk": "low",
-    "status": "todo"
+    "status": "done",
+    "statusNote": "1324d72 typed clients + actions split"
   },
   {
     "id": "ECO-027",
