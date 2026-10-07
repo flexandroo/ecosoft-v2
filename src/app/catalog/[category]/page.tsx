@@ -53,7 +53,12 @@ export default async function CategoryCatalogPage({
     <>
       <Header />
       <main id="main-content" className="flex-1">
-        <CategoryHero title={cat.title} subtitle={cat.subtitle} count={products.length} />
+        <CategoryHero
+          title={cat.title}
+          subtitle={cat.subtitle}
+          products={products}
+          image={cat.image}
+        />
         <div className="mx-auto max-w-[1600px] px-4 pt-6 md:px-8">
           <CategoryPills />
         </div>

@@ -22,6 +22,8 @@ export default async function CatalogPage() {
         <PageHeader
           title="Каталог"
           subtitle="Усі товари Ecosoft в одному каталозі — оберіть категорію або скористайтеся пошуком і фільтрами."
+          image="/images/page-headers/catalog-water-v2.png"
+          imageAlt="Чиста вода з мʼякими світловими відблисками"
           crumbs={[
             { href: "/", label: "Головна" },
             { label: "Каталог" },
