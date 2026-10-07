@@ -1,11 +1,12 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useState, useRef } from "react";
 import { BANNER_PLACEMENTS } from "@/lib/admin/constants";
 import { deleteBanner, saveBanner, type FormState } from "../../../actions";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { ImageUploadButton } from "../../image-upload";
 import { Card, Checkbox, Field, inputClass } from "../../ui";
+import { useUnsavedChanges } from "../../use-unsaved-changes";
 
 export type EditableBanner = {
   id: string;
@@ -41,12 +42,14 @@ function toLocalInput(value: string | null): string {
 
 export function BannerForm({ banner }: { banner: EditableBanner }) {
   const [state, action] = useActionState<FormState, FormData>(saveBanner, null);
+  const formRef = useRef<HTMLFormElement>(null);
+  useUnsavedChanges(formRef, state);
   const [desktop, setDesktop] = useState(banner.image_desktop ?? "");
   const [mobile, setMobile] = useState(banner.image_mobile ?? "");
 
   return (
     <>
-      <form action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
+      <form ref={formRef} action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
         <input type="hidden" name="id" value={banner.id} />
         <input type="hidden" name="image_desktop" value={desktop} />
         <input type="hidden" name="image_mobile" value={mobile} />

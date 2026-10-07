@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState, useTransition } from "react";
+import { useActionState, useState, useTransition, useRef } from "react";
 import { ArrowLeft, ArrowRight, ExternalLink, X } from "lucide-react";
 import { POST_KINDS, parsePostBody, slugify, type PostKind } from "@/lib/posts-shared";
 import { cn } from "@/lib/utils";
@@ -8,6 +8,7 @@ import { deletePost, savePost, type FormState } from "../../../actions";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { ImageUploadButton } from "../../image-upload";
 import { Card, Field, inputClass, textareaClass } from "../../ui";
+import { useUnsavedChanges } from "../../use-unsaved-changes";
 
 export type EditablePost = {
   id: string;
@@ -51,6 +52,8 @@ function kyivToIso(local: string): string {
 
 export function PostForm({ post, livePath }: { post: EditablePost; livePath: string | null }) {
   const [state, action] = useActionState<FormState, FormData>(savePost, null);
+  const formRef = useRef<HTMLFormElement>(null);
+  useUnsavedChanges(formRef, state);
   const [kind, setKind] = useState<PostKind>(post.kind);
   const [title, setTitle] = useState(post.title);
   const [slug, setSlug] = useState(post.slug);
@@ -73,7 +76,7 @@ export function PostForm({ post, livePath }: { post: EditablePost; livePath: str
     });
 
   return (
-    <form action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
+    <form ref={formRef} action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
       <input type="hidden" name="id" value={post.id} />
       <input type="hidden" name="cover_image" value={cover} />
       <input type="hidden" name="gallery" value={JSON.stringify(gallery)} />

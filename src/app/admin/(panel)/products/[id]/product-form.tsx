@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useState, useRef } from "react";
 import { ArrowDown, ArrowUp, X } from "lucide-react";
 import { saveProduct, type FormState } from "../../../actions";
 import { FormMessage, SubmitButton } from "../../form-status";
@@ -8,6 +8,7 @@ import { ImageUploadButton } from "../../image-upload";
 import { Card, Checkbox, Field, inputClass, textareaClass } from "../../ui";
 import { DocumentsEditor, SpecsEditor, type DocumentRow, type SpecRow } from "./details-editors";
 import { ProductCollections, type ProductCollectionOption } from "./product-collections";
+import { useUnsavedChanges } from "../../use-unsaved-changes";
 
 type EditableProduct = {
   id: string;
@@ -40,6 +41,8 @@ export function ProductForm({
   specLabels: string[];
 }) {
   const [state, action] = useActionState<FormState, FormData>(saveProduct, null);
+  const formRef = useRef<HTMLFormElement>(null);
+  useUnsavedChanges(formRef, state);
   const [images, setImages] = useState(product.images);
 
   const move = (index: number, delta: number) =>
@@ -52,7 +55,7 @@ export function ProductForm({
     });
 
   return (
-    <form action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
+    <form ref={formRef} action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
       <input type="hidden" name="id" value={product.id} />
       <input type="hidden" name="updated_at" value={product.updated_at} />
       <input type="hidden" name="images" value={images.join("\n")} />

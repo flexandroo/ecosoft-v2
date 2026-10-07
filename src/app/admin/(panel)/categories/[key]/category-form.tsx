@@ -1,19 +1,22 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useState, useRef } from "react";
 import { CATEGORY_GROUPS, type StoreCategory } from "@/lib/categories-shared";
 import { saveCategory, type FormState } from "../../../actions";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { ImageUploadButton } from "../../image-upload";
 import { Card, Checkbox, Field, inputClass, textareaClass } from "../../ui";
+import { useUnsavedChanges } from "../../use-unsaved-changes";
 
 export function CategoryForm({ category }: { category: StoreCategory }) {
   const [state, action] = useActionState<FormState, FormData>(saveCategory, null);
+  const formRef = useRef<HTMLFormElement>(null);
+  useUnsavedChanges(formRef, state);
   const [image, setImage] = useState(category.image);
   const [metaLength, setMetaLength] = useState(category.metaDescription.length);
 
   return (
-    <form action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
+    <form ref={formRef} action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
       <input type="hidden" name="key" value={category.key} />
       <input type="hidden" name="image" value={image} />
 

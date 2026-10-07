@@ -1,16 +1,19 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useState, useRef } from "react";
 import { Plus, Trash2 } from "lucide-react";
 import { SOCIAL_LABELS, type SiteSettings } from "@/lib/settings-shared";
 import { saveSettings, type FormState } from "../../actions";
 import { FormMessage, SubmitButton } from "../form-status";
 import { Card, Field, inputClass } from "../ui";
+import { useUnsavedChanges } from "../use-unsaved-changes";
 
 type FormValue = SiteSettings & { telegramExtraChatIds: string[] };
 
 export function SettingsForm({ initial, canEdit }: { initial: FormValue; canEdit: boolean }) {
   const [state, action] = useActionState<FormState, FormData>(saveSettings, null);
+  const formRef = useRef<HTMLFormElement>(null);
+  useUnsavedChanges(formRef, state);
   const [v, setV] = useState<FormValue>(initial);
 
   const set = <K extends keyof FormValue>(key: K, value: FormValue[K]) => setV((prev) => ({ ...prev, [key]: value }));
@@ -18,7 +21,7 @@ export function SettingsForm({ initial, canEdit }: { initial: FormValue; canEdit
     setV((prev) => ({ ...prev, [key]: { ...prev[key], [field]: value } }));
 
   return (
-    <form action={action} className="space-y-5">
+    <form ref={formRef} action={action} className="space-y-5">
       <input type="hidden" name="payload" value={JSON.stringify(v)} />
       <fieldset disabled={!canEdit} className="space-y-5">
         {!canEdit && (

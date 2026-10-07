@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useState, useRef } from "react";
 import { ExternalLink, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,6 +16,7 @@ import { saveMenus, type FormState } from "../../actions";
 import { OrderButton } from "../collections/controls";
 import { FormMessage, SubmitButton } from "../form-status";
 import { Card, inputClass } from "../ui";
+import { useUnsavedChanges } from "../use-unsaved-changes";
 
 export type LinkOption = { href: string; label: string; note?: string };
 export type LinkOptionGroup = { title: string; links: LinkOption[] };
@@ -39,6 +40,8 @@ function move<T>(list: T[], index: number, delta: -1 | 1): T[] {
 
 export function MenuEditor({ initial, options }: { initial: SiteMenus; options: LinkOptionGroup[] }) {
   const [state, action] = useActionState<FormState, FormData>(saveMenus, null);
+  const formRef = useRef<HTMLFormElement>(null);
+  useUnsavedChanges(formRef, state);
   const [v, setV] = useState<EditorState>(() => toState(initial));
 
   const setHeader = (header: EditorState["header"]) => setV((prev) => ({ ...prev, header }));
@@ -53,7 +56,7 @@ export function MenuEditor({ initial, options }: { initial: SiteMenus; options: 
   };
 
   return (
-    <form action={action} className="space-y-5">
+    <form ref={formRef} action={action} className="space-y-5">
       <input type="hidden" name="payload" value={JSON.stringify(v)} />
 
       <Card className="space-y-3">

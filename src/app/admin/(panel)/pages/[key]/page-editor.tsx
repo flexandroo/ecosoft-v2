@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState, useTransition } from "react";
+import { useActionState, useState, useTransition, useRef } from "react";
 import { ChevronDown, ExternalLink, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,6 +22,7 @@ import { OrderButton } from "../../collections/controls";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { ImageUploadButton } from "../../image-upload";
 import { Card, Field, inputClass, textareaClass } from "../../ui";
+import { useUnsavedChanges } from "../../use-unsaved-changes";
 
 // Client-only ids keep inputs stable while sections and items move; the server ignores them.
 type WithId<T> = T & { _id: number };
@@ -45,6 +46,8 @@ function move<T>(list: T[], index: number, delta: -1 | 1): T[] {
 
 export function PageEditor({ pageKey, initial, edited }: { pageKey: PageKey; initial: SitePage; edited: boolean }) {
   const [state, action] = useActionState<FormState, FormData>(savePage, null);
+  const formRef = useRef<HTMLFormElement>(null);
+  useUnsavedChanges(formRef, state);
   const [page, setPage] = useState<SitePage>(initial);
   const [sections, setSections] = useState<EditorSection[]>(() => initial.sections.map(withId));
   const [open, setOpen] = useState<number | null>(null);
@@ -64,7 +67,7 @@ export function PageEditor({ pageKey, initial, edited }: { pageKey: PageKey; ini
   };
 
   return (
-    <form action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_320px]">
+    <form ref={formRef} action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_320px]">
       <input type="hidden" name="key" value={pageKey} />
       <input type="hidden" name="payload" value={JSON.stringify({ ...page, sections })} />
 
