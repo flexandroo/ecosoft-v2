@@ -41,6 +41,8 @@ export type HomeSlide = {
   theme: "dark" | "light";
   /** Purpose-made banner from the admin (wide art with room for text on the left). */
   bannerArt?: boolean;
+  /** Promo tile colour: "accent" uses the brand blue to stand out (sales). */
+  tone?: "default" | "accent";
 };
 
 export type HomeCategory = {
@@ -82,6 +84,18 @@ function fromBanner(b: Banner): HomeSlide {
     theme: b.theme,
     bannerArt: true,
   };
+}
+
+/** Art for the two homepage promo tiles (3:2, subject on the right); replace the files to change them. */
+const CARTRIDGES_TILE_IMAGE = "/images/home/cartridges-tile.png";
+const PROMO_TILE_IMAGE = "/images/home/promo-tile.png";
+
+function pluralUk(n: number, [one, few, many]: [string, string, string]): string {
+  const m10 = n % 10;
+  const m100 = n % 100;
+  if (m10 === 1 && m100 !== 11) return one;
+  if (m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20)) return few;
+  return many;
 }
 
 const uah = (n: number) => `${Math.round(n).toLocaleString("uk-UA")} ₴`;
@@ -194,6 +208,7 @@ export async function getHomeData(): Promise<HomeData> {
         },
       ];
 
+  const promoCount = rails.find((r) => r.id === "promo")?.products.length ?? 0;
   const sideTiles: HomeSlide[] = sideBanners.length
     ? sideBanners.slice(0, 2).map(fromBanner)
     : [
@@ -204,20 +219,21 @@ export async function getHomeData(): Promise<HomeData> {
           subtitle: `Від ${uah(minPrice("ro-cartridges"))}`,
           ctaLabel: "До картриджів",
           href: "/catalog/ro-cartridges",
-          imageDesktop: categoryImage("ro-cartridges"),
-          imageMobile: categoryImage("ro-cartridges"),
+          imageDesktop: CARTRIDGES_TILE_IMAGE,
+          imageMobile: CARTRIDGES_TILE_IMAGE,
           theme: "light",
         },
         {
-          id: "flow",
-          eyebrow: "Під мийку",
-          title: "Проточні фільтри",
-          subtitle: `Від ${uah(minPrice("flow-filters"))}`,
-          ctaLabel: "Переглянути",
-          href: "/catalog/flow-filters",
-          imageDesktop: categoryImage("flow-filters"),
-          imageMobile: categoryImage("flow-filters"),
-          theme: "light",
+          id: "promo",
+          eyebrow: "Акції",
+          title: "Акційні пропозиції",
+          subtitle: promoCount ? `${promoCount} ${pluralUk(promoCount, ["пропозиція", "пропозиції", "пропозицій"])} за вигідною ціною` : "Вигідні ціни на фільтри й картриджі",
+          ctaLabel: "Дивитися акції",
+          href: "/promo",
+          imageDesktop: PROMO_TILE_IMAGE,
+          imageMobile: PROMO_TILE_IMAGE,
+          theme: "dark",
+          tone: "accent",
         },
       ];
 

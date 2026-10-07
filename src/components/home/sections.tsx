@@ -121,7 +121,15 @@ export function PromoTile({ tile, className }: { tile: HomeSlide; className?: st
         unoptimized={/^https?:\/\//.test(tile.imageDesktop)}
         className="object-cover object-[70%_center] transition-transform duration-300 group-hover:scale-[1.03]"
       />
-      <span aria-hidden className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/35 to-transparent" />
+      <span
+        aria-hidden
+        className={cn(
+          "absolute inset-0 bg-gradient-to-r",
+          tile.tone === "accent"
+            ? "from-primary/90 via-primary/45 to-transparent"
+            : "from-slate-950/75 via-slate-950/35 to-transparent",
+        )}
+      />
       <span className="relative flex h-full max-w-[70%] flex-col p-4 sm:p-5">
         {tile.eyebrow && <span className="text-[11px] font-bold tracking-wider break-words text-white/80 uppercase">{tile.eyebrow}</span>}
         <span className="mt-1.5 font-[family-name:var(--font-manrope)] text-lg leading-tight font-extrabold sm:text-xl">{tile.title}</span>

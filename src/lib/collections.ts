@@ -1,5 +1,6 @@
 import "server-only";
 import { cache } from "react";
+import { getProducts, type StoreProduct } from "@/lib/catalog";
 import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL, supabaseConfigured } from "@/lib/supabase/env";
 
 export const COLLECTIONS_TAG = "collections";
@@ -60,3 +61,20 @@ export const getCollections = cache(async (): Promise<StoreCollection[] | null> 
     return null;
   }
 });
+
+/**
+ * Products of one collection in the manager's order (visible and in stock), with
+ * the collection's title; null when the collection does not exist.
+ */
+export async function getCollectionProducts(slug: string): Promise<{ title: string; products: StoreProduct[] } | null> {
+  const [collections, products] = await Promise.all([getCollections(), getProducts()]);
+  const collection = collections?.find((c) => c.slug === slug);
+  if (!collection) return null;
+  const bySlug = new Map(products.map((p) => [p.slug, p]));
+  return {
+    title: collection.title,
+    products: collection.productSlugs
+      .map((s) => bySlug.get(s))
+      .filter((p): p is StoreProduct => Boolean(p && p.inStock)),
+  };
+}
