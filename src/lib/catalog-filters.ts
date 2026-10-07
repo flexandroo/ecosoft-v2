@@ -66,9 +66,104 @@ export function matchesFacets(product: Product, selected: SelectedFacets, scope?
 function normText(s: string): string {
   return s
     .toLowerCase()
+    .replace(/ё/g, "е")
     .replace(/[’ʼ`'"]/g, "")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+/**
+ * Query words customers type in Russian, transliterated or in Ukrainian, mapped
+ * to the forms used in the catalogue (product names are Ukrainian with Latin
+ * model names). Keys and values are already normalised (normText).
+ */
+const SYNONYMS: Record<string, string[]> = {
+  фильтр: ["фільтр"],
+  фильтры: ["фільтр"],
+  железо: ["залізо", "заліза"],
+  обезжелезивание: ["знезалізнення"],
+  соль: ["сіль"],
+  умягчение: ["помякшення"],
+  смягчение: ["помякшення"],
+  жесткость: ["жорсткість"],
+  накипь: ["накип"],
+  хлор: ["хлор"],
+  сероводород: ["сірководень", "сірководню"],
+  уголь: ["вугілля", "вугіль"],
+  угольный: ["вугільний"],
+  насос: ["помп"],
+  помпа: ["помп"],
+  бак: ["бак"],
+  смола: ["смола", "смоли"],
+  колба: ["колба"],
+  картриджи: ["картридж"],
+  мембраны: ["мембрана"],
+  умный: ["розумний"],
+  вода: ["вод"],
+  воды: ["вод"],
+  воду: ["вод"],
+  очистка: ["очищення", "очистка"],
+  очистки: ["очищення", "очистка"],
+  кросс: ["cross"],
+  кросс90: ["cross90"],
+  кросс60: ["cross60"],
+  крос: ["cross"],
+  стандарт: ["standard"],
+  стандард: ["standard"],
+  баланс: ["balance"],
+  пур: ["pure"],
+  пьюр: ["pure"],
+  абсолют: ["absolute"],
+  экософт: ["ecosoft"],
+  екософт: ["ecosoft"],
+  экомикс: ["ecomix"],
+  екомікс: ["ecomix"],
+  робаст: ["robust"],
+  скейлекс: ["scalex"],
+  аквакальций: ["aquacalcium"],
+  аквакальцій: ["aquacalcium"],
+};
+
+/** Alternative spellings of one query word, most specific first. */
+function tokenVariants(token: string): string[] {
+  const synonyms = SYNONYMS[token];
+  if (synonyms) return [token, ...synonyms];
+  const variants = new Set([token]);
+  // Russian spelling of shared words: и → і, ы → и, э → е ("фильтр" → "фільтр").
+  variants.add(token.replace(/и/g, "і").replace(/ы/g, "и").replace(/э/g, "е"));
+  // Ukrainian inflection: "помпа" should find "з помпою", "осмосис" → "осмос".
+  if (token.length >= 5 && /[а-яіїєґ]$/.test(token)) variants.add(token.slice(0, -1));
+  if (token.length >= 7 && /[а-яіїєґ]{2}$/.test(token)) variants.add(token.slice(0, -2));
+  return [...variants];
+}
+
+/** True when `a` and `b` differ by at most one edit (insert, delete, substitute or swap). */
+function withinOneEdit(a: string, b: string): boolean {
+  if (Math.abs(a.length - b.length) > 1) return false;
+  let i = 0;
+  while (i < a.length && i < b.length && a[i] === b[i]) i++;
+  if (i === a.length || i === b.length) return Math.abs(a.length - b.length) <= 1;
+  const restA = a.slice(i + 1);
+  const restB = b.slice(i + 1);
+  return (
+    restA === restB || // substitution
+    a.slice(i) === b.slice(i + 1) || // insertion into a
+    a.slice(i + 1) === b.slice(i) || // deletion from a
+    (a[i] === b[i + 1] && a[i + 1] === b[i] && a.slice(i + 2) === b.slice(i + 2)) // swap
+  );
+}
+
+type SearchIndex = { name: string; sku: string; hay: string; words: string[] };
+const indexCache = new WeakMap<Product, SearchIndex>();
+
+function searchIndex(p: Product): SearchIndex {
+  let index = indexCache.get(p);
+  if (!index) {
+    const hay = productSearchText(p);
+    index = { name: normText(p.name), sku: normText(p.sku ?? ""), hay, words: hay.split(/[\s,/()«»-]+/) };
+    indexCache.set(p, index);
+  }
+  return index;
 }
 
 /** Build the searchable haystack for a product (name, model, sku, category, tags, facets…). */
@@ -92,12 +187,44 @@ export function productSearchText(p: Product): string {
   return normText(parts.filter(Boolean).join(" "));
 }
 
-/** Multi-token AND match: every token in the query must appear in the haystack. */
-export function matchesQuery(product: Product, query: string): boolean {
+/** How well one query word matches a product: 0 = not at all. */
+function tokenScore(index: SearchIndex, token: string): number {
+  let best = 0;
+  for (const variant of tokenVariants(token)) {
+    if (index.sku && index.sku === variant) return 100;
+    if (index.sku.startsWith(variant) && variant.length >= 3) best = Math.max(best, 40);
+    if (index.name.includes(variant)) best = Math.max(best, variant === token ? 10 : 8);
+    else if (index.hay.includes(variant)) best = Math.max(best, variant === token ? 3 : 2);
+  }
+  // One typo in a longer word ("ecosft", "мембрна") still finds it, ranked low.
+  // Model codes and SKUs (anything with digits) must match exactly.
+  if (!best && token.length >= 5 && !/\d/.test(token) && index.words.some((w) => withinOneEdit(w, token))) best = 1;
+  return best;
+}
+
+/**
+ * Relevance of a product for a free-text query: 0 when any query word is
+ * missing (multi-word queries are AND), higher is better. An empty query
+ * matches everything with score 1.
+ */
+export function searchScore(product: Product, query: string): number {
   const q = normText(query);
-  if (!q) return true;
-  const hay = productSearchText(product);
-  return q.split(" ").every((token) => hay.includes(token));
+  if (!q) return 1;
+  const index = searchIndex(product);
+  let total = 0;
+  for (const token of q.split(" ")) {
+    const score = tokenScore(index, token);
+    if (!score) return 0;
+    total += score;
+  }
+  if (index.name.startsWith(q)) total += 15;
+  else if (index.name.includes(q)) total += 10;
+  return total;
+}
+
+/** Multi-token AND match: every word in the query must be found in the product. */
+export function matchesQuery(product: Product, query: string): boolean {
+  return searchScore(product, query) > 0;
 }
 
 // ---- Card badges ---------------------------------------------------------

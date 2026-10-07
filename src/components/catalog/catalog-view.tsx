@@ -1,19 +1,21 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import { SlidersHorizontal, X, ChevronDown, Search } from "lucide-react";
 import { type CategoryKey, type Product } from "@/lib/products";
 import {
   facetsForCategory,
   getAvailableFacets,
   matchesFacets,
-  matchesQuery,
+  searchScore,
   type AvailableFacet,
   type SelectedFacets,
 } from "@/lib/catalog-filters";
 import { SUBCATEGORIES, type Subcategory } from "@/lib/catalog-facets";
 import { formatUah } from "@/lib/format";
 import { cn } from "@/lib/utils";
+import { useStoreCategories } from "@/components/site/categories-context";
 import { ProductCard } from "./product-card";
 
 type SortKey = "default" | "price-asc" | "price-desc" | "name";
@@ -37,6 +39,7 @@ export function CatalogView({
   initialQuery?: string;
   searchMode?: boolean;
 }) {
+  const categories = useStoreCategories();
   const [selected, setSelected] = useState<SelectedFacets>({});
   const [query, setQuery] = useState(initialQuery);
   const [inStockOnly, setInStockOnly] = useState(false);
@@ -125,9 +128,8 @@ export function CatalogView({
   );
 
   const filtered = useMemo(() => {
-    let list = products.filter(
-      (p) => matchesQuery(p, query) && matchesFacets(p, selected, lockedCategory),
-    );
+    const scores = new Map(products.map((p) => [p, searchScore(p, query)]));
+    let list = products.filter((p) => scores.get(p)! > 0 && matchesFacets(p, selected, lockedCategory));
 
     if (inStockOnly) list = list.filter((p) => p.inStock);
     const min = Number(priceMin);
@@ -143,7 +145,8 @@ export function CatalogView({
       case "name":
         return [...list].sort((a, b) => a.name.localeCompare(b.name, "uk"));
       default:
-        return list;
+        // With a search query, most relevant first (stable: ties keep catalogue order).
+        return query.trim() ? [...list].sort((a, b) => scores.get(b)! - scores.get(a)!) : list;
     }
   }, [products, query, selected, inStockOnly, priceMin, priceMax, sort, lockedCategory]);
 
@@ -376,6 +379,23 @@ export function CatalogView({
               >
                 Скинути пошук і фільтри
               </button>
+              {!lockedCategory && categories.length > 0 && (
+                <div className="mt-6 border-t border-border pt-5">
+                  <p className="text-sm text-muted-foreground">Або перегляньте категорії:</p>
+                  <ul className="mt-3 flex flex-wrap justify-center gap-2">
+                    {categories.map((c) => (
+                      <li key={c.key}>
+                        <Link
+                          href={`/catalog/${c.key}`}
+                          className="inline-flex h-9 items-center rounded-full border border-border px-3.5 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
+                        >
+                          {c.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
