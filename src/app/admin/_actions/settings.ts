@@ -1,7 +1,9 @@
 "use server";
 
 import { revalidatePath, updateTag } from "next/cache";
-import { createSessionClient } from "@/lib/supabase/server";
+import { requireStaff } from "@/lib/admin/auth";
+import { CATALOG_TAG } from "@/lib/catalog";
+import { createServiceClient, createSessionClient } from "@/lib/supabase/server";
 import { SETTINGS_TAG } from "@/lib/settings";
 import { normalizePhone, type HoursRow, type PhoneSetting } from "@/lib/settings-shared";
 import { type FormState, str, requireAdmin } from "./shared";
@@ -73,4 +75,17 @@ export async function saveSettings(_prev: FormState, fd: FormData): Promise<Form
   updateTag(SETTINGS_TAG);
   revalidatePath("/admin/settings");
   return { ok: "Збережено. На сайті оновиться протягом хвилини." };
+}
+
+/** Fetch today's NBU rate now and reprice the catalogue (normally pg_cron does it twice a day). */
+export async function refreshUsdRate(): Promise<FormState> {
+  await requireStaff();
+  const service = createServiceClient();
+  if (!service) return { error: "На сервері не задано SUPABASE_SECRET_KEY." };
+  const { data, error } = await service.rpc("refresh_usd_rate");
+  if (error) return { error: `Не вдалося оновити курс: ${error.message}` };
+  updateTag(CATALOG_TAG);
+  revalidatePath("/admin/settings");
+  revalidatePath("/admin/products");
+  return { ok: String(data) };
 }

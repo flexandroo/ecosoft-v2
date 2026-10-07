@@ -14,10 +14,10 @@ export default async function NewProductPage({ searchParams }: { searchParams: P
 
   if (from && /^[0-9a-f-]{36}$/i.test(from)) {
     const supabase = await createSessionClient();
-    const { data } = await supabase.from("products").select("id, name, category, price").eq("id", from).maybeSingle();
+    const { data } = await supabase.from("products").select("id, name, category, price_usd").eq("id", from).maybeSingle();
     if (data) {
       sourceName = data.name;
-      defaults = { from: data.id, name: `${data.name} (копія)`, category: data.category, price: String(data.price) };
+      defaults = { from: data.id, name: `${data.name} (копія)`, category: data.category, price: data.price_usd == null ? "" : String(data.price_usd) };
     }
   }
 

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Copy, ExternalLink } from "lucide-react";
 import { findCategory, type ProductDetails } from "@/lib/products";
 import { formatSpecLabel } from "@/lib/spec-format";
+import { getUsdRate } from "@/lib/pricing";
 import { createSessionClient } from "@/lib/supabase/server";
 import { getStaff } from "@/lib/admin/auth";
 import { deleteProduct } from "../../../_actions/products";
@@ -30,6 +31,7 @@ export default async function ProductEditPage({
   ]);
   if (!product) notFound();
   const details = (product.details ?? {}) as ProductDetails;
+  const usdRate = await getUsdRate(supabase);
   // Names used in this category, most common first, so a property keeps one spelling.
   const { data: siblings } = await supabase.from("products").select("details").eq("category", product.category);
   const labelCounts = new Map<string, number>();
@@ -87,6 +89,8 @@ export default async function ProductEditPage({
           name: product.name,
           price: Number(product.price),
           old_price: product.old_price == null ? null : Number(product.old_price),
+          price_usd: product.price_usd == null ? null : Number(product.price_usd),
+          old_price_usd: product.old_price_usd == null ? null : Number(product.old_price_usd),
           in_stock: product.in_stock,
           cta_type: product.cta_type === "request" ? "request" : "buy",
           description: product.description,
@@ -99,6 +103,7 @@ export default async function ProductEditPage({
           documents: details.documents ?? [],
         }}
         specLabels={specLabels}
+        usdRate={usdRate ? { rate: usdRate.rate, date: usdRate.date } : null}
         collections={(collections ?? []).map((c) => ({
           id: c.id,
           title: c.title,

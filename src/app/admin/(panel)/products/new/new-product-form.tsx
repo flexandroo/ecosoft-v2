@@ -46,8 +46,8 @@ export function NewProductForm({
               ))}
             </select>
           </Field>
-          <Field label="Ціна, грн">
-            <input name="price" defaultValue={defaults.price} inputMode="decimal" required className={inputClass} />
+          <Field label="Ціна, $" hint="РРЦ з прайсу Ecosoft; у гривнях рахується за курсом НБУ.">
+            <input name="price_usd" defaultValue={defaults.price} inputMode="decimal" required className={inputClass} />
           </Field>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">

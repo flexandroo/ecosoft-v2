@@ -157,20 +157,20 @@ export type Database = {
         Row: {
           attributes: Json; category: string; created_at: string; cta_type: string; description: string; details: Json;
           id: string; image: string | null; images: Json; in_stock: boolean; is_hidden: boolean; is_hit: boolean;
-          is_promo: boolean; name: string; old_price: number | null; price: number; sku: string; slug: string; sort: number;
-          updated_at: string;
+          is_promo: boolean; name: string; old_price: number | null; old_price_usd: number | null; price: number;
+          price_usd: number | null; sku: string; slug: string; sort: number; updated_at: string;
         };
         Insert: {
           attributes?: Json; category: string; created_at?: string; cta_type?: string; description?: string; details?: Json;
           id?: string; image?: string | null; images?: Json; in_stock?: boolean; is_hidden?: boolean; is_hit?: boolean;
-          is_promo?: boolean; name: string; old_price?: number | null; price?: number; sku: string; slug: string; sort?: number;
-          updated_at?: string;
+          is_promo?: boolean; name: string; old_price?: number | null; old_price_usd?: number | null; price?: number;
+          price_usd?: number | null; sku: string; slug: string; sort?: number; updated_at?: string;
         };
         Update: {
           attributes?: Json; category?: string; created_at?: string; cta_type?: string; description?: string; details?: Json;
           id?: string; image?: string | null; images?: Json; in_stock?: boolean; is_hidden?: boolean; is_hit?: boolean;
-          is_promo?: boolean; name?: string; old_price?: number | null; price?: number; sku?: string; slug?: string; sort?: number;
-          updated_at?: string;
+          is_promo?: boolean; name?: string; old_price?: number | null; old_price_usd?: number | null; price?: number;
+          price_usd?: number | null; sku?: string; slug?: string; sort?: number; updated_at?: string;
         };
         Relationships: [FK];
       };
@@ -198,6 +198,7 @@ export type Database = {
       reorder_categories: { Args: { keys: string[] }; Returns: undefined };
       reorder_collections: { Args: { ids: string[] }; Returns: undefined };
       reorder_collection_items: { Args: { collection: string; product_ids: string[] }; Returns: undefined };
+      refresh_usd_rate: { Args: Record<string, never>; Returns: string };
     };
     Enums: { [_ in never]: never };
     CompositeTypes: { [_ in never]: never };

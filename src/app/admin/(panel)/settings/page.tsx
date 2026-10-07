@@ -8,6 +8,8 @@ import { telegramConfigured } from "@/lib/telegram";
 import { META_PIXEL_ID } from "@/utils/metaPixel";
 import { Card, PageTitle } from "../ui";
 import { SettingsForm } from "./settings-form";
+import { UsdRateCard } from "./usd-rate-card";
+import { getUsdRate } from "@/lib/pricing";
 
 export const metadata: Metadata = { title: "Налаштування" };
 
@@ -17,6 +19,7 @@ export default async function SettingsPage() {
   const { data } = await supabase.from("site_settings").select("key, value");
   const stored = Object.fromEntries((data ?? []).map((row) => [row.key, row.value]));
   const settings = mergeSettings(stored);
+  const usdRate = await getUsdRate(supabase);
   const notifications = (stored.notifications ?? {}) as { telegramExtraChatIds?: string[] };
 
   const integrations = [
@@ -35,6 +38,7 @@ export default async function SettingsPage() {
           canEdit={staff.role === "admin"}
         />
         <div className="space-y-5">
+          <UsdRateCard rate={usdRate} />
           <Card>
             <h2 className="mb-3 font-semibold">Реклама та аналітика</h2>
             <dl className="space-y-1.5 text-sm">

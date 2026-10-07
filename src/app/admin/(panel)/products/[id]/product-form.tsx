@@ -8,6 +8,7 @@ import { FormMessage, SubmitButton } from "../../form-status";
 import { ImageUploadButton } from "../../image-upload";
 import { Card, Checkbox, Field, inputClass, textareaClass } from "../../ui";
 import { DocumentsEditor, SpecsEditor, type DocumentRow, type SpecRow } from "./details-editors";
+import { PriceFields } from "./price-fields";
 import { ProductCollections, type ProductCollectionOption } from "./product-collections";
 import { useUnsavedChanges } from "../../use-unsaved-changes";
 
@@ -19,6 +20,8 @@ type EditableProduct = {
   name: string;
   price: number;
   old_price: number | null;
+  price_usd: number | null;
+  old_price_usd: number | null;
   in_stock: boolean;
   cta_type: "buy" | "request";
   description: string;
@@ -35,11 +38,13 @@ export function ProductForm({
   product,
   collections,
   specLabels,
+  usdRate,
 }: {
   product: EditableProduct;
   collections: ProductCollectionOption[];
   /** Characteristic names already used in this category, offered as suggestions. */
   specLabels: string[];
+  usdRate: { rate: number; date: string } | null;
 }) {
   const [state, action] = useActionState<FormState, FormData>(saveProduct, null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -66,14 +71,13 @@ export function ProductForm({
           <Field label="Назва">
             <input name="name" defaultValue={product.name} required className={inputClass} />
           </Field>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <Field label="Ціна, грн">
-              <input name="price" defaultValue={product.price} inputMode="decimal" required className={inputClass} />
-            </Field>
-            <Field label="Стара ціна, грн" hint="Показується перекресленою. Порожньо — без знижки.">
-              <input name="old_price" defaultValue={product.old_price ?? ""} inputMode="decimal" className={inputClass} />
-            </Field>
-          </div>
+          <PriceFields
+            priceUsd={product.price_usd}
+            oldPriceUsd={product.old_price_usd}
+            price={product.price}
+            oldPrice={product.old_price}
+            rate={usdRate}
+          />
           <Field label="Короткий опис" hint="Під назвою товару, у картках і в рекламному фіді.">
             <textarea name="description" defaultValue={product.description} rows={4} className={textareaClass} />
           </Field>

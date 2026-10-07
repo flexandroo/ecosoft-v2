@@ -9,6 +9,7 @@ import { COLLECTIONS_TAG } from "@/lib/collections";
 import { createSessionClient } from "@/lib/supabase/server";
 import { slugify } from "@/lib/posts-shared";
 import { formatSpecs } from "@/lib/spec-format";
+import { getUsdRate, usdToUah } from "@/lib/pricing";
 import type { Json } from "@/lib/supabase/database.types";
 import { type FormState, str, optionalNumber, requireAdmin } from "./shared";
 
@@ -46,18 +47,39 @@ function parseDetails(fd: FormData): DetailsInput | { error: string } {
   return { specs, documents };
 }
 
-export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormState> {
-  const staff = await requireStaff();
-  const supabase = await createSessionClient();
-  const id = str(fd, "id", 64);
+/**
+ * Price fields of the product form. With a USD base the UAH price follows the
+ * NBU rate (the database trigger recomputes it on every write); without one the
+ * UAH price is set by hand.
+ */
+async function readPricing(
+  fd: FormData,
+  supabase: Awaited<ReturnType<typeof createSessionClient>>,
+  ctaType: "buy" | "request",
+): Promise<
+  { price: number; old_price: number | null; price_usd: number | null; old_price_usd: number | null } | { error: string }
+> {
+  const priceUsd = optionalNumber(fd, "price_usd");
+  const oldUsd = optionalNumber(fd, "old_price_usd");
+  if (Number.isNaN(priceUsd) || Number.isNaN(oldUsd)) return { error: "Некоректна ціна в доларах." };
+  if (priceUsd !== null) {
+    if (priceUsd <= 0) return { error: "Ціна в доларах має бути більшою за 0." };
+    if (oldUsd !== null && oldUsd <= priceUsd) return { error: "Стара ціна має бути більшою за нову — інакше залиште поле порожнім." };
+    const usd = await getUsdRate(supabase);
+    if (!usd) return { error: "Курс НБУ ще не завантажено — оновіть його в Налаштуваннях." };
+    return {
+      price: usdToUah(priceUsd, usd.rate),
+      old_price: oldUsd === null ? null : usdToUah(oldUsd, usd.rate),
+      price_usd: priceUsd,
+      old_price_usd: oldUsd,
+    };
+  }
+  if (oldUsd !== null) return { error: "Вкажіть ціну в доларах або приберіть стару ціну в доларах." };
 
-  const name = str(fd, "name", 300);
   const price = optionalNumber(fd, "price");
   const oldPrice = optionalNumber(fd, "old_price");
-  if (!name) return { error: "Вкажіть назву." };
   if (price === null || Number.isNaN(price)) return { error: "Некоректна ціна." };
   if (Number.isNaN(oldPrice)) return { error: "Некоректна стара ціна." };
-  const ctaType = str(fd, "cta_type", 20) === "request" ? "request" : "buy";
   // The order API charges exactly this price, so a "buy" product can never be free.
   if (price <= 0 && ctaType === "buy") {
     return { error: "Ціна має бути більшою за 0 (або оберіть кнопку «Запит ціни»)." };
@@ -65,6 +87,19 @@ export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormS
   if (oldPrice !== null && oldPrice <= price) {
     return { error: "Стара ціна має бути більшою за нову — інакше залиште поле порожнім." };
   }
+  return { price, old_price: oldPrice, price_usd: null, old_price_usd: null };
+}
+
+export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormState> {
+  const staff = await requireStaff();
+  const supabase = await createSessionClient();
+  const id = str(fd, "id", 64);
+
+  const name = str(fd, "name", 300);
+  if (!name) return { error: "Вкажіть назву." };
+  const ctaType = str(fd, "cta_type", 20) === "request" ? "request" : "buy";
+  const pricing = await readPricing(fd, supabase, ctaType);
+  if ("error" in pricing) return { error: pricing.error };
 
   const images = str(fd, "images", 20000)
     .split(/\r?\n/)
@@ -75,8 +110,7 @@ export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormS
   // the Meta Pixel / catalogue-feed id that live campaigns depend on.
   const changes = {
     name,
-    price,
-    old_price: oldPrice,
+    ...pricing,
     in_stock: fd.get("in_stock") === "on",
     cta_type: ctaType,
     description: str(fd, "description", 5000),
@@ -172,14 +206,17 @@ export async function createProduct(_prev: FormState, fd: FormData): Promise<For
   const category = str(fd, "category", 64);
   const sku = str(fd, "sku", 40);
   const slug = (str(fd, "slug", 100).toLowerCase() || slugify(name, 90)).replace(/-+$/, "");
-  const price = optionalNumber(fd, "price");
+  const priceUsd = optionalNumber(fd, "price_usd");
   const fromId = str(fd, "from", 64);
 
   if (!name) return { error: "Вкажіть назву." };
   if (!CATEGORIES.some((c) => c.key === category)) return { error: "Оберіть категорію." };
   if (!PRODUCT_SKU_RE.test(sku)) return { error: "Артикул: 2–40 символів — латиниця, цифри, крапка, дефіс, «/»." };
   if (!PRODUCT_SLUG_RE.test(slug)) return { error: "Адреса сторінки: лише латинські літери, цифри й дефіси." };
-  if (price === null || Number.isNaN(price) || price <= 0) return { error: "Вкажіть ціну більшу за 0." };
+  if (priceUsd === null || Number.isNaN(priceUsd) || priceUsd <= 0) return { error: "Вкажіть ціну в доларах, більшу за 0." };
+  const usd = await getUsdRate(supabase);
+  if (!usd) return { error: "Курс НБУ ще не завантажено — оновіть його в Налаштуваннях." };
+  const price = usdToUah(priceUsd, usd.rate);
 
   let base: Record<string, unknown> = {};
   if (fromId) {
@@ -194,7 +231,7 @@ export async function createProduct(_prev: FormState, fd: FormData): Promise<For
 
   const { data, error } = await supabase
     .from("products")
-    .insert({ ...base, name, category, sku, slug, price, old_price: null, is_hidden: true, is_hit: false, is_promo: false })
+    .insert({ ...base, name, category, sku, slug, price, price_usd: priceUsd, old_price: null, old_price_usd: null, is_hidden: true, is_hit: false, is_promo: false })
     .select("id")
     .single();
   if (error?.code === "23505") {
@@ -207,7 +244,7 @@ export async function createProduct(_prev: FormState, fd: FormData): Promise<For
     entity: "product",
     entity_id: data.id,
     action: fromId ? "duplicate" : "create",
-    diff: { name, category, sku, slug, price, from: fromId || null },
+    diff: { name, category, sku, slug, price_usd: priceUsd, price, from: fromId || null },
   });
   updateTag(CATALOG_TAG);
   revalidatePath("/admin/products");

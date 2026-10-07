@@ -15,7 +15,8 @@ Dev-проєкт Supabase — `sofiivkawater-dev` (`sptwelumbstrhcyegccb`), prod
 
 - [ ] Застосувати міграції **1–7** з `supabase/migrations/` (від `20261005120000_init.sql` до `20261006140000_categories.sql` включно).
 - [ ] Залити товари: `node scripts/seed-products.mts <env-file-prod>` (env-файл з prod `NEXT_PUBLIC_SUPABASE_URL` і `SUPABASE_SECRET_KEY`; файл не комітити).
-- [ ] Застосувати міграції **8–15** (від `20261006150000_collections.sql` до `20261007140000_reorder_functions.sql`).
+- [ ] Застосувати міграції **8–16** (від `20261006150000_collections.sql` до `20261008100000_usd_pricing.sql`). Остання вмикає `http` і `pg_cron`, заносить доларові ціни, одразу завантажує курс НБУ і ставить оновлення двічі на день.
+- [ ] Перевірити: `select * from cron.job` — задача `nbu-usd-rate`; у `/admin/settings` видно курс.
 - [ ] Перевірка: 176 товарів, 3 підбірки з товарами, `npm run audit:specs` проти prod показує ~258 назв характеристик.
 - [ ] Перенести контент, створений в адмінці dev (банери, пости, сторінки, меню, налаштування), — вручну через prod-адмінку **або** експортом таблиць. Фото банерів лежать у Storage dev-проєкту: завантажити їх у prod-медіатеку заново, щоб URL вказували на prod.
 - [ ] Authentication → Settings: увімкнути **Leaked Password Protection** (і в dev). Перевірити, що вимкнено реєстрацію (`disable_signup`).

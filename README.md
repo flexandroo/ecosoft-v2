@@ -29,6 +29,12 @@ npm run dev
 - Товари: `node scripts/seed-products.mts <env-file>` (потрібні `NEXT_PUBLIC_SUPABASE_URL` і `SUPABASE_SECRET_KEY`).
 - Перший адміністратор: створити користувача в Supabase Auth і додати рядок у `public.admin_users` з `role = 'admin'`; далі працівників додають у `/admin/staff`.
 
+## Ціни
+
+Ціни товарів зберігаються в доларах (`products.price_usd`, РРЦ з прайсу Ecosoft). Гривнева ціна = USD × курс НБУ, округлена до гривні: база оновлює курс двічі на день (pg_cron → `private.refresh_usd_rate()`), тригер перераховує ціни, сайт підхоплює зміни протягом 5 хвилин. Курс і кнопка «Оновити зараз» — у `/admin/settings`.
+
+Новий прайс: `npm run import:prices -- "Price Ecosoft ... .xlsx"` показує зміни, з `--apply` записує (потрібен `SUPABASE_SECRET_KEY`). Матеріали в прайсі вказані за 1 л/кг — скрипт множить на фасування з назви товару.
+
 ## Скрипти
 
 | Команда | Що робить |
@@ -36,6 +42,7 @@ npm run dev
 | `npm run build` | перевірка каталогу (`verify:catalog`) + production-збірка |
 | `npm run lint` | ESLint |
 | `npm run audit:specs` | звіт про неконсистентні характеристики товарів |
+| `npm run import:prices -- <xlsx> [--apply]` | ціни з прайсу Ecosoft (USD) |
 | `npm run audit:product-images`, `audit:documents`, `audit:site` | перевірки фото, документів і сайту |
 
 ## Аудит
