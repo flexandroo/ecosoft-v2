@@ -8,6 +8,9 @@ import { allFacetValues, facetValues, facetsForCategory, type FacetDef } from "@
 export { facetsForCategory, type FacetDef };
 
 export type FacetOption = { value: string; count: number };
+
+/** Share of the current list a facet must describe to be offered. */
+const MIN_FACET_COVERAGE = 0.35;
 export type AvailableFacet = { def: FacetDef; options: FacetOption[] };
 
 /**
@@ -33,10 +36,18 @@ export function getAvailableFacets(
     const otherSelections = Object.fromEntries(
       Object.entries(selected).filter(([key, values]) => key !== def.key && values.length > 0),
     );
+    const inScope = products.filter((product) => matchesFacets(product, otherSelections, scope));
     const counts = new Map<string, number>();
-    for (const p of products.filter((product) => matchesFacets(product, otherSelections, scope))) {
-      for (const v of facetValues(p, def.key, scope)) counts.set(v, (counts.get(v) ?? 0) + 1);
+    let covered = 0;
+    for (const p of inScope) {
+      const values = facetValues(p, def.key, scope);
+      if (values.length) covered += 1;
+      for (const v of values) counts.set(v, (counts.get(v) ?? 0) + 1);
     }
+    // Facets that describe only part of the list (membrane GPD, kit size…) appear
+    // once the other filters narrow the list to products they apply to; a chosen
+    // facet always stays visible so it can be cleared.
+    if (!selected[def.key]?.length && covered < inScope.length * MIN_FACET_COVERAGE) continue;
     const rank = (value: string) => {
       const i = def.order?.indexOf(value) ?? -1;
       return i === -1 ? Number.MAX_SAFE_INTEGER : i;
