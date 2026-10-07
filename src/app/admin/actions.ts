@@ -26,6 +26,7 @@ import { POSTS_TAG } from "@/lib/posts";
 import { PAGES_TAG } from "@/lib/pages";
 import { PAGE_META, isPageKey, validatePage } from "@/lib/pages-shared";
 import { slugify } from "@/lib/posts-shared";
+import { formatSpecs } from "@/lib/spec-format";
 
 export type FormState = { error?: string; ok?: string } | null;
 
@@ -162,6 +163,40 @@ export async function addLeadComment(_prev: FormState, fd: FormData): Promise<Fo
 // Products
 // ---------------------------------------------------------------------------
 
+type DetailsInput = { specs: { label: string; value: string }[]; documents: { name: string; href: string; size?: string }[] };
+
+/** Characteristics and documents edited in the product form (JSON in hidden fields). */
+function parseDetails(fd: FormData): DetailsInput | { error: string } {
+  let specsRaw: unknown;
+  let docsRaw: unknown;
+  try {
+    specsRaw = JSON.parse(str(fd, "specs", 60000) || "[]");
+    docsRaw = JSON.parse(str(fd, "documents", 20000) || "[]");
+  } catch {
+    return { error: "Некоректні дані характеристик або документів." };
+  }
+  if (!Array.isArray(specsRaw) || !Array.isArray(docsRaw)) return { error: "Некоректні дані характеристик або документів." };
+  const text = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice(0, max) : "");
+
+  const rows = specsRaw.slice(0, 100).map((s) => ({ label: text(s?.label, 120), value: text(s?.value, 300) }));
+  const incomplete = rows.find((s) => Boolean(s.label) !== Boolean(s.value));
+  if (incomplete) return { error: `Характеристика «${incomplete.label || incomplete.value}»: заповніть і назву, і значення.` };
+  // Unified spelling (°C, м³, ranges, decimal commas); empty and repeated rows are dropped.
+  const specs = formatSpecs(rows);
+
+  const documents = [];
+  for (const d of docsRaw.slice(0, 30)) {
+    const name = text(d?.name, 200);
+    const href = text(d?.href, 500);
+    if (!name && !href) continue;
+    if (!name || !href) return { error: "Документ: вкажіть назву і посилання." };
+    if (!href.startsWith("/") && !href.startsWith("https://")) return { error: `Посилання документа має починатися з / або https://: ${href}` };
+    const size = text(d?.size, 20);
+    documents.push(size ? { name, href, size } : { name, href });
+  }
+  return { specs, documents };
+}
+
 export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormState> {
   const staff = await requireStaff();
   const supabase = await createSessionClient();
@@ -204,6 +239,9 @@ export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormS
   if (!changes.is_hidden && images.length === 0) {
     return { error: "Додайте хоча б одне фото, перш ніж показувати товар на сайті." };
   }
+  const details = parseDetails(fd);
+  if ("error" in details) return { error: details.error };
+  const longDescription = str(fd, "long_description", 20000);
 
   const { data: before } = await supabase.from("products").select("*").eq("id", id).single();
   if (!before) return { error: "Товар не знайдено." };
@@ -212,6 +250,12 @@ export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormS
   if (loadedAt && new Date(loadedAt).getTime() !== new Date(before.updated_at).getTime()) {
     return { error: "Товар щойно змінив хтось інший. Оновіть сторінку, щоб побачити актуальні дані, і внесіть зміни ще раз." };
   }
+  // Other parts of details (highlights, bundle, maintenance…) are kept as imported.
+  const beforeDetails = (before.details ?? {}) as Record<string, unknown>;
+  const nextDetails: Record<string, unknown> = { ...beforeDetails, specs: details.specs, documents: details.documents };
+  if (longDescription) nextDetails.longDescription = longDescription;
+  else delete nextDetails.longDescription;
+  Object.assign(changes, { details: nextDetails });
   const { error } = await supabase.from("products").update(changes).eq("id", id);
   if (error) return { error: `Не вдалося зберегти: ${error.message}` };
 

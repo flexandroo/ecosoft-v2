@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Copy, ExternalLink } from "lucide-react";
-import { findCategory } from "@/lib/products";
+import { findCategory, type ProductDetails } from "@/lib/products";
+import { formatSpecLabel } from "@/lib/spec-format";
 import { createSessionClient } from "@/lib/supabase/server";
 import { getStaff } from "@/lib/admin/auth";
 import { deleteProduct } from "../../../actions";
@@ -28,6 +29,17 @@ export default async function ProductEditPage({
     supabase.from("collection_items").select("collection_id").eq("product_id", id),
   ]);
   if (!product) notFound();
+  const details = (product.details ?? {}) as ProductDetails;
+  // Names used in this category, most common first, so a property keeps one spelling.
+  const { data: siblings } = await supabase.from("products").select("details").eq("category", product.category);
+  const labelCounts = new Map<string, number>();
+  for (const row of siblings ?? []) {
+    for (const s of ((row.details ?? {}) as ProductDetails).specs ?? []) {
+      const label = formatSpecLabel(s.label);
+      labelCounts.set(label, (labelCounts.get(label) ?? 0) + 1);
+    }
+  }
+  const specLabels = [...labelCounts].sort((a, b) => b[1] - a[1]).map(([label]) => label);
   const memberOf = new Set((memberships ?? []).map((m) => m.collection_id));
   const category = findCategory(product.category);
   const publicUrl = `/catalog/${product.category}/${product.slug}`;
@@ -82,7 +94,11 @@ export default async function ProductEditPage({
           is_hidden: product.is_hidden,
           sort: product.sort,
           updated_at: product.updated_at,
+          long_description: details.longDescription ?? "",
+          specs: (details.specs ?? []).map((s) => ({ label: s.label, value: String(s.value ?? "") })),
+          documents: details.documents ?? [],
         }}
+        specLabels={specLabels}
         collections={(collections ?? []).map((c) => ({
           id: c.id,
           title: c.title,

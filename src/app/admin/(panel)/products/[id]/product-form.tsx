@@ -6,6 +6,7 @@ import { saveProduct, type FormState } from "../../../actions";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { ImageUploadButton } from "../../image-upload";
 import { Card, Checkbox, Field, inputClass, textareaClass } from "../../ui";
+import { DocumentsEditor, SpecsEditor, type DocumentRow, type SpecRow } from "./details-editors";
 import { ProductCollections, type ProductCollectionOption } from "./product-collections";
 
 type EditableProduct = {
@@ -23,14 +24,20 @@ type EditableProduct = {
   is_hidden: boolean;
   sort: number;
   updated_at: string;
+  long_description: string;
+  specs: SpecRow[];
+  documents: DocumentRow[];
 };
 
 export function ProductForm({
   product,
   collections,
+  specLabels,
 }: {
   product: EditableProduct;
   collections: ProductCollectionOption[];
+  /** Characteristic names already used in this category, offered as suggestions. */
+  specLabels: string[];
 }) {
   const [state, action] = useActionState<FormState, FormData>(saveProduct, null);
   const [images, setImages] = useState(product.images);
@@ -63,10 +70,16 @@ export function ProductForm({
               <input name="old_price" defaultValue={product.old_price ?? ""} inputMode="decimal" className={inputClass} />
             </Field>
           </div>
-          <Field label="Короткий опис">
-            <textarea name="description" defaultValue={product.description} rows={5} className={textareaClass} />
+          <Field label="Короткий опис" hint="Під назвою товару, у картках і в рекламному фіді.">
+            <textarea name="description" defaultValue={product.description} rows={4} className={textareaClass} />
+          </Field>
+          <Field label="Повний опис" hint="Вкладка «Опис» на сторінці товару. Порожньо — показується короткий опис.">
+            <textarea name="long_description" defaultValue={product.long_description} rows={10} className={textareaClass} />
           </Field>
         </Card>
+
+        <SpecsEditor initial={product.specs} suggestions={specLabels} />
+        <DocumentsEditor initial={product.documents} />
 
         <Card>
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
