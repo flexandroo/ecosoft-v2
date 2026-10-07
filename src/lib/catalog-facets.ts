@@ -6,6 +6,7 @@
 // name, SKU and the characteristics from the Ecosoft export); nothing is
 // invented — a product without the data simply has no value for that facet.
 import type { CategoryKey, Product } from "@/lib/products";
+import { formatSpecValue } from "@/lib/spec-format";
 
 export type FacetDef = {
   key: string;
@@ -363,12 +364,20 @@ const specText = (re: RegExp, suffix = "") => (p: Product) => {
 };
 const yesNo = (key: string) => (p: Product) => (f(p, key)[0] === "Є" ? "Так" : f(p, key)[0] === "Немає" ? "Ні" : undefined);
 
+/** "7 л" when the volume is known, otherwise one of "З баком" / "Без бака". */
+function roTankSpec(p: Product): string {
+  const raw = spec(p, /^Накопичувальний бак$/)?.trim();
+  if (raw && /\d/.test(raw)) return raw;
+  if (raw && /без/i.test(raw)) return "Без бака";
+  return has(p, "systemType", "З баком") || (raw && !/без/i.test(raw)) ? "З баком" : "Без бака";
+}
+
 const KEY_SPECS: Record<CategoryKey, KeySpecDef[]> = {
   "reverse-osmosis": [
     { label: "Ступенів очищення", value: (p) => spec(p, /ступен/i)?.replace(/\D/g, "") || undefined },
     { label: "Мінералізація", value: yesNo("mineralization") },
     { label: "Помпа", value: yesNo("pump") },
-    { label: "Накопичувальний бак", value: (p) => spec(p, /^Накопичувальний бак$/) ?? (has(p, "systemType", "З баком") ? "Є" : "Без бака") },
+    { label: "Накопичувальний бак", value: roTankSpec },
     { label: "Лінійка", value: facetText("line") },
     { label: "Монтаж", value: specText(/^Монтаж$/) },
   ],
@@ -423,7 +432,7 @@ export function keySpecs(product: Product, limit = 6): KeySpec[] {
   const out: KeySpec[] = [];
   for (const def of KEY_SPECS[product.category]) {
     const value = def.value(product);
-    if (value) out.push({ label: def.label, value });
+    if (value) out.push({ label: def.label, value: formatSpecValue(value) });
     if (out.length === limit) break;
   }
   return out;
@@ -436,7 +445,8 @@ export function keySpecLabels(category: CategoryKey): string[] {
 
 /** Value of one key characteristic by label ("" when unknown). */
 export function keySpecValue(product: Product, label: string): string {
-  return KEY_SPECS[product.category].find((d) => d.label === label)?.value(product) ?? "";
+  const value = KEY_SPECS[product.category].find((d) => d.label === label)?.value(product);
+  return value ? formatSpecValue(value) : "";
 }
 
 const MEDIA_BRANDS: Record<string, string> = {

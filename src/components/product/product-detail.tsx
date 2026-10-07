@@ -41,6 +41,7 @@ import { ProductTabs, type ProductTab } from "./product-tabs";
 import { ViewItemTracker } from "./view-item-tracker";
 import { ProductDescription } from "./product-description";
 import { getProductDisplayImage } from "@/lib/product-identity";
+import { formatSpecs } from "@/lib/spec-format";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
   "reverse-osmosis": Droplet,
@@ -84,13 +85,14 @@ export function ProductDetail({
   categoryTitle: string;
 }) {
   const d: ProductDetails = product.details ?? {};
+  const specs = formatSpecs(d.specs);
   const CategoryIcon = ICON_BY_CATEGORY[product.category];
   const related = relatedFrom(allProducts, product, 4);
   const comparison = buildComparison(product, allProducts);
   const detailedDescription = d.longDescription?.trim() || product.description;
   // Use a model-specific warranty if the data has one; otherwise stay neutral
   // (no hardcoded "3 роки" / "5 років" that could contradict other pages).
-  const warranty = d.specs?.find((s) => /гаран/i.test(s.label))?.value;
+  const warranty = specs.find((s) => /гаран/i.test(s.label))?.value;
   const localImage = getProductDisplayImage(product);
   const gallery = [
     localImage,
@@ -204,7 +206,7 @@ export function ProductDetail({
               </div>
             ))}
           </dl>
-          {d.specs && d.specs.length > 0 && (
+          {specs.length > 0 && (
             <a href="#specs" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
               Усі характеристики <ArrowRight className="size-3.5" />
             </a>
@@ -215,14 +217,14 @@ export function ProductDetail({
   );
 
   const tabs: ProductTab[] = [{ id: "description", label: "Опис", content: description }];
-  if (d.specs && d.specs.length > 0) {
+  if (specs.length > 0) {
     tabs.push({
       id: "specs",
-      label: `Характеристики (${d.specs.length})`,
+      label: `Характеристики (${specs.length})`,
       content: (
         <div className="max-w-4xl overflow-hidden rounded-2xl border border-border bg-card">
           <dl className="divide-y divide-border">
-            {d.specs.map((s) => (
+            {specs.map((s) => (
               <div key={s.label} className="grid grid-cols-1 gap-1 px-5 py-3.5 sm:grid-cols-[1fr_1.3fr] sm:gap-6">
                 <dt className="text-sm text-muted-foreground">{s.label}</dt>
                 <dd className="text-sm font-medium text-foreground tabular">{s.value}</dd>
@@ -307,7 +309,7 @@ export function ProductDetail({
                       </div>
                     ))}
                   </dl>
-                  {d.specs && d.specs.length > 0 && (
+                  {specs.length > 0 && (
                     <a href="#specs" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
                       Усі характеристики <ArrowRight className="size-3.5" />
                     </a>
