@@ -2,7 +2,8 @@
 
 import { useActionState, useState, useRef } from "react";
 import { CATEGORY_GROUPS, type StoreCategory } from "@/lib/categories-shared";
-import { saveCategory, type FormState } from "../../../actions";
+import { saveCategory } from "../../../_actions/categories";
+import type { FormState } from "../../../_actions/form-state";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { ImageUploadButton } from "../../image-upload";
 import { Card, Checkbox, Field, inputClass, textareaClass } from "../../ui";

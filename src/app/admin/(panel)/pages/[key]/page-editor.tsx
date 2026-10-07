@@ -17,7 +17,8 @@ import {
   type SitePage,
 } from "@/lib/pages-shared";
 import { cn } from "@/lib/utils";
-import { resetPage, savePage, type FormState } from "../../../actions";
+import { resetPage, savePage } from "../../../_actions/pages";
+import type { FormState } from "../../../_actions/form-state";
 import { OrderButton } from "../../collections/controls";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { ImageUploadButton } from "../../image-upload";

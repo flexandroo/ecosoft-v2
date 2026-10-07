@@ -27,7 +27,7 @@ export const getStaff = cache(async (): Promise<Staff | null> => {
   // (see proxy.ts). Let the admin error page offer a retry instead.
   if (error) throw new Error(`Не вдалося перевірити доступ: ${error.message}`);
   if (!data) return null;
-  return { userId: data.user_id, email: data.email, name: data.name || data.email, role: data.role };
+  return { userId: data.user_id, email: data.email, name: data.name || data.email, role: data.role === "admin" ? "admin" : "manager" };
 });
 
 export async function requireStaff(): Promise<Staff> {

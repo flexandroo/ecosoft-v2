@@ -1,7 +1,8 @@
 "use client";
 
 import { useActionState, useEffect, useRef } from "react";
-import { addStaff, type FormState } from "../../actions";
+import { addStaff } from "../../_actions/staff";
+import type { FormState } from "../../_actions/form-state";
 import { FormMessage, SubmitButton } from "../form-status";
 import { Field, inputClass } from "../ui";
 

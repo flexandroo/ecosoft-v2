@@ -12,7 +12,8 @@ import {
   type MenuLink,
   type SiteMenus,
 } from "@/lib/menus-shared";
-import { saveMenus, type FormState } from "../../actions";
+import { saveMenus } from "../../_actions/menus";
+import type { FormState } from "../../_actions/form-state";
 import { OrderButton } from "../collections/controls";
 import { FormMessage, SubmitButton } from "../form-status";
 import { Card, inputClass } from "../ui";

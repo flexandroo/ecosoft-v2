@@ -2,7 +2,8 @@
 
 import { useActionState, useState, useRef } from "react";
 import { ArrowDown, ArrowUp, X } from "lucide-react";
-import { saveProduct, type FormState } from "../../../actions";
+import { saveProduct } from "../../../_actions/products";
+import type { FormState } from "../../../_actions/form-state";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { ImageUploadButton } from "../../image-upload";
 import { Card, Checkbox, Field, inputClass, textareaClass } from "../../ui";

@@ -2,7 +2,8 @@
 
 import { useActionState, useState, useRef } from "react";
 import { BANNER_PLACEMENTS } from "@/lib/admin/constants";
-import { deleteBanner, saveBanner, type FormState } from "../../../actions";
+import { deleteBanner, saveBanner } from "../../../_actions/banners";
+import type { FormState } from "../../../_actions/form-state";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { ImageUploadButton } from "../../image-upload";
 import { Card, Checkbox, Field, inputClass } from "../../ui";

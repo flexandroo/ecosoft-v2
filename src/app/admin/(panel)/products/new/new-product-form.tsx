@@ -2,7 +2,8 @@
 
 import { useActionState, useState } from "react";
 import { slugify } from "@/lib/posts-shared";
-import { createProduct, type FormState } from "../../../actions";
+import { createProduct } from "../../../_actions/products";
+import type { FormState } from "../../../_actions/form-state";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { Card, Field, inputClass } from "../../ui";
 

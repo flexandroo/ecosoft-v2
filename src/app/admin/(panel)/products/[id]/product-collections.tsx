@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useOptimistic, useTransition } from "react";
-import { setProductInCollection } from "../../../actions";
+import { setProductInCollection } from "../../../_actions/collections";
 import { Card } from "../../ui";
 
 export type ProductCollectionOption = { id: string; title: string; included: boolean; showOnHome: boolean };

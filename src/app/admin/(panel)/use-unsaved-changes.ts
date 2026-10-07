@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type RefObject } from "react";
-import type { FormState } from "../actions";
+import type { FormState } from "../_actions/form-state";
 
 const MESSAGE = "Є незбережені зміни. Вийти без збереження?";
 

@@ -2,7 +2,8 @@
 
 import { useActionState, useEffect, useRef } from "react";
 import { LEAD_STATUSES, PAYMENT_METHODS, PAYMENT_STATUSES } from "@/lib/admin/constants";
-import { addLeadComment, updateLead, type FormState } from "../../../actions";
+import { addLeadComment, updateLead } from "../../../_actions/leads";
+import type { FormState } from "../../../_actions/form-state";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { Field, inputClass, textareaClass } from "../../ui";
 

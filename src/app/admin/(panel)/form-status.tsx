@@ -2,7 +2,7 @@
 
 import { useFormStatus } from "react-dom";
 import { Button } from "@/components/ui/button";
-import type { FormState } from "../actions";
+import type { FormState } from "../_actions/form-state";
 
 export function SubmitButton({ children, pendingLabel = "Зберігаємо…" }: { children: React.ReactNode; pendingLabel?: string }) {
   const { pending } = useFormStatus();

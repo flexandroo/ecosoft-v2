@@ -2,7 +2,8 @@
 
 import { useActionState, useTransition } from "react";
 import { ArrowDown, ArrowUp } from "lucide-react";
-import { createCollection, moveCollection, setCollectionOnHome, type FormState } from "../../actions";
+import { createCollection, moveCollection, setCollectionOnHome } from "../../_actions/collections";
+import type { FormState } from "../../_actions/form-state";
 import { FormMessage, SubmitButton } from "../form-status";
 import { Field, inputClass } from "../ui";
 

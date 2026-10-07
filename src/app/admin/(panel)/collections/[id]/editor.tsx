@@ -3,13 +3,8 @@
 import { useActionState, useMemo, useState, useTransition } from "react";
 import { Plus, Search, X } from "lucide-react";
 import { formatUah } from "@/lib/format";
-import {
-  deleteCollection,
-  moveCollectionItem,
-  saveCollection,
-  setProductInCollection,
-  type FormState,
-} from "../../../actions";
+import { deleteCollection, moveCollectionItem, saveCollection, setProductInCollection } from "../../../_actions/collections";
+import type { FormState } from "../../../_actions/form-state";
 import { FormMessage, SubmitButton } from "../../form-status";
 import { Card, Checkbox, Field, inputClass } from "../../ui";
 import { OrderButton } from "../controls";

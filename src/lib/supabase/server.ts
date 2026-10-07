@@ -2,6 +2,7 @@ import "server-only";
 import { createServerClient } from "@supabase/ssr";
 import { createClient } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
+import type { Database } from "./database.types";
 import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL } from "./env";
 
 /**
@@ -10,7 +11,7 @@ import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL } from "./env";
  */
 export async function createSessionClient() {
   const cookieStore = await cookies();
-  return createServerClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+  return createServerClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
     cookies: {
       getAll() {
         return cookieStore.getAll();
@@ -35,7 +36,7 @@ export async function createSessionClient() {
 export function createServiceClient() {
   const secret = process.env.SUPABASE_SECRET_KEY;
   if (!SUPABASE_URL || !secret) return null;
-  return createClient(SUPABASE_URL, secret, {
+  return createClient<Database>(SUPABASE_URL, secret, {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 }

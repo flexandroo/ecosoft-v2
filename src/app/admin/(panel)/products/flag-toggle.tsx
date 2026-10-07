@@ -1,7 +1,7 @@
 "use client";
 
 import { useOptimistic, useTransition } from "react";
-import { setProductFlag } from "../../actions";
+import { setProductFlag } from "../../_actions/products";
 
 type Flag = "in_stock" | "is_hidden";
 

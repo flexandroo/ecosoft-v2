@@ -2,7 +2,7 @@
 
 import { useTransition } from "react";
 import { ArrowDown, ArrowUp } from "lucide-react";
-import { moveCategory, setCategoryHidden } from "../../actions";
+import { moveCategory, setCategoryHidden } from "../../_actions/categories";
 
 export function CategoryRowControls({
   categoryKey,

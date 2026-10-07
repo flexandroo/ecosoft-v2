@@ -3,7 +3,8 @@
 import { useActionState, useState, useRef } from "react";
 import { Plus, Trash2 } from "lucide-react";
 import { SOCIAL_LABELS, type SiteSettings } from "@/lib/settings-shared";
-import { saveSettings, type FormState } from "../../actions";
+import { saveSettings } from "../../_actions/settings";
+import type { FormState } from "../../_actions/form-state";
 import { FormMessage, SubmitButton } from "../form-status";
 import { Card, Field, inputClass } from "../ui";
 import { useUnsavedChanges } from "../use-unsaved-changes";

@@ -24,7 +24,7 @@ import {
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { signOut } from "../actions";
+import { signOut } from "../_actions/session";
 
 type NavItem = { href: string; label: string; icon: React.ComponentType<{ className?: string }>; badge?: "orders" | "leads"; exact?: boolean };
 

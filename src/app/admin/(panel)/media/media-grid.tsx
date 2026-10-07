@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Copy, Trash2, Upload, X } from "lucide-react";
 import { ACCEPTED_IMAGE_TYPES, uploadMedia, type MediaAsset } from "@/lib/media-upload";
 import type { MediaUsage } from "@/lib/admin/media";
-import { deleteMedia, updateMediaAlt } from "../../actions";
+import { deleteMedia, updateMediaAlt } from "../../_actions/media";
 import { formatDateTime, inputClass } from "../ui";
 
 function formatSize(bytes: number): string {

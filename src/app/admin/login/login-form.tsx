@@ -2,7 +2,8 @@
 
 import { useActionState } from "react";
 import { Button } from "@/components/ui/button";
-import { signIn, type FormState } from "../actions";
+import { signIn } from "../_actions/session";
+import type { FormState } from "../_actions/form-state";
 
 export function LoginForm({ next }: { next: string }) {
   const [state, action, pending] = useActionState<FormState, FormData>(signIn, null);

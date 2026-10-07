@@ -6,7 +6,7 @@ import { findCategory, type ProductDetails } from "@/lib/products";
 import { formatSpecLabel } from "@/lib/spec-format";
 import { createSessionClient } from "@/lib/supabase/server";
 import { getStaff } from "@/lib/admin/auth";
-import { deleteProduct } from "../../../actions";
+import { deleteProduct } from "../../../_actions/products";
 import { ConfirmSubmitButton } from "../../form-status";
 import { PageTitle, formatDateTime } from "../../ui";
 import { ProductForm } from "./product-form";
@@ -88,7 +88,7 @@ export default async function ProductEditPage({
           price: Number(product.price),
           old_price: product.old_price == null ? null : Number(product.old_price),
           in_stock: product.in_stock,
-          cta_type: product.cta_type,
+          cta_type: product.cta_type === "request" ? "request" : "buy",
           description: product.description,
           images: (product.images as string[] | null)?.length ? (product.images as string[]) : product.image ? [product.image] : [],
           is_hidden: product.is_hidden,

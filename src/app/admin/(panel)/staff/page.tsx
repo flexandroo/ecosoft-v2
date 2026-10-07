@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { requireStaff } from "@/lib/admin/auth";
 import { createSessionClient } from "@/lib/supabase/server";
-import { removeStaff, updateStaffRole } from "../../actions";
+import { removeStaff, updateStaffRole } from "../../_actions/staff";
 import { ConfirmSubmitButton } from "../form-status";
 import { Card, PageTitle, formatDateTime } from "../ui";
 import { AddStaffForm } from "./add-staff-form";

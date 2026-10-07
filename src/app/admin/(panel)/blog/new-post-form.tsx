@@ -2,7 +2,8 @@
 
 import { useActionState } from "react";
 import { POST_KINDS, type PostKind } from "@/lib/posts-shared";
-import { createPost, type FormState } from "../../actions";
+import { createPost } from "../../_actions/posts";
+import type { FormState } from "../../_actions/form-state";
 import { FormMessage, SubmitButton } from "../form-status";
 import { Field, inputClass } from "../ui";
 
