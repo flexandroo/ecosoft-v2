@@ -97,32 +97,36 @@ export function CategoryChips({ categories, className }: { categories: HomeCateg
   );
 }
 
-/** Promo card: text and photo side by side (photo on top on phones), no overlay on the photo. */
+/**
+ * Promo card: the photo fills the whole card and the text sits on a soft dark
+ * gradient on the left, so the price stays live. Cards are 2:1 below 1280px and
+ * fill half of the slider height (≈3:2) next to it on wide screens; art made at
+ * 3:2 with the subject on the right works for every size.
+ */
 export function PromoTile({ tile, className }: { tile: HomeSlide; className?: string }) {
   return (
     <Link
       href={tile.href}
       className={cn(
-        "group flex flex-col overflow-hidden rounded-2xl border border-border bg-card sm:flex-row-reverse",
+        "group relative block aspect-[2/1] overflow-hidden rounded-2xl bg-slate-800 text-white xl:aspect-auto xl:h-full xl:min-h-[180px]",
         className,
       )}
     >
-      <span className="relative block aspect-[16/10] shrink-0 overflow-hidden bg-muted sm:aspect-auto sm:w-[42%]">
-        {/* Local art is resized by next/image; admin uploads (Supabase) are already compressed. */}
-        <Image
-          src={tile.imageDesktop}
-          alt=""
-          fill
-          sizes="(min-width: 1024px) 200px, 50vw"
-          unoptimized={/^https?:\/\//.test(tile.imageDesktop)}
-          className="object-cover object-[78%_center] transition-transform duration-300 group-hover:scale-[1.03]"
-        />
-      </span>
-      <span className="flex min-w-0 flex-1 flex-col p-4 sm:p-5">
-        {tile.eyebrow && <span className="text-[11px] font-bold tracking-wider break-words text-primary uppercase">{tile.eyebrow}</span>}
+      {/* Local art is resized by next/image; admin uploads (Supabase) are already compressed. */}
+      <Image
+        src={tile.imageDesktop}
+        alt=""
+        fill
+        sizes="(min-width: 1280px) 300px, (min-width: 640px) 50vw, 100vw"
+        unoptimized={/^https?:\/\//.test(tile.imageDesktop)}
+        className="object-cover object-[70%_center] transition-transform duration-300 group-hover:scale-[1.03]"
+      />
+      <span aria-hidden className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/35 to-transparent" />
+      <span className="relative flex h-full max-w-[70%] flex-col p-4 sm:p-5">
+        {tile.eyebrow && <span className="text-[11px] font-bold tracking-wider break-words text-white/80 uppercase">{tile.eyebrow}</span>}
         <span className="mt-1.5 font-[family-name:var(--font-manrope)] text-lg leading-tight font-extrabold sm:text-xl">{tile.title}</span>
-        {tile.subtitle && <span className="mt-1 text-sm font-semibold text-foreground/80">{tile.subtitle}</span>}
-        <span className="mt-auto inline-flex w-fit items-center gap-1.5 pt-3 text-sm font-semibold text-primary">
+        {tile.subtitle && <span className="mt-1 text-sm font-semibold text-white/90">{tile.subtitle}</span>}
+        <span className="mt-auto inline-flex w-fit items-center gap-1.5 pt-3 text-sm font-semibold">
           {tile.ctaLabel} <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
         </span>
       </span>

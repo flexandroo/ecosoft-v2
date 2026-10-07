@@ -29,7 +29,7 @@ export default async function Home() {
           <div className="grid gap-4 lg:grid-cols-[300px_minmax(0,1fr)] xl:grid-cols-[300px_minmax(0,1fr)_300px]">
             <CategoryMenu categories={data.categories} className="hidden lg:block" />
             <HeroSlider slides={data.slides} />
-            <div className="grid grid-cols-2 gap-4 lg:col-span-2 xl:col-span-1 xl:grid-cols-1">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-2 xl:col-span-1 xl:grid-cols-1 xl:grid-rows-2">
               {data.sideTiles.map((tile) => (
                 <PromoTile key={tile.id} tile={tile} />
               ))}
