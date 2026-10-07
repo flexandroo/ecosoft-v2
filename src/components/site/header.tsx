@@ -9,7 +9,6 @@ import {
   MapPin,
   Menu,
   Phone,
-  Search,
   ShieldCheck,
   ShoppingCart,
   Truck,
@@ -23,33 +22,9 @@ import { useStoreCategories } from "@/components/site/categories-context";
 import { useHeaderMenu } from "@/components/site/menus-context";
 import { useDialog } from "@/components/site/use-dialog";
 import { MenuLink } from "@/components/site/menu-link";
+import { SearchBox } from "@/components/site/search-box";
 import { CATEGORY_GROUPS } from "@/lib/categories-shared";
 import { SUBCATEGORIES, subcategoryQuery } from "@/lib/catalog-facets";
-import { cn } from "@/lib/utils";
-
-function SearchForm({ className }: { className?: string }) {
-  return (
-    <form action="/search" role="search" className={cn("flex h-11 overflow-hidden rounded-xl border border-border bg-card", className)}>
-      <label htmlFor="store-search" className="sr-only">
-        Пошук товарів
-      </label>
-      <input
-        id="store-search"
-        name="q"
-        type="search"
-        placeholder="Фільтр, картридж, артикул…"
-        className="min-w-0 flex-1 bg-transparent px-4 text-[15px] outline-none placeholder:text-muted-foreground"
-      />
-      <button
-        type="submit"
-        className="inline-flex items-center gap-2 bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-      >
-        <Search className="size-4" aria-hidden />
-        <span className="hidden sm:inline">Знайти</span>
-      </button>
-    </form>
-  );
-}
 
 export function Header() {
   const settings = useSiteSettings();
@@ -187,7 +162,7 @@ export function Header() {
             )}
           </div>
 
-          <SearchForm className="hidden flex-1 md:flex" />
+          <SearchBox className="hidden flex-1 md:flex" />
 
           <div className="ml-auto flex items-center gap-1 md:ml-0 md:gap-3">
             <div className="hidden text-right xl:block">
@@ -224,7 +199,7 @@ export function Header() {
           </div>
         </div>
         <div className="px-4 pb-3 md:hidden">
-          <SearchForm />
+          <SearchBox />
         </div>
       </div>
 

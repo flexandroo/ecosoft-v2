@@ -135,17 +135,84 @@ const SYNONYMS: Record<string, string[]> = {
   аквакальцій: ["aquacalcium"],
 };
 
+// Keys of the Ukrainian/Russian ЙЦУКЕН layout and the Latin letters on the same
+// keys, so "ыефтвфкв" or "іефтвфкв" (typed with the wrong layout) finds "standard".
+const CYR_KEYS = "йцукенгшщзхїъфіывапролджєэячсмитьбю";
+const LAT_KEYS = "qwertyuiop[]]assdfghjkl;''zxcvbnm,.";
+const CYR_TO_LAT = new Map([...CYR_KEYS].map((c, i) => [c, LAT_KEYS[i]]));
+// Latin → Ukrainian layout ("s" is "і"); Russian letters are covered by the и/ы/э variants.
+const LAT_TO_CYR = new Map(
+  [..."qwertyuiop[]asdfghjkl;'zxcvbnm,."].map((l, i) => [l, "йцукенгшщзхїфівапролджєячсмитьбю"[i]]),
+);
+
+/** Cyrillic spelling of Latin model names ("кросс" → "kross"/"cross", "екомікс" → "ecomix"). */
+const TRANSLIT: Record<string, string> = {
+  а: "a", б: "b", в: "v", г: "g", ґ: "g", д: "d", е: "e", є: "e", ж: "zh", з: "z", и: "i", і: "i", ї: "i",
+  й: "y", к: "k", л: "l", м: "m", н: "n", о: "o", п: "p", р: "r", с: "s", т: "t", у: "u", ф: "f", х: "h",
+  ц: "c", ч: "ch", ш: "sh", щ: "sch", ь: "", ъ: "", ы: "y", э: "e", ю: "u", я: "ya",
+};
+
+function swapLayout(token: string, map: Map<string, string>): string | null {
+  let out = "";
+  for (const ch of token) out += map.get(ch) ?? (/\d/.test(ch) ? ch : "\0");
+  return out.includes("\0") ? null : out;
+}
+
+function translit(token: string): string {
+  return token
+    .replace(/дж/g, "j")
+    .replace(/кс/g, "x")
+    .replace(/./g, (ch) => TRANSLIT[ch] ?? ch);
+}
+
+/**
+ * How a query word was respelt, best first: as typed, a synonym or Russian
+ * spelling, the other script (wrong layout, Cyrillic spelling of a Latin
+ * model name), or the word with its ending cut off. A cut-off ending ranks
+ * last so a partial word ("станд") prefers "Standard" over "станині".
+ */
+const enum Spelling {
+  Typed = 0,
+  Synonym = 1,
+  OtherScript = 2,
+  Stem = 3,
+}
+type Variant = { text: string; spelling: Spelling };
+
+const variantCache = new Map<string, Variant[]>();
+
 /** Alternative spellings of one query word, most specific first. */
-function tokenVariants(token: string): string[] {
-  const synonyms = SYNONYMS[token];
-  if (synonyms) return [token, ...synonyms];
-  const variants = new Set([token]);
-  // Russian spelling of shared words: и → і, ы → и, э → е ("фильтр" → "фільтр").
-  variants.add(token.replace(/и/g, "і").replace(/ы/g, "и").replace(/э/g, "е"));
-  // Ukrainian inflection: "помпа" should find "з помпою", "осмосис" → "осмос".
-  if (token.length >= 5 && /[а-яіїєґ]$/.test(token)) variants.add(token.slice(0, -1));
-  if (token.length >= 7 && /[а-яіїєґ]{2}$/.test(token)) variants.add(token.slice(0, -2));
-  return [...variants];
+function tokenVariants(token: string): Variant[] {
+  const cached = variantCache.get(token);
+  if (cached) return cached;
+  const variants = new Map<string, Spelling>([[token, Spelling.Typed]]);
+  const add = (text: string | null, spelling: Spelling) => {
+    if (text && !variants.has(text)) variants.set(text, spelling);
+  };
+  for (const synonym of SYNONYMS[token] ?? []) add(synonym, Spelling.Synonym);
+  const cyrillic = /^[а-яіїєґ0-9-]+$/.test(token) && /[а-яіїєґ]/.test(token);
+  const latin = /^[a-z0-9[\];',.-]+$/.test(token) && /[a-z]/.test(token);
+  if (cyrillic) {
+    // Russian spelling of shared words: и → і, ы → и, э → е ("фильтр" → "фільтр").
+    add(token.replace(/и/g, "і").replace(/ы/g, "и").replace(/э/g, "е"), Spelling.Synonym);
+    // Latin model name typed with the Cyrillic layout on, or spelled in Cyrillic.
+    const swapped = swapLayout(token, CYR_TO_LAT);
+    if (swapped && /^[a-z0-9-]+$/.test(swapped)) add(swapped, Spelling.OtherScript);
+    if (token.length >= 2) {
+      const lat = translit(token);
+      add(lat, Spelling.OtherScript);
+      add(lat.replace(/k/g, "c"), Spelling.OtherScript);
+    }
+    // Ukrainian inflection: "помпа" should find "з помпою", "осмосис" → "осмос".
+    if (token.length >= 5 && /[а-яіїєґ]$/.test(token)) add(token.slice(0, -1), Spelling.Stem);
+    if (token.length >= 7 && /[а-яіїєґ]{2}$/.test(token)) add(token.slice(0, -2), Spelling.Stem);
+  } else if (latin && token.length >= 2) {
+    // Ukrainian word typed with the Latin layout on ("askmnh" → "фільтр").
+    add(swapLayout(token, LAT_TO_CYR), Spelling.OtherScript);
+  }
+  const list = [...variants].map(([text, spelling]) => ({ text, spelling }));
+  variantCache.set(token, list);
+  return list;
 }
 
 /** True when `a` and `b` differ by at most one edit (insert, delete, substitute or swap). */
@@ -201,11 +268,14 @@ export function productSearchText(p: Product): string {
 /** How well one query word matches a product: 0 = not at all. */
 function tokenScore(index: SearchIndex, token: string): number {
   let best = 0;
-  for (const variant of tokenVariants(token)) {
-    if (index.sku && index.sku === variant) return 100;
-    if (index.sku.startsWith(variant) && variant.length >= 3) best = Math.max(best, 40);
-    if (index.name.includes(variant)) best = Math.max(best, variant === token ? 10 : 8);
-    else if (index.hay.includes(variant)) best = Math.max(best, variant === token ? 3 : 2);
+  for (const { text, spelling } of tokenVariants(token)) {
+    // SKUs are Latin codes: a transliterated word ("фильтр" → "filtr") must not hit one.
+    if (spelling !== Spelling.OtherScript || /\d/.test(text)) {
+      if (index.sku && index.sku === text) return 100;
+      if (index.sku.startsWith(text) && text.length >= 3) best = Math.max(best, 40);
+    }
+    if (index.name.includes(text)) best = Math.max(best, [10, 8, 7, 6][spelling]);
+    else if (index.hay.includes(text)) best = Math.max(best, [3, 2, 2, 1][spelling]);
   }
   // One typo in a longer word ("ecosft", "мембрна") still finds it, ranked low.
   // Model codes and SKUs (anything with digits) must match exactly.
