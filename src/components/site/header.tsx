@@ -21,6 +21,7 @@ import { useSiteSettings } from "@/components/site/settings-context";
 import { toPhoneContacts } from "@/lib/settings-shared";
 import { useStoreCategories } from "@/components/site/categories-context";
 import { useHeaderMenu } from "@/components/site/menus-context";
+import { useDialog } from "@/components/site/use-dialog";
 import { MenuLink } from "@/components/site/menu-link";
 import { CATEGORY_GROUPS } from "@/lib/categories-shared";
 import { SUBCATEGORIES, subcategoryQuery } from "@/lib/catalog-facets";
@@ -76,17 +77,8 @@ export function Header() {
     };
   }, [catalogOpen]);
 
-  useEffect(() => {
-    if (!drawerOpen) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setDrawerOpen(false);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [drawerOpen]);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  useDialog(drawerOpen, drawerRef, () => setDrawerOpen(false));
 
   const cartCount = hydrated ? count : 0;
 
@@ -239,7 +231,7 @@ export function Header() {
       {/* Phone drawer, portalled to <body>: the header's backdrop-blur would
           otherwise clip a fixed-position child to the header's own height. */}
       {drawerOpen && createPortal(
-        <div className="fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="Меню">
+        <div ref={drawerRef} className="fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="Меню">
           <button aria-label="Закрити меню" className="absolute inset-0 bg-foreground/50" onClick={() => setDrawerOpen(false)} />
           <div className="absolute inset-y-0 left-0 flex w-[min(86vw,360px)] flex-col overflow-y-auto bg-background shadow-xl">
             <div className="flex items-center justify-between border-b border-border px-4 py-3">

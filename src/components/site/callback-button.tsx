@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Phone, X, Check } from "lucide-react";
 import { captureMarketingAttribution } from "@/utils/marketing-attribution";
 import { useCallbackRequest } from "./use-callback-request";
+import { useDialog } from "./use-dialog";
 
 /**
  * "Безкоштовний дзвінок" — a callback request. Renders a trigger button that
@@ -74,24 +75,13 @@ function CallbackModal({
     submit: handleSubmit,
   } = useCallbackRequest(source);
   const phoneRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    phoneRef.current?.focus();
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", onKey);
-    // Lock body scroll while the modal is open.
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [onClose]);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  // The modal is mounted only while open.
+  useDialog(true, dialogRef, onClose, phoneRef);
 
   return (
     <div
+      ref={dialogRef}
       className="fixed inset-0 z-[70] flex items-end justify-center sm:items-center"
       role="dialog"
       aria-modal="true"

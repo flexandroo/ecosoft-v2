@@ -1,9 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { ProductImage } from "@/components/catalog/product-image";
+import { useDialog } from "@/components/site/use-dialog";
 import { cn } from "@/lib/utils";
 
 /**
@@ -28,20 +29,17 @@ export function ProductGallery({
   const count = images.length;
   const go = useCallback((delta: number) => setIndex((i) => (i + delta + count) % count), [count]);
 
+  const zoomRef = useRef<HTMLDivElement>(null);
+  useDialog(zoom, zoomRef, () => setZoom(false));
+
   useEffect(() => {
     if (!zoom) return;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setZoom(false);
       if (e.key === "ArrowLeft") go(-1);
       if (e.key === "ArrowRight") go(1);
     };
     document.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = previous;
-      document.removeEventListener("keydown", onKey);
-    };
+    return () => document.removeEventListener("keydown", onKey);
   }, [zoom, go]);
 
   if (!count) {
@@ -113,7 +111,7 @@ export function ProductGallery({
 
       {zoom &&
         createPortal(
-          <div className="fixed inset-0 z-[70] flex flex-col bg-white" role="dialog" aria-modal="true" aria-label="Фото товару">
+          <div ref={zoomRef} className="fixed inset-0 z-[70] flex flex-col bg-white" role="dialog" aria-modal="true" aria-label="Фото товару">
             <div className="flex items-center justify-between px-4 py-3">
               <span className="text-sm text-muted-foreground tabular">
                 {index + 1} / {count}
@@ -122,7 +120,6 @@ export function ProductGallery({
                 type="button"
                 onClick={() => setZoom(false)}
                 aria-label="Закрити"
-                autoFocus
                 className="grid size-11 place-items-center rounded-full hover:bg-muted"
               >
                 <X className="size-6" />
