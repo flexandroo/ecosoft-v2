@@ -403,8 +403,8 @@
     "solution": "Migration with FK + CHECKs + sku not null; reorder via a transactional RPC.",
     "effort": "S",
     "regressionRisk": "low",
-    "status": "partial",
-    "statusNote": "catalog_integrity applied on dev; reorder RPC not done"
+    "status": "done",
+    "statusNote": "catalog_integrity + reorder_functions (applied on dev)"
   },
   {
     "id": "ECO-025",
@@ -517,7 +517,8 @@
     "solution": "Server pagination via range(); bulk price/stock actions later.",
     "effort": "S",
     "regressionRisk": "low",
-    "status": "todo"
+    "status": "done",
+    "statusNote": "9fc3540 pagination (100/page, exact total); customers aggregation fine at current volume"
   },
   {
     "id": "ECO-032",
