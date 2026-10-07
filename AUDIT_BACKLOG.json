@@ -1,37 +1,583 @@
 [
-  {"id":"ECO-001","severity":"P0","area":"catalog-mobile","title":"Mobile catalog overflows to ~1600px in 6 of 8 categories","route":"/catalog/[category]","files":["src/components/catalog/catalog-view.tsx"],"problem":"Implicit single grid column (catalog-view.tsx:213) sizes to min-content of SubcategoryChips (nowrap row). Content column becomes 943-1715px wide at 390px viewport; product cards, search and sort go off-screen.","solution":"Add min-w-0 to the content column div (catalog-view.tsx:230) or grid-cols-1 below lg. Verify 390/430/768/1024.","effort":"XS","regressionRisk":"low"},
-  {"id":"ECO-002","severity":"P0","area":"infra-release","title":"Production Supabase project is empty (0 migrations, no data, no admin)","route":"/*, /admin","files":["supabase/migrations/*","DEPLOY.md","scripts/seed-products.mts"],"problem":"sofiivkawater-prod has no migrations. Deploying dev with prod keys silently falls back to the bundled catalogue and the admin is unusable; leads are not stored without SUPABASE_SECRET_KEY.","solution":"Apply 12 migrations, seed products/banners/posts/media, create admin, enable leaked password protection, set env on VPS, document in DEPLOY.md, add a smoke check that the catalogue comes from DB.","effort":"M","regressionRisk":"medium"},
-  {"id":"ECO-003","severity":"P1","area":"admin-auth","title":"Infinite redirect loop for signed-in non-staff (e.g. removed employee)","route":"/admin, /admin/login","files":["src/lib/admin/auth.ts","src/proxy.ts"],"problem":"requireStaff redirects to /admin/login?denied=1 (auth.ts:32); proxy redirects signed-in users away from /admin/login to /admin (proxy.ts:36). ERR_TOO_MANY_REDIRECTS, no way to sign out.","solution":"Do not redirect from /admin/login when denied=1; sign the session out (route handler) and show the login form with the denial message.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-004","severity":"P1","area":"cart-checkout","title":"Cart never revalidates prices/stock; qty unbounded; generic order error; pixel value from stale client total","route":"/cart, /api/order","files":["src/components/cart/cart-context.tsx","src/components/cart/cart-view.tsx","src/app/api/order/route.ts"],"problem":"Price/name snapshot in localStorage is never refreshed (verified: cart shows 2 500 UAH for a 22 450 UAH item). setQty/add have no max while the server rejects qty>20. Any hidden/out-of-stock line returns invalid_items for the whole order with a generic message. Purchase/GenerateLead use client orderTotal.","solution":"Refresh lines against current catalogue by SKU on /cart and show changes; clamp qty 1..20; return offending sku from API and highlight it; use data.total for pixel events.","effort":"M","regressionRisk":"medium"},
-  {"id":"ECO-005","severity":"P1","area":"search","title":"Search has no ranking, RU/translit synonyms, stemming or typo tolerance","route":"/search","files":["src/lib/catalog-filters.ts"],"problem":"Token includes() AND match in catalogue order. 'фильтр','железо','соль','кросс','помпа','насос','ecosft' -> 0 results; 'картридж' lists mainline filters first; 'стандарт' returns 48 with FP mechanical filters first; empty state offers nothing.","solution":"Weighted scoring (SKU exact > name prefix > name > line/type > facets), RU->UA and Latin<->Cyrillic synonym map, stem prefix match, Damerau-Levenshtein<=1 for tokens>=5, empty state with categories/hits, unit tests on a query list.","effort":"M","regressionRisk":"low"},
-  {"id":"ECO-006","severity":"P1","area":"catalog-filters","title":"'Комплектація' facet ORs independent attributes","route":"/catalog/reverse-osmosis","files":["src/lib/catalog-facets.ts","src/lib/catalog-filters.ts"],"problem":"kit facet (catalog-facets.ts:214) mixes tank/pump/mineraliser values; OR inside the group returns 5 products for CROSS + 'Без бака' + 'З мінералізатором' instead of 1.","solution":"Split into separate boolean facets (tank, pump, mineraliser) so groups AND together; map or drop legacy ?kit= params.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-007","severity":"P1","area":"data-attributes","title":"Product characteristics are unstructured and inconsistent; not editable in admin","route":"/catalog/[category]/[slug]","files":["src/lib/catalog-facets.ts","src/lib/products.ts","src/app/admin/(panel)/products/[id]/product-form.tsx","scripts/seed-products.mts"],"problem":"287 distinct spec labels; 'Продуктивність' in 14 label variants with л/год, м3/год, л/хв and ranges in 4 formats; duplicates like °C vs °С and 'Залізо, мг/л' vs 'Вміст заліза, мг/л'; key spec 'Накопичувальний бак' shows 'без накопичувального бака'/'Без бака'/'Є'/'7 л' (catalog-facets.ts:372); 43 products without specs; no specs/attributes editor in admin.","solution":"Attribute registry {key,label,unit,type,order}; normaliser script with mismatch report; typed attributes in DB; PDP specs rendered from registry; admin attribute editor by type.","effort":"L","regressionRisk":"medium"},
-  {"id":"ECO-008","severity":"P1","area":"performance-media","title":"Homepage loads ~3 MB of PNG for 125x200 promo tiles","route":"/","files":["src/components/home/sections.tsx","public/images/category-scenes-v3","public/images/page-headers"],"problem":"PromoTile (sections.tsx:100-116) and the HoReCa block (:255) use raw <img> with 1.45-1.67 MB PNG originals (1672x941).","solution":"Use next/image with sizes; convert category-scenes-v3 and page-headers to WebP/AVIF <=200 KB.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-009","severity":"P1","area":"performance","title":"/catalog and /search ship 0.7-0.9 MB of serialized product objects to the client","route":"/catalog, /search, /catalog/[category]","files":["src/app/catalog/page.tsx","src/app/search/page.tsx","src/app/catalog/[category]/page.tsx","src/components/catalog/catalog-view.tsx"],"problem":"CatalogView ('use client') receives full Product incl. longDescription/specs/documents. /catalog 897 KB HTML + 697 KB RSC; /search 802 KB and dynamic on every request.","solution":"Map to a lean CatalogItem on the server (card + facet fields + keySpecs); make /search static or cached.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-011","severity":"P1","area":"data-layer","title":"Bundled catalogue fallback can price orders with stale data","route":"/*, /api/order","files":["src/lib/catalog.ts","src/app/api/order/route.ts"],"problem":"On DB timeout/error/empty response getProducts() returns src/lib/products.ts. It already diverges (SCALEX categories); hidden products reappear; /api/order totals use the same fallback.","solution":"No fallback for /api/order (503 or flagged lead); rely on last ISR cache for storefront; alert on empty catalogue; later remove products.ts from runtime.","effort":"S","regressionRisk":"medium"},
-  {"id":"ECO-012","severity":"P1","area":"admin-products","title":"Product editor accepts price 0 and old_price <= price; no concurrency check; no create/archive","route":"/admin/products/[id]","files":["src/app/admin/actions.ts","src/app/admin/(panel)/products/[id]/product-form.tsx"],"problem":"saveProduct (actions.ts:164-214) allows price 0 (order API then accepts 0 UAH orders) and any old_price; last write wins; product create/archive/delete, category, brand, specs and documents are not supported.","solution":"Validate price>0 (or request CTA) and old_price>price; optimistic concurrency via updated_at; add create/duplicate/soft-archive in Phase 3.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-010","severity":"P2","area":"error-handling","title":"No error.tsx/global-error.tsx; admin server actions throw to the default Next error screen","route":"/*, /admin/*","files":["src/app","src/app/admin/actions.ts"],"problem":"updateStaffRole, removeStaff, deleteBanner, deletePost, resetPage, moveCategory, deleteCollection, updateMediaAlt throw; no error boundaries or loading states.","solution":"Add app/error.tsx, app/global-error.tsx, admin error.tsx and loading.tsx; return FormState from form actions.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-013","severity":"P2","area":"admin-authorization","title":"Managers can hard-delete catalogue via REST; audit log actor is forgeable; staff changes not audited","route":"PostgREST","files":["supabase/migrations/20261005130000_hardening.sql","src/app/admin/actions.ts"],"problem":"RLS grants DELETE on products/posts/pages/collections to any staff; audit_log/lead_events INSERT accepts any actor; addStaff/updateStaffRole/removeStaff/setCategoryHidden/reorders are not logged.","solution":"Restrict product DELETE to admin or use soft delete; with check (actor = auth.uid()) or trigger-based audit; log staff changes.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-014","severity":"P2","area":"catalog-seo","title":"Hidden category is only hidden from menus","route":"/catalog/[category], /sitemap.xml","files":["src/app/catalog/[category]/page.tsx","src/app/sitemap.ts","src/lib/catalog.ts"],"problem":"Category page, its products in /catalog and search, and the sitemap URL remain when is_hidden=true.","solution":"notFound() for hidden categories, exclude their products from storefront lists, build sitemap from getStoreCategories().","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-015","severity":"P2","area":"catalog-url-state","title":"Filtered URLs render unfiltered on the server; price/sort/stock not in URL; no popstate","route":"/catalog/[category]?...","files":["src/components/catalog/catalog-view.tsx"],"problem":"?line=CROSS SSR shows 14 then 5 after hydration (CLS); sort/price/inStock/visibleCount lost on reload; replaceState only.","solution":"Pass server searchParams as initial state; serialise sort/min/max/stock; listen to popstate.","effort":"M","regressionRisk":"medium"},
-  {"id":"ECO-016","severity":"P2","area":"seo","title":"Product JSON-LD brand hardcoded to Ecosoft","route":"/catalog/[category]/[slug]","files":["src/app/catalog/[category]/[slug]/page.tsx"],"problem":"BWT/Dowex/Amberlite/Calgon products get brand Ecosoft (page.tsx:185).","solution":"brand: productBrand(product).","effort":"XS","regressionRisk":"low"},
-  {"id":"ECO-017","severity":"P2","area":"accessibility","title":"Header drawer, gallery zoom and callback modal lack focus trap / focus restore","route":"/*","files":["src/components/site/header.tsx","src/components/product/product-gallery.tsx","src/components/site/callback-button.tsx"],"problem":"Tab escapes the dialogs and focus is lost on close; only the catalog filter drawer is correct.","solution":"Extract the filter drawer logic into a useDialogFocus hook and reuse it.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-018","severity":"P2","area":"accessibility","title":"White text on primary buttons is 3.95:1 (fails WCAG AA)","route":"/*","files":["src/app/globals.css"],"problem":"Купити / До кошика / Знайти / Каталог at 14px on #007FF2; 'Передзвоніть мені' 3.59:1.","solution":"Darken the button background token to ~#006BD6 (>=4.5:1).","effort":"XS","regressionRisk":"low"},
-  {"id":"ECO-019","severity":"P2","area":"security","title":"Rate limit is in-memory and trusts spoofable cf-connecting-ip","route":"/api/order, /api/callback, /api/contact","files":["src/lib/request-guard.ts","DEPLOY.md"],"problem":"Origin IP is public; requests that bypass Cloudflare can set any cf-connecting-ip and evade limits, spamming the DB and Telegram.","solution":"Restrict origin to Cloudflare ranges in Nginx (real_ip_from), drop untrusted headers, add a per-phone limit.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-020","severity":"P2","area":"admin-ux","title":"No confirmation for revoking staff; addStaff ignores password for existing users and can change own role; no unsaved-changes guard","route":"/admin/staff, /admin/*","files":["src/app/admin/(panel)/staff/page.tsx","src/app/admin/actions.ts"],"problem":"'Закрити доступ' is one click; addStaff upsert bypasses the self-demotion check; forms lose edits on navigation.","solution":"Confirm dialog; distinct message and self-role guard in addStaff; useUnsavedChanges hook.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-021","severity":"P2","area":"admin-media","title":"Media usage check misses page sections, post bodies and menus","route":"/admin/media","files":["src/lib/admin/media.ts"],"problem":"Only top-level site_pages.content.image is inspected; files still in use can be deleted.","solution":"Recursive URL search in content jsonb and post body.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-022","severity":"P2","area":"security-auth","title":"Leaked password protection disabled; no MFA for admins","route":"Supabase Auth","files":[],"problem":"Supabase advisor warning on dev; prod not configured.","solution":"Enable in both projects; consider TOTP MFA for the admin role.","effort":"XS","regressionRisk":"low"},
-  {"id":"ECO-023","severity":"P2","area":"data","title":"50 products have image set but images[] empty","route":"DB","files":["supabase/migrations"],"problem":"Denormalised photo data; UI compensates but feeds/CRM may diverge.","solution":"One-off update images = [image]; derive image from images[0].","effort":"XS","regressionRisk":"low"},
-  {"id":"ECO-024","severity":"P2","area":"database","title":"Integrity rules live only in code","route":"DB","files":["supabase/migrations/20261005120000_init.sql","src/app/admin/actions.ts"],"problem":"products.category has no FK to categories; no CHECK old_price>price / price>0; sku nullable; reorder actions run N non-transactional updates.","solution":"Migration with FK + CHECKs + sku not null; reorder via a transactional RPC.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-025","severity":"P2","area":"data-filters","title":"Low-coverage facets hide products with missing data","route":"/catalog/[category]","files":["src/lib/catalog-facets.ts"],"problem":"Лінійка 12/46 (filtration-systems), Типорозмір 7/18 (mainline-filters), GPD 3/37, period 18/37, micron 19/36.","solution":"Fill data (with ECO-007) or hide facets under ~60% coverage.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-026","severity":"P2","area":"code-quality","title":"No generated Supabase types; 860-line actions.ts; duplicated validators","route":"-","files":["src/app/admin/actions.ts","src/lib/supabase/server.ts","src/lib/validation.ts"],"problem":"Untyped queries, 'as unknown as' casts (actions.ts:130, collections/page.tsx:15), email regex in 3 places, two transliteration helpers.","solution":"supabase gen types + Database generic; split actions by domain; shared validators.","effort":"M","regressionRisk":"low"},
-  {"id":"ECO-027","severity":"P3","area":"seo","title":"404 page uses the homepage title","route":"/404","files":["src/app/not-found.tsx"],"problem":"Unknown URLs render the default site title.","solution":"Add metadata title 'Сторінку не знайдено'.","effort":"XS","regressionRisk":"low"},
-  {"id":"ECO-028","severity":"P3","area":"content","title":"'Проточні фільтри' is a top-level category with a single product","route":"/catalog/flow-filters","files":["supabase/migrations/20261006140000_categories.sql"],"problem":"A prominent nav item and homepage promo tile lead to one product.","solution":"Merge or populate.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-029","severity":"P3","area":"ux","title":"Header phone shown unformatted (+380504478676)","route":"/*","files":["src/components/site/header.tsx"],"problem":"Hard to read.","solution":"Format via toPhoneContacts.","effort":"XS","regressionRisk":"low"},
-  {"id":"ECO-030","severity":"P3","area":"performance","title":"First PDP thumbnail requests w=384 for a 78px slot","route":"/catalog/[category]/[slug]","files":["src/components/product/product-gallery.tsx"],"problem":"Inconsistent sizes between thumbnails.","solution":"Use sizes='80px' for all thumbnails.","effort":"XS","regressionRisk":"low"},
-  {"id":"ECO-031","severity":"P3","area":"admin-tables","title":"Admin products limited to 500 rows without pagination; customers aggregate 5000 leads in memory","route":"/admin/products, /admin/customers","files":["src/app/admin/(panel)/products/page.tsx","src/lib/admin/customers.ts"],"problem":"Will silently truncate as data grows; no bulk actions.","solution":"Server pagination via range(); bulk price/stock actions later.","effort":"S","regressionRisk":"low"},
-  {"id":"ECO-032","severity":"P3","area":"catalog","title":"Price facet shows Infinity on an empty product set","route":"/catalog/[category]","files":["src/components/catalog/catalog-view.tsx"],"problem":"Math.min()/max() of [] at catalog-view.tsx:202-203.","solution":"Guard products.length.","effort":"XS","regressionRisk":"low"},
-  {"id":"ECO-033","severity":"P3","area":"admin","title":"Ad scripts rendered in admin (blocked by CSP, noisy console)","route":"/admin/*","files":["src/app/layout.tsx"],"problem":"Pixel/GTM tags are emitted and then blocked.","solution":"Move the storefront into a route group layout that renders tracking; keep the admin layout clean.","effort":"S","regressionRisk":"medium"},
-  {"id":"ECO-034","severity":"P3","area":"ux","title":"Callback modal refocuses phone input when parent re-renders","route":"/*","files":["src/components/site/callback-button.tsx"],"problem":"onClose in effect deps (callback-button.tsx:79).","solution":"useEffectEvent or a ref for onClose.","effort":"XS","regressionRisk":"low"},
-  {"id":"ECO-035","severity":"P3","area":"docs","title":"README is the create-next-app template","route":"-","files":["README.md"],"problem":"No env/Supabase/admin documentation.","solution":"Short README with env table and local setup.","effort":"XS","regressionRisk":"low"}
+  {
+    "id": "ECO-001",
+    "severity": "P0",
+    "area": "catalog-mobile",
+    "title": "Mobile catalog overflows to ~1600px in 6 of 8 categories",
+    "route": "/catalog/[category]",
+    "files": [
+      "src/components/catalog/catalog-view.tsx"
+    ],
+    "problem": "Implicit single grid column (catalog-view.tsx:213) sizes to min-content of SubcategoryChips (nowrap row). Content column becomes 943-1715px wide at 390px viewport; product cards, search and sort go off-screen.",
+    "solution": "Add min-w-0 to the content column div (catalog-view.tsx:230) or grid-cols-1 below lg. Verify 390/430/768/1024.",
+    "effort": "XS",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "ebe3025"
+  },
+  {
+    "id": "ECO-002",
+    "severity": "P0",
+    "area": "infra-release",
+    "title": "Production Supabase project is empty (0 migrations, no data, no admin)",
+    "route": "/*, /admin",
+    "files": [
+      "supabase/migrations/*",
+      "DEPLOY.md",
+      "scripts/seed-products.mts"
+    ],
+    "problem": "sofiivkawater-prod has no migrations. Deploying dev with prod keys silently falls back to the bundled catalogue and the admin is unusable; leads are not stored without SUPABASE_SECRET_KEY.",
+    "solution": "Apply 12 migrations, seed products/banners/posts/media, create admin, enable leaked password protection, set env on VPS, document in DEPLOY.md, add a smoke check that the catalogue comes from DB.",
+    "effort": "M",
+    "regressionRisk": "medium",
+    "status": "pending-user",
+    "statusNote": "prod Supabase + VPS env"
+  },
+  {
+    "id": "ECO-003",
+    "severity": "P1",
+    "area": "admin-auth",
+    "title": "Infinite redirect loop for signed-in non-staff (e.g. removed employee)",
+    "route": "/admin, /admin/login",
+    "files": [
+      "src/lib/admin/auth.ts",
+      "src/proxy.ts"
+    ],
+    "problem": "requireStaff redirects to /admin/login?denied=1 (auth.ts:32); proxy redirects signed-in users away from /admin/login to /admin (proxy.ts:36). ERR_TOO_MANY_REDIRECTS, no way to sign out.",
+    "solution": "Do not redirect from /admin/login when denied=1; sign the session out (route handler) and show the login form with the denial message.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "dac1875 + auth.ts: DB errors no longer treated as denial"
+  },
+  {
+    "id": "ECO-004",
+    "severity": "P1",
+    "area": "cart-checkout",
+    "title": "Cart never revalidates prices/stock; qty unbounded; generic order error; pixel value from stale client total",
+    "route": "/cart, /api/order",
+    "files": [
+      "src/components/cart/cart-context.tsx",
+      "src/components/cart/cart-view.tsx",
+      "src/app/api/order/route.ts"
+    ],
+    "problem": "Price/name snapshot in localStorage is never refreshed (verified: cart shows 2 500 UAH for a 22 450 UAH item). setQty/add have no max while the server rejects qty>20. Any hidden/out-of-stock line returns invalid_items for the whole order with a generic message. Purchase/GenerateLead use client orderTotal.",
+    "solution": "Refresh lines against current catalogue by SKU on /cart and show changes; clamp qty 1..20; return offending sku from API and highlight it; use data.total for pixel events.",
+    "effort": "M",
+    "regressionRisk": "medium",
+    "status": "done",
+    "statusNote": "c0c0a0a, e0a652e"
+  },
+  {
+    "id": "ECO-005",
+    "severity": "P1",
+    "area": "search",
+    "title": "Search has no ranking, RU/translit synonyms, stemming or typo tolerance",
+    "route": "/search",
+    "files": [
+      "src/lib/catalog-filters.ts"
+    ],
+    "problem": "Token includes() AND match in catalogue order. 'фильтр','железо','соль','кросс','помпа','насос','ecosft' -> 0 results; 'картридж' lists mainline filters first; 'стандарт' returns 48 with FP mechanical filters first; empty state offers nothing.",
+    "solution": "Weighted scoring (SKU exact > name prefix > name > line/type > facets), RU->UA and Latin<->Cyrillic synonym map, stem prefix match, Damerau-Levenshtein<=1 for tokens>=5, empty state with categories/hits, unit tests on a query list.",
+    "effort": "M",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "adbc7a8"
+  },
+  {
+    "id": "ECO-006",
+    "severity": "P1",
+    "area": "catalog-filters",
+    "title": "'Комплектація' facet ORs independent attributes",
+    "route": "/catalog/reverse-osmosis",
+    "files": [
+      "src/lib/catalog-facets.ts",
+      "src/lib/catalog-filters.ts"
+    ],
+    "problem": "kit facet (catalog-facets.ts:214) mixes tank/pump/mineraliser values; OR inside the group returns 5 products for CROSS + 'Без бака' + 'З мінералізатором' instead of 1.",
+    "solution": "Split into separate boolean facets (tank, pump, mineraliser) so groups AND together; map or drop legacy ?kit= params.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "43fc852"
+  },
+  {
+    "id": "ECO-007",
+    "severity": "P1",
+    "area": "data-attributes",
+    "title": "Product characteristics are unstructured and inconsistent; not editable in admin",
+    "route": "/catalog/[category]/[slug]",
+    "files": [
+      "src/lib/catalog-facets.ts",
+      "src/lib/products.ts",
+      "src/app/admin/(panel)/products/[id]/product-form.tsx",
+      "scripts/seed-products.mts"
+    ],
+    "problem": "287 distinct spec labels; 'Продуктивність' in 14 label variants with л/год, м3/год, л/хв and ranges in 4 formats; duplicates like °C vs °С and 'Залізо, мг/л' vs 'Вміст заліза, мг/л'; key spec 'Накопичувальний бак' shows 'без накопичувального бака'/'Без бака'/'Є'/'7 л' (catalog-facets.ts:372); 43 products without specs; no specs/attributes editor in admin.",
+    "solution": "Attribute registry {key,label,unit,type,order}; normaliser script with mismatch report; typed attributes in DB; PDP specs rendered from registry; admin attribute editor by type.",
+    "effort": "L",
+    "regressionRisk": "medium",
+    "status": "partial",
+    "statusNote": "b6ba0f4 — display normalised + audit:specs report; data cleanup and admin attribute editor pending"
+  },
+  {
+    "id": "ECO-008",
+    "severity": "P1",
+    "area": "performance-media",
+    "title": "Homepage loads ~3 MB of PNG for 125x200 promo tiles",
+    "route": "/",
+    "files": [
+      "src/components/home/sections.tsx",
+      "public/images/category-scenes-v3",
+      "public/images/page-headers"
+    ],
+    "problem": "PromoTile (sections.tsx:100-116) and the HoReCa block (:255) use raw <img> with 1.45-1.67 MB PNG originals (1672x941).",
+    "solution": "Use next/image with sizes; convert category-scenes-v3 and page-headers to WebP/AVIF <=200 KB.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "5ea6c2d"
+  },
+  {
+    "id": "ECO-009",
+    "severity": "P1",
+    "area": "performance",
+    "title": "/catalog and /search ship 0.7-0.9 MB of serialized product objects to the client",
+    "route": "/catalog, /search, /catalog/[category]",
+    "files": [
+      "src/app/catalog/page.tsx",
+      "src/app/search/page.tsx",
+      "src/app/catalog/[category]/page.tsx",
+      "src/components/catalog/catalog-view.tsx"
+    ],
+    "problem": "CatalogView ('use client') receives full Product incl. longDescription/specs/documents. /catalog 897 KB HTML + 697 KB RSC; /search 802 KB and dynamic on every request.",
+    "solution": "Map to a lean CatalogItem on the server (card + facet fields + keySpecs); make /search static or cached.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "45eed81"
+  },
+  {
+    "id": "ECO-011",
+    "severity": "P1",
+    "area": "data-layer",
+    "title": "Bundled catalogue fallback can price orders with stale data",
+    "route": "/*, /api/order",
+    "files": [
+      "src/lib/catalog.ts",
+      "src/app/api/order/route.ts"
+    ],
+    "problem": "On DB timeout/error/empty response getProducts() returns src/lib/products.ts. It already diverges (SCALEX categories); hidden products reappear; /api/order totals use the same fallback.",
+    "solution": "No fallback for /api/order (503 or flagged lead); rely on last ISR cache for storefront; alert on empty catalogue; later remove products.ts from runtime.",
+    "effort": "S",
+    "regressionRisk": "medium",
+    "status": "done",
+    "statusNote": "c0c0a0a"
+  },
+  {
+    "id": "ECO-012",
+    "severity": "P1",
+    "area": "admin-products",
+    "title": "Product editor accepts price 0 and old_price <= price; no concurrency check; no create/archive",
+    "route": "/admin/products/[id]",
+    "files": [
+      "src/app/admin/actions.ts",
+      "src/app/admin/(panel)/products/[id]/product-form.tsx"
+    ],
+    "problem": "saveProduct (actions.ts:164-214) allows price 0 (order API then accepts 0 UAH orders) and any old_price; last write wins; product create/archive/delete, category, brand, specs and documents are not supported.",
+    "solution": "Validate price>0 (or request CTA) and old_price>price; optimistic concurrency via updated_at; add create/duplicate/soft-archive in Phase 3.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "partial",
+    "statusNote": "32f9d97 — validation + concurrency; product create/archive pending"
+  },
+  {
+    "id": "ECO-010",
+    "severity": "P2",
+    "area": "error-handling",
+    "title": "No error.tsx/global-error.tsx; admin server actions throw to the default Next error screen",
+    "route": "/*, /admin/*",
+    "files": [
+      "src/app",
+      "src/app/admin/actions.ts"
+    ],
+    "problem": "updateStaffRole, removeStaff, deleteBanner, deletePost, resetPage, moveCategory, deleteCollection, updateMediaAlt throw; no error boundaries or loading states.",
+    "solution": "Add app/error.tsx, app/global-error.tsx, admin error.tsx and loading.tsx; return FormState from form actions.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "c3ffd61, 01df554"
+  },
+  {
+    "id": "ECO-013",
+    "severity": "P2",
+    "area": "admin-authorization",
+    "title": "Managers can hard-delete catalogue via REST; audit log actor is forgeable; staff changes not audited",
+    "route": "PostgREST",
+    "files": [
+      "supabase/migrations/20261005130000_hardening.sql",
+      "src/app/admin/actions.ts"
+    ],
+    "problem": "RLS grants DELETE on products/posts/pages/collections to any staff; audit_log/lead_events INSERT accepts any actor; addStaff/updateStaffRole/removeStaff/setCategoryHidden/reorders are not logged.",
+    "solution": "Restrict product DELETE to admin or use soft delete; with check (actor = auth.uid()) or trigger-based audit; log staff changes.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "partial",
+    "statusNote": "f14551c staff audit in code; RLS in migration 20261007100000 (not applied)"
+  },
+  {
+    "id": "ECO-014",
+    "severity": "P2",
+    "area": "catalog-seo",
+    "title": "Hidden category is only hidden from menus",
+    "route": "/catalog/[category], /sitemap.xml",
+    "files": [
+      "src/app/catalog/[category]/page.tsx",
+      "src/app/sitemap.ts",
+      "src/lib/catalog.ts"
+    ],
+    "problem": "Category page, its products in /catalog and search, and the sitemap URL remain when is_hidden=true.",
+    "solution": "notFound() for hidden categories, exclude their products from storefront lists, build sitemap from getStoreCategories().",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "d16f8b9"
+  },
+  {
+    "id": "ECO-015",
+    "severity": "P2",
+    "area": "catalog-url-state",
+    "title": "Filtered URLs render unfiltered on the server; price/sort/stock not in URL; no popstate",
+    "route": "/catalog/[category]?...",
+    "files": [
+      "src/components/catalog/catalog-view.tsx"
+    ],
+    "problem": "?line=CROSS SSR shows 14 then 5 after hydration (CLS); sort/price/inStock/visibleCount lost on reload; replaceState only.",
+    "solution": "Pass server searchParams as initial state; serialise sort/min/max/stock; listen to popstate.",
+    "effort": "M",
+    "regressionRisk": "medium",
+    "status": "done",
+    "statusNote": "c979b2f"
+  },
+  {
+    "id": "ECO-016",
+    "severity": "P2",
+    "area": "seo",
+    "title": "Product JSON-LD brand hardcoded to Ecosoft",
+    "route": "/catalog/[category]/[slug]",
+    "files": [
+      "src/app/catalog/[category]/[slug]/page.tsx"
+    ],
+    "problem": "BWT/Dowex/Amberlite/Calgon products get brand Ecosoft (page.tsx:185).",
+    "solution": "brand: productBrand(product).",
+    "effort": "XS",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "d16f8b9"
+  },
+  {
+    "id": "ECO-017",
+    "severity": "P2",
+    "area": "accessibility",
+    "title": "Header drawer, gallery zoom and callback modal lack focus trap / focus restore",
+    "route": "/*",
+    "files": [
+      "src/components/site/header.tsx",
+      "src/components/product/product-gallery.tsx",
+      "src/components/site/callback-button.tsx"
+    ],
+    "problem": "Tab escapes the dialogs and focus is lost on close; only the catalog filter drawer is correct.",
+    "solution": "Extract the filter drawer logic into a useDialogFocus hook and reuse it.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "6e093c7"
+  },
+  {
+    "id": "ECO-018",
+    "severity": "P2",
+    "area": "accessibility",
+    "title": "White text on primary buttons is 3.95:1 (fails WCAG AA)",
+    "route": "/*",
+    "files": [
+      "src/app/globals.css"
+    ],
+    "problem": "Купити / До кошика / Знайти / Каталог at 14px on #007FF2; 'Передзвоніть мені' 3.59:1.",
+    "solution": "Darken the button background token to ~#006BD6 (>=4.5:1).",
+    "effort": "XS",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "9c549ce"
+  },
+  {
+    "id": "ECO-019",
+    "severity": "P2",
+    "area": "security",
+    "title": "Rate limit is in-memory and trusts spoofable cf-connecting-ip",
+    "route": "/api/order, /api/callback, /api/contact",
+    "files": [
+      "src/lib/request-guard.ts",
+      "DEPLOY.md"
+    ],
+    "problem": "Origin IP is public; requests that bypass Cloudflare can set any cf-connecting-ip and evade limits, spamming the DB and Telegram.",
+    "solution": "Restrict origin to Cloudflare ranges in Nginx (real_ip_from), drop untrusted headers, add a per-phone limit.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "pending-user",
+    "statusNote": "Nginx: accept only Cloudflare"
+  },
+  {
+    "id": "ECO-020",
+    "severity": "P2",
+    "area": "admin-ux",
+    "title": "No confirmation for revoking staff; addStaff ignores password for existing users and can change own role; no unsaved-changes guard",
+    "route": "/admin/staff, /admin/*",
+    "files": [
+      "src/app/admin/(panel)/staff/page.tsx",
+      "src/app/admin/actions.ts"
+    ],
+    "problem": "'Закрити доступ' is one click; addStaff upsert bypasses the self-demotion check; forms lose edits on navigation.",
+    "solution": "Confirm dialog; distinct message and self-role guard in addStaff; useUnsavedChanges hook.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "partial",
+    "statusNote": "f14551c — confirm + own-role guard; unsaved-changes guard pending"
+  },
+  {
+    "id": "ECO-021",
+    "severity": "P2",
+    "area": "admin-media",
+    "title": "Media usage check misses page sections, post bodies and menus",
+    "route": "/admin/media",
+    "files": [
+      "src/lib/admin/media.ts"
+    ],
+    "problem": "Only top-level site_pages.content.image is inspected; files still in use can be deleted.",
+    "solution": "Recursive URL search in content jsonb and post body.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "4d9cdcb"
+  },
+  {
+    "id": "ECO-022",
+    "severity": "P2",
+    "area": "security-auth",
+    "title": "Leaked password protection disabled; no MFA for admins",
+    "route": "Supabase Auth",
+    "files": [],
+    "problem": "Supabase advisor warning on dev; prod not configured.",
+    "solution": "Enable in both projects; consider TOTP MFA for the admin role.",
+    "effort": "XS",
+    "regressionRisk": "low",
+    "status": "pending-user",
+    "statusNote": "Supabase dashboard toggle"
+  },
+  {
+    "id": "ECO-023",
+    "severity": "P2",
+    "area": "data",
+    "title": "50 products have image set but images[] empty",
+    "route": "DB",
+    "files": [
+      "supabase/migrations"
+    ],
+    "problem": "Denormalised photo data; UI compensates but feeds/CRM may diverge.",
+    "solution": "One-off update images = [image]; derive image from images[0].",
+    "effort": "XS",
+    "regressionRisk": "low",
+    "status": "pending-user",
+    "statusNote": "migration 20261007100000 written, needs applying"
+  },
+  {
+    "id": "ECO-024",
+    "severity": "P2",
+    "area": "database",
+    "title": "Integrity rules live only in code",
+    "route": "DB",
+    "files": [
+      "supabase/migrations/20261005120000_init.sql",
+      "src/app/admin/actions.ts"
+    ],
+    "problem": "products.category has no FK to categories; no CHECK old_price>price / price>0; sku nullable; reorder actions run N non-transactional updates.",
+    "solution": "Migration with FK + CHECKs + sku not null; reorder via a transactional RPC.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "pending-user",
+    "statusNote": "migration 20261007100000 written (reorder RPC not done)"
+  },
+  {
+    "id": "ECO-025",
+    "severity": "P2",
+    "area": "data-filters",
+    "title": "Low-coverage facets hide products with missing data",
+    "route": "/catalog/[category]",
+    "files": [
+      "src/lib/catalog-facets.ts"
+    ],
+    "problem": "Лінійка 12/46 (filtration-systems), Типорозмір 7/18 (mainline-filters), GPD 3/37, period 18/37, micron 19/36.",
+    "solution": "Fill data (with ECO-007) or hide facets under ~60% coverage.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "todo"
+  },
+  {
+    "id": "ECO-026",
+    "severity": "P2",
+    "area": "code-quality",
+    "title": "No generated Supabase types; 860-line actions.ts; duplicated validators",
+    "route": "-",
+    "files": [
+      "src/app/admin/actions.ts",
+      "src/lib/supabase/server.ts",
+      "src/lib/validation.ts"
+    ],
+    "problem": "Untyped queries, 'as unknown as' casts (actions.ts:130, collections/page.tsx:15), email regex in 3 places, two transliteration helpers.",
+    "solution": "supabase gen types + Database generic; split actions by domain; shared validators.",
+    "effort": "M",
+    "regressionRisk": "low",
+    "status": "todo"
+  },
+  {
+    "id": "ECO-027",
+    "severity": "P3",
+    "area": "seo",
+    "title": "404 page uses the homepage title",
+    "route": "/404",
+    "files": [
+      "src/app/not-found.tsx"
+    ],
+    "problem": "Unknown URLs render the default site title.",
+    "solution": "Add metadata title 'Сторінку не знайдено'.",
+    "effort": "XS",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "c3ffd61"
+  },
+  {
+    "id": "ECO-028",
+    "severity": "P3",
+    "area": "content",
+    "title": "'Проточні фільтри' is a top-level category with a single product",
+    "route": "/catalog/flow-filters",
+    "files": [
+      "supabase/migrations/20261006140000_categories.sql"
+    ],
+    "problem": "A prominent nav item and homepage promo tile lead to one product.",
+    "solution": "Merge or populate.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "todo"
+  },
+  {
+    "id": "ECO-029",
+    "severity": "P3",
+    "area": "ux",
+    "title": "Header phone shown unformatted (+380504478676)",
+    "route": "/*",
+    "files": [
+      "src/components/site/header.tsx"
+    ],
+    "problem": "Hard to read.",
+    "solution": "Format via toPhoneContacts.",
+    "effort": "XS",
+    "regressionRisk": "low",
+    "status": "wontfix",
+    "statusNote": "phone shown exactly as entered in admin (commit 0966a20 intent)"
+  },
+  {
+    "id": "ECO-030",
+    "severity": "P3",
+    "area": "performance",
+    "title": "First PDP thumbnail requests w=384 for a 78px slot",
+    "route": "/catalog/[category]/[slug]",
+    "files": [
+      "src/components/product/product-gallery.tsx"
+    ],
+    "problem": "Inconsistent sizes between thumbnails.",
+    "solution": "Use sizes='80px' for all thumbnails.",
+    "effort": "XS",
+    "regressionRisk": "low",
+    "status": "no-change",
+    "statusNote": "thumbnails already sizes=80px"
+  },
+  {
+    "id": "ECO-031",
+    "severity": "P3",
+    "area": "admin-tables",
+    "title": "Admin products limited to 500 rows without pagination; customers aggregate 5000 leads in memory",
+    "route": "/admin/products, /admin/customers",
+    "files": [
+      "src/app/admin/(panel)/products/page.tsx",
+      "src/lib/admin/customers.ts"
+    ],
+    "problem": "Will silently truncate as data grows; no bulk actions.",
+    "solution": "Server pagination via range(); bulk price/stock actions later.",
+    "effort": "S",
+    "regressionRisk": "low",
+    "status": "todo"
+  },
+  {
+    "id": "ECO-032",
+    "severity": "P3",
+    "area": "catalog",
+    "title": "Price facet shows Infinity on an empty product set",
+    "route": "/catalog/[category]",
+    "files": [
+      "src/components/catalog/catalog-view.tsx"
+    ],
+    "problem": "Math.min()/max() of [] at catalog-view.tsx:202-203.",
+    "solution": "Guard products.length.",
+    "effort": "XS",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "ebe3025"
+  },
+  {
+    "id": "ECO-033",
+    "severity": "P3",
+    "area": "admin",
+    "title": "Ad scripts rendered in admin (blocked by CSP, noisy console)",
+    "route": "/admin/*",
+    "files": [
+      "src/app/layout.tsx"
+    ],
+    "problem": "Pixel/GTM tags are emitted and then blocked.",
+    "solution": "Move the storefront into a route group layout that renders tracking; keep the admin layout clean.",
+    "effort": "S",
+    "regressionRisk": "medium",
+    "status": "todo"
+  },
+  {
+    "id": "ECO-034",
+    "severity": "P3",
+    "area": "ux",
+    "title": "Callback modal refocuses phone input when parent re-renders",
+    "route": "/*",
+    "files": [
+      "src/components/site/callback-button.tsx"
+    ],
+    "problem": "onClose in effect deps (callback-button.tsx:79).",
+    "solution": "useEffectEvent or a ref for onClose.",
+    "effort": "XS",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "6e093c7"
+  },
+  {
+    "id": "ECO-035",
+    "severity": "P3",
+    "area": "docs",
+    "title": "README is the create-next-app template",
+    "route": "-",
+    "files": [
+      "README.md"
+    ],
+    "problem": "No env/Supabase/admin documentation.",
+    "solution": "Short README with env table and local setup.",
+    "effort": "XS",
+    "regressionRisk": "low",
+    "status": "done",
+    "statusNote": "README"
+  }
 ]
