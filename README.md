@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# sofiivkawater.com — партнерський магазин Ecosoft
 
-## Getting Started
+Next.js 16 (App Router) + Supabase (каталог, заявки, адмінка `/admin`). Деплой на VPS — див. [DEPLOY.md](DEPLOY.md).
 
-First, run the development server:
+## Локальний запуск
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Без змінних Supabase сайт працює на вбудованому каталозі (`src/lib/products.ts`), адмінка недоступна, заявки йдуть лише в Telegram.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Змінні оточення (`.env.local`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Змінна | Де потрібна | Опис |
+|---|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | сайт, адмінка | URL проєкту Supabase |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | сайт, адмінка | публічний ключ (RLS дозволяє анонімам лише читання каталогу) |
+| `SUPABASE_SECRET_KEY` | сервер | збереження заявок у БД, додавання працівників. Лише на сервері |
+| `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | сервер | сповіщення про заявки |
+| `CRM_API_URL`, `CRM_INTAKE_TOKEN` | сервер | стара зовнішня CRM (поки підключена) |
+| `META_PIXEL_ID`, `META_CAPI_ACCESS_TOKEN`, `GA4_MEASUREMENT_ID`, `GA4_API_SECRET` | сервер | серверні конверсії (Meta CAPI, GA4 Measurement Protocol) |
+| `NEXT_PUBLIC_DISABLE_TRACKING=1` | dev/preview | вимикає Meta Pixel і GTM |
 
-## Learn More
+## База даних
 
-To learn more about Next.js, take a look at the following resources:
+- Міграції: `supabase/migrations/` — застосовувати по порядку (Supabase CLI або SQL editor).
+- Товари: `node scripts/seed-products.mts <env-file>` (потрібні `NEXT_PUBLIC_SUPABASE_URL` і `SUPABASE_SECRET_KEY`).
+- Перший адміністратор: створити користувача в Supabase Auth і додати рядок у `public.admin_users` з `role = 'admin'`; далі працівників додають у `/admin/staff`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Скрипти
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Команда | Що робить |
+|---|---|
+| `npm run build` | перевірка каталогу (`verify:catalog`) + production-збірка |
+| `npm run lint` | ESLint |
+| `npm run audit:specs` | звіт про неконсистентні характеристики товарів |
+| `npm run audit:product-images`, `audit:documents`, `audit:site` | перевірки фото, документів і сайту |
 
-## Deploy on Vercel
+## Аудит
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Повний аудит і план виправлень: [AUDIT_ECOSOFT_FULL.md](AUDIT_ECOSOFT_FULL.md), машиночитний беклог — [AUDIT_BACKLOG.json](AUDIT_BACKLOG.json).
