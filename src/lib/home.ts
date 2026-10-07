@@ -88,7 +88,7 @@ function fromBanner(b: Banner): HomeSlide {
 
 /** Art for the two homepage promo tiles (3:2, subject on the right); replace the files to change them. */
 const CARTRIDGES_TILE_IMAGE = "/images/home/cartridges-tile-v2.webp";
-const PROMO_TILE_IMAGE = "/images/home/promo-tile.png";
+const PROMO_TILE_IMAGE = "/images/home/promo-tile-v2.webp";
 
 function pluralUk(n: number, [one, few, many]: [string, string, string]): string {
   const m10 = n % 10;
