@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Home, Search } from "lucide-react";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
+
+export const metadata: Metadata = {
+  title: "Сторінку не знайдено",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (
