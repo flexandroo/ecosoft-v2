@@ -34,6 +34,13 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(url);
   }
   if (signedIn && isLogin) {
+    // requireStaff() sends signed-in accounts without staff access here with
+    // ?denied=1. Bouncing them back to /admin would loop forever, so end the
+    // session instead and let the login page explain why.
+    if (request.nextUrl.searchParams.has("denied")) {
+      await supabase.auth.signOut({ scope: "local" });
+      return response;
+    }
     return NextResponse.redirect(new URL("/admin", request.url));
   }
   return response;
