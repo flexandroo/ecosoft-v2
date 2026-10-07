@@ -12,6 +12,7 @@ import {
   ArrowLeft,
   Check,
   Phone,
+  Info,
 } from "lucide-react";
 import { MAX_LINE_QTY, useCart, type CartLine } from "./cart-context";
 import { formatUah } from "@/lib/format";
@@ -41,7 +42,27 @@ function toGA4Items(lines: CartLine[]) {
 
 export function CartView() {
   const PHONE_CONTACTS = toPhoneContacts(useSiteSettings().phones);
-  const { lines, total, count, hydrated, setQty, remove, clear } = useCart();
+  const { lines, total, count, hydrated, setQty, remove, clear, syncPrices } = useCart();
+  const catalog = useLiveCatalog(hydrated && lines.length > 0);
+  // Lines the live catalogue no longer sells (hidden, out of stock, unknown SKU).
+  const unavailable = new Set(
+    catalog ? lines.filter((l) => !isOrderable(catalog.get(l.sku ?? ""))).map((l) => l.slug) : [],
+  );
+  const [repriced, setRepriced] = useState<string[]>([]);
+
+  // Prices in the cart are a snapshot from when the item was added: bring them
+  // up to date so the customer sees what the order will actually cost.
+  useEffect(() => {
+    if (!catalog) return;
+    const changed = lines.filter((l) => {
+      const live = catalog.get(l.sku ?? "");
+      return isOrderable(live) && live.price !== l.price;
+    });
+    if (!changed.length) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setRepriced(changed.map((l) => catalog.get(l.sku ?? "")?.name ?? l.name));
+    syncPrices(catalog);
+  }, [catalog, lines, syncPrices]);
   const [placed, setPlaced] = useState(false);
   const [orderId, setOrderId] = useState<string | null>(null);
   const [name, setName] = useState("");
@@ -67,7 +88,7 @@ export function CartView() {
 
   async function handlePlaceOrder(e: React.FormEvent) {
     e.preventDefault();
-    if (submitting || !contactValid) return;
+    if (submitting || !contactValid || unavailable.size > 0) return;
 
     // Snapshot the order before the cart is cleared.
     const items = toGA4Items(lines);
@@ -229,6 +250,16 @@ export function CartView() {
             </button>
           </div>
 
+          {(repriced.length > 0 || unavailable.size > 0) && (
+            <div role="status" className="mb-3 flex gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2.5 text-sm text-amber-900">
+              <Info className="mt-0.5 size-4 shrink-0" aria-hidden />
+              <div className="space-y-1">
+                {repriced.length > 0 && <p>Ціни оновлено за актуальним каталогом: {repriced.join(", ")}.</p>}
+                {unavailable.size > 0 && <p>Деякі товари зараз недоступні — приберіть їх із кошика, щоб оформити замовлення.</p>}
+              </div>
+            </div>
+          )}
+
           <ul className="space-y-3">
             {lines.map((l) => (
               <li
@@ -256,6 +287,9 @@ export function CartView() {
                   <div className="mt-1 text-sm text-muted-foreground tabular">
                     {formatUah(l.price)}
                   </div>
+                  {unavailable.has(l.slug) && (
+                    <p className="mt-1 text-xs font-semibold text-destructive">Немає в наявності — приберіть з кошика</p>
+                  )}
 
                   <div className="mt-auto flex items-center justify-between gap-3 pt-3">
                     <QtyStepper
@@ -398,6 +432,11 @@ export function CartView() {
                 />
               </div>
 
+              {unavailable.size > 0 && !error && (
+                <p className="rounded-lg bg-destructive/10 px-3 py-2 text-xs font-medium text-destructive">
+                  У кошику є недоступні товари.
+                </p>
+              )}
               {error && (
                 <p role="alert" aria-live="assertive" className="rounded-lg bg-destructive/10 px-3 py-2 text-xs font-medium text-destructive">
                   {error}
@@ -406,7 +445,7 @@ export function CartView() {
 
               <button
                 type="submit"
-                disabled={submitting || !contactValid}
+                disabled={submitting || !contactValid || unavailable.size > 0}
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {submitting ? "Надсилаємо…" : "Оформити замовлення"}
@@ -468,6 +507,31 @@ function QtyStepper({
       </button>
     </div>
   );
+}
+
+type LiveProduct = { name: string; price: number; inStock: boolean };
+
+function isOrderable(item: LiveProduct | undefined): item is LiveProduct {
+  return Boolean(item && item.inStock && item.price > 0);
+}
+
+/** Current names, prices and stock by SKU from /api/catalog; null until loaded or on failure. */
+function useLiveCatalog(enabled: boolean): Map<string, LiveProduct> | null {
+  const [catalog, setCatalog] = useState<Map<string, LiveProduct> | null>(null);
+  useEffect(() => {
+    if (!enabled || catalog) return;
+    const controller = new AbortController();
+    fetch("/api/catalog", { signal: controller.signal })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: { products?: (LiveProduct & { sku: string })[] } | null) => {
+        if (!data?.products?.length) return;
+        setCatalog(new Map(data.products.filter((p) => p.sku).map((p) => [p.sku, { name: p.name, price: p.price, inStock: p.inStock }])));
+      })
+      // Offline or blocked: keep the stored snapshot; the order API still validates every line.
+      .catch(() => {});
+    return () => controller.abort();
+  }, [enabled, catalog]);
+  return catalog;
 }
 
 function orderErrorMessage(code?: string, itemName?: string): string {

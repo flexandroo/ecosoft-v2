@@ -143,11 +143,25 @@ export function useCart() {
 
   const clear = useCallback(() => update(() => EMPTY), []);
 
+  /** Overwrite stored prices/names with the live catalogue values (keyed by SKU). */
+  const syncPrices = useCallback((live: Map<string, { name: string; price: number }>) => {
+    update((prev) => {
+      let changed = false;
+      const next = prev.map((l) => {
+        const item = l.sku ? live.get(l.sku) : undefined;
+        if (!item || (item.price === l.price && item.name === l.name)) return l;
+        changed = true;
+        return { ...l, price: item.price, name: item.name };
+      });
+      return changed ? next : prev;
+    });
+  }, []);
+
   const count = useMemo(() => lines.reduce((s, l) => s + l.qty, 0), [lines]);
   const total = useMemo(
     () => lines.reduce((s, l) => s + l.price * l.qty, 0),
     [lines],
   );
 
-  return { lines, count, total, hydrated, add, remove, setQty, clear };
+  return { lines, count, total, hydrated, add, remove, setQty, clear, syncPrices };
 }
