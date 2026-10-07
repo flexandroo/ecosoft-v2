@@ -44,13 +44,11 @@ export async function moveCategory(key: string, direction: "up" | "down") {
   const i = rows.findIndex((r) => r.key === key);
   const j = direction === "up" ? i - 1 : i + 1;
   if (i < 0 || j < 0 || j >= rows.length) return;
-  // Re-number everything so equal sort values can never block a move.
+  // Re-number everything (in one statement) so equal sort values can never block a move.
   const ordered = [...rows];
   [ordered[i], ordered[j]] = [ordered[j], ordered[i]];
-  for (const [index, row] of ordered.entries()) {
-    const sort = (index + 1) * 10;
-    if (row.sort !== sort) await supabase.from("categories").update({ sort }).eq("key", row.key);
-  }
+  const { error: reorderError } = await supabase.rpc("reorder_categories", { keys: ordered.map((r) => r.key) });
+  if (reorderError) throw new Error(reorderError.message);
   updateTag(CATEGORIES_TAG);
   revalidatePath("/admin/categories");
 }

@@ -16,22 +16,26 @@ const VIEWS = [
   { id: "hidden", label: "Приховані" },
 ] as const;
 
+const PAGE_SIZE = 100;
+
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; category?: string; view?: string }>;
+  searchParams: Promise<{ q?: string; category?: string; view?: string; page?: string }>;
 }) {
   const params = await searchParams;
   const q = (params.q ?? "").trim().slice(0, 100);
   const category = CATEGORIES.some((c) => c.key === params.category) ? params.category! : "";
   const view = VIEWS.some((v) => v.id === params.view) ? params.view! : "";
+  const page = Math.max(1, Math.trunc(Number(params.page)) || 1);
 
   const supabase = await createSessionClient();
   let query = supabase
     .from("products")
-    .select("id, slug, sku, category, name, price, old_price, in_stock, image, is_hidden")
+    .select("id, slug, sku, category, name, price, old_price, in_stock, image, is_hidden", { count: "exact" })
     .order("sort")
-    .limit(500);
+    .order("name")
+    .range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1);
   if (category) query = query.eq("category", category);
   if (view === "sale") query = query.not("old_price", "is", null);
   if (view === "out") query = query.eq("in_stock", false);
@@ -40,14 +44,17 @@ export default async function ProductsPage({
     const safe = q.replace(/[%,()*]/g, " ");
     query = query.or(`name.ilike.%${safe}%,sku.ilike.%${safe}%`);
   }
-  const { data: products, error } = await query;
+  const { data: products, error, count } = await query;
+  const total = count ?? products?.length ?? 0;
+  const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const categoryTitle = new Map(CATEGORIES.map((c) => [c.key, c.short]));
 
-  const viewLink = (id: string) => {
+  const viewLink = (id: string, toPage = 1) => {
     const next = new URLSearchParams();
     if (q) next.set("q", q);
     if (category) next.set("category", category);
     if (id) next.set("view", id);
+    if (toPage > 1) next.set("page", String(toPage));
     const s = next.toString();
     return s ? `/admin/products?${s}` : "/admin/products";
   };
@@ -56,7 +63,7 @@ export default async function ProductsPage({
     <>
       <PageTitle
         title="Товари"
-        subtitle={`${products?.length ?? 0} позицій`}
+        subtitle={`${total} позицій`}
         actions={
           <Link
             href="/admin/products/new"
@@ -154,6 +161,27 @@ export default async function ProductsPage({
           </tbody>
         </table>
       </Card>
+      {pages > 1 && (
+        <nav aria-label="Сторінки" className="mt-4 flex items-center justify-center gap-3 text-sm">
+          {page > 1 ? (
+            <Link href={viewLink(view, page - 1)} className="rounded-lg border bg-background px-3 py-1.5 hover:bg-muted">
+              ← Попередня
+            </Link>
+          ) : (
+            <span className="rounded-lg border px-3 py-1.5 text-muted-foreground opacity-50">← Попередня</span>
+          )}
+          <span className="text-muted-foreground">
+            Сторінка {page} з {pages}
+          </span>
+          {page < pages ? (
+            <Link href={viewLink(view, page + 1)} className="rounded-lg border bg-background px-3 py-1.5 hover:bg-muted">
+              Наступна →
+            </Link>
+          ) : (
+            <span className="rounded-lg border px-3 py-1.5 text-muted-foreground opacity-50">Наступна →</span>
+          )}
+        </nav>
+      )}
     </>
   );
 }

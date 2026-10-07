@@ -194,7 +194,11 @@ export type Database = {
       };
     };
     Views: { [_ in never]: never };
-    Functions: { [_ in never]: never };
+    Functions: {
+      reorder_categories: { Args: { keys: string[] }; Returns: undefined };
+      reorder_collections: { Args: { ids: string[] }; Returns: undefined };
+      reorder_collection_items: { Args: { collection: string; product_ids: string[] }; Returns: undefined };
+    };
     Enums: { [_ in never]: never };
     CompositeTypes: { [_ in never]: never };
   };

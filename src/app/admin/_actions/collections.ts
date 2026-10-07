@@ -81,17 +81,6 @@ export async function deleteCollection(fd: FormData) {
   redirect("/admin/collections");
 }
 
-async function renumber(table: "collections" | "collection_items", rows: { sort: number; match: Record<string, string> }[]) {
-  const supabase = await createSessionClient();
-  for (const [index, row] of rows.entries()) {
-    const sort = (index + 1) * 10;
-    if (row.sort === sort) continue;
-    let query = supabase.from(table).update({ sort });
-    for (const [column, value] of Object.entries(row.match)) query = query.eq(column, value);
-    const { error } = await query;
-    if (error) throw new Error(error.message);
-  }
-}
 
 export async function moveCollection(id: string, direction: "up" | "down") {
   await requireStaff();
@@ -102,7 +91,8 @@ export async function moveCollection(id: string, direction: "up" | "down") {
   const j = direction === "up" ? i - 1 : i + 1;
   if (i < 0 || j < 0 || j >= list.length) return;
   [list[i], list[j]] = [list[j], list[i]];
-  await renumber("collections", list.map((r) => ({ sort: r.sort, match: { id: r.id } })));
+  const { error } = await supabase.rpc("reorder_collections", { ids: list.map((r) => r.id) });
+  if (error) throw new Error(error.message);
   collectionsChanged();
 }
 
@@ -147,9 +137,10 @@ export async function moveCollectionItem(collectionId: string, productId: string
   const j = direction === "up" ? i - 1 : i + 1;
   if (i < 0 || j < 0 || j >= list.length) return;
   [list[i], list[j]] = [list[j], list[i]];
-  await renumber(
-    "collection_items",
-    list.map((r) => ({ sort: r.sort, match: { collection_id: collectionId, product_id: r.product_id } })),
-  );
+  const { error } = await supabase.rpc("reorder_collection_items", {
+    collection: collectionId,
+    product_ids: list.map((r) => r.product_id),
+  });
+  if (error) throw new Error(error.message);
   collectionsChanged(collectionId);
 }
