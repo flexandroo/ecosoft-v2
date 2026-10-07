@@ -24,8 +24,10 @@ export function MetaPageViewTracker() {
 
     if (previousUrl.current === urlKey) return;
     previousUrl.current = urlKey;
+    // Staff activity in the admin is never sent to ad platforms.
+    if (pathname.startsWith("/admin")) return;
     trackMetaPageView();
-  }, [urlKey]);
+  }, [urlKey, pathname]);
 
   return null;
 }

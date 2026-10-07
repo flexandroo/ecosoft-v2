@@ -74,6 +74,7 @@ export default async function RootLayout({
         {/* Meta Pixel: direct base integration, independent from GTM timing. */}
         <Script id="meta-pixel-base" strategy="beforeInteractive">
           {`(function(w,d,s,u,id){
+if(w.location.pathname.indexOf('/admin')===0)return;
 if(!w.fbq){
   var q=w.fbq=function(){
     var a=Array.prototype.slice.call(arguments),cmd=a[0],name=a[1],now=Date.now();
@@ -101,7 +102,7 @@ w.fbq('init',id);w.fbq('track','PageView');
         </Script>
         {/* Google Tag Manager */}
         <Script id="gtm-base" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          {`(function(w,d,s,l,i){if(w.location.pathname.indexOf('/admin')===0)return;w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
