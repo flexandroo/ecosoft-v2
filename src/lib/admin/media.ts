@@ -9,7 +9,7 @@ export async function mediaUsage(supabase: SupabaseClient): Promise<Map<string, 
     supabase.from("products").select("id, name, image, images"),
     supabase.from("banners").select("id, title, image_desktop, image_mobile"),
     supabase.from("categories").select("key, title, image"),
-    supabase.from("posts").select("id, title, cover_image, gallery"),
+    supabase.from("posts").select("id, title, cover_image, gallery, body"),
     supabase.from("site_pages").select("key, content"),
   ]);
   const usage = new Map<string, MediaUsage[]>();
@@ -36,10 +36,26 @@ export async function mediaUsage(supabase: SupabaseClient): Promise<Map<string, 
     const entry: MediaUsage = { kind: "post", title: p.title, href: `/admin/blog/${p.id}` };
     add(p.cover_image, entry);
     for (const url of Array.isArray(p.gallery) ? (p.gallery as string[]) : []) add(url, entry);
+    for (const url of urlsInText(p.body)) add(url, entry);
   }
   for (const p of pages.data ?? []) {
-    const content = (p.content ?? {}) as { title?: string; image?: string };
-    add(content.image, { kind: "page", title: content.title ?? p.key, href: `/admin/pages/${p.key}` });
+    // Page images live in the header and inside any section, so walk the whole document.
+    const content = (p.content ?? {}) as { title?: string };
+    const entry: MediaUsage = { kind: "page", title: content.title ?? p.key, href: `/admin/pages/${p.key}` };
+    for (const value of stringsIn(p.content)) add(value, entry);
   }
   return usage;
+}
+
+/** Every string anywhere inside a JSON value. */
+function stringsIn(value: unknown, out: string[] = []): string[] {
+  if (typeof value === "string") out.push(value);
+  else if (Array.isArray(value)) for (const item of value) stringsIn(item, out);
+  else if (value && typeof value === "object") for (const item of Object.values(value)) stringsIn(item, out);
+  return out;
+}
+
+/** URLs mentioned in free text, e.g. a photo link pasted into a post body. */
+function urlsInText(text: unknown): string[] {
+  return typeof text === "string" ? (text.match(/https?:\/\/[^\s)"'\]]+/g) ?? []) : [];
 }
