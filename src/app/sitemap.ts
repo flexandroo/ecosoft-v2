@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { CATEGORIES } from "@/lib/products";
-import { getProducts } from "@/lib/catalog";
+import { getListedProducts } from "@/lib/catalog";
+import { getStoreCategories } from "@/lib/categories";
 import { getPosts } from "@/lib/posts";
 import { SOLUTIONS } from "@/lib/solutions";
 import { getProductImagePath } from "@/lib/product-identity";
@@ -20,13 +20,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/privacy`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  const categoryPages: MetadataRoute.Sitemap = CATEGORIES.map((category) => ({
-    url: `${SITE_URL}/catalog/${category.key}`,
-    changeFrequency: "daily",
-    priority: 0.8,
-  }));
+  const categoryPages: MetadataRoute.Sitemap = (await getStoreCategories())
+    .filter((category) => !category.hidden)
+    .map((category) => ({
+      url: `${SITE_URL}/catalog/${category.key}`,
+      changeFrequency: "daily",
+      priority: 0.8,
+    }));
 
-  const productPages: MetadataRoute.Sitemap = (await getProducts()).map((product) => ({
+  const productPages: MetadataRoute.Sitemap = (await getListedProducts()).map((product) => ({
     url: `${SITE_URL}/catalog/${product.category}/${product.slug}`,
     changeFrequency: "weekly",
     priority: 0.7,

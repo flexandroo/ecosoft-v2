@@ -10,6 +10,7 @@ import { getProduct, getProducts } from "@/lib/catalog";
 import { getSiteSettings } from "@/lib/settings";
 import { toPhoneContacts } from "@/lib/settings-shared";
 import { getStoreCategory } from "@/lib/categories";
+import { productBrand } from "@/lib/catalog-facets";
 
 type Params = { category: string; slug: string };
 
@@ -50,6 +51,7 @@ export default async function ProductPage({
   if (!product) notFound();
   const [allProducts, settings] = await Promise.all([getProducts(), getSiteSettings()]);
   const cat = (await getStoreCategory(category))!;
+  const brand = productBrand(product);
   const url = `https://sofiivkawater.com/catalog/${category}/${slug}`;
   const image = `https://sofiivkawater.com${getProductImagePath(product)}`;
 
@@ -65,7 +67,7 @@ export default async function ProductPage({
             description: product.description,
             image: [image],
             sku: product.sku,
-            brand: { "@type": "Brand", name: "Ecosoft" },
+            ...(brand ? { brand: { "@type": "Brand", name: brand } } : {}),
             offers: {
               "@type": "Offer",
               url,

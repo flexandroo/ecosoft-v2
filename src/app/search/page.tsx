@@ -3,7 +3,7 @@ import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { PageHeader } from "@/components/site/page-header";
 import { CatalogView } from "@/components/catalog/catalog-view";
-import { getProducts } from "@/lib/catalog";
+import { getListedProducts } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "Пошук товарів",
@@ -28,7 +28,7 @@ export default async function SearchPage({
           subtitle="Шукайте за назвою, моделлю, SKU або призначенням фільтра."
           crumbs={[{ href: "/", label: "Головна" }, { label: "Пошук" }]}
         />
-        <CatalogView products={await getProducts()} initialQuery={q.slice(0, 100)} searchMode />
+        <CatalogView products={await getListedProducts()} initialQuery={q.slice(0, 100)} searchMode />
       </main>
       <Footer />
     </>

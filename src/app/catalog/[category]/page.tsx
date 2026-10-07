@@ -22,7 +22,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { category } = await params;
   const cat = await getStoreCategory(category);
-  if (!cat) return {};
+  if (!cat || cat.hidden) return {};
   const title = cat.seoTitle || cat.title;
   const description =
     cat.metaDescription || `${cat.title} — каталог Ecosoft. Доставка по Україні, гарантія, монтаж під ключ.`;
@@ -46,7 +46,7 @@ export default async function CategoryCatalogPage({
 }) {
   const { category } = await params;
   const cat = await getStoreCategory(category);
-  if (!cat) notFound();
+  if (!cat || cat.hidden) notFound();
   const products = await getProductsByCategory(category as CategoryKey);
 
   return (

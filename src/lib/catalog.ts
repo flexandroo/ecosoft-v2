@@ -7,6 +7,7 @@ import {
   type Product,
   type ProductDetails,
 } from "@/lib/products";
+import { getStoreCategories } from "@/lib/categories";
 import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL, supabaseConfigured } from "@/lib/supabase/env";
 
 /** Cache tag shared by every catalogue read; the admin revalidates it on save. */
@@ -101,6 +102,17 @@ export async function getProductsForCheckout(): Promise<StoreProduct[]> {
   const products = await fetchProductsFromDb();
   if (products.length === 0) throw new Error("catalog is empty");
   return products;
+}
+
+/**
+ * Products shown in listings (catalogue, search, sitemap): those of categories
+ * hidden in the admin are left out. Their product pages stay reachable so
+ * links already shared or used in ads keep working.
+ */
+export async function getListedProducts(): Promise<StoreProduct[]> {
+  const [products, categories] = await Promise.all([getProducts(), getStoreCategories()]);
+  const hidden = new Set(categories.filter((c) => c.hidden).map((c) => c.key));
+  return hidden.size ? products.filter((p) => !hidden.has(p.category)) : products;
 }
 
 export async function getProductsByCategory(key: CategoryKey): Promise<StoreProduct[]> {
