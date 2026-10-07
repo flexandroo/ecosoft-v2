@@ -59,6 +59,7 @@ export default async function ProductEditPage({ params }: { params: Promise<{ id
           images: (product.images as string[] | null)?.length ? (product.images as string[]) : product.image ? [product.image] : [],
           is_hidden: product.is_hidden,
           sort: product.sort,
+          updated_at: product.updated_at,
         }}
         collections={(collections ?? []).map((c) => ({
           id: c.id,

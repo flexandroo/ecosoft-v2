@@ -172,6 +172,14 @@ export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormS
   if (!name) return { error: "Вкажіть назву." };
   if (price === null || Number.isNaN(price)) return { error: "Некоректна ціна." };
   if (Number.isNaN(oldPrice)) return { error: "Некоректна стара ціна." };
+  const ctaType = str(fd, "cta_type", 20) === "request" ? "request" : "buy";
+  // The order API charges exactly this price, so a "buy" product can never be free.
+  if (price <= 0 && ctaType === "buy") {
+    return { error: "Ціна має бути більшою за 0 (або оберіть кнопку «Запит ціни»)." };
+  }
+  if (oldPrice !== null && oldPrice <= price) {
+    return { error: "Стара ціна має бути більшою за нову — інакше залиште поле порожнім." };
+  }
 
   const images = str(fd, "images", 20000)
     .split(/\r?\n/)
@@ -185,7 +193,7 @@ export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormS
     price,
     old_price: oldPrice,
     in_stock: fd.get("in_stock") === "on",
-    cta_type: str(fd, "cta_type", 20) === "request" ? "request" : "buy",
+    cta_type: ctaType,
     description: str(fd, "description", 5000),
     image: images[0] ?? null,
     images,
@@ -195,6 +203,11 @@ export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormS
 
   const { data: before } = await supabase.from("products").select("*").eq("id", id).single();
   if (!before) return { error: "Товар не знайдено." };
+  // Optimistic concurrency: refuse to overwrite edits saved after this form was opened.
+  const loadedAt = str(fd, "updated_at", 64);
+  if (loadedAt && new Date(loadedAt).getTime() !== new Date(before.updated_at).getTime()) {
+    return { error: "Товар щойно змінив хтось інший. Оновіть сторінку, щоб побачити актуальні дані, і внесіть зміни ще раз." };
+  }
   const { error } = await supabase.from("products").update(changes).eq("id", id);
   if (error) return { error: `Не вдалося зберегти: ${error.message}` };
 
@@ -210,6 +223,7 @@ export async function saveProduct(_prev: FormState, fd: FormData): Promise<FormS
 
   updateTag(CATALOG_TAG);
   revalidatePath("/admin/products");
+  revalidatePath(`/admin/products/${id}`);
   return { ok: "Збережено. На сайті оновиться протягом хвилини." };
 }
 
@@ -227,6 +241,7 @@ export async function setProductFlag(id: string, field: "in_stock" | "is_hidden"
   });
   updateTag(CATALOG_TAG);
   revalidatePath("/admin/products");
+  revalidatePath(`/admin/products/${id}`);
 }
 
 // ---------------------------------------------------------------------------

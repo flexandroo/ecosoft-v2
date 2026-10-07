@@ -22,6 +22,7 @@ type EditableProduct = {
   images: string[];
   is_hidden: boolean;
   sort: number;
+  updated_at: string;
 };
 
 export function ProductForm({
@@ -46,6 +47,7 @@ export function ProductForm({
   return (
     <form action={action} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
       <input type="hidden" name="id" value={product.id} />
+      <input type="hidden" name="updated_at" value={product.updated_at} />
       <input type="hidden" name="images" value={images.join("\n")} />
 
       <div className="space-y-5">
