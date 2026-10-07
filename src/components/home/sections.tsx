@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -107,12 +108,14 @@ export function PromoTile({ tile, className }: { tile: HomeSlide; className?: st
       )}
     >
       <span className="relative block aspect-[16/10] shrink-0 overflow-hidden bg-muted sm:aspect-auto sm:w-[42%]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        {/* Local art is resized by next/image; admin uploads (Supabase) are already compressed. */}
+        <Image
           src={tile.imageDesktop}
           alt=""
-          loading="lazy"
-          className="absolute inset-0 size-full object-cover object-[78%_center] transition-transform duration-300 group-hover:scale-[1.03]"
+          fill
+          sizes="(min-width: 1024px) 200px, 50vw"
+          unoptimized={/^https?:\/\//.test(tile.imageDesktop)}
+          className="object-cover object-[78%_center] transition-transform duration-300 group-hover:scale-[1.03]"
         />
       </span>
       <span className="flex min-w-0 flex-1 flex-col p-4 sm:p-5">
@@ -251,8 +254,13 @@ export function BusinessBlock({ className }: { className?: string }) {
         </Link>
       </div>
       <div className="relative min-h-[220px] bg-muted">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/category-scenes-v3/horeca.png" alt="" loading="lazy" className="absolute inset-0 size-full object-cover object-[65%_center]" />
+        <Image
+          src="/images/category-scenes-v3/horeca.png"
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover object-[65%_center]"
+        />
       </div>
     </div>
   );
