@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { requireStaff } from "@/lib/admin/auth";
 import { createSessionClient } from "@/lib/supabase/server";
 import { removeStaff, updateStaffRole } from "../../actions";
+import { ConfirmSubmitButton } from "../form-status";
 import { Card, PageTitle, formatDateTime } from "../ui";
 import { AddStaffForm } from "./add-staff-form";
 
@@ -62,9 +63,12 @@ export default async function StaffPage() {
                         {!self && (
                           <form action={removeStaff}>
                             <input type="hidden" name="user_id" value={s.user_id} />
-                            <button type="submit" className="text-xs font-medium text-rose-700 hover:underline">
+                            <ConfirmSubmitButton
+                              confirmText={`Закрити доступ до адмінки для ${s.email}?`}
+                              className="text-xs font-medium text-rose-700 hover:underline disabled:opacity-50"
+                            >
                               Закрити доступ
-                            </button>
+                            </ConfirmSubmitButton>
                           </form>
                         )}
                       </td>

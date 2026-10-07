@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { revalidatePath, updateTag } from "next/cache";
-import { requireStaff } from "@/lib/admin/auth";
+import { requireStaff, type Staff } from "@/lib/admin/auth";
 import {
   BANNER_PLACEMENTS,
   PAYMENT_METHODS,
@@ -319,8 +319,9 @@ async function requireAdmin() {
 }
 
 export async function addStaff(_prev: FormState, fd: FormData): Promise<FormState> {
+  let me: Staff;
   try {
-    await requireAdmin();
+    me = await requireAdmin();
   } catch (error) {
     return { error: (error as Error).message };
   }
@@ -335,11 +336,13 @@ export async function addStaff(_prev: FormState, fd: FormData): Promise<FormStat
   if (!service) return { error: "На сервері не задано SUPABASE_SECRET_KEY." };
 
   let userId: string | undefined;
+  let existingAccount = false;
   const created = await service.auth.admin.createUser({ email, password, email_confirm: true });
   if (created.data.user) {
     userId = created.data.user.id;
   } else if (/already|registered|exists/i.test(created.error?.message ?? "")) {
     // Existing account (e.g. re-adding a former employee): look it up and grant access again.
+    existingAccount = true;
     for (let page = 1; page <= 20 && !userId; page++) {
       const { data } = await service.auth.admin.listUsers({ page, perPage: 200 });
       userId = data.users.find((u) => u.email?.toLowerCase() === email)?.id;
@@ -347,14 +350,26 @@ export async function addStaff(_prev: FormState, fd: FormData): Promise<FormStat
     }
   }
   if (!userId) return { error: `Не вдалося створити акаунт: ${created.error?.message ?? "невідома помилка"}` };
+  if (userId === me.userId) return { error: "Це ваш власний акаунт — змінити свою роль тут не можна." };
 
   const supabase = await createSessionClient();
   const { error } = await supabase
     .from("admin_users")
     .upsert({ user_id: userId, email, name: name || email, role }, { onConflict: "user_id" });
   if (error) return { error: error.message };
+  await supabase.from("audit_log").insert({
+    actor: me.userId,
+    entity: "staff",
+    entity_id: userId,
+    action: existingAccount ? "grant" : "create",
+    diff: { email, role },
+  });
   revalidatePath("/admin/staff");
-  return { ok: `Додано ${email}. Передайте працівнику пароль особисто.` };
+  return {
+    ok: existingAccount
+      ? `Доступ надано ${email}. Акаунт уже існував, тому пароль не змінено — працівник входить зі своїм старим паролем.`
+      : `Додано ${email}. Передайте працівнику пароль особисто.`,
+  };
 }
 
 export async function updateStaffRole(fd: FormData) {
@@ -365,6 +380,7 @@ export async function updateStaffRole(fd: FormData) {
   const supabase = await createSessionClient();
   const { error } = await supabase.from("admin_users").update({ role }).eq("user_id", userId);
   if (error) throw new Error(error.message);
+  await supabase.from("audit_log").insert({ actor: me.userId, entity: "staff", entity_id: userId, action: "role", diff: { role } });
   revalidatePath("/admin/staff");
 }
 
@@ -375,6 +391,7 @@ export async function removeStaff(fd: FormData) {
   const supabase = await createSessionClient();
   const { error } = await supabase.from("admin_users").delete().eq("user_id", userId);
   if (error) throw new Error(error.message);
+  await supabase.from("audit_log").insert({ actor: me.userId, entity: "staff", entity_id: userId, action: "revoke", diff: {} });
   // Without an admin_users row every admin page and RLS policy denies access,
   // even if the person still has a valid session.
   revalidatePath("/admin/staff");
