@@ -5,6 +5,11 @@ import type { CategoryKey } from "@/lib/products";
 
 const STORAGE_KEY = "ecosoft-cart-v1";
 
+/** Most of one product per order; /api/order rejects larger quantities. */
+export const MAX_LINE_QTY = 20;
+
+const clampQty = (qty: number) => Math.min(MAX_LINE_QTY, Math.max(1, Math.floor(qty) || 1));
+
 // Denormalised snapshot stored in the cart so the client bundle does not need
 // to import the full (heavy) PRODUCTS catalogue just to render the cart.
 export type CartLine = {
@@ -38,7 +43,7 @@ function sanitize(raw: unknown): CartLine[] {
       image: typeof l.image === "string" ? l.image : undefined,
       category: l.category,
       subcategory: typeof l.subcategory === "string" ? l.subcategory : undefined,
-      qty: Math.max(1, Math.floor(Number(l.qty)) || 1),
+      qty: clampQty(Number(l.qty)),
     }));
 }
 
@@ -114,12 +119,12 @@ export function useCart() {
   );
 
   const add = useCallback((item: CartItemInput, qty = 1) => {
-    const amount = Math.max(1, Math.floor(qty) || 1);
+    const amount = clampQty(qty);
     update((prev) => {
       const i = prev.findIndex((l) => l.slug === item.slug);
       if (i === -1) return [...prev, { ...item, qty: amount }];
       const next = [...prev];
-      next[i] = { ...next[i], qty: next[i].qty + amount };
+      next[i] = { ...next[i], qty: clampQty(next[i].qty + amount) };
       return next;
     });
   }, []);
@@ -132,7 +137,7 @@ export function useCart() {
     update((prev) =>
       qty <= 0
         ? prev.filter((l) => l.slug !== slug)
-        : prev.map((l) => (l.slug === slug ? { ...l, qty: Math.floor(qty) } : l)),
+        : prev.map((l) => (l.slug === slug ? { ...l, qty: clampQty(qty) } : l)),
     );
   }, []);
 

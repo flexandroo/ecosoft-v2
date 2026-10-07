@@ -90,6 +90,19 @@ export const getProducts = cache(async (): Promise<StoreProduct[]> => {
   return PRODUCTS;
 });
 
+/**
+ * Products for pricing an order. Unlike getProducts() it never falls back to the
+ * bundled catalogue (its prices and visibility drift from the admin): when the
+ * database is configured but unreachable or empty it throws, so the order is
+ * refused instead of being charged at stale prices.
+ */
+export async function getProductsForCheckout(): Promise<StoreProduct[]> {
+  if (!supabaseConfigured()) return PRODUCTS;
+  const products = await fetchProductsFromDb();
+  if (products.length === 0) throw new Error("catalog is empty");
+  return products;
+}
+
 export async function getProductsByCategory(key: CategoryKey): Promise<StoreProduct[]> {
   return (await getProducts()).filter((p) => p.category === key);
 }

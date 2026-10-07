@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { formatUah } from "@/lib/format";
-import { getProducts } from "@/lib/catalog";
+import { getProductsForCheckout } from "@/lib/catalog";
 import { deliverLead } from "@/lib/lead-intake";
 import {
   checkRateLimit,
@@ -14,6 +14,9 @@ import { requestClientContext, type CrmAttribution } from "@/lib/crm";
 // Order submissions must run on the Node.js runtime and never be cached.
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+/** Largest quantity of one product per order; the cart enforces the same cap. */
+const MAX_LINE_QTY = 20;
 
 type OrderItem = {
   sku?: unknown;
@@ -74,15 +77,28 @@ export async function POST(req: Request) {
 
   // Resolve every line from the server catalogue. Names, prices and stock state
   // supplied by the browser are intentionally ignored.
-  const catalogue = await getProducts();
+  let catalogue;
+  try {
+    catalogue = await getProductsForCheckout();
+  } catch (error) {
+    console.error("[order] catalogue unavailable, order refused:", error);
+    return NextResponse.json({ ok: false, error: "catalog_unavailable" }, { status: 503 });
+  }
   let total = 0;
   const lines = [];
   for (const item of items) {
     const sku = cleanText(item.sku, 100);
     const product = catalogue.find((candidate) => candidate.sku === sku);
     const qty = Math.floor(Number(item.qty));
-    if (!product || !product.inStock || !Number.isInteger(qty) || qty < 1 || qty > 20) {
-      return NextResponse.json({ ok: false, error: "invalid_items" }, { status: 422 });
+    if (
+      !product ||
+      !product.inStock ||
+      !(product.price > 0) ||
+      !Number.isInteger(qty) ||
+      qty < 1 ||
+      qty > MAX_LINE_QTY
+    ) {
+      return NextResponse.json({ ok: false, error: "invalid_items", sku }, { status: 422 });
     }
     total += qty * product.price;
     lines.push({ name: product.name, sku, qty, price: product.price });

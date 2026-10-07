@@ -13,7 +13,7 @@ import {
   Check,
   Phone,
 } from "lucide-react";
-import { useCart, type CartLine } from "./cart-context";
+import { MAX_LINE_QTY, useCart, type CartLine } from "./cart-context";
 import { formatUah } from "@/lib/format";
 import { isValidUkrainianPhone } from "@/lib/validation";
 import { useSiteSettings } from "@/components/site/settings-context";
@@ -101,32 +101,36 @@ export function CartView() {
       const data = (await res.json().catch(() => ({}))) as {
         ok?: boolean;
         orderId?: string;
+        total?: number;
+        error?: string;
+        sku?: string;
       };
       if (!res.ok || !data.ok) {
-        throw new Error("order_failed");
+        const line = data.sku ? lines.find((l) => l.sku === data.sku) : undefined;
+        throw new Error(orderErrorMessage(data.error, line?.name));
       }
+      // The server prices the order from the live catalogue; report that amount to ads.
+      const confirmedTotal = typeof data.total === "number" ? data.total : orderTotal;
 
       const transactionId = data.orderId ?? identity.externalId;
       pushGenerateLead({
         leadId: transactionId,
         leadType: "order",
-        total: orderTotal,
+        total: confirmedTotal,
         items,
       });
       // There is no online payment: for Meta, Purchase means the customer has
       // successfully placed an order that the manager will confirm and invoice.
       pushPurchase({
         transactionId,
-        total: orderTotal,
+        total: confirmedTotal,
         items,
       });
       setOrderId(data.orderId ?? null);
       clear();
       setPlaced(true);
-    } catch {
-      setError(
-        "Не вдалося надіслати замовлення. Спробуйте ще раз або зателефонуйте нам.",
-      );
+    } catch (err) {
+      setError(err instanceof Error && err.message ? err.message : orderErrorMessage());
     } finally {
       setSubmitting(false);
     }
@@ -258,6 +262,7 @@ export function CartView() {
                       qty={l.qty}
                       onDec={() => setQty(l.slug, l.qty - 1)}
                       onInc={() => setQty(l.slug, l.qty + 1)}
+                      max={MAX_LINE_QTY}
                       name={l.name}
                     />
                     <div className="flex items-center gap-3">
@@ -429,11 +434,13 @@ function QtyStepper({
   qty,
   onDec,
   onInc,
+  max,
   name,
 }: {
   qty: number;
   onDec: () => void;
   onInc: () => void;
+  max: number;
   name: string;
 }) {
   return (
@@ -453,12 +460,25 @@ function QtyStepper({
         type="button"
         aria-label={`Збільшити кількість «${name}»`}
         onClick={onInc}
-        className="grid size-8 place-items-center rounded-r-lg text-foreground transition-colors hover:bg-muted active:scale-95"
+        disabled={qty >= max}
+        title={qty >= max ? `Не більше ${max} шт. в одному замовленні` : undefined}
+        className="grid size-8 place-items-center rounded-r-lg text-foreground transition-colors hover:bg-muted active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
       >
         <Plus className="size-3.5" />
       </button>
     </div>
   );
+}
+
+function orderErrorMessage(code?: string, itemName?: string): string {
+  if (code === "invalid_items") {
+    return itemName
+      ? `Товар «${itemName}» зараз недоступний для замовлення або змінився. Приберіть його з кошика чи зателефонуйте нам.`
+      : "Деякі товари в кошику зараз недоступні. Оновіть сторінку або зателефонуйте нам.";
+  }
+  if (code === "invalid_contact") return "Перевірте імʼя та номер телефону.";
+  if (code === "rate_limited") return "Забагато спроб. Зачекайте кілька хвилин або зателефонуйте нам.";
+  return "Не вдалося надіслати замовлення. Спробуйте ще раз або зателефонуйте нам.";
 }
 
 function pluralize(n: number, [one, few, many]: [string, string, string]) {

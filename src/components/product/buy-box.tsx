@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check, Copy, Minus, Plus, ShoppingCart } from "lucide-react";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
+import { MAX_LINE_QTY } from "@/components/cart/cart-context";
 import type { Product } from "@/lib/products";
 
 /** Quantity stepper + "Купити" (adds the chosen quantity to the cart). */
@@ -19,13 +20,13 @@ export function BuyBox({ product }: { product: Product }) {
           type="number"
           inputMode="numeric"
           min={1}
-          max={99}
+          max={MAX_LINE_QTY}
           value={qty}
-          onChange={(e) => setQty(Math.min(99, Math.max(1, Math.floor(Number(e.target.value)) || 1)))}
+          onChange={(e) => setQty(Math.min(MAX_LINE_QTY, Math.max(1, Math.floor(Number(e.target.value)) || 1)))}
           aria-label="Кількість, шт."
           className="h-full w-10 bg-transparent text-center text-sm font-semibold tabular outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         />
-        <button type="button" onClick={() => setQty((q) => Math.min(99, q + 1))} aria-label="Більше" className={step}>
+        <button type="button" onClick={() => setQty((q) => Math.min(MAX_LINE_QTY, q + 1))} disabled={qty >= MAX_LINE_QTY} aria-label="Більше" className={step}>
           <Plus className="size-4" />
         </button>
       </div>
