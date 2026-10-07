@@ -32,15 +32,12 @@ function roLine(p: Product): string[] {
   return uniq(f(p, "line").map((l) => (l.startsWith("Standard") ? "Standard" : l)));
 }
 
-function roKit(p: Product): string[] {
-  const tank = has(p, "systemType", "З баком");
-  const pump = has(p, "pump", "Є");
-  return uniq([
-    has(p, "mineralization", "Є") && "З мінералізатором",
-    pump ? "З помпою" : "Без помпи",
-    tank ? "З баком" : "Без бака",
-  ]);
-}
+// Tank, pump and mineraliser are independent properties: each gets its own
+// facet so that choosing several of them narrows the list (AND), instead of
+// widening it as options of one group would (OR).
+const roTank = (p: Product) => [has(p, "systemType", "З баком") ? "З баком" : "Без бака"];
+const roPump = (p: Product) => [has(p, "pump", "Є") ? "З помпою" : "Без помпи"];
+const roMineral = (p: Product) => [has(p, "mineralization", "Є") ? "З мінералізатором" : "Без мінералізатора"];
 
 function roFeatures(p: Product): string[] {
   return uniq([
@@ -211,7 +208,9 @@ const pass = (key: string) => (p: Product) => f(p, key);
 const FACETS: Record<CategoryKey, Facet[]> = {
   "reverse-osmosis": [
     { key: "line", label: "Лінійка фільтра", values: roLine, order: ["PURE", "Absolute", "Standard", "CROSS"] },
-    { key: "kit", label: "Комплектація", values: roKit },
+    { key: "tank", label: "Накопичувальний бак", values: roTank, order: ["З баком", "Без бака"] },
+    { key: "pump", label: "Помпа", values: roPump, order: ["З помпою", "Без помпи"] },
+    { key: "mineral", label: "Мінералізація", values: roMineral, order: ["З мінералізатором", "Без мінералізатора"] },
     {
       key: "stages",
       label: "Ступені очищення",
