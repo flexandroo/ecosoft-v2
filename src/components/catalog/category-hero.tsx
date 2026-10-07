@@ -55,7 +55,7 @@ export function CategoryHero({
         />
       )}
 
-      <div className="mx-auto flex max-w-[1600px] items-end justify-between gap-5 px-4 pb-6 pt-6 md:min-h-40 md:px-8 md:pb-8 md:pt-8">
+      <div className="mx-auto flex max-w-[1600px] items-end justify-between gap-5 px-4 pb-5 pt-5 md:min-h-32 md:px-8 md:pb-6 md:pt-6">
         <div className="max-w-2xl">
           <nav
             aria-label="Хлібні крихти"
@@ -72,13 +72,13 @@ export function CategoryHero({
             <span className="text-foreground">{title}</span>
           </nav>
 
-          <h1 className="mt-3 font-[family-name:var(--font-manrope)] text-2xl font-bold tracking-tight md:text-4xl">
+          <h1 className="mt-2 font-[family-name:var(--font-manrope)] text-2xl font-bold tracking-tight md:text-4xl">
             {title}
           </h1>
           <p className="mt-2 max-w-xl text-sm text-muted-foreground md:text-base">
             {subtitle}
           </p>
-          <p className="mt-3 text-xs text-muted-foreground md:text-sm">
+          <p className="mt-2 text-xs text-muted-foreground md:text-sm">
             <span className="tabular font-semibold text-foreground">{count}</span>{" "}
             {pluralize(count, ["товар", "товари", "товарів"])} у категорії
           </p>

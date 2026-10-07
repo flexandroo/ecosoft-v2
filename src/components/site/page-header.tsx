@@ -54,7 +54,7 @@ export function PageHeader({
           compact
             ? "pb-4 pt-6 md:pb-5 md:pt-8"
             : hasImage
-              ? "flex min-h-[13rem] flex-col justify-end pb-8 pt-8 md:min-h-[17rem] md:pb-10 md:pt-8"
+              ? "flex min-h-[10rem] flex-col justify-end pb-6 pt-6 md:min-h-[12rem] md:pb-7 md:pt-6"
               : "pb-10 pt-10 md:pb-12 md:pt-14"
         }`}
       >
@@ -63,7 +63,7 @@ export function PageHeader({
           className={`flex flex-wrap items-center gap-1.5 text-xs ${
             hasImage ? "text-white/75" : "text-muted-foreground"
           } ${
-            title ? "mb-4" : ""
+            title ? "mb-3" : ""
           }`}
         >
           {crumbs.map((c, i) => (
@@ -85,7 +85,7 @@ export function PageHeader({
 
         {title && (
           <h1
-            className={`max-w-4xl font-[family-name:var(--font-manrope)] text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl ${
+            className={`max-w-4xl font-[family-name:var(--font-manrope)] text-3xl font-bold tracking-tight md:text-4xl ${
               hasImage ? "text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.18)]" : ""
             }`}
           >
@@ -95,7 +95,7 @@ export function PageHeader({
 
         {subtitle && (
           <p
-            className={`mt-3 max-w-2xl text-base md:text-lg ${
+            className={`mt-2 max-w-2xl text-base md:text-lg ${
               hasImage ? "text-white/85" : "text-muted-foreground"
             }`}
           >
