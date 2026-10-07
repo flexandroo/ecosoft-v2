@@ -391,7 +391,7 @@ const KEY_SPECS: Record<CategoryKey, KeySpecDef[]> = {
     { label: "Тип корпусу", value: facetText("body") },
     { label: "Типорозмір", value: facetText("size") },
     { label: "Клапан", value: facetText("valve") },
-    { label: "Продуктивність, м³/год", value: specText(/^Продуктивність робоча(\s*\/\s*максимальна)?, м3\/год$/) },
+    { label: "Продуктивність, м³/год", value: specText(/^Продуктивність робоча(\s*\/\s*максимальна)?, м[3³]\/год$/) },
     { label: "Фільтруючий матеріал", value: facetText("media") },
   ],
   "mainline-filters": [
