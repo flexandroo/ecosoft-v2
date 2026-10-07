@@ -53,20 +53,28 @@ export function CatalogView({
   const filterDialogRef = useRef<HTMLDivElement>(null);
   const filterCloseRef = useRef<HTMLButtonElement>(null);
 
-  // Pre-fill the search and filters from the URL after hydration (shareable
-  // links such as ?q=… or ?line=PURE, used by the subcategory links).
+  // Restore search, filters, price, stock and sort from the URL after hydration
+  // (shareable links such as ?q=… or ?line=PURE, reload) and on Back/Forward.
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const q = params.get("q");
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (q) setQuery(q);
-    const fromUrl: SelectedFacets = {};
-    for (const facet of facetsForCategory(lockedCategory)) {
-      const values = params.getAll(facet.key).filter(Boolean);
-      if (values.length) fromUrl[facet.key] = values;
-    }
-    if (Object.keys(fromUrl).length) setSelected(fromUrl);
-  }, [lockedCategory]);
+    const applyUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const fromUrl: SelectedFacets = {};
+      for (const facet of facetsForCategory(lockedCategory)) {
+        const values = params.getAll(facet.key).filter(Boolean);
+        if (values.length) fromUrl[facet.key] = values;
+      }
+      const urlSort = params.get("sort");
+      setQuery(params.get("q") ?? initialQuery);
+      setSelected(fromUrl);
+      setPriceMin(params.get("min") ?? "");
+      setPriceMax(params.get("max") ?? "");
+      setInStockOnly(params.get("stock") === "1");
+      setSort(SORT_OPTIONS.some((o) => o.key === urlSort) ? (urlSort as SortKey) : "default");
+    };
+    applyUrl();
+    window.addEventListener("popstate", applyUrl);
+    return () => window.removeEventListener("popstate", applyUrl);
+  }, [lockedCategory, initialQuery]);
 
   useEffect(() => {
     if (new URLSearchParams(window.location.search).get("focus") === "search") {
@@ -107,18 +115,23 @@ export function CatalogView({
     };
   }, [mobileFiltersOpen]);
 
-  // Keep ?q= and the facet selection in the URL in sync (write-only, no re-render / no dynamic rendering).
+  // Keep the whole filter state in the URL (write-only, no re-render / no dynamic rendering),
+  // so a reload or a shared link shows the same list.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (query.trim()) params.set("q", query);
-    else params.delete("q");
+    const put = (key: string, value: string) => (value ? params.set(key, value) : params.delete(key));
+    put("q", query.trim() ? query : "");
     for (const facet of facetsForCategory(lockedCategory)) {
       params.delete(facet.key);
       for (const value of selected[facet.key] ?? []) params.append(facet.key, value);
     }
+    put("min", priceMin);
+    put("max", priceMax);
+    put("stock", inStockOnly ? "1" : "");
+    put("sort", sort === "default" ? "" : sort);
     const qs = params.toString();
-    window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
-  }, [query, selected, lockedCategory]);
+    window.history.replaceState(window.history.state, "", qs ? `?${qs}` : window.location.pathname);
+  }, [query, selected, lockedCategory, priceMin, priceMax, inStockOnly, sort]);
 
   // Available facets are driven by config + the products in scope; facets with
   // fewer than 2 distinct values are dropped automatically.
