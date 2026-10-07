@@ -40,7 +40,7 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={cn("mb-5 flex items-end justify-between gap-4 md:mb-6", className)}>
+    <div className={cn("mb-4 flex items-end justify-between gap-4 md:mb-5", className)}>
       <div>
         {eyebrow && <p className="text-xs font-bold tracking-[0.14em] text-primary uppercase">{eyebrow}</p>}
         <h2 className="mt-1 font-[family-name:var(--font-manrope)] text-2xl font-extrabold tracking-tight md:text-[32px]">

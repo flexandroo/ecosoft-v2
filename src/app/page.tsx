@@ -21,7 +21,7 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <main id="main-content" className="flex-1 bg-[oklch(0.985_0.004_240)] pb-16">
+      <main id="main-content" className="flex-1 bg-[oklch(0.985_0.004_240)] pb-12">
         <h1 className="sr-only">Системи очищення води Ecosoft — офіційний партнерський магазин</h1>
 
         <Container className="pt-4 md:pt-6">
@@ -39,7 +39,7 @@ export default async function Home() {
         </Container>
 
         {data.rails.map((rail) => (
-          <Container key={rail.id} className="mt-12 md:mt-16">
+          <Container key={rail.id} className="mt-8 md:mt-10">
             <SectionHeading
               eyebrow={rail.eyebrow || undefined}
               title={rail.title}
@@ -50,12 +50,12 @@ export default async function Home() {
           </Container>
         ))}
 
-        <Container className="mt-12 grid gap-4 md:mt-16 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+        <Container className="mt-8 grid gap-4 md:mt-10 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
           <CallbackPanel source="home" />
           <StoreContactCard />
         </Container>
 
-        <Container className="mt-12 md:mt-16">
+        <Container className="mt-8 md:mt-10">
           <BusinessBlock />
         </Container>
       </main>
