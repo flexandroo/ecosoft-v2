@@ -13,7 +13,6 @@ import { getSiteMenus } from "@/lib/menus";
 import { getSiteSettings } from "@/lib/settings";
 import { normalizePhone } from "@/lib/settings-shared";
 import { META_PIXEL_ID } from "@/utils/metaPixel";
-import { SEASON_SCRIPT } from "@/lib/season";
 
 const GTM_ID = "GTM-NGD37LTG";
 
@@ -69,11 +68,8 @@ export default async function RootLayout({
     <html
       lang="uk"
       className={`${inter.variable} ${manrope.variable} h-full antialiased`}
-      suppressHydrationWarning // data-season is set by SEASON_SCRIPT before hydration
     >
       <head>
-        {/* Runs before first paint so seasonal decor never flashes in or shifts the layout. */}
-        <script dangerouslySetInnerHTML={{ __html: SEASON_SCRIPT }} />
         {TRACKING_ENABLED && (<>
         {/* Meta Pixel: direct base integration, independent from GTM timing. */}
         <Script id="meta-pixel-base" strategy="beforeInteractive">
