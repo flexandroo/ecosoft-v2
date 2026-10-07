@@ -419,8 +419,8 @@
     "solution": "Fill data (with ECO-007) or hide facets under ~60% coverage.",
     "effort": "S",
     "regressionRisk": "low",
-    "status": "todo",
-    "statusNote": "data gap (e.g. series filled for 12/46 systems) — needs product data, not code"
+    "status": "done",
+    "statusNote": "facets shown when they cover ≥35% of the current list (progressive disclosure); filling missing product data still improves filters"
   },
   {
     "id": "ECO-026",
@@ -469,7 +469,8 @@
     "solution": "Merge or populate.",
     "effort": "S",
     "regressionRisk": "low",
-    "status": "todo"
+    "status": "pending-user",
+    "statusNote": "content decision: one product in a top-level category; can be hidden in /admin/categories (now hides properly) or filled"
   },
   {
     "id": "ECO-029",
@@ -549,8 +550,8 @@
     "solution": "Move the storefront into a route group layout that renders tracking; keep the admin layout clean.",
     "effort": "S",
     "regressionRisk": "medium",
-    "status": "deferred",
-    "statusNote": "CSP already blocks the tags in /admin; moving the storefront into a route group is churn for little gain"
+    "status": "done",
+    "statusNote": "inline loaders skip /admin; admin route changes send no PageView"
   },
   {
     "id": "ECO-034",
