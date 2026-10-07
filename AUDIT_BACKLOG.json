@@ -117,8 +117,8 @@
     "solution": "Attribute registry {key,label,unit,type,order}; normaliser script with mismatch report; typed attributes in DB; PDP specs rendered from registry; admin attribute editor by type.",
     "effort": "L",
     "regressionRisk": "medium",
-    "status": "partial",
-    "statusNote": "b6ba0f4 display + audit:specs; f304d36 admin editor for characteristics/documents/long description. Remaining: clean the 44 duplicate groups in data, typed attribute registry"
+    "status": "done",
+    "statusNote": "display normalisation, admin editor, data migration 20261007120000 (dev): 44 → 21 duplicate groups, remaining are distinct measures"
   },
   {
     "id": "ECO-008",
@@ -419,7 +419,8 @@
     "solution": "Fill data (with ECO-007) or hide facets under ~60% coverage.",
     "effort": "S",
     "regressionRisk": "low",
-    "status": "todo"
+    "status": "todo",
+    "statusNote": "data gap (e.g. series filled for 12/46 systems) — needs product data, not code"
   },
   {
     "id": "ECO-026",
@@ -547,7 +548,8 @@
     "solution": "Move the storefront into a route group layout that renders tracking; keep the admin layout clean.",
     "effort": "S",
     "regressionRisk": "medium",
-    "status": "todo"
+    "status": "deferred",
+    "statusNote": "CSP already blocks the tags in /admin; moving the storefront into a route group is churn for little gain"
   },
   {
     "id": "ECO-034",
