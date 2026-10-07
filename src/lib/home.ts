@@ -142,20 +142,20 @@ export async function getHomeData(): Promise<HomeData> {
         .filter((rail) => rail.products.length > 0)
     : [
         {
-          id: "hits",
-          title: "Хіти продажів",
-          eyebrow: "",
-          href: "/catalog",
-          hrefLabel: "Весь каталог",
-          products: inStock(FALLBACK_HIT_SKUS.map((sku) => bySku.get(sku))),
-        },
-        {
           id: "promo",
           title: "Акційні пропозиції",
           eyebrow: "",
           href: "/catalog",
           hrefLabel: "Весь каталог",
           products: inStock(FALLBACK_PROMO_SKUS.map((sku) => bySku.get(sku))),
+        },
+        {
+          id: "hits",
+          title: "Хіти продажів",
+          eyebrow: "",
+          href: "/catalog",
+          hrefLabel: "Весь каталог",
+          products: inStock(FALLBACK_HIT_SKUS.map((sku) => bySku.get(sku))),
         },
         {
           id: "cartridges",

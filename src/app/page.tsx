@@ -21,25 +21,25 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <main id="main-content" className="flex-1 bg-[oklch(0.985_0.004_240)] pb-12">
+      <main id="main-content" className="flex-1 bg-[oklch(0.985_0.004_240)] pb-[2.55rem]">
         <h1 className="sr-only">Системи очищення води Ecosoft — офіційний партнерський магазин</h1>
 
         <Container className="pt-4 md:pt-6">
           <CategoryChips categories={data.categories} className="mb-4 lg:hidden" />
-          <div className="grid gap-4 lg:grid-cols-[300px_minmax(0,1fr)] xl:grid-cols-[300px_minmax(0,1fr)_300px]">
+          <div className="grid gap-[0.85rem] lg:grid-cols-[300px_minmax(0,1fr)] xl:grid-cols-[300px_minmax(0,1fr)_300px]">
             <CategoryMenu categories={data.categories} className="hidden lg:block" />
             <HeroSlider slides={data.slides} />
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-2 xl:col-span-1 xl:grid-cols-1 xl:grid-rows-2">
+            <div className="grid grid-cols-1 gap-[0.85rem] sm:grid-cols-2 lg:col-span-2 xl:col-span-1 xl:grid-cols-1 xl:grid-rows-2">
               {data.sideTiles.map((tile) => (
                 <PromoTile key={tile.id} tile={tile} />
               ))}
             </div>
           </div>
-          <BenefitsRow className="mt-4" />
+          <BenefitsRow className="mt-[0.85rem]" />
         </Container>
 
         {data.rails.map((rail) => (
-          <Container key={rail.id} className="mt-8 md:mt-10">
+          <Container key={rail.id} className="mt-[1.7rem] md:mt-[2.125rem]">
             <SectionHeading
               eyebrow={rail.eyebrow || undefined}
               title={rail.title}
@@ -50,12 +50,12 @@ export default async function Home() {
           </Container>
         ))}
 
-        <Container className="mt-8 grid gap-4 md:mt-10 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+        <Container className="mt-[1.7rem] grid gap-[0.85rem] md:mt-[2.125rem] lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
           <CallbackPanel source="home" />
           <StoreContactCard />
         </Container>
 
-        <Container className="mt-8 md:mt-10">
+        <Container className="mt-[1.7rem] md:mt-[2.125rem]">
           <BusinessBlock />
         </Container>
       </main>
