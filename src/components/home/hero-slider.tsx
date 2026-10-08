@@ -129,7 +129,7 @@ export function HeroSlider({
                     // A frosted plate keeps the small print readable over busy photos.
                     "mt-3 w-fit max-w-md rounded-xl px-3.5 py-2.5 text-[15px] leading-relaxed backdrop-blur-sm",
                     size === "wide" ? "md:text-base" : "2xl:text-base",
-                    dark ? "bg-slate-950/50 text-white/90" : "bg-white/75 text-foreground/80",
+                    dark ? "bg-slate-950/[0.375] text-white/90" : "bg-white/[0.56] text-foreground/80",
                     // Phone art leaves room for a heading and button only.
                     mobileArt && "hidden md:block",
                   )}
