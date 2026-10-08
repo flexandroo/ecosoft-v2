@@ -126,9 +126,10 @@ export function HeroSlider({
               {slide.subtitle && (
                 <p
                   className={cn(
-                    "mt-3 max-w-md text-[15px] leading-relaxed",
+                    // A frosted plate keeps the small print readable over busy photos.
+                    "mt-3 w-fit max-w-md rounded-xl px-3.5 py-2.5 text-[15px] leading-relaxed backdrop-blur-sm",
                     size === "wide" ? "md:text-base" : "2xl:text-base",
-                    dark ? "text-white/85" : "text-muted-foreground",
+                    dark ? "bg-slate-950/50 text-white/90" : "bg-white/75 text-foreground/80",
                     // Phone art leaves room for a heading and button only.
                     mobileArt && "hidden md:block",
                   )}

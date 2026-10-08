@@ -135,7 +135,16 @@ export function PromoTile({ tile, className }: { tile: HomeSlide; className?: st
       <span className="relative flex h-full max-w-[70%] flex-col p-4 [text-shadow:0_1px_10px_rgb(0_0_0/0.45)] sm:p-5">
         {tile.eyebrow && <span className="text-[11px] font-bold tracking-wider break-words text-white/80 uppercase">{tile.eyebrow}</span>}
         <span className="mt-1.5 font-[family-name:var(--font-manrope)] text-lg leading-tight font-extrabold sm:text-xl">{tile.title}</span>
-        {tile.subtitle && <span className="mt-1 text-sm font-semibold text-white/90">{tile.subtitle}</span>}
+        {tile.subtitle && (
+          <span
+            className={cn(
+              "mt-1.5 w-fit rounded-lg px-2 py-1 text-sm font-semibold text-white backdrop-blur-sm [text-shadow:none]",
+              tile.tone === "accent" ? "bg-slate-950/30" : "bg-slate-950/50",
+            )}
+          >
+            {tile.subtitle}
+          </span>
+        )}
         <span className="mt-auto inline-flex w-fit items-center gap-1.5 pt-3 text-sm font-semibold">
           {tile.ctaLabel} <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
         </span>
