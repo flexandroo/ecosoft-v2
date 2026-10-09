@@ -225,7 +225,7 @@ export function CatalogView({
   );
 
   return (
-    <section className="mx-auto max-w-[1600px] px-4 py-10 md:px-8 md:py-14">
+    <section className="mx-auto max-w-[1600px] px-4 pb-10 pt-5 md:px-8 md:pb-14 md:pt-6">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_minmax(0,1fr)]">
         <aside className="hidden lg:block">
           <FiltersPanel

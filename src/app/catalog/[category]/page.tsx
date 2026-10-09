@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { CatalogView } from "@/components/catalog/catalog-view";
-import { CategoryHero } from "@/components/catalog/category-hero";
+import { CatalogHeader } from "@/components/catalog/catalog-header";
 import { CategoryPills } from "@/components/catalog/category-pills";
 import { CATEGORIES, type CategoryKey } from "@/lib/products";
 import { getStoreCategory } from "@/lib/categories";
@@ -53,13 +53,15 @@ export default async function CategoryCatalogPage({
     <>
       <Header />
       <main id="main-content" className="flex-1">
-        <CategoryHero
+        <CatalogHeader
           title={cat.title}
-          subtitle={cat.subtitle}
-          products={products}
-          image={cat.image}
+          crumbs={[
+            { href: "/", label: "Головна" },
+            { href: "/catalog", label: "Каталог" },
+            { label: cat.title },
+          ]}
         />
-        <div className="mx-auto max-w-[1600px] px-4 pt-6 md:px-8">
+        <div className="mx-auto max-w-[1600px] px-4 pt-4 md:px-8">
           <CategoryPills />
         </div>
         <CatalogView products={products.map(toListingProduct)} lockedCategory={category as CategoryKey} />
