@@ -33,9 +33,8 @@ export const DEFAULT_SETTINGS: SiteSettings = {
     postalCode: "08131",
   },
   hours: [
-    { days: "Пн–Пт", time: "09:00–18:00" },
-    { days: "Сб", time: "10:00–15:00" },
-    { days: "Нд", time: "вихідний" },
+    { days: "Пн–Пт", time: "10:00–19:00" },
+    { days: "Сб–Нд", time: "11:00–16:00" },
   ],
   socials: { instagram: "", facebook: "", telegram: "", viber: "", youtube: "", tiktok: "" },
   legal: {
@@ -71,7 +70,7 @@ export function mapsUrl(address: string): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 }
 
-/** Working-day rows only (drops "вихідний"), e.g. "Пн–Пт: 09:00–18:00 · Сб: 10:00–15:00". */
+/** Working-day rows only (drops "вихідний"), e.g. "Пн–Пт: 10:00–19:00 · Сб–Нд: 11:00–16:00". */
 export function formatOpenHours(hours: HoursRow[]): string {
   return hours
     .filter((h) => h.days && h.time && !/вихідн/i.test(h.time))
