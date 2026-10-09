@@ -64,8 +64,7 @@ export function CatalogView({
         if (values.length) fromUrl[facet.key] = values;
       }
       const urlSort = params.get("sort");
-      // Only /search has a search box, so a stray ?q= on catalogue pages must not filter invisibly.
-      setQuery(searchMode ? (params.get("q") ?? initialQuery) : "");
+      setQuery(params.get("q") ?? initialQuery);
       setSelected(fromUrl);
       setPriceMin(params.get("min") ?? "");
       setPriceMax(params.get("max") ?? "");
@@ -75,7 +74,7 @@ export function CatalogView({
     applyUrl();
     window.addEventListener("popstate", applyUrl);
     return () => window.removeEventListener("popstate", applyUrl);
-  }, [lockedCategory, initialQuery, searchMode]);
+  }, [lockedCategory, initialQuery]);
 
   useEffect(() => {
     if (new URLSearchParams(window.location.search).get("focus") === "search") {
@@ -327,6 +326,18 @@ export function CatalogView({
 
           {hasActiveFilters && (
             <div className="mb-5 flex flex-wrap items-center gap-2" aria-label="Активні фільтри">
+              {/* Catalogue pages have no search box; a ?q= from a link shows here so it can be removed. */}
+              {!searchMode && query.trim() && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  aria-label={`Прибрати пошук: ${query}`}
+                  className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 text-xs font-semibold text-foreground transition-colors hover:border-primary/40 hover:bg-primary/10"
+                >
+                  <span className="text-muted-foreground">Пошук:</span> {query}
+                  <X className="size-3.5 text-primary" aria-hidden />
+                </button>
+              )}
               {activeSelections.map((item) => (
                 <button
                   key={`${item.key}-${item.value}`}

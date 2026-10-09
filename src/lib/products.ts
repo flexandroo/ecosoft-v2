@@ -77,10 +77,10 @@ export type Product = {
 export const CATEGORIES: { key: CategoryKey; title: string; short: string }[] = [
   { key: "reverse-osmosis", title: "Фільтри зворотного осмосу", short: "Зворотний осмос" },
   { key: "flow-filters", title: "Проточні фільтри", short: "Проточні" },
-  { key: "filtration-systems", title: "Фільтраційні системи", short: "Системи" },
+  { key: "filtration-systems", title: "Фільтраційні системи", short: "Комплексні очистки" },
   { key: "mainline-filters", title: "Магістральні фільтри", short: "Магістральні" },
   { key: "ro-cartridges", title: "Картриджі для фільтрів води", short: "Картриджі осмос" },
-  { key: "mainline-cartridges", title: "Картриджі магістральні", short: "Картриджі магістр." },
+  { key: "mainline-cartridges", title: "Картриджі магістральні", short: "Картриджі магістральні" },
   { key: "filter-media", title: "Матеріали для фільтрів", short: "Матеріали" },
   { key: "horeca", title: "Для кафе, ресторанів, готелів", short: "HoReCa" },
 ];
