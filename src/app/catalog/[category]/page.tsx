@@ -53,14 +53,7 @@ export default async function CategoryCatalogPage({
     <>
       <Header />
       <main id="main-content" className="flex-1">
-        <CatalogHeader
-          title={cat.title}
-          crumbs={[
-            { href: "/", label: "Головна" },
-            { href: "/catalog", label: "Каталог" },
-            { label: cat.title },
-          ]}
-        />
+        <CatalogHeader title={cat.title} />
         <div className="mx-auto max-w-[1600px] px-4 pt-4 md:px-8">
           <CategoryPills />
         </div>
