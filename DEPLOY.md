@@ -7,7 +7,8 @@
 | Домен    | `sofiivkawater.com` (+ `www`) |
 | Сервер   | `195.28.182.181`, Ubuntu 22.04 |
 | Схема    | Інтернет → **Nginx** :80/:443 → reverse-proxy → **Next.js** 127.0.0.1:3000 (**PM2**) |
-| Заявки   | `/api/order`, `/api/contact`, `/api/callback` → **Telegram-бот** |
+| Заявки   | `/api/order`, `/api/contact`, `/api/callback` → **Supabase** (адмінка) + **Telegram-бот** |
+| Дані     | Supabase `sofiivkawater-prod`: каталог, ціни (USD × курс НБУ), банери, блог |
 
 ```
                  ┌────────────── сервер 195.28.182.181 ──────────────┐
@@ -162,17 +163,36 @@ npm ci                          # чиста установка залежнос
   відкрийте той самий `getUpdates`. Id групи від'ємний, напр. `-1001234567890`.
 
 ### 5.3. Записати змінні на сервері
+
+Ключі Supabase беруться з **prod**-проєкту `sofiivkawater-prod`
+(Supabase → Project Settings → API Keys): URL, publishable key і secret key.
+
 ```bash
 cd ~/app
 cat > .env.local <<'EOF'
+# Supabase (prod) — каталог, ціни, замовлення, адмінка
+NEXT_PUBLIC_SUPABASE_URL=https://uxynzxcrdavauvbmldcv.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
+SUPABASE_SECRET_KEY=sb_secret_...
+
+# Telegram — заявки
 TELEGRAM_BOT_TOKEN=123456789:AAE...ваш_токен
 TELEGRAM_CHAT_ID=123456789
+
+# Необов'язково: CRM_API_URL + CRM_INTAKE_TOKEN (обидва або жодного),
+# META_CAPI_ACCESS_TOKEN, GA4_MEASUREMENT_ID + GA4_API_SECRET
 EOF
 chmod 600 .env.local
 ```
 
-`.env.local` Next автоматично підхоплює і у продакшн-режимі (`next start`). Токен
-серверний (без префікса `NEXT_PUBLIC_`) — у браузер не потрапляє.
+> ⚠️ `NEXT_PUBLIC_*` **вшиваються у збірку**: `.env.local` має бути на місці **до**
+> `npm run build`, а після зміни цих змінних — перезбірка, не лише `pm2 restart`.
+> Без них сайт мовчки працює на вбудованому каталозі (старі ціни, без акцій і адмінки).
+>
+> **Не** ставити на проді `NEXT_PUBLIC_DISABLE_TRACKING` і `META_TEST_EVENT_CODE`.
+
+`.env.local` Next автоматично підхоплює і у продакшн-режимі (`next start`). Серверні
+ключі (без префікса `NEXT_PUBLIC_`) у браузер не потрапляють.
 
 ---
 
@@ -272,6 +292,66 @@ sudo nginx -t && sudo systemctl reload nginx
 
 Тепер `http://sofiivkawater.com` має відкривати сайт.
 
+### 7.1. Лише трафік від Cloudflare (обов'язково, якщо домен за Cloudflare-проксі)
+
+Ліміти форм (замовлення, дзвінок, контакти) і вхід в адмінку рахуються по IP
+відвідувача. Щоб їх не можна було обійти запитами напряму на IP сервера, nginx
+приймає з'єднання лише від Cloudflare і бере справжній IP з `CF-Connecting-IP`:
+
+```bash
+sudo tee /etc/nginx/conf.d/cloudflare.conf >/dev/null <<'EOF'
+# Актуальний список: https://www.cloudflare.com/ips/ (оновлювати раз на кілька місяців)
+set_real_ip_from 173.245.48.0/20;
+set_real_ip_from 103.21.244.0/22;
+set_real_ip_from 103.22.200.0/22;
+set_real_ip_from 103.31.4.0/22;
+set_real_ip_from 141.101.64.0/18;
+set_real_ip_from 108.162.192.0/18;
+set_real_ip_from 190.93.240.0/20;
+set_real_ip_from 188.114.96.0/20;
+set_real_ip_from 197.234.240.0/22;
+set_real_ip_from 198.41.128.0/17;
+set_real_ip_from 162.158.0.0/15;
+set_real_ip_from 104.16.0.0/13;
+set_real_ip_from 104.24.0.0/14;
+set_real_ip_from 172.64.0.0/13;
+set_real_ip_from 131.0.72.0/22;
+set_real_ip_from 2400:cb00::/32;
+set_real_ip_from 2606:4700::/32;
+set_real_ip_from 2803:f800::/32;
+set_real_ip_from 2405:b500::/32;
+set_real_ip_from 2405:8100::/32;
+set_real_ip_from 2a06:98c0::/29;
+set_real_ip_from 2c0f:f248::/32;
+real_ip_header CF-Connecting-IP;
+EOF
+```
+
+і в блок `server { ... }` сайту (перед `location`) додати дозволи — ті самі
+мережі через `allow`, наприкінці `deny all;`:
+
+```nginx
+    allow 173.245.48.0/20;  allow 103.21.244.0/22; allow 103.22.200.0/22;
+    allow 103.31.4.0/22;    allow 141.101.64.0/18; allow 108.162.192.0/18;
+    allow 190.93.240.0/20;  allow 188.114.96.0/20; allow 197.234.240.0/22;
+    allow 198.41.128.0/17;  allow 162.158.0.0/15;  allow 104.16.0.0/13;
+    allow 104.24.0.0/14;    allow 172.64.0.0/13;   allow 131.0.72.0/22;
+    allow 2400:cb00::/32;   allow 2606:4700::/32;  allow 2803:f800::/32;
+    allow 2405:b500::/32;   allow 2405:8100::/32;  allow 2a06:98c0::/29;
+    allow 2c0f:f248::/32;
+    allow 127.0.0.1;
+    deny all;
+```
+
+```bash
+sudo nginx -t && sudo systemctl reload nginx
+curl -I https://sofiivkawater.com        # 200 через Cloudflare
+curl -I http://195.28.182.181 -H "Host: sofiivkawater.com"   # 403 напряму
+```
+
+> Якщо `certbot` (крок 8) ще треба запускати в режимі HTTP-перевірки, робіть це **до**
+> `deny all` або тимчасово дозвольте всіх — інакше Let's Encrypt не достукається.
+
 ---
 
 ## 8. HTTPS (Let's Encrypt, безкоштовно)
@@ -364,9 +444,11 @@ sudo journalctl -u nginx -n 50
 
 - **GTM `GTM-NGD37LTG`** уже вшитий у сайт — на проді події `view_item`,
   `add_to_cart`, `begin_checkout`, `purchase` підуть у dataLayer автоматично.
-- **Курс НБУ** зашитий у ціни разово (44.8833 ₴/$ на 15.07.2026). Регулярний
-  перерахунок — окрема задача (крон + перезбірка).
-- Заявки **не зберігаються** в БД — лише йдуть у Telegram. Потрібен журнал
-  замовлень (Google-таблиця / БД) — наступний крок.
-- **Резервне копіювання:** критичний файл лише один — `~/app/.env.local`.
-  Код відновлюється з Git.
+- **Дані сайту в Supabase** (`sofiivkawater-prod`): товари, ціни, банери, блог,
+  налаштування, замовлення. Сервер лише показує їх; правки — в `/admin`, без перезбірки.
+- **Курс НБУ** оновлює сама база (pg_cron, двічі на день): ціни в долларах ×
+  курс. Перезбірка для цього не потрібна.
+- **Заявки** зберігаються в базі (адмінка → Замовлення) і дублюються в Telegram.
+- **Резервне копіювання:** `~/app/.env.local` на сервері + база Supabase
+  (бекапи в Supabase → Database → Backups). Код відновлюється з Git.
+- Порядок наповнення prod-бази — [docs/PROD_RELEASE_CHECKLIST.md](docs/PROD_RELEASE_CHECKLIST.md).
