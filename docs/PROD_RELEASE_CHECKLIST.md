@@ -37,15 +37,15 @@ Dev-проєкт Supabase — `sofiivkawater-dev` (`sptwelumbstrhcyegccb`), prod
 `select count(*) from products where price_usd is null` = 0; у `cron.job` є `nbu-usd-rate`.
 Якщо курсу немає — **зупинитись** (НБУ недоступний), повторити `select private.refresh_usd_rate()`.
 
-**Фаза 4 — акція, нові товари, банери:** міграції 17–22
+**Фаза 4 — акція, нові товари, банери, блог:** міграції 17–23
 `20261009120000_october_sale` → `…130000_core_dv_products` → `…140000_promo_only_sale` →
-`…150000_category_short_titles` → `…160000_harden_sale_objects` → `…170000_seed_home_banners`.
+`…150000_category_short_titles` → `…160000_harden_sale_objects` → `…170000_seed_home_banners` →
+`…180000_blog_posts_autumn` (7 статей, разом 13).
 
 **Перевірка після фаз:** 179 товарів, 19 з `is_promo`; підбірки hits 8 / cartridges 10 / promo 19;
 4 банери; у `cron.job` — `nbu-usd-rate` і `end-october-sale-2026`.
 
 **Контент, якого немає в міграціях:**
-- [ ] Блог: міграція створює 6 статей, на dev їх 13 — перенести 7 (з dev SQL-ом або вручну в адмінці).
 - [ ] Налаштування (телефони, графік, реквізити) збігаються з дефолтами в коді; за потреби зберегти в `/admin/settings`.
 
 **Auth (Supabase → Authentication):**
