@@ -251,7 +251,3 @@ export const BLOG_POSTS: BlogPost[] = [
     relatedLabel: "Фільтри зворотного осмосу",
   },
 ];
-
-export function findPost(slug: string): BlogPost | undefined {
-  return BLOG_POSTS.find((p) => p.slug === slug);
-}

@@ -47,4 +47,4 @@ npm run dev
 
 ## Аудит
 
-Повний аудит і план виправлень: [AUDIT_ECOSOFT_FULL.md](AUDIT_ECOSOFT_FULL.md), машиночитний беклог — [AUDIT_BACKLOG.json](AUDIT_BACKLOG.json), кроки релізу — [PROD_RELEASE_CHECKLIST.md](PROD_RELEASE_CHECKLIST.md).
+Повний аудит і план виправлень: [AUDIT_ECOSOFT_FULL.md](docs/AUDIT_ECOSOFT_FULL.md), машиночитний беклог — [AUDIT_BACKLOG.json](docs/AUDIT_BACKLOG.json), кроки релізу — [PROD_RELEASE_CHECKLIST.md](docs/PROD_RELEASE_CHECKLIST.md).

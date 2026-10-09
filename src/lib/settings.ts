@@ -6,9 +6,6 @@ import { DEFAULT_SETTINGS, mergeSettings, type SiteSettings } from "@/lib/settin
 
 export const SETTINGS_TAG = "settings";
 
-/** Keys stored in public.site_settings that the storefront may read. */
-export const PUBLIC_SETTING_KEYS = ["phones", "email", "address", "hours", "socials", "legal"] as const;
-
 /** Public settings merged over defaults; never throws. */
 export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
   if (!supabaseConfigured()) return DEFAULT_SETTINGS;

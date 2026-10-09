@@ -6,8 +6,7 @@ import {
 import { getProductItemId } from "@/lib/product-identity";
 import { productBrand } from "@/lib/catalog-facets";
 import { productShareImageUrl } from "@/lib/product-share-image";
-
-export const SITE_URL = "https://sofiivkawater.com";
+import { SITE_URL } from "@/lib/site";
 
 const categoryTitles = new Map<CategoryKey, string>(
   CATEGORIES.map((category) => [category.key, category.title]),

@@ -1,5 +1,6 @@
 import "server-only";
 import crypto from "node:crypto";
+import { SITE_URL } from "@/lib/site";
 
 // Server-side conversions (Meta Conversions API + GA4 Measurement Protocol).
 // Ported 1:1 from ecosoftcrm/src/analytics.mjs so that campaigns keep receiving
@@ -106,7 +107,7 @@ async function sendMeta(lead: ConversionLead, kind: ConversionKind): Promise<"se
         event_time: unixSeconds(kind === "purchase" ? lead.completed_at : lead.created_at),
         event_id: kind === "purchase" ? `purchase-${lead.id}` : lead.lead_event_id || `lead-${lead.id}`,
         action_source: "website",
-        event_source_url: lead.landing_page || "https://sofiivkawater.com/",
+        event_source_url: lead.landing_page || `${SITE_URL}/`,
         user_data: metaUserData(lead),
         custom_data: customData,
       },

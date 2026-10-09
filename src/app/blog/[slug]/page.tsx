@@ -8,6 +8,7 @@ import { PageHeader } from "@/components/site/page-header";
 import { getPost, getPosts } from "@/lib/posts";
 import { parsePostBody } from "@/lib/posts-shared";
 import { JsonLd } from "@/components/seo/json-ld";
+import { SITE_URL } from "@/lib/site";
 
 type Params = { slug: string };
 
@@ -48,7 +49,7 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) notFound();
-  const url = `https://sofiivkawater.com/blog/${slug}`;
+  const url = `${SITE_URL}/blog/${slug}`;
   const isCase = post.kind === "case";
 
   return (
@@ -66,7 +67,7 @@ export default async function BlogPostPage({
             mainEntityOfPage: url,
             ...(post.coverImage ? { image: [post.coverImage, ...post.gallery] } : {}),
             author: { "@type": "Organization", name: "Sofiivka Water" },
-            publisher: { "@id": "https://sofiivkawater.com/#store" },
+            publisher: { "@id": `${SITE_URL}/#store` },
           }}
         />
         <PageHeader

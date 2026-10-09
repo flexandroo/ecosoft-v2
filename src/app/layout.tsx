@@ -13,6 +13,7 @@ import { getSiteMenus } from "@/lib/menus";
 import { getSiteSettings } from "@/lib/settings";
 import { normalizePhone } from "@/lib/settings-shared";
 import { META_PIXEL_ID } from "@/utils/metaPixel";
+import { SITE_URL } from "@/lib/site";
 
 const GTM_ID = "GTM-NGD37LTG";
 
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     template: "%s · Магазин Ecosoft",
   },
   description: SITE_DESCRIPTION,
-  metadataBase: new URL("https://sofiivkawater.com"),
+  metadataBase: new URL(SITE_URL),
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -143,9 +144,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "@graph": [
               {
                 "@type": "OnlineStore",
-                "@id": "https://sofiivkawater.com/#store",
+                "@id": `${SITE_URL}/#store`,
                 name: "Sofiivka Water — партнерський магазин Ecosoft",
-                url: "https://sofiivkawater.com/",
+                url: `${SITE_URL}/`,
                 telephone: settings.phones.map((phone) => normalizePhone(phone.number)),
                 email: settings.email,
                 address: {
@@ -159,13 +160,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               },
               {
                 "@type": "WebSite",
-                "@id": "https://sofiivkawater.com/#website",
-                url: "https://sofiivkawater.com/",
+                "@id": `${SITE_URL}/#website`,
+                url: `${SITE_URL}/`,
                 name: "Sofiivka Water",
-                publisher: { "@id": "https://sofiivkawater.com/#store" },
+                publisher: { "@id": `${SITE_URL}/#store` },
                 potentialAction: {
                   "@type": "SearchAction",
-                  target: "https://sofiivkawater.com/search?q={search_term_string}",
+                  target: `${SITE_URL}/search?q={search_term_string}`,
                   "query-input": "required name=search_term_string",
                 },
               },

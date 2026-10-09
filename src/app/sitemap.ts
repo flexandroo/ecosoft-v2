@@ -4,8 +4,7 @@ import { getStoreCategories } from "@/lib/categories";
 import { getPosts } from "@/lib/posts";
 import { SOLUTIONS } from "@/lib/solutions";
 import { productShareImageUrl } from "@/lib/product-share-image";
-
-const SITE_URL = "https://sofiivkawater.com";
+import { SITE_URL } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [

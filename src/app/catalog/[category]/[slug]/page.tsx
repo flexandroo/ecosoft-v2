@@ -11,6 +11,7 @@ import { getSiteSettings } from "@/lib/settings";
 import { toPhoneContacts } from "@/lib/settings-shared";
 import { getStoreCategory } from "@/lib/categories";
 import { productBrand } from "@/lib/catalog-facets";
+import { SITE_URL } from "@/lib/site";
 
 type Params = { category: string; slug: string };
 
@@ -52,8 +53,8 @@ export default async function ProductPage({
   const [allProducts, settings] = await Promise.all([getProducts(), getSiteSettings()]);
   const cat = (await getStoreCategory(category))!;
   const brand = productBrand(product);
-  const url = `https://sofiivkawater.com/catalog/${category}/${slug}`;
-  const image = productShareImageUrl(product, "https://sofiivkawater.com");
+  const url = `${SITE_URL}/catalog/${category}/${slug}`;
+  const image = productShareImageUrl(product, SITE_URL);
 
   return (
     <>
@@ -85,9 +86,9 @@ export default async function ProductPage({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Головна", item: "https://sofiivkawater.com/" },
-              { "@type": "ListItem", position: 2, name: "Каталог", item: "https://sofiivkawater.com/catalog" },
-              { "@type": "ListItem", position: 3, name: cat.title, item: `https://sofiivkawater.com/catalog/${category}` },
+              { "@type": "ListItem", position: 1, name: "Головна", item: `${SITE_URL}/` },
+              { "@type": "ListItem", position: 2, name: "Каталог", item: `${SITE_URL}/catalog` },
+              { "@type": "ListItem", position: 3, name: cat.title, item: `${SITE_URL}/catalog/${category}` },
               { "@type": "ListItem", position: 4, name: product.name, item: url },
             ],
           }}

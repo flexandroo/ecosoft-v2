@@ -38,14 +38,9 @@ export const BANNER_PLACEMENTS = [
 ] as const;
 
 const STATUS_IDS = new Set<string>(LEAD_STATUSES.map((s) => s.id));
-const KIND_IDS = new Set<string>(LEAD_KINDS.map((k) => k.id));
 
 export function isLeadStatus(value: unknown): value is LeadStatus {
   return typeof value === "string" && STATUS_IDS.has(value);
-}
-
-export function isLeadKind(value: unknown): value is LeadKind {
-  return typeof value === "string" && KIND_IDS.has(value);
 }
 
 export function statusMeta(id: string) {

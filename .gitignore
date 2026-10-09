@@ -42,3 +42,10 @@ next-env.d.ts
 
 # Local price-list spreadsheets (data source, not app code)
 *.xlsx
+
+# Local AI/agent tooling and the separate CRM checkout (not part of this site)
+/.agents/
+/.claude/
+/.codex/
+/.impeccable/
+/.crm-worktree/

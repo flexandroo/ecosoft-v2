@@ -1,7 +1,7 @@
 import { getProducts } from "@/lib/catalog";
 import { CATEGORIES } from "@/lib/products";
+import { SITE_URL } from "@/lib/site";
 
-const STORE_ORIGIN = "https://sofiivkawater.com";
 const categoryNames = new Map(CATEGORIES.map((category) => [category.key, category.title]));
 
 export async function GET() {
@@ -18,8 +18,8 @@ export async function GET() {
     inStock: product.inStock,
     ctaType: product.ctaType,
     description: product.description,
-    image: product.image ? new URL(product.image, STORE_ORIGIN).href : null,
-    url: `${STORE_ORIGIN}/catalog/${product.category}/${product.slug}`,
+    image: product.image ? new URL(product.image, SITE_URL).href : null,
+    url: `${SITE_URL}/catalog/${product.category}/${product.slug}`,
   }));
 
   return Response.json(
