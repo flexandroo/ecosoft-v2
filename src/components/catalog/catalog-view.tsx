@@ -64,7 +64,8 @@ export function CatalogView({
         if (values.length) fromUrl[facet.key] = values;
       }
       const urlSort = params.get("sort");
-      setQuery(params.get("q") ?? initialQuery);
+      // Only /search has a search box, so a stray ?q= on catalogue pages must not filter invisibly.
+      setQuery(searchMode ? (params.get("q") ?? initialQuery) : "");
       setSelected(fromUrl);
       setPriceMin(params.get("min") ?? "");
       setPriceMax(params.get("max") ?? "");
@@ -74,7 +75,7 @@ export function CatalogView({
     applyUrl();
     window.addEventListener("popstate", applyUrl);
     return () => window.removeEventListener("popstate", applyUrl);
-  }, [lockedCategory, initialQuery]);
+  }, [lockedCategory, initialQuery, searchMode]);
 
   useEffect(() => {
     if (new URLSearchParams(window.location.search).get("focus") === "search") {
@@ -256,6 +257,7 @@ export function CatalogView({
               onPick={(sub) => setSelected(sub && !isActiveSub(sub, selected) ? sub.filter : {})}
             />
           )}
+          {searchMode && (
           <div className="relative mb-4">
             <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             <input
@@ -278,6 +280,7 @@ export function CatalogView({
               </button>
             )}
           </div>
+          )}
 
           <div className="mb-5 flex items-center justify-between gap-3">
             <p className="text-sm text-muted-foreground">
