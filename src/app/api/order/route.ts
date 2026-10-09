@@ -90,9 +90,10 @@ export async function POST(req: Request) {
     const sku = cleanText(item.sku, 100);
     const product = catalogue.find((candidate) => candidate.sku === sku);
     const qty = Math.floor(Number(item.qty));
+    // Out-of-stock products are sold as "Під замовлення" (pre-order) and flagged
+    // for the manager; request-only products (no price) can't be ordered.
     if (
       !product ||
-      !product.inStock ||
       !(product.price > 0) ||
       !Number.isInteger(qty) ||
       qty < 1 ||
@@ -101,7 +102,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "invalid_items", sku }, { status: 422 });
     }
     total += qty * product.price;
-    lines.push({ name: product.name, sku, qty, price: product.price });
+    lines.push({ name: product.name, sku, qty, price: product.price, preorder: !product.inStock });
   }
 
   const requestedId = cleanText(body.externalId, 100);
@@ -110,22 +111,29 @@ export async function POST(req: Request) {
     : `ECO-${Date.now()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
   const eventId = cleanText(body.eventId, 120) || `lead-${orderId}`;
 
-  const itemLines = lines
-    .map(
-      (l, i) =>
-        `${i + 1}. ${escapeHtml(l.name)}${l.sku ? ` <code>${escapeHtml(l.sku)}</code>` : ""} — ` +
-        `${l.qty} × ${formatUah(l.price)} = <b>${formatUah(l.qty * l.price)}</b>`,
-    )
-    .join("\n");
+  const itemLines = lines.map(
+    (l, i) =>
+      `${i + 1}. ${escapeHtml(l.name)}${l.sku ? ` <code>${escapeHtml(l.sku)}</code>` : ""} — ` +
+      `${l.qty} × ${formatUah(l.price)} = <b>${formatUah(l.qty * l.price)}</b>` +
+      (l.preorder ? " · <i>під замовлення</i>" : ""),
+  );
 
-  const message =
+  const header =
     `🛒 <b>Нове замовлення</b> <code>${orderId}</code>\n\n` +
     `👤 <b>${escapeHtml(name)}</b>\n` +
     `📞 ${escapeHtml(phone)}\n` +
     (address ? `📍 ${escapeHtml(address)}\n` : "") +
-    (comment ? `💬 ${escapeHtml(comment)}\n` : "") +
-    `\n<b>Товари:</b>\n${itemLines}\n\n` +
-    `💰 <b>Разом: ${formatUah(total)}</b>`;
+    (comment ? `💬 ${escapeHtml(comment)}\n` : "");
+  const footer = `\n\n💰 <b>Разом: ${formatUah(total)}</b>`;
+
+  // Telegram rejects messages over 4096 characters: list as many lines as fit
+  // and point to the admin for the rest (the full order is saved there).
+  let shown = itemLines.length;
+  const itemList = () =>
+    itemLines.slice(0, shown).join("\n") +
+    (shown < itemLines.length ? `\n… ще ${itemLines.length - shown} поз. — див. замовлення в адмінці` : "");
+  while (shown > 1 && header.length + itemList().length + footer.length + 20 > 4000) shown -= 1;
+  const message = `${header}\n<b>Товари:</b>\n${itemList()}${footer}`.slice(0, 4096);
 
   const delivery = await deliverLead(
     {
@@ -135,7 +143,7 @@ export async function POST(req: Request) {
       customer: { name, phone, address },
       items: lines.map((line) => ({
         sku: line.sku,
-        name: line.name,
+        name: line.preorder ? `${line.name} (під замовлення)` : line.name,
         quantity: line.qty,
         price: line.price,
       })),

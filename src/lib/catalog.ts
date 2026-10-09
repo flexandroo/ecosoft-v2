@@ -59,14 +59,18 @@ function rowToProduct(row: ProductRow): StoreProduct | null {
   };
 }
 
-async function fetchProductsFromDb(): Promise<StoreProduct[]> {
+async function fetchProductsFromDb({ fresh = false } = {}): Promise<StoreProduct[]> {
   const url =
     `${SUPABASE_URL}/rest/v1/products` +
     "?select=slug,sku,category,name,price,old_price,in_stock,cta_type,description,image,images,details,attributes" +
     "&is_hidden=eq.false&order=sort.asc,name.asc";
   const response = await fetch(url, {
     headers: { apikey: SUPABASE_PUBLISHABLE_KEY, Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}` },
-    next: { tags: [CATALOG_TAG], revalidate: CATALOG_REVALIDATE_SECONDS },
+    // Orders are priced from the database as it is right now (after a rate
+    // update or the end of a sale), not from the storefront cache.
+    ...(fresh
+      ? { cache: "no-store" as const }
+      : { next: { tags: [CATALOG_TAG], revalidate: CATALOG_REVALIDATE_SECONDS } }),
     signal: AbortSignal.timeout(8_000),
   });
   if (!response.ok) throw new Error(`catalog fetch failed: HTTP ${response.status}`);
@@ -99,7 +103,7 @@ export const getProducts = cache(async (): Promise<StoreProduct[]> => {
  */
 export async function getProductsForCheckout(): Promise<StoreProduct[]> {
   if (!supabaseConfigured()) return PRODUCTS;
-  const products = await fetchProductsFromDb();
+  const products = await fetchProductsFromDb({ fresh: true });
   if (products.length === 0) throw new Error("catalog is empty");
   return products;
 }

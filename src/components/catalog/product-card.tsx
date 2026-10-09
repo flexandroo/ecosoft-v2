@@ -16,6 +16,8 @@ import type { CategoryKey, Product } from "@/lib/products";
 import { keySpecs, productBrand } from "@/lib/catalog-facets";
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 import { getProductDisplayImage } from "@/lib/product-identity";
+import { isPriceOnRequest } from "@/lib/product-price";
+import { CallbackButton } from "@/components/site/callback-button";
 import { cn } from "@/lib/utils";
 import { ProductImage } from "./product-image";
 
@@ -40,6 +42,7 @@ export function ProductCard({ product }: { product: Product }) {
   const brand = productBrand(product);
   const specs = keySpecs(product, 3);
   const href = `/catalog/${product.category}/${product.slug}`;
+  const onRequest = isPriceOnRequest(product);
 
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/15">
@@ -94,20 +97,31 @@ export function ProductCard({ product }: { product: Product }) {
               {product.inStock ? "В наявності" : "Під замовлення"}
             </span>
             <span className="text-right tabular">
-              {product.oldPrice && (
+              {!onRequest && product.oldPrice && (
                 <span className="block text-xs text-muted-foreground line-through">{formatUah(product.oldPrice)}</span>
               )}
-              <span className="font-[family-name:var(--font-manrope)] text-xl font-bold text-foreground">{formatUah(product.price)}</span>
+              <span className="font-[family-name:var(--font-manrope)] text-xl font-bold text-foreground">
+                {onRequest ? "Ціна за запитом" : formatUah(product.price)}
+              </span>
             </span>
           </div>
 
-          <AddToCartButton
-            product={product}
-            className="mt-3 inline-flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
-          >
-            <ShoppingCart className="size-4" />
-            До кошика
-          </AddToCartButton>
+          {onRequest ? (
+            <CallbackButton
+              source={`Ціна за запитом: ${product.name}${product.sku ? ` (${product.sku})` : ""}`}
+              className="mt-3 inline-flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
+            >
+              Дізнатися ціну
+            </CallbackButton>
+          ) : (
+            <AddToCartButton
+              product={product}
+              className="mt-3 inline-flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
+            >
+              <ShoppingCart className="size-4" />
+              До кошика
+            </AddToCartButton>
+          )}
         </div>
       </div>
     </article>

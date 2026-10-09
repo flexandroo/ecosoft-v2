@@ -41,6 +41,8 @@ import { ProductTabs, type ProductTab } from "./product-tabs";
 import { ViewItemTracker } from "./view-item-tracker";
 import { ProductDescription } from "./product-description";
 import { getProductDisplayImage } from "@/lib/product-identity";
+import { isPriceOnRequest } from "@/lib/product-price";
+import { CallbackButton } from "@/components/site/callback-button";
 import { formatSpecs } from "@/lib/spec-format";
 
 const ICON_BY_CATEGORY: Record<CategoryKey, LucideIcon> = {
@@ -85,6 +87,8 @@ export function ProductDetail({
   categoryTitle: string;
 }) {
   const d: ProductDetails = product.details ?? {};
+  const onRequest = isPriceOnRequest(product);
+  const requestSource = `Ціна за запитом: ${product.name}${product.sku ? ` (${product.sku})` : ""}`;
   const specs = formatSpecs(d.specs);
   const CategoryIcon = ICON_BY_CATEGORY[product.category];
   const related = relatedFrom(allProducts, product, 4);
@@ -326,17 +330,26 @@ export function ProductDetail({
                     {product.inStock ? "В наявності" : "Під замовлення"}
                   </span>
                   <span className="text-right tabular">
-                    {product.oldPrice && (
+                    {!onRequest && product.oldPrice && (
                       <span className="block text-sm text-muted-foreground line-through">{formatUah(product.oldPrice)}</span>
                     )}
                     <span className="font-[family-name:var(--font-manrope)] text-3xl font-bold text-foreground md:text-4xl">
-                      {formatUah(product.price)}
+                      {onRequest ? "Ціна за запитом" : formatUah(product.price)}
                     </span>
                   </span>
                 </div>
 
                 <div className="mt-4">
-                  <BuyBox product={product} />
+                  {onRequest ? (
+                    <CallbackButton
+                      source={requestSource}
+                      className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
+                    >
+                      Дізнатися ціну
+                    </CallbackButton>
+                  ) : (
+                    <BuyBox product={product} />
+                  )}
                 </div>
 
                 {phones.length > 0 && (
@@ -425,15 +438,24 @@ export function ProductDetail({
           <div>
             <div className="text-xs text-muted-foreground">Ціна</div>
             <div className="font-[family-name:var(--font-manrope)] text-lg font-bold tabular">
-              {formatUah(product.price)}
+              {onRequest ? "За запитом" : formatUah(product.price)}
             </div>
           </div>
-          <AddToCartButton
-            product={product}
-            className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
-          >
-            Купити
-          </AddToCartButton>
+          {onRequest ? (
+            <CallbackButton
+              source={requestSource}
+              className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
+            >
+              Дізнатися ціну
+            </CallbackButton>
+          ) : (
+            <AddToCartButton
+              product={product}
+              className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.98]"
+            >
+              Купити
+            </AddToCartButton>
+          )}
         </div>
       </div>
     </article>

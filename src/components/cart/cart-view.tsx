@@ -44,7 +44,7 @@ export function CartView() {
   const PHONE_CONTACTS = toPhoneContacts(useSiteSettings().phones);
   const { lines, total, count, hydrated, setQty, remove, clear, syncPrices } = useCart();
   const catalog = useLiveCatalog(hydrated && lines.length > 0);
-  // Lines the live catalogue no longer sells (hidden, out of stock, unknown SKU).
+  // Lines the live catalogue no longer sells (hidden, price on request, unknown SKU).
   const unavailable = new Set(
     catalog ? lines.filter((l) => !isOrderable(catalog.get(l.sku ?? ""))).map((l) => l.slug) : [],
   );
@@ -287,8 +287,12 @@ export function CartView() {
                   <div className="mt-1 text-sm text-muted-foreground tabular">
                     {formatUah(l.price)}
                   </div>
-                  {unavailable.has(l.slug) && (
-                    <p className="mt-1 text-xs font-semibold text-destructive">Немає в наявності — приберіть з кошика</p>
+                  {unavailable.has(l.slug) ? (
+                    <p className="mt-1 text-xs font-semibold text-destructive">Товар недоступний — приберіть з кошика</p>
+                  ) : (
+                    catalog?.get(l.sku ?? "")?.inStock === false && (
+                      <p className="mt-1 text-xs font-medium text-muted-foreground">Під замовлення — менеджер уточнить строк</p>
+                    )
                   )}
 
                   <div className="mt-auto flex items-center justify-between gap-3 pt-3">
@@ -511,8 +515,9 @@ function QtyStepper({
 
 type LiveProduct = { name: string; price: number; inStock: boolean };
 
+/** Out-of-stock products are still orderable ("Під замовлення"); request-only ones (no price) are not. */
 function isOrderable(item: LiveProduct | undefined): item is LiveProduct {
-  return Boolean(item && item.inStock && item.price > 0);
+  return Boolean(item && item.price > 0);
 }
 
 /** Current names, prices and stock by SKU from /api/catalog; null until loaded or on failure. */

@@ -7,24 +7,31 @@ export { isValidEmail, isValidUkrainianPhone } from "@/lib/validation";
 
 const buckets = new Map<string, RateBucket>();
 
-function clientIp(request: Request): string {
-  const headers = request.headers;
+const MAX_BUCKETS = 10_000;
+
+/**
+ * Client IP for rate limiting and lead records. X-Real-IP comes first: nginx
+ * overwrites it with $remote_addr (the real visitor once the realip module
+ * trusts Cloudflare), so a client can't spoof it the way it can send its own
+ * CF-Connecting-IP or X-Forwarded-For when hitting the server directly.
+ */
+export function clientIp(headers: Headers): string {
   return (
-    headers.get("cf-connecting-ip") ||
     headers.get("x-real-ip") ||
+    headers.get("cf-connecting-ip") ||
     headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     "unknown"
   );
 }
 
 export function checkRateLimit(
-  request: Request,
+  request: Request | Headers,
   scope: string,
   limit: number,
   windowMs: number,
 ): { allowed: boolean; retryAfter: number } {
   const now = Date.now();
-  const key = `${scope}:${clientIp(request)}`;
+  const key = `${scope}:${clientIp(request instanceof Headers ? request : request.headers)}`;
   const current = buckets.get(key);
 
   if (!current || current.resetAt <= now) {
@@ -36,6 +43,12 @@ export function checkRateLimit(
   if (buckets.size > 5_000) {
     for (const [bucketKey, bucket] of buckets) {
       if (bucket.resetAt <= now) buckets.delete(bucketKey);
+    }
+    // Still too many live buckets (a flood of distinct IPs): drop the oldest
+    // so memory stays bounded.
+    for (const bucketKey of buckets.keys()) {
+      if (buckets.size <= MAX_BUCKETS) break;
+      buckets.delete(bucketKey);
     }
   }
 

@@ -7,6 +7,7 @@ import { getProductItemId } from "@/lib/product-identity";
 import { productBrand } from "@/lib/catalog-facets";
 import { productShareImageUrl } from "@/lib/product-share-image";
 import { SITE_URL } from "@/lib/site";
+import { isPriceOnRequest } from "@/lib/product-price";
 
 const categoryTitles = new Map<CategoryKey, string>(
   CATEGORIES.map((category) => [category.key, category.title]),
@@ -112,7 +113,9 @@ export function createMetaProductFeed(
   siteUrl = SITE_URL,
 ): string {
   const normalizedSiteUrl = siteUrl.replace(/\/+$/, "");
+  // Request-only products have no price to advertise.
   const items = products
+    .filter((product) => !isPriceOnRequest(product))
     .map((product) => productXml(product, normalizedSiteUrl))
     .join("\n");
 

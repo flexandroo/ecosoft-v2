@@ -112,12 +112,14 @@ export async function getHomeData(): Promise<HomeData> {
     .filter((c) => !c.hidden)
     .map((c) => {
       const list = products.filter((p) => p.category === c.key);
+      // "Від … ₴" ignores request-only products (price 0).
+      const prices = list.map((p) => p.price).filter((price) => price > 0);
       return {
         key: c.key,
         title: c.title,
         short: c.short,
         count: list.length,
-        minPrice: list.length ? Math.min(...list.map((p) => p.price)) : 0,
+        minPrice: prices.length ? Math.min(...prices) : 0,
         image: c.image,
       };
     })

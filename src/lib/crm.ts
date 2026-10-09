@@ -1,4 +1,5 @@
 import "server-only";
+import { clientIp } from "@/lib/request-guard";
 
 export type CrmAttribution = {
   landingPage?: string;
@@ -94,9 +95,9 @@ export async function sendCrmIntake(payload: CrmIntake): Promise<CrmResult> {
 }
 
 export function requestClientContext(req: Request) {
-  const forwarded = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  const ip = clientIp(req.headers);
   return {
-    clientIp: forwarded || req.headers.get("x-real-ip") || undefined,
+    clientIp: ip === "unknown" ? undefined : ip,
     userAgent: req.headers.get("user-agent") || undefined,
   };
 }
