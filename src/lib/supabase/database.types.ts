@@ -89,7 +89,7 @@ export type Database = {
           gclid: string | null; id: string; items: Json; kind: string; landing_page: string | null; lead_event_id: string | null;
           manager_note: string | null; message: string | null; number: number; payment_method: string; payment_status: string;
           phone: string; referrer: string | null; source: string; source_detail: string | null; status: string;
-          telegram_sent: boolean; total: number; tracking: Json; updated_at: string; user_agent: string | null;
+          telegram_sent: boolean; telegram_text: string | null; telegram_messages: Json; status_by: string | null; total: number; tracking: Json; updated_at: string; user_agent: string | null;
           utm_campaign: string | null; utm_content: string | null; utm_medium: string | null; utm_source: string | null;
           utm_term: string | null;
         };
@@ -100,7 +100,7 @@ export type Database = {
           gclid?: string | null; id?: string; items?: Json; kind: string; landing_page?: string | null; lead_event_id?: string | null;
           manager_note?: string | null; message?: string | null; number?: never; payment_method?: string; payment_status?: string;
           phone?: string; referrer?: string | null; source?: string; source_detail?: string | null; status?: string;
-          telegram_sent?: boolean; total?: number; tracking?: Json; updated_at?: string; user_agent?: string | null;
+          telegram_sent?: boolean; telegram_text?: string | null; telegram_messages?: Json; status_by?: string | null; total?: number; tracking?: Json; updated_at?: string; user_agent?: string | null;
           utm_campaign?: string | null; utm_content?: string | null; utm_medium?: string | null; utm_source?: string | null;
           utm_term?: string | null;
         };
@@ -111,7 +111,7 @@ export type Database = {
           gclid?: string | null; id?: string; items?: Json; kind?: string; landing_page?: string | null; lead_event_id?: string | null;
           manager_note?: string | null; message?: string | null; number?: never; payment_method?: string; payment_status?: string;
           phone?: string; referrer?: string | null; source?: string; source_detail?: string | null; status?: string;
-          telegram_sent?: boolean; total?: number; tracking?: Json; updated_at?: string; user_agent?: string | null;
+          telegram_sent?: boolean; telegram_text?: string | null; telegram_messages?: Json; status_by?: string | null; total?: number; tracking?: Json; updated_at?: string; user_agent?: string | null;
           utm_campaign?: string | null; utm_content?: string | null; utm_medium?: string | null; utm_source?: string | null;
           utm_term?: string | null;
         };

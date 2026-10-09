@@ -1,18 +1,14 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { after } from "next/server";
 import { requireStaff } from "@/lib/admin/auth";
 import { PAYMENT_METHODS, PAYMENT_STATUSES, isLeadStatus } from "@/lib/admin/constants";
-import { crmConfigured } from "@/lib/crm";
-import { dispatchConversion, type ConversionLead } from "@/lib/conversions";
+import { recordPurchaseConversion } from "@/lib/lead-intake";
+import { refreshLeadMessages } from "@/lib/telegram-bot";
 import { createSessionClient } from "@/lib/supabase/server";
 import type { Json, TablesUpdate } from "@/lib/supabase/database.types";
 import { type FormState, str, oneOf } from "./shared";
-
-const CONVERSION_COLUMNS =
-  "id, external_id, phone, email, customer_name, items, total, currency, lead_event_id, " +
-  "landing_page, utm_source, utm_medium, source, fbp, fbc, ga_client_id, client_ip, user_agent, " +
-  "created_at, completed_at, tracking";
 
 export async function updateLead(_prev: FormState, fd: FormData): Promise<FormState> {
   const staff = await requireStaff();
@@ -38,6 +34,7 @@ export async function updateLead(_prev: FormState, fd: FormData): Promise<FormSt
   };
   const becameCompleted = status === "completed" && current.status !== "completed";
   if (becameCompleted) changes.completed_at = new Date().toISOString();
+  if (status !== current.status) changes.status_by = staff.name;
 
   const { error } = await supabase.from("leads").update(changes).eq("id", id);
   if (error) return { error: `Не вдалося зберегти: ${error.message}` };
@@ -58,19 +55,9 @@ export async function updateLead(_prev: FormState, fd: FormData): Promise<FormSt
   }
 
   // Purchase conversion for ads, exactly when the legacy CRM used to send it.
-  if (becameCompleted && !crmConfigured()) {
-    const { data: lead } = await supabase.from("leads").select(CONVERSION_COLUMNS).eq("id", id).single();
-    if (lead) {
-      const row = lead as unknown as ConversionLead & { tracking: Record<string, unknown> };
-      const result = await dispatchConversion(row, "purchase");
-      if (result.state !== "unconfigured") {
-        await supabase
-          .from("leads")
-          .update({ tracking: { ...(row.tracking ?? {}), purchase: result } })
-          .eq("id", id);
-      }
-    }
-  }
+  if (becameCompleted) await recordPurchaseConversion(id);
+  // Keep the managers' Telegram group in step with the new status.
+  if (diff.status) after(() => refreshLeadMessages(id));
 
   revalidatePath(`/admin/leads/${id}`);
   revalidatePath("/admin/leads");

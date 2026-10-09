@@ -5,6 +5,7 @@ import { dispatchConversion, type ConversionLead } from "@/lib/conversions";
 import { createServiceClient } from "@/lib/supabase/server";
 import { getNotificationSettings } from "@/lib/settings";
 import { sendTelegramCopies, sendTelegramMessage, telegramConfigured } from "@/lib/telegram";
+import { postLeadToGroup } from "@/lib/telegram-bot";
 
 export type LeadDelivery = {
   ok: boolean;
@@ -82,6 +83,24 @@ async function saveLead(intake: CrmIntake): Promise<{ lead: SavedLead; duplicate
   throw new Error(error?.message || "lead_insert_failed");
 }
 
+const CONVERSION_COLUMNS = `${LEAD_COLUMNS}, tracking`;
+
+/**
+ * Purchase conversion for ads when a lead becomes "completed" (in the admin or
+ * from the Telegram bot), exactly when the legacy CRM used to send it.
+ */
+export async function recordPurchaseConversion(leadId: string): Promise<void> {
+  if (crmConfigured()) return;
+  const db = createServiceClient();
+  if (!db) return;
+  const { data } = await db.from("leads").select(CONVERSION_COLUMNS).eq("id", leadId).single();
+  if (!data) return;
+  const row = data as unknown as ConversionLead & { tracking: Record<string, unknown> };
+  const result = await dispatchConversion(row, "purchase");
+  if (result.state === "unconfigured") return;
+  await db.from("leads").update({ tracking: { ...(row.tracking ?? {}), purchase: result } }).eq("id", leadId);
+}
+
 async function recordLeadConversion(lead: SavedLead) {
   const result = await dispatchConversion(lead, "lead");
   if (result.state === "unconfigured") return;
@@ -118,7 +137,14 @@ export async function deliverLead(intake: CrmIntake, telegramText: string, label
   const adminRef = saved ? `\n\n🗂 Заявка №${saved.lead.number} в адмінці` : "";
   let telegramSent = false;
   try {
-    if (telegramConfigured()) {
+    // The managers' group (topics + status buttons) when paired; otherwise the
+    // plain chat from TELEGRAM_CHAT_ID as before.
+    if (saved && (await postLeadToGroup({ id: saved.lead.id, kind: intake.type }, telegramText + adminRef).catch((error) => {
+      console.error(`[${label}] Telegram group post failed, using the plain chat:`, error);
+      return false;
+    }))) {
+      telegramSent = true;
+    } else if (telegramConfigured()) {
       await sendTelegramMessage(telegramText + adminRef);
       telegramSent = true;
     } else {
