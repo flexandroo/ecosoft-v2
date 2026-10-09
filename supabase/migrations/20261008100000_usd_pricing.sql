@@ -100,11 +100,11 @@ $$;
 -- "Оновити зараз" in the admin: called from the server with the service key
 -- after the staff check, so signed-in users get no direct RPC access.
 create function public.refresh_usd_rate() returns text
-language plpgsql security definer set search_path = '' as $
+language plpgsql security definer set search_path = '' as $$
 begin
   return private.refresh_usd_rate();
 end;
-$;
+$$;
 
 revoke all on function private.usd_rate() from public, anon, authenticated;
 revoke all on function private.apply_usd_rate(numeric, date) from public, anon, authenticated;
