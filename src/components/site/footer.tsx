@@ -2,6 +2,7 @@ import { MenuLink } from "@/components/site/menu-link";
 import { getSiteMenus } from "@/lib/menus";
 import { getSiteSettings } from "@/lib/settings";
 import { SOCIAL_LABELS, toPhoneContacts, type SiteSettings } from "@/lib/settings-shared";
+import { SOCIAL_BUTTON_STYLE, SocialIcon } from "@/components/site/social-icon";
 
 // Brand column + up to four menu columns.
 const GRID_COLS = [
@@ -40,20 +41,25 @@ export async function Footer() {
               ))}
             </div>
             {socials.length > 0 && (
-              <ul className="mt-4 flex flex-wrap gap-2" aria-label="Соцмережі">
-                {socials.map((key) => (
-                  <li key={key}>
-                    <a
-                      href={settings.socials[key]}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex h-9 items-center rounded-lg border border-border px-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-                    >
-                      {SOCIAL_LABELS[key]}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-6">
+                <div className="text-sm font-semibold text-foreground">Ми в соцмережах</div>
+                <ul className="mt-3 flex flex-wrap gap-3" aria-label="Соцмережі">
+                  {socials.map((key) => (
+                    <li key={key}>
+                      <a
+                        href={settings.socials[key]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={SOCIAL_LABELS[key]}
+                        title={SOCIAL_LABELS[key]}
+                        className={`grid size-11 place-items-center rounded-full text-white shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${SOCIAL_BUTTON_STYLE[key]}`}
+                      >
+                        <SocialIcon network={key} className="size-5" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </div>
 
