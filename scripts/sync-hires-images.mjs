@@ -73,6 +73,31 @@ async function download(url) {
   return Buffer.from(await response.arrayBuffer());
 }
 
+/** Longest side, in pixels, of the product itself (white margins trimmed). */
+async function productPixels(input) {
+  try {
+    const { info } = await sharp(input)
+      .flatten({ background: "#ffffff" })
+      .trim({ threshold: 18 })
+      .toBuffer({ resolveWithObject: true });
+    return Math.max(info.width, info.height);
+  } catch {
+    const meta = await sharp(input).metadata();
+    return Math.max(meta.width ?? 0, meta.height ?? 0);
+  }
+}
+
+/**
+ * Some "originals" are a tiny product on a huge white canvas (e.g. FPV12ECO),
+ * which looks smaller than the photo we already have. Only replace when the
+ * new file shows the product at least as large as the current one.
+ */
+async function isUpgrade(bytes, currentFile) {
+  const current = await fs.readFile(currentFile).catch(() => null);
+  if (!current) return true;
+  return (await productPixels(bytes)) >= (await productPixels(current));
+}
+
 async function mapLimit(values, limit, mapper) {
   const results = [];
   let next = 0;
@@ -105,15 +130,20 @@ await mapLimit(products, 4, async (product) => {
   if (mainOriginal) {
     try {
       const bytes = await download(mainOriginal);
-      if (!DRY_RUN) {
-        await sharp(bytes)
-          .rotate()
-          .flatten({ background: "#ffffff" })
-          .resize({ width: 1200, height: 1200, fit: "contain", background: "#ffffff", withoutEnlargement: true })
-          .jpeg({ quality: 88, mozjpeg: true })
-          .toFile(path.join(META_DIR, `${id.replace(/[^a-zA-Z0-9._-]/g, "_")}.jpg`));
+      const target = path.join(META_DIR, `${id.replace(/[^a-zA-Z0-9._-]/g, "_")}.jpg`);
+      if (!(await isUpgrade(bytes, target))) {
+        report.main.kept.push(`${id} (original shows the product smaller)`);
+      } else {
+        if (!DRY_RUN) {
+          await sharp(bytes)
+            .rotate()
+            .flatten({ background: "#ffffff" })
+            .resize({ width: 1200, height: 1200, fit: "contain", background: "#ffffff", withoutEnlargement: true })
+            .jpeg({ quality: 88, mozjpeg: true })
+            .toFile(target);
+        }
+        report.main.replaced++;
       }
-      report.main.replaced++;
     } catch (error) {
       report.errors.push(`${id} main: ${error.message}`);
     }
@@ -133,12 +163,17 @@ await mapLimit(products, 4, async (product) => {
     doneGallery.add(local);
     try {
       const bytes = await download(original);
+      const target = path.join(ROOT, "public", local);
+      if (!(await isUpgrade(bytes, target))) {
+        report.gallery.kept.push(`${id}: ${baseName(url)} (original shows the product smaller)`);
+        continue;
+      }
       if (!DRY_RUN) {
         await sharp(bytes)
           .rotate()
           .resize({ width: 1200, height: 1200, fit: "inside", withoutEnlargement: true })
           .webp({ quality: 82, alphaQuality: 86, effort: 5 })
-          .toFile(path.join(ROOT, "public", local));
+          .toFile(target);
       }
       report.gallery.replaced++;
     } catch (error) {
