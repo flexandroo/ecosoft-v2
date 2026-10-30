@@ -1,5 +1,7 @@
 // Customer bot "Помічник Sofiivka Water": update handling (messages + buttons).
 import "server-only";
+import { getSiteSettings } from "@/lib/settings";
+import { formatOpenHours } from "@/lib/settings-shared";
 import { isValidUkrainianPhone } from "@/lib/validation";
 import { escapeHtml } from "@/lib/telegram";
 import { historyFor, renderBroadcast } from "./broadcasts";
@@ -138,6 +140,22 @@ const buttonName = (f: ClientFilter, max = 40) => clip(f.label || modelShortName
 // Entry point
 // ---------------------------------------------------------------------------
 export async function handleClientUpdate(update: ClientUpdate): Promise<void> {
+  try {
+    await processUpdate(update);
+  } catch (error) {
+    // Don't leave the customer without an answer (e.g. the database is briefly unreachable).
+    const chat = update.message?.chat ?? update.callback_query?.message?.chat;
+    if (chat?.type === "private") {
+      await clientBot("sendMessage", {
+        chat_id: chat.id,
+        text: "😔 Щось пішло не так. Спробуйте, будь ласка, ще раз за хвилину.",
+      }).catch(() => {});
+    }
+    throw error;
+  }
+}
+
+async function processUpdate(update: ClientUpdate): Promise<void> {
   const cq = update.callback_query;
   if (cq) {
     if (cq.message?.chat.type !== "private" || cq.from.is_bot) return;
@@ -311,12 +329,14 @@ async function onMenu(ctx: Ctx, key: keyof typeof MENU) {
       return showProfile(ctx);
     case "settings":
       return showSettings(ctx);
-    case "support":
+    case "support": {
       await setState(ctx, { step: "support" });
+      const hours = formatOpenHours((await getSiteSettings()).hours);
       return send(
         ctx,
-        "💬 Напишіть ваше питання — передамо менеджеру. Відповідь прийде сюди ж.\n\nГрафік: Пн–Пт 10:00–19:00, Сб–Нд 11:00–16:00.",
+        `💬 Напишіть ваше питання — передамо менеджеру. Відповідь прийде сюди ж.${hours ? `\n\nГрафік: ${escapeHtml(hours)}.` : ""}`,
       );
+    }
   }
 }
 
@@ -423,13 +443,15 @@ async function showSettings(ctx: Ctx) {
 async function startFilter(ctx: Ctx, productId: string) {
   const model = await getModel(productId);
   const items = model ? await serviceItems([model.id]) : [];
-  if (!model || !items.length) return send(ctx, "Для цієї моделі ще немає графіка заміни. Напишіть нам через «💬 Звʼязатись з адміністратором».");
-  const filterId = await addFilter(ctx.client.id, model.id);
+  if (!model || !items.length) return show(ctx, "Для цієї моделі ще немає графіка заміни. Напишіть нам через «💬 Звʼязатись з адміністратором».");
+  // A second tap on the model (or an abandoned attempt) reuses the filter that has no dates yet.
+  const pending = (await clientFilters(ctx.client.id)).find((f) => f.model.id === model.id && f.items.every((i) => !i.lastOn));
+  const filterId = pending?.id ?? (await addFilter(ctx.client.id, model.id));
   const plan = items.map((i) => `• ${escapeHtml(i.title)} — раз на ${daysLabel(i.interval_days)}`).join("\n");
-  await send(
+  await show(
     ctx,
     `➕ <b>${escapeHtml(model.name)}</b>\n\nГрафік заміни:\n${plan}\n\n<b>Коли ви встановили фільтр або востаннє міняли картриджі?</b>\nОкремі дати для кожного картриджа можна змінити пізніше в «✏️ Редагувати фільтр».`,
-    { inline_keyboard: dateButtons(`st:${short(filterId)}:a`) },
+    dateButtons(`st:${short(filterId)}:a`),
   );
 }
 
@@ -548,6 +570,7 @@ async function onButton(ctx: Ctx, data: string): Promise<string | void> {
       if (!f) return "Фільтр не знайдено";
       const item = f.items[Number(b)];
       if (!item) return "Картридж не знайдено";
+      if (item.lastOn === kyivToday()) return "Вже записано сьогодні";
       await setReplaced(f.id, kyivToday(), item.id);
       await send(ctx, `✅ Записали заміну «${escapeHtml(item.title)}» сьогодні. Наступна — через ${daysLabel(item.interval_days)}.`);
       return "Записали";
