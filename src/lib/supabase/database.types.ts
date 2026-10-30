@@ -186,6 +186,66 @@ export type Database = {
         Update: { content?: Json; key?: string; updated_at?: string; updated_by?: string | null };
         Relationships: [FK];
       };
+      bot_guides: {
+        Row: { id: string; title: string; body: string; video_url: string; sort: number; is_published: boolean; created_at: string; updated_at: string };
+        Insert: { id?: string; title: string; body?: string; video_url?: string; sort?: number; is_published?: boolean; created_at?: string; updated_at?: string };
+        Update: { id?: string; title?: string; body?: string; video_url?: string; sort?: number; is_published?: boolean; created_at?: string; updated_at?: string };
+        Relationships: FK[];
+      };
+      bot_faq: {
+        Row: { id: string; question: string; answer: string; sort: number; is_published: boolean; created_at: string; updated_at: string };
+        Insert: { id?: string; question: string; answer?: string; sort?: number; is_published?: boolean; created_at?: string; updated_at?: string };
+        Update: { id?: string; question?: string; answer?: string; sort?: number; is_published?: boolean; created_at?: string; updated_at?: string };
+        Relationships: FK[];
+      };
+      bot_service_items: {
+        Row: { id: string; product_id: string; title: string; interval_days: number; cartridge_product_id: string | null; guide_id: string | null; sort: number; created_at: string; updated_at: string };
+        Insert: { id?: string; product_id: string; title: string; interval_days: number; cartridge_product_id?: string | null; guide_id?: string | null; sort?: number; created_at?: string; updated_at?: string };
+        Update: { id?: string; product_id?: string; title?: string; interval_days?: number; cartridge_product_id?: string | null; guide_id?: string | null; sort?: number; created_at?: string; updated_at?: string };
+        Relationships: FK[];
+      };
+      bot_clients: {
+        Row: { id: string; tg_user_id: number; tg_username: string | null; tg_first_name: string; name: string; phone: string; settings: Json; state: Json; is_blocked: boolean; created_at: string; updated_at: string; last_seen_at: string };
+        Insert: { id?: string; tg_user_id: number; tg_username?: string | null; tg_first_name?: string; name?: string; phone?: string; settings?: Json; state?: Json; is_blocked?: boolean; created_at?: string; updated_at?: string; last_seen_at?: string };
+        Update: { id?: string; tg_user_id?: number; tg_username?: string | null; tg_first_name?: string; name?: string; phone?: string; settings?: Json; state?: Json; is_blocked?: boolean; created_at?: string; updated_at?: string; last_seen_at?: string };
+        Relationships: FK[];
+      };
+      bot_client_filters: {
+        Row: { id: string; client_id: string; product_id: string; label: string; created_at: string };
+        Insert: { id?: string; client_id: string; product_id: string; label?: string; created_at?: string };
+        Update: { id?: string; client_id?: string; product_id?: string; label?: string; created_at?: string };
+        Relationships: FK[];
+      };
+      bot_replacements: {
+        Row: { id: number; client_filter_id: string; service_item_id: string; replaced_on: string; created_at: string };
+        Insert: { id?: never; client_filter_id: string; service_item_id: string; replaced_on: string; created_at?: string };
+        Update: { id?: never; client_filter_id?: string; service_item_id?: string; replaced_on?: string; created_at?: string };
+        Relationships: FK[];
+      };
+      bot_reminders: {
+        Row: { client_filter_id: string; service_item_id: string; due_on: string; kind: string; sent_at: string };
+        Insert: { client_filter_id: string; service_item_id: string; due_on: string; kind: string; sent_at?: string };
+        Update: { client_filter_id?: string; service_item_id?: string; due_on?: string; kind?: string; sent_at?: string };
+        Relationships: FK[];
+      };
+      bot_broadcasts: {
+        Row: { id: string; topic: string; title: string; body: string; button_label: string; button_url: string; audience: Json; status: string; recipients: number; delivered: number; failed: number; created_by: string | null; created_at: string; updated_at: string; sent_at: string | null };
+        Insert: { id?: string; topic?: string; title: string; body?: string; button_label?: string; button_url?: string; audience?: Json; status?: string; recipients?: number; delivered?: number; failed?: number; created_by?: string | null; created_at?: string; updated_at?: string; sent_at?: string | null };
+        Update: { id?: string; topic?: string; title?: string; body?: string; button_label?: string; button_url?: string; audience?: Json; status?: string; recipients?: number; delivered?: number; failed?: number; created_by?: string | null; created_at?: string; updated_at?: string; sent_at?: string | null };
+        Relationships: FK[];
+      };
+      bot_broadcast_deliveries: {
+        Row: { broadcast_id: string; client_id: string; sent_at: string };
+        Insert: { broadcast_id: string; client_id: string; sent_at?: string };
+        Update: { broadcast_id?: string; client_id?: string; sent_at?: string };
+        Relationships: FK[];
+      };
+      bot_support_messages: {
+        Row: { id: number; client_id: string; direction: string; text: string; author: string; group_message_id: number | null; created_at: string };
+        Insert: { id?: never; client_id: string; direction: string; text: string; author?: string; group_message_id?: number | null; created_at?: string };
+        Update: { id?: never; client_id?: string; direction?: string; text?: string; author?: string; group_message_id?: number | null; created_at?: string };
+        Relationships: FK[];
+      };
       site_settings: {
         Row: { is_public: boolean; key: string; updated_at: string; updated_by: string | null; value: Json };
         Insert: { is_public?: boolean; key: string; updated_at?: string; updated_by?: string | null; value?: Json };

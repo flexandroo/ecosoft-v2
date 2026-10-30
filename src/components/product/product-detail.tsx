@@ -20,6 +20,7 @@ import {
   FileText,
   Download,
   ArrowRight,
+  Send,
   Truck,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -79,12 +80,15 @@ export function ProductDetail({
   allProducts,
   phones,
   categoryTitle,
+  botLink,
 }: {
   product: Product;
   allProducts: Product[];
   phones: PhoneContact[];
   /** Storefront (admin-managed) category name. */
   categoryTitle: string;
+  /** Telegram bot deep link when this filter has a replacement schedule. */
+  botLink?: string;
 }) {
   const d: ProductDetails = product.details ?? {};
   const onRequest = isPriceOnRequest(product);
@@ -366,6 +370,26 @@ export function ProductDetail({
                   Ціну, наявність і комплектність менеджер підтвердить перед оплатою.
                 </p>
               </div>
+
+              {botLink && (
+                <a
+                  href={botLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 flex items-center gap-3 rounded-2xl border border-[#229ed9]/30 bg-[#229ed9]/5 p-4 transition-colors hover:bg-[#229ed9]/10"
+                >
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#229ed9] text-white">
+                    <Send className="size-5" aria-hidden />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-sm font-semibold text-foreground">Нагадаємо, коли міняти картриджі</span>
+                    <span className="block text-xs text-muted-foreground">
+                      Безкоштовний помічник у Telegram: графік заміни для цієї моделі, гайди і знижки на картриджі.
+                    </span>
+                  </span>
+                  <ArrowRight className="ml-auto size-4 shrink-0 text-[#229ed9]" aria-hidden />
+                </a>
+              )}
 
               <ul className="mt-5 grid gap-3 sm:grid-cols-3">
                 <Perk icon={Truck} title="Доставка" text="по Україні 1–3 дні" />

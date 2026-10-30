@@ -44,7 +44,8 @@ export async function sendTelegramCopies(chatIds: string[], html: string): Promi
 }
 
 async function sendTo(chatId: string, html: string): Promise<void> {
-  const res = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+  const base = (process.env.TELEGRAM_API_BASE || "https://api.telegram.org").replace(/\/+$/, "");
+  const res = await fetch(`${base}/bot${TOKEN}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

@@ -5,6 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BookOpen,
+  BookOpenCheck,
+  Bot,
+  CalendarClock,
+  CircleHelp,
+  Megaphone,
   Box,
   ExternalLink,
   FileSignature,
@@ -37,6 +42,17 @@ const SECTIONS: { title: string; items: NavItem[] }[] = [
       { href: "/admin/leads", label: "Заявки", icon: MessageSquareText, badge: "leads" },
       { href: "/admin/customers", label: "Клієнти", icon: User },
       { href: "/admin/proposals", label: "Генератор КП", icon: FileSignature },
+    ],
+  },
+  {
+    title: "Telegram-бот",
+    items: [
+      { href: "/admin/bot", label: "Огляд і чати", icon: Bot, exact: true },
+      { href: "/admin/bot/clients", label: "Клієнти бота", icon: Users },
+      { href: "/admin/bot/plans", label: "Графіки заміни", icon: CalendarClock },
+      { href: "/admin/bot/guides", label: "Гайди «Як замінити»", icon: BookOpenCheck },
+      { href: "/admin/bot/faq", label: "FAQ", icon: CircleHelp },
+      { href: "/admin/bot/broadcasts", label: "Акції та новини", icon: Megaphone },
     ],
   },
   {

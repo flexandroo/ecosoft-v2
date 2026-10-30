@@ -4,11 +4,12 @@
 import "server-only";
 import { createServiceClient } from "@/lib/supabase/server";
 import { escapeHtml } from "@/lib/telegram";
+import { callTelegram } from "@/lib/telegram-api";
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 
 export type LeadKind = "order" | "callback" | "contact";
-export type GroupConfig = { chatId: string; topics: Record<LeadKind, number> };
+export type GroupConfig = { chatId: string; topics: Record<LeadKind, number> & { support?: number } };
 type MessageRef = { chat_id: string; message_id: number };
 
 /** Topics created by /setup, in the order they appear in the group. */
@@ -26,17 +27,9 @@ export function actionStatus(action: string): string | null {
   return action in ACTIONS ? ACTIONS[action as BotAction] : null;
 }
 
-export async function telegramApi<T = unknown>(method: string, body: Record<string, unknown>): Promise<T> {
-  if (!TOKEN) throw new Error("TELEGRAM_BOT_TOKEN is not set");
-  const res = await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-    signal: AbortSignal.timeout(10_000),
-  });
-  const data = (await res.json().catch(() => null)) as { ok: boolean; result?: T; description?: string } | null;
-  if (!data?.ok) throw new Error(`Telegram ${method}: ${data?.description ?? res.status}`);
-  return data.result as T;
+/** Managers' bot API call. */
+export function telegramApi<T = unknown>(method: string, body: Record<string, unknown>): Promise<T> {
+  return callTelegram<T>(TOKEN, method, body);
 }
 
 /** The managers' group, or null while the bot is not paired with one. */
@@ -47,6 +40,27 @@ export async function getGroupConfig(): Promise<GroupConfig | null> {
   const v = data?.value as Partial<GroupConfig> | undefined;
   if (!v?.chatId || !v.topics?.order || !v.topics.callback || !v.topics.contact) return null;
   return { chatId: String(v.chatId), topics: v.topics };
+}
+
+/**
+ * Topic "💬 Клієнти бота" for the customer bot's support chat; created in the
+ * paired group the first time it is needed.
+ */
+export async function ensureSupportTopic(): Promise<{ chatId: string; threadId: number } | null> {
+  const group = await getGroupConfig();
+  if (!group) return null;
+  if (group.topics.support) return { chatId: group.chatId, threadId: group.topics.support };
+  const created = await telegramApi<{ message_thread_id: number }>("createForumTopic", {
+    chat_id: group.chatId,
+    name: "💬 Клієнти бота",
+    icon_color: 9367192,
+  });
+  const topics = { ...group.topics, support: created.message_thread_id };
+  await createServiceClient()
+    ?.from("site_settings")
+    .update({ value: { chatId: group.chatId, topics } })
+    .eq("key", "telegram_group");
+  return { chatId: group.chatId, threadId: created.message_thread_id };
 }
 
 function statusHeader(status: string, by: string | null): string {

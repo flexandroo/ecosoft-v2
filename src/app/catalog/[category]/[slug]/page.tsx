@@ -12,6 +12,7 @@ import { toPhoneContacts } from "@/lib/settings-shared";
 import { getStoreCategory } from "@/lib/categories";
 import { productBrand } from "@/lib/catalog-facets";
 import { SITE_URL } from "@/lib/site";
+import { botPlanSkus, botStartLink } from "@/lib/client-bot/public";
 
 type Params = { category: string; slug: string };
 
@@ -106,6 +107,7 @@ export default async function ProductPage({
           allProducts={allProducts}
           phones={toPhoneContacts(settings.phones)}
           categoryTitle={cat.title}
+          botLink={product.sku && (await botPlanSkus()).has(product.sku) ? botStartLink(product.sku) : undefined}
         />
       </main>
       <Footer />

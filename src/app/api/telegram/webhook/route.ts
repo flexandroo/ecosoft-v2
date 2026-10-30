@@ -1,5 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import { after, NextResponse } from "next/server";
+import { relayManagerReply } from "@/lib/client-bot/support";
 import { recordPurchaseConversion } from "@/lib/lead-intake";
 import { createServiceClient } from "@/lib/supabase/server";
 import {
@@ -20,7 +21,14 @@ export const dynamic = "force-dynamic";
 type TgUser = { id: number; first_name?: string; last_name?: string; username?: string };
 type TgChat = { id: number; type: string; title?: string; is_forum?: boolean };
 type Update = {
-  message?: { message_id: number; chat: TgChat; from?: TgUser; text?: string; message_thread_id?: number };
+  message?: {
+    message_id: number;
+    chat: TgChat;
+    from?: TgUser;
+    text?: string;
+    message_thread_id?: number;
+    reply_to_message?: { message_id: number };
+  };
   callback_query?: { id: string; from: TgUser; data?: string; message?: { message_id: number; chat: TgChat } };
 };
 
@@ -46,6 +54,7 @@ export async function POST(req: Request) {
 
   try {
     if (update.callback_query) await handleButton(update.callback_query);
+    else if (update.message?.text && update.message.reply_to_message && !update.message.text.startsWith("/")) await handleReply(update.message);
     else if (update.message?.text) await handleCommand(update.message);
   } catch (error) {
     console.error("[telegram-webhook]", error);
@@ -95,6 +104,35 @@ async function handleButton(query: NonNullable<Update["callback_query"]>) {
   await refreshLeadMessages(lead.id);
   await answer(`№${lead.number}: статус змінено`);
   if (becameCompleted) after(() => recordPurchaseConversion(lead.id));
+}
+
+/** A manager replied to a customer-bot message in the group → send it to the customer. */
+async function handleReply(message: NonNullable<Update["message"]>) {
+  const group = await getGroupConfig();
+  if (!group || String(message.chat.id) !== group.chatId || !message.from) return;
+  const relayed = await relayManagerReply(
+    message.reply_to_message!.message_id,
+    message.message_id,
+    message.text!,
+    telegramUserName(message.from),
+  ).catch((error) => {
+    console.error("[telegram-webhook] support relay failed:", error);
+    return null;
+  });
+  if (relayed === null) {
+    await telegramApi("sendMessage", {
+      chat_id: message.chat.id,
+      message_thread_id: message.message_thread_id,
+      reply_parameters: { message_id: message.message_id },
+      text: "⚠️ Не вдалося надіслати відповідь клієнту (можливо, він заблокував бота).",
+    }).catch(() => {});
+  } else if (relayed) {
+    await telegramApi("setMessageReaction", {
+      chat_id: message.chat.id,
+      message_id: message.message_id,
+      reaction: [{ type: "emoji", emoji: "👍" }],
+    }).catch(() => {});
+  }
 }
 
 async function handleCommand(message: NonNullable<Update["message"]>) {
