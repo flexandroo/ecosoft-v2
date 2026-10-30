@@ -433,6 +433,26 @@ async function startFilter(ctx: Ctx, productId: string) {
   );
 }
 
+/** Product lines inside a filter type, matched by model name. */
+const MODEL_LINES: { key: string; group: string; label: string; match: RegExp }[] = [
+  { key: "std", group: "ro", label: "🟩 STANDARD — базова лінійка", match: /standard/i },
+  { key: "abs", group: "ro", label: "🟧 ABSOLUTE — покращена лінійка", match: /absolute/i },
+  { key: "pure", group: "ro", label: "🟦 PURE — преміум лінійка", match: /pure/i },
+  { key: "cross", group: "ro", label: "🟪 CROSS — компактні без бака", match: /cross/i },
+  { key: "mech", group: "main", label: "🔩 Механічного очищення", match: /механічн/i },
+  { key: "scalex", group: "main", label: "🧂 Від накипу SCALEX", match: /scalex|накип/i },
+];
+
+function lineOf(name: string, group: string) {
+  return MODEL_LINES.find((l) => l.group === group && l.match.test(name));
+}
+
+async function showModels(ctx: Ctx, title: string, models: { id: string; name: string }[], back: string) {
+  const rows: Button[][] = models.map((m) => [{ text: clip(modelShortName(m.name), 60), callback_data: `mdl:${m.id}` }]);
+  rows.push([{ text: "⬅️ Назад", callback_data: back }]);
+  await show(ctx, `${title}\n\nОберіть модель. Не знайшли свою — напишіть нам через «💬 Звʼязатись з адміністратором».`, rows);
+}
+
 function dateButtons(prefix: string): Button[][] {
   return [
     ...START_OPTIONS.map((o) => [{ text: o.label, callback_data: `${prefix}:${o.daysAgo}` }]),
@@ -461,12 +481,27 @@ async function onButton(ctx: Ctx, data: string): Promise<string | void> {
       return show(ctx, "➕ <b>Який у вас фільтр?</b> Оберіть тип:", groups.map((g) => [{ text: g.label, callback_data: `grp:${g.key}` }]));
     }
     case "grp": {
+      // Type → line (if the type has lines) → model.
       const group = MODEL_GROUPS.find((g) => g.key === a);
       if (!group) return;
       const models = (await listModels()).filter((m) => group.categories.includes(m.category));
-      const rows: Button[][] = models.map((m) => [{ text: clip(modelShortName(m.name), 60), callback_data: `mdl:${m.id}` }]);
+      const lines = MODEL_LINES.filter((l) => l.group === group.key && models.some((m) => l.match.test(m.name)));
+      if (!lines.length) return showModels(ctx, group.label, models, "add");
+      const rows: Button[][] = lines.map((l) => [{ text: l.label, callback_data: `ln:${l.key}` }]);
+      if (models.some((m) => !lineOf(m.name, group.key))) rows.push([{ text: "Інші моделі", callback_data: `ln:other-${group.key}` }]);
       rows.push([{ text: "⬅️ Назад", callback_data: "add" }]);
-      return show(ctx, `${group.label}\n\nОберіть модель. Не знайшли свою — напишіть нам через «💬 Звʼязатись з адміністратором».`, rows);
+      return show(ctx, `${group.label}\n\nОберіть лінійку:`, rows);
+    }
+    case "ln": {
+      const other = a?.startsWith("other-") ? a.slice(6) : null;
+      const line = MODEL_LINES.find((l) => l.key === a);
+      const groupKey = other ?? line?.group;
+      const group = MODEL_GROUPS.find((g) => g.key === groupKey);
+      if (!group) return;
+      const models = (await listModels()).filter(
+        (m) => group.categories.includes(m.category) && (line ? line.match.test(m.name) : !lineOf(m.name, group.key)),
+      );
+      return showModels(ctx, line ? line.label : `${group.label} — інші моделі`, models, `grp:${group.key}`);
     }
     case "mdl":
       if (a) await startFilter(ctx, a);
