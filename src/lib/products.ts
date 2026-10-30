@@ -10795,7 +10795,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     "slug": "kolba-mekhanicheskoy-ochistki-ecosoft-bb10-1",
-    "name": "Колба механічного очищення Ecosoft BB10 1\"",
+    "name": "Механічний фільтр Ecosoft BB10 1\"",
     "category": "mainline-filters",
     "price": 2110,
     "inStock": true,
@@ -11062,7 +11062,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     "slug": "kolba-mekhanicheskoy-ochistki-ecosoft-bb20-1",
-    "name": "Колба механічного очищення Ecosoft BB20 1\"",
+    "name": "Механічний фільтр Ecosoft BB20 1\"",
     "category": "mainline-filters",
     "price": 2470,
     "inStock": true,
