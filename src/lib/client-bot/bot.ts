@@ -362,17 +362,19 @@ async function showGuides(ctx: Ctx) {
   if (!guides.length) return show(ctx, "🛠 Гайди скоро зʼявляться. Якщо потрібна допомога — натисніть «💬 Звʼязатись з адміністратором».");
   const mine = new Set(filters.flatMap((f) => f.items.map((i) => i.guide_id).filter(Boolean)));
   const sorted = [...guides].sort((a, b) => Number(mine.has(b.id)) - Number(mine.has(a.id)));
-  await show(
-    ctx,
-    `🛠 <b>Як замінити картриджі</b>${mine.size ? "\n\n⭐ — для ваших фільтрів" : ""}`,
-    sorted.map((g) => [{ text: `${mine.has(g.id) ? "⭐ " : ""}${g.title}`.slice(0, 64), callback_data: `g:${g.id}` }]),
-  );
+  await show(ctx, `Виберіть інструкцію:${mine.size ? "\n\n⭐ — для ваших фільтрів" : ""}`, [
+    ...sorted.map((g) => [{ text: `${mine.has(g.id) ? "⭐ " : ""}${g.title}`.slice(0, 64), callback_data: `g:${g.id}` }]),
+    [{ text: "Назад", callback_data: "menu" }],
+  ]);
 }
 
 async function showFaq(ctx: Ctx) {
   const faq = await listFaq();
   if (!faq.length) return show(ctx, "❓ Розділ поповнюється. Напишіть нам через «💬 Звʼязатись з адміністратором».");
-  await show(ctx, "❓ <b>Часті питання</b>", faq.map((q) => [{ text: q.question.slice(0, 64), callback_data: `q:${q.id}` }]));
+  await show(ctx, "Виберіть питання:", [
+    ...faq.map((q) => [{ text: q.question.slice(0, 64), callback_data: `q:${q.id}` }]),
+    [{ text: "Назад", callback_data: "menu" }],
+  ]);
 }
 
 async function showNews(ctx: Ctx) {
@@ -444,6 +446,9 @@ function dateButtons(prefix: string): Button[][] {
 async function onButton(ctx: Ctx, data: string): Promise<string | void> {
   const [cmd, a, b, c] = data.split(":");
   switch (cmd) {
+    case "menu":
+      // "Назад" from a list: close it; the reply keyboard is the main menu.
+      return show(ctx, "Головне меню 👇");
     case "status":
       return showStatus(ctx);
     case "edit":
@@ -535,7 +540,7 @@ async function onButton(ctx: Ctx, data: string): Promise<string | void> {
       if (!guide) return "Гайд не знайдено";
       const rows: Button[][] = [];
       if (guide.video_url) rows.push([{ text: "▶️ Дивитися відео", url: guide.video_url }]);
-      rows.push([{ text: "⬅️ Усі гайди", callback_data: "guides" }]);
+      rows.push([{ text: "Назад", callback_data: "guides" }]);
       return show(ctx, `🛠 <b>${escapeHtml(guide.title)}</b>\n\n${escapeHtml(guide.body)}`.slice(0, 4000), rows);
     }
     case "guides":
@@ -543,7 +548,7 @@ async function onButton(ctx: Ctx, data: string): Promise<string | void> {
     case "q": {
       const q = a ? await getFaq(a) : null;
       if (!q) return "Питання не знайдено";
-      return show(ctx, `❓ <b>${escapeHtml(q.question)}</b>\n\n${escapeHtml(q.answer)}`.slice(0, 4000), [[{ text: "⬅️ Усі питання", callback_data: "faq" }]]);
+      return show(ctx, `❓ <b>${escapeHtml(q.question)}</b>\n\n${escapeHtml(q.answer)}`.slice(0, 4000), [[{ text: "Назад", callback_data: "faq" }]]);
     }
     case "faq":
       return showFaq(ctx);

@@ -177,7 +177,7 @@ export async function clientFilters(clientId: string, today = kyivToday()): Prom
     .order("created_at");
   if (!filters?.length) return [];
   const productIds = [...new Set(filters.map((f) => f.product_id))];
-  const [{ data: products }, items, { data: reps }] = await Promise.all([
+  const [{ data: products }, items, { data: reps }, { data: guides }] = await Promise.all([
     db().from("products").select("id, sku, name, category, slug").in("id", productIds),
     serviceItems(productIds),
     db()
@@ -185,7 +185,10 @@ export async function clientFilters(clientId: string, today = kyivToday()): Prom
       .select("client_filter_id, service_item_id, replaced_on, created_at")
       .in("client_filter_id", filters.map((f) => f.id))
       .order("created_at", { ascending: false }),
+    db().from("bot_guides").select("id").eq("is_published", true),
   ]);
+  // "Як замінити" buttons only for guides that are published.
+  const published = new Set((guides ?? []).map((g) => g.id));
   // The most recently entered date wins, so a customer can correct a mistake.
   const last = new Map<string, string>();
   for (const r of reps ?? []) {
@@ -201,7 +204,11 @@ export async function clientFilters(clientId: string, today = kyivToday()): Prom
       model: byId.get(f.product_id)!,
       items: items
         .filter((i) => i.product_id === f.product_id)
-        .map((i) => ({ ...i, ...itemStatus(last.get(`${f.id}:${i.id}`) ?? null, i.interval_days, today) })),
+        .map((i) => ({
+          ...i,
+          guide_id: i.guide_id && published.has(i.guide_id) ? i.guide_id : null,
+          ...itemStatus(last.get(`${f.id}:${i.id}`) ?? null, i.interval_days, today),
+        })),
     }));
 }
 

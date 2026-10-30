@@ -270,3 +270,35 @@ left join public.bot_guides g on g.title = s.guide_title;
 -- filters that have a schedule: the schedule itself is public information.
 create policy "public reads service items" on public.bot_service_items for select to anon using (true);
 grant select on table public.bot_service_items to anon;
+
+-- Content structure from the shop's existing bot (2026-10-30): the starter
+-- FAQ and RO guides above are replaced by these titles; texts and videos are
+-- filled in /admin/bot, so they start hidden. The mainline guide stays.
+delete from public.bot_faq;
+delete from public.bot_guides where title in ('Заміна картриджів 1-2-3 у фільтрі зворотного осмосу', 'Заміна постфільтра і мінералізатора');
+update public.bot_guides set title = '🔧 Заміна картриджа в магістральному фільтрі', sort = 60 where title = 'Заміна картриджа в магістральному фільтрі';
+insert into public.bot_guides (title, body, sort, is_published) values
+  ('🟩 STANDARD — заміна картриджів', '', 10, false),
+  ('🟧 ABSOLUTE — заміна картриджів', '', 20, false),
+  ('🟦 PURE (Balance / AquaCalcium) — заміна картриджів', '', 30, false),
+  ('🟪 CROSS 90 — заміна картриджів', '', 40, false),
+  ('🔧 Монтаж фільтра зворотного осмосу Ecosoft', '', 50, false);
+insert into public.bot_faq (question, answer, sort, is_published) values
+  ('💧 Що таке зворотний осмос?', '', 10, false),
+  ('🤔 Навіщо мені зворотний осмос?', '', 20, false),
+  ('⚙️ Як працює зворотний осмос?', '', 30, false),
+  ('💡 Базова лінійка – STANDARD', '', 40, false),
+  ('💡 Покращена лінійка – ABSOLUTE', '', 50, false),
+  ('💡 Преміум лінійка – PURE', '', 60, false),
+  ('🧠 Особливий формат – ECOSOFT CROSS', '', 70, false),
+  ('🔄 Коли та як міняти картриджі у фільтрі?', '', 80, false);
+update public.bot_service_items i set guide_id = g.id
+from public.products p, public.bot_guides g
+where p.id = i.product_id and g.title = case
+  when p.sku in ('MO550MECOSTD', 'MO550MPECOSTD', 'MO650MECOSTD') then '🟩 STANDARD — заміна картриджів'
+  when p.sku in ('MO675MECO', 'MO675MPSECO') then '🟧 ABSOLUTE — заміна картриджів'
+  when p.sku like 'MO675%PURE%' or p.sku in ('MO675PSMACECO', 'MO675MBALPSECO') then '🟦 PURE (Balance / AquaCalcium) — заміна картриджів'
+  when p.sku in ('MO1500PECO', 'MO2800PECO', 'MO3400PECO', 'MO3600PECO', 'MO3600MPECO') then '🟪 CROSS 90 — заміна картриджів'
+  else '🔧 Заміна картриджа в магістральному фільтрі' end;
+update public.bot_service_items i set guide_id = null
+from public.products p where p.id = i.product_id and p.sku in ('FOSE100ECO', 'FOSE200ECO');
